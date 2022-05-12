@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(150deg, #e6ff99 0, #ceff9b 16.67%, #b5ff9d 33.33%, #9df29d 50%, #86e49d 66.67%, #72d89d 83.33%, #60ce9e 100%);
+    font-family: monospace;
+    background-size: 300% 300%;
+    animation: gradient 10s ease alternate infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 30% 50%
+    }
+}
+
+header h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+
+table {
+    border: 1px #000000 solid;
+    font-size: 25px;
+    margin-left: 130px;
+    margin: auto;
+}
+
+
+tr {
+    border: 1px #000000 solid;
+}
+
+td {
+    border: 1px #000000 solid;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: center;
+}
+
+button {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ec716300;
+    color: #000000;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    width: 260px;
+    height: 3rem;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.6s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    opacity: 0.8;
+}
+
+button:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: 1;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+#div_game {
+    background-color: #ffffff27;
+    margin: auto;
+
+    width: 800px;
+    height: 800px;
+    border-radius: 30px;
+}
+
+#div_questions {
+    background-color: #ffffff00;
+    width: 700px;
+    margin: auto;
+    border-radius: 30PX;
+}
+
+.button {
+    margin: auto;
+    display: inline-block;
+}
+
+#button_verify {
+    width: 100px;
+    margin: auto;
+}
+
+#input_answer {
+    width: 100px;
+    margin: auto;
+}
+
+.deadCell {
+    background-color: #000000;
+}
+
+.availableCell {
+    background-color: #ffffff;
+}
+
+footer {
+    height: 80px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 15px;
+    margin-bottom: 0;
+    padding: 0;
+    bottom: 0;
+}
+
+footer p {
+    text-align: center;
+
+}
+
+#div_information {
+    width: 500px;
+    margin: auto;
+    background-color: #85c1e900;
+    font-size: 20px;
+}
+
+
+#div_verifiedAnswer {
+    width: 500px;
+    height: 70px;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    vertical-align: center;
+    margin-bottom: 20px;
+}
+
+.correctAnswer {
+    background-color: #58D68D;
+    color: #196F3D;
+    border: 1px #196F3D solid;
+}
+
+.wrongAnswer {
+    background-color: #EC7063;
+    color: #7B241C;
+    border: 1px #7B241C solid;
+
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Um sistema que permite analise em tempo real da frequencia de pessoas!">
+    <title>Login - 2ense</title>
+    <link rel="stylesheet" href="estilolg.css">
+    <link rel="shortcut icon" type="imagex/png" href="logo.ico">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <a href="Tela-Inicio.html"><img src="logo.png" alt="Logo da marca." class="cabecalho-logo"></a>
+        <nav class="cabecalho-menu">
+            <a class="cabecalho-menu-item" href="Tela-Inicio.html">Início</a>
+            <a class="cabecalho-menu-item" href="Tela-Inicio.html#p2">A 2ense</a>
+            <a class="cabecalho-menu-item" href="Tela-Inicio.html#p3">Contato</a>
+            <a class="cabecalho-menu-item" href="cadastro.html">Cadastro</a>
+        </nav>
+    </header>
+    <center>
+        <main class="conteudo">
+            <section class="conteudo-section transicao">
+                <div class="formulario">
+                    <div class="estilo-formulario" id="div1">
+                        <form>
+                            <fieldset class="estilo-formulario-caixa">
+                                <legend>LOGIN</legend>
+                                <br>
+                                <div class="inputForm">
+                                    <label for="email">E-mail</label>
+                                    <input placeholder="Seu e-mail" type="email" name="email" id="in_usuario"
+                                        name="email" maxlength="60" size='65'
+                                        class="inputUser" required autocomplete="off">
+                                </div>
+                                <div class="inputForm">
+                                    <label for="senha">Senha</label>
+                                    <input placeholder="Digite sua senha" type="password" name="senha" id="in_senha"
+                                        class="inputUser" maxlength="10" size="10" required> <input class="mostrarsenha" type="checkbox"
+                                        onclick="mostrarOcultarSenha()">
+                                    Exibir Senha
+                                </div>
+                                <a class="botaocad" href="Tela-EsqueceuSenha.html">Esqueceu a senha?</b></a>
+                                <a class="botaocad" href="cadastro.html">Não tem uma conta?&nbsp;<b>Crie uma!</b></a>
+                                <br>
+                                <button id="botao" onclick="logar()" class="submit">Entrar</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </center>
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+
+            <div class="rodape-conteudo-sessao">
+                <p class="rodape-conteudo-titulo">Fale Conosco</p>
+                <div class="rodape-conteudo-barra"></div>
+                <a class="rodape-conteudo-ancora" href="Tela-Inicio.html#p3">Contato</a>
+                <a class="rodape-conteudo-ancora" href="Tela-Inicio.html#p3">0800 303 2022</a>
+            </div>
+
+            <div class="rodape-conteudo-imagem">
+                <a href="Tela-Inicio.html"><img class="rodape-imagem" src="logo.png"></a>
+                <p class="rodape-direito">© 2022 Todos os direitos reservados | 2ense.</p>
+            </div>
+
+            <div class="rodape-conteudo-sessao">
+                <p class="rodape-conteudo-titulo">Endereço</p>
+                <div class="rodape-conteudo-barra"></div>
+                <p class="rodape-conteudo-ancora">
+                    São Paulo / SP <br>
+
+                    Rua Haddock Lobo, 595 <br>
+
+                    Cerqueira César <br>
+
+                    CEP 01414-001
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+
+
+
+    var loginvd = 'matriz@carrefour.com';
+    var senhalg = '12345';
+    function logar() {
+        email = in_usuario.value
+        senha = in_senha.value
+
+        if (loginvd == email == "" && senhalg == senha == "") {
+            alert("Por gentileza, insira seu e-mail e senha.")
+        } else {
+
+            if ((loginvd == email) && (senhalg == senha)) {
+                window.open("tela-perfil.html")
+            } else {
+                if ((loginvd == email) && (senhalg == senha == "")) {
+                    alert("Por gentileza, insira uma senha.")
+                } else {
+                    alert("Login não registrado, por gentileza realizar o cadastro.")
+                    window.open("cadastro.html")
+                }
+            }
+        }
+    }
+
+
+    function mostrarOcultarSenha() {
+        var in_senha = document.getElementById("in_senha");
+        if (in_senha.type == "password") {
+            in_senha.type = "text";
+        } else {
+            in_senha.type = "password";
+        }
+    }
+
+</script>

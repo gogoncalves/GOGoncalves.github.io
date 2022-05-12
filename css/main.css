@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Yaldevi', sans-serif;
+}
+
+@keyframes transicao {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.transicao {
+  animation: transicao 2s;
+  animation-timing-function: ease-in-out;
+}
+
+body {
+  background-color: #EEE9E9;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282459;
+  background-image: radial-gradient(circle farthest-corner at 100% 0, #f09c33 0%, #f59234 4%, #f98736 7%, #fd7b38 10%, #ff6e3c 14%, #ff5f41 18%, #ff4e46 21%, #ff384b 25%, #fd1851 29%, #f90059 32%, #f50062 36%, #f0006c 39%, #e90077 43%, #e10083 46%, #d70090 50%, #4e42d4 75%, #4e42d4 100%);
+  background-size: 300% 300%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation: gradient 10s ease alternate infinite;
+  padding: 20px;
+  padding-left: 40px;
+  margin-bottom: 0px;
+  height: 100px;
+  border-top: 1px solid white;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header .imgAvatar {
+  max-width: 150px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 10px solid #ffffff2f;
+}
+
+header .redesSociais {
+  margin-top: -90px;
+}
+
+header .redesSociais img {
+  max-height: 20px;
+  margin-right: 10px;
+}
+
+header .redesSociais img:hover {
+  opacity: 50%;
+}
+
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  margin-top: 50px;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  flex-direction: column;
+  margin: 30px;
+  border-radius: 10px 10px 0px 0px;
+  color: DimGray;
+  width: 300px;
+  height: 310px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #ffffff;
+  transition: 0.6s ease-in-out;
+  opacity: 0.9;
+}
+
+.box:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 30px 30px 5px 0px rgba(0, 0, 0, .15);
+
+}
+
+.box h3 {
+  text-align: center;
+  padding: 3px;
+  color: #e31e26;
+  font-weight: 800;
+}
+
+.box p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.box p a {
+  text-decoration: none;
+  color: #e31e26;
+}
+
+.box img {
+  width: 300px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.box .cardIcon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+  width: 330px;
+  height: 60px;
+  margin-left: 10px;
+  border-top: 1px solid rgb(202, 199, 199);
+}
+
+.box .cardIcon img {
+  max-height: 45px;
+  max-width: 35px;
+}
+
+footer {
+  text-align: center;
+  color: DimGray;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+@media (max-width:576px) {
+  header {
+    justify-content: center;
+  }
+
+  header .redesSociais {
+    display: none;
+  }
+}
