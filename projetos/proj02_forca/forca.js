@@ -35,7 +35,7 @@ const palavras = [
         dica: "Tipo particular de EEPROM que mantém as informações armazenadas sem a necessidade de uma fonte de energia elétrica."
     },
     palavra008 = {
-        nome: "MEMORIA DE MASSA",
+        nome: "MEMORIADEMASSA",
         dica: "Tipo de memória que precisa ter seu conteúdo copiado na RAM para poder ser executado pela CPU."
     },
     palavra009 = {
@@ -47,19 +47,19 @@ const palavras = [
         dica: "Utilizado para selecionar um ou um conjunto de circuitos que estão conectados no computador."
     },
     palavra011 = {
-        nome: "ADRESS BUS",
+        nome: "ADRESSBUS",
         dica: "Trilhas frequentemente utilizadas para se referir a um endereço físico na memória."
     },
     palavra012 = {
-        nome: "DATA BUS",
+        nome: "DATABUS",
         dica: "Também chamado de Memory Bus. É responsável para carregar os dados."
     },
     palavra013 = {
-        nome: "DUAL CORE",
+        nome: "DUALCORE",
         dica: "Tipo de processador que possui dois processadores no mesmo circuito integrado."
     },
     palavra014 = {
-        nome: "QUAD CORE",
+        nome: "QUADCORE",
         dica: "Segue o mesmo princípio de um dual-core, mas agora em teoria tem o dobro da capacidade de processamento."
     }
 ];

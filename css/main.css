@@ -15,7 +15,7 @@
 
   to {
     transform: none;
-    opacity: 1;
+    opacity:0.8;
   }
 }
 
@@ -26,6 +26,30 @@
 
 body {
   background-color: #EEE9E9;
+}
+
+
+body::-webkit-scrollbar {
+  width: 12px;
+  /* largura de toda a barra de rolagem */
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, rgb(105, 124, 125) 0%, rgb(0, 0, 0) 100%);
+  /* cor da área de rastreamento */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  /* cor do polegar de rolagem */
+  border-radius: 20px;
+  border: 3px solid white;
+  opacity: 0.5;
+}
+
+body:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+  background: #ffffff00;
 }
 
 header {
@@ -64,6 +88,15 @@ header .imgAvatar {
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: 10px solid #ffffff2f;
+  transition: 0.6s ease-in-out;
+
+}
+
+header .imgAvatar:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, .15);
 }
 
 header .redesSociais {
@@ -100,14 +133,15 @@ header .redesSociais img:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #ffffff;
   transition: 0.6s ease-in-out;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .box:hover {
+  opacity: 1;
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);
-  box-shadow: 30px 30px 5px 0px rgba(0, 0, 0, .15);
+  box-shadow: -15px 15px 5px 0px rgba(0, 0, 0, .15);
 
 }
 
