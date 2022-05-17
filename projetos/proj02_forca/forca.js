@@ -61,6 +61,14 @@ const palavras = [
     palavra014 = {
         nome: "QUADCORE",
         dica: "Segue o mesmo princípio de um dual-core, mas agora em teoria tem o dobro da capacidade de processamento."
+    },
+    palavra015 = {
+        nome: "ICINCO",
+        dica: "É uma das séries de processadores para desktops e notebooks da Intel e possui quatro núcleos."
+    },
+    palavra016 = {
+        nome: "ISETE",
+        dica: "Faz parte das séries de processadores da Intel, tanto para desktop quanto para notebooks e seu lançamento foi em 2008."
     }
 ];
 
