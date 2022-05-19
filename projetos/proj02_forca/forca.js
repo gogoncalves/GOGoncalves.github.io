@@ -1,4 +1,4 @@
-/* Variaveis */
+ /* Variaveis */
 let tentativas = 6;
 let listaDinamica = [];
 let palavraSecretadica;
@@ -236,15 +236,15 @@ const ordemDoAudio = {
     z: MORE_THAN
 }
 
-function ativacaoAudio(key) {
-    if(ordemDoAudio[key])
-    ordemDoAudio[key].play()
-}
-
 window.addEventListener("keydown", (e) => {
     const pressKey = e.key.toLowerCase();
     ativacaoAudio(pressKey)      
 })
+
+function ativacaoAudio(key) {
+    if(ordemDoAudio[key])
+    ordemDoAudio[key].play()
+}
 
 const BotaoMusical = document.querySelectorAll("button");
 
