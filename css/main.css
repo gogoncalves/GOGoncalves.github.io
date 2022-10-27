@@ -16,10 +16,6 @@
         line-height: 1.5
     }
     
-    .img-fluid {
-        border-radius: 30px 150px;
-    }
-    
     h1 {
         font-weight: 700
     }
@@ -73,7 +69,7 @@
         .text-color-main {
             margin: 0;
             background-image: none;
-            -webkit-text-fill-color: #5b86e5;
+            -webkit-text-fill-color: #5be569;
             box-shadow: none
         }
     }

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Curatela | Página Inicial</title>
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="icon" href="./assets/icon/logo-pag.png">
+    <link rel="stylesheet" href="./css/Proj.ini.style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"> -->
+</head>
+
+
+<body onload="adicionaranimacao()">
+    <main class="principal">
+        <!-- Cabeçalho -->
+        <header class="cabecalho " id="id_cabecalho">
+            <a href="#p1"><img style="margin-top: 0.1vh;" src="./assets/imgs/logo-curatela-menu.png"
+                    alt="Logo da marca." class="cabecalho-logo transicaoy"></a>
+            <nav class="cabecalho-menu">
+                <a id="item-texto" class="cabecalho-menu-item transicaoy" href="#p1">Sustentabilidade</a>
+                <a id="item-texto" class="cabecalho-menu-item2 transicaoy" href="#p2">A Curatela</a>
+                <a id="item-texto" class="cabecalho-menu-item3 transicaoy" href="#p3">Contato</a>
+            </nav>
+            <a class="cabecalho-menu-login transicaoy" href="login.html">Login</a>
+        </header>
+
+        <section id="p0" class="modulo efeito efeito-1 altura transicaoXN">
+            <div class="titulo" id="id_titulo">
+                <h1 class="titulo-escrito transicaoXN">Sustentabilidade</h1>
+            </div>
+        </section>
+
+        <section id="p1" class="modulo content">
+            <div class="container">
+                <h1 class="titulo2">O QUE É SUSTENTABILIDADE?</h1>
+            </div><br><br>
+            <p class="texto">"o desenvolvimento que satisfaz as necessidades do presente sem comprometer a capacidade
+                das gerações futuras de satisfazerem suas próprias necessidades".
+            </p>
+        </section>
+
+        <section id="p2" class="modulo efeito efeito-3">
+            <div class="conteudo-section">
+
+                <div id="caixa2" class="caixa2" onclick="modal()" >
+                    <div>
+                        <h1 class="conteudo-principal-titulo transicaoP">Overview</h1>
+                    </div><br>
+                    <img class="conteudo-principal-imagem transicao"
+                        src="https://news.microsoft.com/wp-content/uploads/prod/sites/42/2021/04/RE_Earth-day-blog-header-image-1536x864-1-960x640.jpg">
+                </div>
+                <div id="info_box" class="info-box-index">
+                    <div style="display: flex; justify-content: space-between;" class="info_title">
+                        <span>Overview</span>
+                        <i style="cursor: pointer;" onclick="fechar()" class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                    <div class="info_list">
+                        <div class="info">A <span>Curatela</span> busca a eliminação ou minimização de impactos
+                            ambientais decorrentes da implantação de atividades sustentaveis.</div>
+                        <div class="info">O que é <span>Sustentabilidade?</span></div>
+                        <div class="info">Sustentabilidade é a busca pelo equilíbrio entre o suprimento das necessidades humanas e preservação dos recursos naturais, não comprometendo as próximas gerações. A sustentabilidade representa o equilíbrio encontrado na exploração dos recursos naturais e a preservação do meio ambiente.</div>
+                        <video style="height: 100%; width: 100%; border-radius: 30px;"
+                            src="./assets/icon/video-sustentabilidade_Trim.mp4" autoplay muted loop>
+                        </video>
+                    </div>
+                    <div class="buttons">
+                        <button class="restart" style="cursor: pointer;" onclick="location.href='./index.html#p3';">Contato</button>
+                    </div>
+                </div>
+        </section>
+
+        <section class="modulo efeito efeito-2">
+            <section class="conteudo-principal">
+                <div>
+                    <h1 class="conteudo-principal-escrito-titulo transicao">Tripé da Sustentabilidade
+                    </h1>
+                </div>
+
+                <div>
+                    <h3 class="texto2 transicao">
+                        A sustentabilidade é tratada por meio de três dimensões que indicam um equilíbrio harmonioso
+                        entre as esferas social, ambiental e econômica. Esse tripé corresponde a uma tendência das
+                        empresas que passaram a se comprometer com a sustentabilidade.
+                    </h3>
+                </div>
+
+                <div class="conteudo-principal-caixa">
+                    <div class="caixa transicaoP">
+                        <a href="./Simulador.html"><img class="conteudo-principal-imagem transicao"
+                                src="https://pensamentoverde.com.br/wp-content/uploads/2014/02/img160.jpg"
+                                alt="Imagem carrinho de mercado.">
+                            <h2 class="conteudo-principal-titulo transicaoP">Econômico</h2>
+                        </a>
+                    </div>
+                    <div class="caixa transicaoP">
+                        <a href="./Simulador.html"><img class="conteudo-principal-imagem transicao"
+                                src="https://blog.redebatista.edu.br/wp-content/uploads/2019/11/original-3dfbe65693ac47902d5e5fd8b4614a7c.jpg"
+                                alt="Imagem carrinho de mercado.">
+                            <h2 class="conteudo-principal-titulo transicaoP">Social</h2>
+                        </a>
+                    </div>
+                    <div class="caixa transicaoP">
+                        <a href="./Simulador.html"><img class="conteudo-principal-imagem transicao"
+                                src="https://sitesustentavel.com.br/wp-content/uploads/2019/05/sh_sustentabilidade-ambiental_274566236.jpg"
+                                alt="Imagem carrinho de mercado.">
+                            <h2 class="conteudo-principal-titulo transicaoP">Ambiental</h2>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="p3" class="modulo efeito efeito-4">
+            <section class="conteudo-terciario">
+                <div class="formulario">
+                    <div class="estilo-formulario-contato transicao">
+                        <form action="mailto:curatelabrazil@hotmail.com" method="post" enctype="text/plain">
+                            <fieldset class="estilo-formulario-caixa">
+                                <legend><b>Diz aí!</b> Deixe a sua mensagem</legend>
+                                <br>
+                                <div class="inputForm">
+                                    <label for="nome" class="labelInput">Nome</label>
+                                    <input placeholder="Digite seu nome" type="text" name="nome" class="inputUser"
+                                        required autocomplete="off" />
+
+                                </div>
+                                <br>
+                                <div class="inputForm">
+                                    <label for="email" class="labelInput">E-mail</label>
+                                    <input placeholder="Digite seu e-mail" type="email" name="e-mail" class="inputUser"
+                                        required autocomplete="off" />
+
+                                </div>
+                                <br>
+                                <div class="inputForm">
+                                    <label for="Telefone" class="labelInput">Telefone</label>
+                                    <input placeholder="Digite seu telefone" type="tel" name="telefone"
+                                        class="inputUser" required autocomplete="off" />
+                                </div>
+                                <br>
+                                <div class="inputForm">
+                                    <label for="Mensagem" class="labelInput">Mensagem</label>
+                                    <textarea placeholder="Digite sua mensagem aqui..." type="text" name="mensagem"
+                                        cols="50" rows="10" class="inputUser" required autocomplete="off"></textarea>
+                                    <br><br>
+                                    <div class="boxi">
+                                    <input class="submitContato ok" type="submit" value="Enviar" />
+                                    <input style="margin-top: 1vh;" class="submitContato" type="reset" value="Limpar" />
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!-- Rodapé -->
+        <footer class="rodape">
+            <div class="rodape-conteudo">
+
+                
+
+                <div class="rodape-conteudo-sessao">
+                    <p class="rodape-conteudo-titulo">Fale Conosco</p>
+                    <div class="rodape-conteudo-barra"></div>
+                    <a class="rodape-conteudo-ancora" href="#p3">Contato</a>
+                    <a class="rodape-conteudo-ancora" href="#p3">0800 303 2022</a>
+                    <a class="rodape-conteudo-ancora" href="#p3">curatelabrazil@hotmail.com</a>
+                </div>
+
+                <div class="rodape-conteudo-imagem" style="margin-left: 10vw;">
+                    <a href="../Telas do Projeto/index.html"><img style="height: 15vh; width: 10vw;"
+                            class="rodape-imagem" src="./assets/imgs/logo-curatela-completo.png"></a>
+                    <p class="rodape-direito">© 2022 Todos os direitos reservados |
+                        CURATELA.</p>
+                </div>
+
+                <div class="rodape-conteudo-sessao">
+                    <p class="rodape-conteudo-titulo">Endereço</p>
+                    <div class="rodape-conteudo-barra"></div>
+                    <div class="rodape-row">
+
+                        <iframe style="border-radius: 30px; border: none; padding-right: 10px; margin-top: 5px;"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5131.228375682462!2d-46.661725450339866!3d-23.558478864866938!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2b063f663%3A0xc567c0d16d0bc582!2sS%C3%A3o%20Paulo%20Tech%20School!5e0!3m2!1spt-BR!2sbr!4v1654092065289!5m2!1spt-BR!2sbr"
+                            width="180" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <p class="rodape-conteudo-ancora">
+                            São Paulo / SP <br> Rua Haddock Lobo, 595 <br> Cerqueira César <br> CEP 01414-001
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
+
+<script>
+    function adicionaranimacao() {
+        id_titulo.classList.add('animacaotitulo')
+    }
+
+    function modal() {
+        document.getElementById("info_box").style.display = "block";
+        document.getElementsById("caixa2").style.display = "none";
+    }
+
+    function fechar() {
+        document.getElementById("info_box").style.display = "none";
+    }
+
+</script>

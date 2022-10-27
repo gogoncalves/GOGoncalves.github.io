@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+    <link rel="icon" href="../assets/icon/logo-pag.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curatela | Dashboard</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="dashboards.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="validarSessao(), pegarDadosGrafico()">
+
+    <div class="janela">
+
+
+        <div class="header-left dash-header">
+
+            <img style="height: 20vh;" src="../assets/imgs/logo-curatela-completo.png" alt="">
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Dashboard</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./quiz.html">
+                    <h3>Quiz</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./gerador.html">
+                    <h3>Smart Template</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout">
+                <a href="../login.html"><h3>Sair</h3></a>
+            </div>
+        
+        </div>
+        
+        <div class="dash" style="display:flex;justify-content:center; align-items: center;">
+            <div class="container_graphic" style="width: 800px; height: 400px; background-color:white; border-radius: 30px; margin-left: 60px;">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=c3a4a83b-ee1e-4895-863c-305e51b5d28e"> </script>
+        <script src="../js/chart.js"></script>
+</body>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>
+
+</html>

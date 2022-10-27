@@ -1,0 +1,663 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.header {
+  border-bottom: 3px solid #32b9cd;
+}
+
+.header .container {
+  justify-content: space-between;
+}
+
+.header a {
+  text-decoration: none;
+  color: #e3b062;
+}
+
+.agora {
+  font-weight: 800;
+}
+
+.navbar {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: #e3b062;
+}
+
+
+.titulo {
+  color: #32b9cd;
+  width: fit-content;
+  font-weight: 500;
+}
+
+
+/* BANNER */
+
+.banner {
+  height: fit-content;
+  padding: 40px 0;
+  color: white;
+  background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png");
+  background-size: cover;
+}
+
+.banner .container {
+  height: 400px;
+  font-size: 36px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tamanho-conteudo {
+  height: fit-content !important;
+}
+
+.banner p {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  width: 280px;
+  font-size: 36px;
+}
+
+.banner .container span {
+  font-weight: 800;
+}
+
+/* missao visao valores */
+
+.social {
+  background-color: #e5e5e5;
+  display: flex;
+}
+
+.social .container {
+  justify-content: center;
+}
+
+.box img {
+  width: 170px;
+}
+
+.social .container .boxes {
+  display: flex;
+}
+
+.social p {
+  text-align: center;
+}
+
+.box {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.box {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* FOOTER */
+
+.footer {
+  background-color: #32b9cd;
+  height: 150px;
+  color: #fff;
+  display: flex;
+  font-size: 15px;
+}
+
+.footer .container {
+  justify-content: center;
+}
+
+
+/* FORMULARIO */
+
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #e6005a 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.formulario .tipo_campo {
+  font-size: 20px;
+  font-weight: 600 !important;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  border: 2px solid #32b9cd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.btn {
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #e6005a;
+  width: 120px;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+/* PAGINA DOS GRÁFICOS */
+
+.janela {
+  display: flex;
+  width: 100vw;
+}
+
+.header-left a {
+  text-decoration: none;
+  color: white;
+}
+
+.header-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-right: 3px solid #ffffff;
+  background-color: #212124;
+  /* border: 3px solid pink; */
+}
+
+.dash-right {
+  display: flex;
+  width: 75%;
+  height: fit-content;
+  background-color: #ffffff;
+  position: relative;
+  top: 0;
+  left: 25%;
+}
+
+.header-left h1 {
+  color: #446218;
+}
+
+.hello {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hello h3 {
+  color: #e3b062;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.hello h3 span {
+  font-weight: 800;
+}
+
+.btn-nav {
+  width: 40%;
+  color: white;
+  background-color: #446218;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+}
+
+.btn-nav-white {
+  width: 40%;
+  background-color: white;
+  border: 3px solid #446218;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+}
+
+.btn-nav-white h3 {
+  color: #446218;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-nav h3,
+.btn-logout h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-logout {
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  background-color: #446218;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 15px;
+  margin-bottom: 100px;
+  cursor: pointer;
+}
+
+/* pagina extra - simulador */
+.simulador {
+  color: white;
+
+}
+
+.simulador .container {
+  flex-direction: column
+}
+
+/* Quiz */
+
+.start_btn,
+.info-box,
+.quiz_box,
+.result_box,
+.smart_box {
+  position: absolute;
+  top: 50%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2),
+              0px 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.start_btn button{
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #446218;
+  cursor: pointer;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+.info-box {
+  display: none;
+  width: 540px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.info_title {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid rgb(34, 32, 32);
+}
+
+.info_list {
+  padding: 15px 35px;
+}
+
+.info {
+  margin: 5px 0;
+  font-size: 17px;
+}
+
+.info span {
+  font-weight: 600;
+  color: #446218;
+}
+
+.buttons {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 35px;
+  border-top: 1px solid rgb(34, 32, 32);
+}
+
+button {
+  margin: 0 5px;
+  height: 40px;
+  width: auto;
+  border: 1px solid #446218;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttons button.restart {
+  color: #fff;
+
+  background: #446218;
+}
+
+.buttons button.restart:hover {
+  background: #293b0d;
+
+}
+
+.buttons button.quit {
+  color: #446218;
+}
+
+.buttons button.quit:hover {
+  color: #fff;
+  background: #293b0d;
+}
+
+.quiz_box {
+  display: none;
+  width: 550px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.quiz_box header {
+  position: relative;
+  z-index: 99;
+  height: 70px;
+  padding: 0 30px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 145px;
+  height: 45px;
+  border: 1px solid #b9ffb8;
+  background: #a7ffc3;
+  border-radius: 5px;
+  padding: 0 8px;
+}
+
+.time_text {
+  font-weight: 400;
+  font-size: 17px;
+  user-select: none;
+}
+
+.time_sec {
+  font-size: 18px;
+  font-weight: 500;
+  background: #343a40;
+  height: 30px;
+  width: 45px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  border: 1px solid #343a40;
+  user-select: none;
+}
+
+section {
+  padding: 25px 30px 20px 30px;
+  background: #fff;
+}
+
+section .que_text {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+section .option_list {
+  padding: 20px 0;
+  display: block;
+}
+
+section .option_list .option {
+  background: aliceblue;
+  border: 1px solid #a7ffc3;
+  border-radius: 5px;
+  padding: 8px 15px;
+  margin-bottom: 15px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: justify;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+section .option_list .option:hover {
+  color: #354c12;
+  background: #ccffe6;
+  border-color: #a7ffc3;
+}
+
+.option_list .option:last-child {
+  margin-bottom: 0px;
+}
+
+.option_list .option .icon {
+  height: 26px;
+  width: 26px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 13px;
+  line-height: 24px;
+  pointer-events: none;
+}
+
+.option_list .option .icon.tick {
+  border-color: #23903c;
+  color: #23903c;
+  background: #d4edda;
+}
+
+.option_list .option .icon.cross {
+  border-color: #a42834;
+  color: #f8d7da;
+  background: #a4283a;
+}
+
+
+.quiz_box footer {
+  height: 60px;
+  width: 90%;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.quiz_box footer .total_que span {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.total_que span p {
+  font-weight: 500;
+  padding: 0 5px;
+}
+
+.total_que span p:first-child {
+  padding-left: 0px;
+}
+
+footer .next_btn {
+  height: 40px;
+  padding: 0 13px;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #31c15a;
+  border-radius: 5px;
+  border: 1px solid #31c15a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+footer .next_btn:hover {
+  background: #446218;
+}
+
+.result_box {
+  background-color: #fff;
+  width: 450px;
+  padding: 25px 30px;
+  border-radius: 5px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+
+.result_box .icon {
+  font-size: 100px;
+  color: #446218;
+}
+
+.result_box .complete_text {
+  font-size: 20px;
+  font-weight: 500;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.result_box .score_text span {
+  display: flex;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.score_text span p {
+  font-weight: 600;
+  padding: 0 4px;
+}
+
+.result_box .buttons {
+  display: flex;
+  margin: 5px 0;
+  border-top: none;
+}
+
+.result_box .buttons button {
+  margin: 0 10px;
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid #446218;
+  cursor: pointer;
+  transition: all 0.3 ease;
+}
+
+/* Gerador */
+
+.inputSlogan {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  outline: none;
+  color: #212124;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+  border-radius: 0.1px;
+}
+
+.inputSlogan::placeholder {
+  color: #212124;
+}

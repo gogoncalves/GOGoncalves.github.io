@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gustavo | Developer</title>
+    <title>Gustavo | Technology</title>
     <meta name="keywords" content="[gogoncalves], [gustavo], skill" />
     <meta name="description" content="Gustavo | Developer" />
-    <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" />
+    <link rel="icon" type="image/png" href="./assets/1.png" />
     <meta name="theme-color" content="#36d1dc" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -29,11 +29,14 @@
     <div id="hero">
         <section class="container">
             <h1 class="hero-title">
-                Olá, meu nome é <span class="text-color-main name">Gustavo</span>
-                <br/>
+                Olá, meu nome é <span  class="text-color-main name">Gustavo Gonçalves</span>
+                <br />
             </h1>
             <p class="hero-cta">
-                <a class="cta-btn cta-btn--hero" href="#about">Entre em Contato</a>
+                <a class="cta-btn cta-btn--hero" href="#about">Sobre mim</a>
+            </p> <br>
+            <p class="hero-cta">
+                <a class="cta-btn cta-btn--hero cta-btn--projects" href="#p1">Projetos</a>
             </p>
         </section>
         <a href="#about" class="scroll-down-link" aria-label="scroll-down">
@@ -46,18 +49,20 @@
             <h2 class="section-title">Sobre mim</h2>
             <div class="row about-wrapper">
                 <div class="about-wrapper__image">
-                    <img class="img-fluid" src="./assets/logo.png" alt="Profile Image" />
+                    <img class="img-fluid" src="./assets/logo.jpeg" alt="Profile Image" />
                 </div>
                 <div class="about-wrapper__info">
                     <p class="about-wrapper__info-text">
-                        <b><i>Desenvolvedor e Designer com foco em Interface de Usuário</i></b>
+                        <b><i>Architecture / Practitioner Cloud and Full Stack Developer</i></b>
                     </p>
                     <p class="about-wrapper__info-text">
-                        Sou motivado pelo novo, por solucionar problemas, pelo desenvolvimento de pessoas e construção de relacionamentos saudáveis. Possuo experiência em ambientes dinâmicos e desafiadores com alto grau de complexidade de operações.
+                        Sou motivado pelo novo, por solucionar problemas, pelo desenvolvimento de pessoas e construção
+                        de relacionamentos saudáveis. Possuo experiência em ambientes dinâmicos e desafiadores com alto
+                        grau de complexidade de operações.
                     </p>
                     <span class="about-wrapper__cta">
-            <a href="#" class="cta-btn cta-btn--resume">Olhar Resumo</a>
-          </span>
+                        <a href="#p1" class="cta-btn cta-btn--resume">Visualizar projetos</a>
+                    </span>
                 </div>
             </div>
         </div>
@@ -68,25 +73,27 @@
     <section id="projects">
         <div class="container">
             <div class="project-wrapper">
-                <h2 class="section-title dark-blue-text">Projetos</h2>
+                <h2 id="p1" class="section-title dark-blue-text">Projetos</h2>
 
                 <!-- Each .row is a project -->
                 <article class="row">
                     <div class="project-wrapper__text">
-                        <h3 class="project-wrapper__text-title">♦ 2ENSE</h3>
+                        <h3 class="project-wrapper__text-title">2SENSE</h3>
                         <p class="project-wrapper__text-info">
-                            Este projeto foi desenvolvido visando uma solução de IoT para aquisição e gravação de registros(eventos), para posterior consulta via aplicação web.
+                            Este projeto foi desenvolvido visando uma solução de IoT para aquisição e gravação de
+                            registros(eventos), para posterior consulta via aplicação web. <br>
+                            Linguagens: Node.JS, HTMl, PHP e CSS.
                         </p>
                         <div class="project-wrapper__text-btns">
-                            <a href="./projetos/proj01_2ense/Tela-Inicio.html" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn--hero cta-btn--projects">Ver ao Vivo</a>
-                            <a href="#" target="_blank" class="cta-btn text-color-main">Código Fonte</a>
+                            <a href="http://2sense.azurewebsites.net/" target="_blank" rel="noopener noreferrer"
+                                class="cta-btn cta-btn--hero cta-btn--projects">Ver ao Vivo</a>
                         </div>
                     </div>
 
                     <div class="project-wrapper__image">
-                        <a href="./projetos/proj01_2ense/Tela-Inicio.html" target="_blank" rel="noopener noreferrer">
+                        <a href="http://2sense.azurewebsites.net/" target="_blank" rel="noopener noreferrer">
                             <div class="thumbnail rounded">
-                                <img src="./assets/tela2ENSE.png" class="img-fluid" alt="Project Image" />
+                                <img src="./assets/index-2sense.png" class="img-fluid" alt="Project Image" />
                             </div>
                         </a>
                     </div>
@@ -96,44 +103,50 @@
                 <!-- Each .row is a project -->
                 <article class="row">
                     <div class="project-wrapper__text">
-                        <h3 class="project-wrapper__text-title">♦ AMBIENGO</h3>
+                        <h3 class="project-wrapper__text-title">HealthSystem</h3>
                         <p class="project-wrapper__text-info">
-                            Projeto de Site institucional sobre sustentabilidade desenvolvido com as linguagens HTML, CSS, SQL e JavaScript.
+                            Aplicação client e Web para o monitoramento de componentes de hardware / sistemas
+                            operacionais, utilizando os conceitos do ITIL de Monitoramento de Serviços, Gestão de
+                            Incidentes e Gestão de Problemas. <br>
+                            Linguagens: Python, Kotlin, Node.JS, PHP, HTMl, Java e CSS.
                         </p>
                         <div class="project-wrapper__text-btns">
-                            <a href="./projetos/proj04_TD/index.html" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn--hero cta-btn--projects">Ver ao Vivo</a>
-                            <a href="#" target="_blank" class="cta-btn text-color-main">Código Fonte</a>
-                        </div>
-                    </div>
-
-                    <div class="project-wrapper__image">
-                        <a href="./projetos/proj04_TD/index.html" target="_blank" rel="noopener noreferrer">
-                            <div class="thumbnail rounded">
-                                <img src="./assets/project.png" class="img-fluid" alt="Project Image" />
-                            </div>
-                        </a>
-                    </div>
-                </article>
-                <!-- /END Project -->
-
-                <!-- Each .row is a project -->
-                <article class="row">
-                    <div class="project-wrapper__text">
-                        <h3 class="project-wrapper__text-title">♦ Jogo da Forca</h3>
-                        <p class="project-wrapper__text-info">
-                            Jogo da forca desenvolvido com JavaScript, CSS, HTML e utilizado bootstrap em um modal com mensagem personalizada.
-                        </p>
-                        <div class="project-wrapper__text-btns">
-                            <a href="./projetos/proj02_forca/forca.html" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn--hero cta-btn--projects">Ver ao Vivo
+                            <a href="./projetos/proj02_healthsystem/public/index.html" target="_blank" rel="noopener noreferrer"
+                                class="cta-btn cta-btn--hero cta-btn--projects">Ver ao Vivo
                             </a>
-                            <a href="#" target="_blank" class="cta-btn text-color-main">Código Fonte</a>
                         </div>
                     </div>
 
                     <div class="project-wrapper__image">
-                        <a href="./projetos/proj02_forca/forca.html" target="_blank" rel="noopener noreferrer">
+                        <a href="./projetos/proj02_healthsystem/public/index.html" target="_blank" rel="noopener noreferrer">
                             <div class="thumbnail rounded">
-                                <img src="./assets/telaJgForca0.png" class="img-fluid" alt="Project Image" />
+                                <img src="./assets/index-healthsystem.png" class="img-fluid" alt="Project Image" />
+                            </div>
+                        </a>
+                    </div>
+                </article>
+                <!-- /END Project -->
+
+                <!-- Each .row is a project -->
+                <article class="row">
+                    <div class="project-wrapper__text">
+                        <h3 class="project-wrapper__text-title">Curatela</h3>
+                        <p class="project-wrapper__text-info">
+                            Projeto de Site institucional sobre sustentabilidade desenvolvido com as linguagens HTML,
+                            CSS, SQL e JavaScript.
+                        </p>
+                        <div class="project-wrapper__text-btns">
+                            <a href="./projetos/proj01_curatela/site/public/index.html" target="_blank"
+                                rel="noopener noreferrer" class="cta-btn cta-btn--hero cta-btn--projects">Ver ao
+                                Vivo</a>
+                        </div>
+                    </div>
+
+                    <div class="project-wrapper__image">
+                        <a href="./projetos/proj01_curatela/site/public/index.html" target="_blank"
+                            rel="noopener noreferrer">
+                            <div class="thumbnail rounded">
+                                <img src="./assets/index-curatela.png" class="img-fluid" alt="Project Image" />
                             </div>
                         </a>
                     </div>
@@ -149,48 +162,11 @@
     <!-- Contact Section -->
     <section id="assessment">
         <div class="container">
-            <h2 class="section-title">Avaliações</h2>
-            <div class="assessment-wrapper">
-                <div class="container-slide">
-                    <div class="card-slide">
-                        <img class="img-slide" src="./assets/Foto-RD.jpg" alt="Foto do Rafael">
-                        <h2>Rafael Domingos</h2>
-                        <p class="text">
-                            O Gustavo é determinado e prestativo, busca sempre a melhor opção para o cliente, em pouco tempo de RD entendeu o propósito do Centro RD de encantar o cliente, ele sempre busca a melhoria dos processos praticados. Um excelente profissional com o qual
-                            tenho o prazer de ter na minha equipe.</p>
-                    </div>
-                    <div class="card-slide">
-                        <img class="img-slide" src="./assets/Foto-Isa.jpg" alt="Foto da Isabela">
-                        <h2>Isabela Oliveira</h2>
-                        <p class="text">
-                            O Gustavo é dedicado e um bom colega de trabalho. Trabalhamos lado a lado da RaiaDrogasil á 5 meses. O Gustavo sempre tratou as lojas nossas clientes internas com empatia e celeridade. Destaca-se pela sua capacidade de apoiar a equipe sempre que necessário,
-                            mantendo sempre o bom convívio com os demais colegas, colocando-se a disposição sempre que necessário para ajudar na evolução da equipe.</p>
-                    </div>
-                    <div class="card-slide"><img class="img-slide" src="./assets/Foto-Gian.jpg" alt="Foto do Gian">
-                        <h2>Gian Angelo</h2>
-                        <p class="text"></p>
-                    </div>
-                    <div class="card-slide"><img class="img-slide" src="./assets/Foto-Ka.jpg" alt="Foto do Gian">
-                        <h2>Kamila Rubia</h2>
-                        <p class="text">
-                            Gustavo, profissional dedicado e sempre aberto para novos aprendizados.
-                        </p>
-                    </div>
-                    <div class="card-slide"><img class="img-slide" src="./assets/logo-Nat.png" alt="Foto do Gian">
-                        <h2>Nathalia Obi</h2>
-                        <p class="text">
-                            O Gustavo foi um aluno muito dedicado e esforçado, ele não media esforços para tirar duvidas em todas as aulas e havia um ótimo rendimento.
-                        </p>
-                    </div>
-                    <div class="card-slide"><img class="img-slide" src="./assets/Foto-Da.jpg" alt="Foto do Gian">
-                        <h2>Daniela Manetta</h2>
-                        <p class="text">
-                            Desenvolvi algumas atividades de trabalho com o Gustavo, em que ele contribuiu com excelência e parceria.
-                        </p>
-                    </div>
-                </div>
-                <a href="https://www.linkedin.com/in/gustavo-gon%C3%A7alves-0028861b0/" class="cta-btn cta-btn--resume">Entrar em Contato</a>
-            </div>
+            <h2 class="section-title">Contato</h2>
+
+            <a href="https://www.linkedin.com/in/gustavo-gon%C3%A7alves-0028861b0/"
+                class="cta-btn cta-btn--resume">Entrar em Contato</a>
+        </div>
         </div>
     </section>
     <!-- END Contact Section -->
@@ -207,14 +183,15 @@
                 <a href="https://codepen.io/gogoncalves" target="_blank" rel="noopener noreferrer" aria-label="codepen">
                     <i class="fa fa-codepen"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/gustavo-gon%C3%A7alves-0028861b0/" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
+                <a href="https://www.linkedin.com/in/gustavo-gon%C3%A7alves-0028861b0/" target="_blank"
+                    rel="noopener noreferrer" aria-label="linkedin">
                     <i class="fa fa-linkedin"></i>
                 </a>
                 <a href="https://github.com/GOGoncalves" target="_blank" rel="noopener noreferrer" aria-label="github">
                     <i class="fa fa-github"></i>
                 </a>
             </div>
-            <hr/>
+            <hr />
             <p class="footer__text">
                 &copy; <span id="year"></span> - Developed by
                 <a href="index.html" target="_blank" rel="noopener noreferrer">Gustavo Gonçalves</a>.
@@ -229,6 +206,7 @@
 
     <script type="text/javascript" src="./javascript/valtilt.js"></script>
     <script type="text/javascript" src="./javascript/web.js"></script>
+    
 </body>
 
 </html>

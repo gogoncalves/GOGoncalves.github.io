@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Curatela | Login</title>
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="icon" href="./assets/icon/logo-pag.png">
+    <link rel="stylesheet" href="./css/Proj.ini.style.css ">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabecalho-login transicaoy">
+
+        <a class="cabecalho-menu-item" href="index.html"><img style="height: 4vh;"
+                src="https://cdn-icons-png.flaticon.com/512/60/60710.png" alt="Imagem de Retorno"></a>
+
+        <a href="#p1"><img src="./assets/imgs/logo-curatela-menu.png" alt="Logo da marca." class="cabecalho-logo"></a>
+    </header>
+    <main class="principal-login ">
+        <div class="banner ">
+            <div class="alerta_erro ">
+                <div class="card_erro " id="cardErro ">
+                    <span id="mensagem_erro "></span>
+                </div>
+            </div>
+            <section>
+                <div class="conteudo-terciario ">
+                    <div class="card medio ">
+                        <div class="formulario ">
+                            <div class="estilo-formulario-login transicao ">
+
+                                <fieldset class="estilo-formulario-caixa">
+                                    <legend><b>Login</b> </legend>
+                                    <br>
+                                    <div class="inputForm ">
+                                        <label for="email" class="labelInput ">E-mail</label>
+                                        <input placeholder="Seu e-mail*" type="email" name="email" id="email_input"
+                                            class="inputUser" required>
+
+                                    </div>
+                                    <br>
+                                    <div class="inputForm ">
+                                        <label for="senha " class="labelInput">Senha</label>
+                                        <input placeholder="********" type="password" name="Senha " id="senha_input"
+                                            class="inputUser" required>
+                                        <img id="img_ocultar" src="assets/imgs/oculto.png" style="height: 10px;"
+                                            alt="imagem-olho" onclick="mostrar()">
+
+                                    </div>
+                                    <br>
+                                    <div class="btn_container">
+                                        <div class="btn_login">
+                                            <a onclick="entrar()" class="a_login">Entrar</a>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                                <br>
+                                <div class="btn_container">
+                                    <div class="btn_login">
+                                        <a href="cadastro.html" class="a_login">Cadastre-se</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/circle-loading.gif" id="loading-gif">
+                        </div>
+
+                        <div id="div_erros_login">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </main>
+    <!-- Rodapé -->
+    <footer class="rodape ">
+        <div class="rodape-conteudo ">
+
+            <div class="rodape-conteudo-sessao ">
+                <p class="rodape-conteudo-titulo ">Fale Conosco</p>
+                <div class="rodape-conteudo-barra "></div>
+                <a class="rodape-conteudo-ancora " href="#p3 ">Contato</a>
+                <a class="rodape-conteudo-ancora " href="#p3 ">0800 303 2022</a>
+                <a class="rodape-conteudo-ancora" href="#p3">curatelabrazil@hotmail.com</a>
+            </div>
+
+            <div class="rodape-conteudo-imagem">
+                <a href="index.html"><img style="width:10vw ; height: 15vh;" class="rodape-imagem"
+                        src="./assets/imgs/logo-curatela-completo.png"></a>
+                <p class="rodape-direito">© 2022 Todos os direitos reservados | AMBIENGO.</p>
+            </div>
+
+            <div class="rodape-conteudo-sessao ">
+                <p class="rodape-conteudo-titulo ">Endereço</p>
+                <div class="rodape-conteudo-barra "></div>
+                <p class="rodape-conteudo-ancora ">
+                    São Paulo / SP <br> Rua Haddock Lobo, 595 <br> Cerqueira César <br> CEP 01414-001
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+
+    function mostrar() {
+        if (senha_input.type == "password") {
+            img_ocultar.src = "assets/imgs/exibindo.png"
+            senha_input.type = "text"
+        } else {
+            img_ocultar.src = "assets/imgs/oculto.png"
+            senha_input.type = "password"
+        }
+    }
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
