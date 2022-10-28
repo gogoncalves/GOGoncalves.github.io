@@ -359,6 +359,9 @@
         padding: 0 1.5rem;
         margin: 0 auto;
         max-width: 1140px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
     
     .img-slide {
@@ -544,7 +547,9 @@
         height: 100vh;
         display: flex;
         align-items: center;
-        background: #fff;
+        background: linear-gradient(68.15deg, #76b085, #ffffff, rgb(239, 255, 220), #d523d5) no-repeat;
+        background-size: 300% 300%;
+        animation: gradient 10s ease alternate infinite;
         font-weight: 400;
         color: #272341;
         padding: 0rem 5.6rem;
@@ -555,6 +560,20 @@
         z-index: -1;
         line-height: 1.2;
         animation: hidden 1000ms linear forwards
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0 50%;
+        }
+    
+        50% {
+            background-position: 100% 50%;
+        }
+    
+        100% {
+            background-position: 0 50%;
+        }
     }
     
     @media (max-width: 56.25em) {
