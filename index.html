@@ -12,6 +12,7 @@
     <meta name="theme-color" content="#36d1dc" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script defer type="text/javascript" src="./javascript/scrollveal.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,13 +24,14 @@
 
         gtag("config", "UA-122228201-4");
     </script>
+    
 </head>
 
 <body>
     <div id="hero">
         <section class="container">
             <h1 class="hero-title">
-                <span  class="text-color-main name">GUSTAVO</span>.IO
+                <span data-aos="fade-up" class="text-color-main name">GUSTAVO</span>.IO
                 <br />
             </h1>
             <p class="hero-cta">
@@ -46,22 +48,20 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">Sobre mim</h2>
+            <h2 data-aos="fade-up" class="section-title">Sobre mim</h2>
             <div class="row about-wrapper">
-                <div class="about-wrapper__image">
+                <div data-aos="fade-down" class="about-wrapper__image">
                     <img class="img-fluid" src="./assets/logo.jpeg" alt="Profile Image" />
                 </div>
-                <div class="about-wrapper__info">
+                <div data-aos="fade-up" class="about-wrapper__info">
                     <p class="about-wrapper__info-text">
-                        <b><i>Architecture / Practitioner Cloud and Full Stack Developer</i></b>
+                        <b><i>Solutions Architect | Cloud Practitioner | Full Stack Developer</i></b>
                     </p>
                     <p class="about-wrapper__info-text">
-                        Sou motivado pelo novo, por solucionar problemas, pelo desenvolvimento de pessoas e construção
-                        de relacionamentos saudáveis. Possuo experiência em ambientes dinâmicos e desafiadores com alto
-                        grau de complexidade de operações.
+                        Sou um profissional especializado em TI com enfoque em gestão de operações e gestão estratégica em empresas de rápido crescimento. <br> Experiente e orientado para resultados, com três anos de experiência em desenvolvimento de soluções e gerenciamento em ambientes de varejo.
                     </p>
                     <span class="about-wrapper__cta">
-                        <a href="#p1" class="cta-btn cta-btn--resume">Visualizar projetos</a>
+                        <a data-aos="fade-up" href="#p1" class="cta-btn cta-btn--resume">Visualizar projetos</a>
                     </span>
                 </div>
             </div>
@@ -73,10 +73,10 @@
     <section id="projects">
         <div class="container">
             <div class="project-wrapper">
-                <h2 id="p1" class="section-title dark-blue-text">Projetos</h2>
+                <h2 data-aos="fade-up" id="p1" class="section-title dark-blue-text">Projetos</h2>
 
                 <!-- Each .row is a project -->
-                <article class="row">
+                <article data-aos="fade-up" class="row">
                     <div class="project-wrapper__text">
                         <h3 class="project-wrapper__text-title">2SENSE</h3>
                         <p class="project-wrapper__text-info">
@@ -101,7 +101,7 @@
                 <!-- /END Project -->
 
                 <!-- Each .row is a project -->
-                <article class="row">
+                <article data-aos="fade-right" class="row">
                     <div class="project-wrapper__text">
                         <h3 class="project-wrapper__text-title">HealthSystem</h3>
                         <p class="project-wrapper__text-info">
@@ -128,11 +128,35 @@
                 <!-- /END Project -->
 
                 <!-- Each .row is a project -->
-                <article class="row">
+                <article data-aos="fade-up" class="row">
+                    <div class="project-wrapper__text">
+                        <h3 class="project-wrapper__text-title">Dashboard Solution</h3>
+                        <p class="project-wrapper__text-info">
+                            Dashboard para o monitoramento de vida saudável de equipamentos distribuídos (ATMs & PDVs) com escalabilidade nacional utilizando apenas Python, Kotlin, Docker e Bash Linux, proporcionando visão analitica e sintetica sobre o desempenho.
+                        </p>
+                        <!-- <div class="project-wrapper__text-btns">
+                            <a href="./projetos/proj01_curatela/site/public/index.html" target="_blank"
+                                rel="noopener noreferrer" class="cta-btn cta-btn--hero cta-btn--projects">Ver ao
+                                Vivo</a>
+                        </div> -->
+                    </div>
+
+                    <div class="project-wrapper__image">
+                        <a href="#p1" target="_blank" rel="noopener noreferrer">
+                            <div class="thumbnail rounded">
+                                <img src="./assets/index_aplicacao_python.png" class="img-fluid" alt="Project Image" />
+                            </div>
+                        </a>
+                    </div>
+                </article>
+                <!-- /END Project -->
+
+                <!-- Each .row is a project -->
+                <article data-aos="fade-right" class="row">
                     <div class="project-wrapper__text">
                         <h3 class="project-wrapper__text-title">Curatela</h3>
                         <p class="project-wrapper__text-info">
-                            Projeto de Site institucional sobre sustentabilidade desenvolvido com as linguagens HTML,
+                            Projeto de Site institucional com enfoque em sustentabilidade desenvolvido com as linguagens HTML,
                             CSS, SQL e JavaScript.
                         </p>
                         <!-- <div class="project-wrapper__text-btns">
@@ -143,8 +167,7 @@
                     </div>
 
                     <div class="project-wrapper__image">
-                        <a href="#p1" target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="#p1" target="_blank" rel="noopener noreferrer">
                             <div class="thumbnail rounded">
                                 <img src="./assets/index-curatela.png" class="img-fluid" alt="Project Image" />
                             </div>
@@ -161,7 +184,7 @@
 
     <!-- Contact Section -->
     <section id="assessment">
-        <div class="container">
+        <div data-aos="fade-up" class="container">
             <h2 class="section-title">Contato</h2>
 
             <a href="https://www.linkedin.com/in/gustavo-gon%C3%A7alves-0028861b0/"
@@ -173,7 +196,7 @@
 
     <!-- Footer Section -->
     <footer class="footer">
-        <div class="container">
+        <div data-aos="fade-up" class="container">
             <a href="#hero" class="back-to-top" aria-label="go back to top">
                 <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
             </a>
@@ -206,7 +229,10 @@
 
     <script type="text/javascript" src="./javascript/valtilt.js"></script>
     <script type="text/javascript" src="./javascript/web.js"></script>
-    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
