@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Mastery — B1 Intermediate | Present Perfect e o salto que muda tudo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#064e3b;
+  --paper:#f0fdf4;
+  --paper-dark:#dcfce7;
+  --ink:#022c22;
+  --accent:#fb7185;
+  --accent-2:#fbbf24;
+  --accent-soft:#fecdd3;
+  --green:#15803d;
+  --red:#b91c1c;
+  --line:rgba(2,44,34,.13);
+  --shadow:0 1px 0 rgba(0,0,0,.06), 0 8px 24px -4px rgba(2,44,34,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(2,44,34,.06) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.5}
+
+.hero{position:relative;background:var(--bg);color:var(--paper);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(251,113,133,.3),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(251,191,36,.15),transparent 50%)}
+.hero::after{content:'B1';position:absolute;right:-30px;bottom:-80px;font-family:'Fraunces',serif;font-size:380px;font-weight:300;color:rgba(240,253,244,.05);line-height:.8;letter-spacing:-.05em;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:#fff;padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:#fff;font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,120px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px}
+h1.title em{font-style:italic;color:var(--accent-2);font-weight:400}
+h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,22px);max-width:680px;color:rgba(240,253,244,.78);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(240,253,244,.18)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent-2);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(240,253,244,.65);margin-top:8px}
+
+main{max-width:1200px;margin:0 auto;padding:80px 6vw;position:relative;z-index:1}
+section{margin-bottom:120px;scroll-margin-top:20px}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.2em;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.section-num::after{content:'';flex:1;height:1px;background:var(--line)}
+h2{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,64px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:32px}
+h2 em{font-style:italic;color:var(--accent)}
+h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;margin:32px 0 16px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:12px}
+p{margin-bottom:16px;font-size:17px}
+.lead{font-size:20px;color:#0f3a2e;max-width:780px}
+
+.warning-box{background:linear-gradient(135deg,#0f3d2e,#064e3b);color:var(--paper);padding:48px;border-radius:8px;margin:40px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent-2);margin-top:0}
+.warning-box.coral{background:linear-gradient(135deg,#9f1239,#881337)}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:24px;font-size:16px}
+.compare-wrong{background:rgba(185,28,28,.16);border-left:4px solid var(--red)}
+.compare-right{background:rgba(21,128,61,.16);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}
+.compare-right .label{color:#86efac}
+.compare-cell .pt{font-style:italic;opacity:.7;font-size:14px;margin-bottom:8px}
+.compare-cell .en{font-weight:600;font-size:18px}
+.compare-cell .why{font-size:13px;margin-top:12px;opacity:.78;line-height:1.5}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:32px 0}
+.card{background:#fff;border:1px solid var(--line);padding:32px;border-radius:8px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(0,0,0,.08), 0 16px 40px -8px rgba(2,44,34,.22)}
+.card-num{font-family:'Fraunces',serif;font-size:60px;font-weight:300;color:var(--accent);line-height:1;opacity:.5}
+.card h4{margin-top:8px}
+
+.exercise{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:32px;margin:32px 0;box-shadow:6px 6px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:12px}
+.exercise-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;background:var(--accent);color:#fff;padding:6px 12px;border-radius:4px}
+.q{margin:20px 0;padding:20px;background:#f0fdf4;border-radius:6px;border-left:3px solid var(--accent)}
+.q-text{font-size:17px;margin-bottom:14px;font-weight:500}
+.q-text .blank{display:inline-block;min-width:80px;border-bottom:2px solid var(--ink);text-align:center;font-weight:700;color:var(--accent)}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:10px 18px;font-size:15px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--paper)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.feedback{margin-top:12px;padding:12px 16px;border-radius:6px;font-size:14px;display:none}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:rgba(21,128,61,.14);color:#14532d;border-left:3px solid var(--green)}
+.feedback.wrong{background:rgba(185,28,28,.14);color:#7f1d1d;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:4px}
+
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:inherit;font-size:17px;font-weight:600;padding:4px 8px;width:160px;text-align:center;color:var(--accent);outline:none}
+.fill-input:focus{border-color:var(--accent)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+
+.btn{background:var(--ink);color:var(--paper);border:none;padding:14px 28px;font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:6px;transition:all .2s;margin-top:12px}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+
+.gram-table{width:100%;border-collapse:collapse;margin:24px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--paper);padding:14px 18px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-table tr:hover{background:#f0fdf4}
+.gram-table .em-cell{color:var(--accent);font-weight:700}
+
+.video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin:24px 0;box-shadow:var(--shadow);background:var(--ink)}
+.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:32px 0}
+.video-card h4{margin-bottom:8px;color:var(--ink);font-family:'Fraunces',serif;font-size:18px;text-transform:none;letter-spacing:0}
+.video-card p{font-size:14px;color:#0f3a2e}
+
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width .2s}
+
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:16px 24px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;box-shadow:0 8px 24px rgba(2,44,34,.4);z-index:50;display:flex;align-items:center;gap:12px}
+.score-display .pt-pts{color:var(--accent-2);font-size:20px}
+
+.tip-box{background:linear-gradient(135deg,#dcfce7,#bbf7d0);padding:24px;border-radius:8px;margin:24px 0;border-left:4px solid var(--accent)}
+.tip-box h4{color:#14532d;margin-bottom:8px}
+
+.toc{position:sticky;top:20px;background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent-2);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent-2);font-weight:700;margin-right:12px;font-size:12px}
+.toc a{color:var(--paper);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--accent-2)}
+
+.timeline{display:flex;align-items:center;gap:0;margin:32px 0;padding:32px 0;position:relative;background:var(--paper);border-radius:8px}
+.timeline::before{content:'';position:absolute;top:50%;left:5%;right:5%;height:2px;background:var(--ink)}
+.tl-point{flex:1;text-align:center;position:relative;background:var(--paper);padding:8px 0}
+.tl-point .dot{width:16px;height:16px;background:var(--accent);border-radius:50%;margin:0 auto 12px;position:relative;z-index:2}
+.tl-point .label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#666}
+.tl-point .value{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink);margin-top:4px}
+
+.pp-vs-ps{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border:2px solid var(--ink);border-radius:8px;overflow:hidden}
+.pp-vs-ps > div{padding:24px}
+.pp-vs-ps .ps{background:#fef9c3;border-right:2px solid var(--ink)}
+.pp-vs-ps .pp{background:#dcfce7}
+.pp-vs-ps h4{font-size:14px;margin-bottom:12px}
+.pp-vs-ps .formula{font-family:'JetBrains Mono',monospace;font-size:13px;background:rgba(0,0,0,.06);padding:8px 12px;border-radius:4px;margin:8px 0;display:inline-block}
+.pp-vs-ps .ex{font-family:'Fraunces',serif;font-size:18px;font-style:italic;margin:6px 0}
+
+.phrasal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:24px 0}
+.phrasal-cell{background:#fff;padding:18px;border-radius:6px;border-left:3px solid var(--accent);box-shadow:var(--shadow)}
+.phrasal-cell .pv{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:18px}
+.phrasal-cell .meaning{color:var(--accent);font-size:13px;margin-top:4px;font-weight:600}
+.phrasal-cell .example{font-size:13px;color:#374151;margin-top:8px;font-style:italic}
+
+.level-nav{padding:60px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line)}
+.level-nav a{background:var(--paper);padding:30px;text-decoration:none;color:var(--ink);transition:background .2s}
+.level-nav a:hover{background:#fff}
+.level-nav a.next{text-align:right}
+.level-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#0f3a2e;margin-bottom:8px}
+.level-nav .ttl{font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300}
+
+footer{background:var(--ink);color:var(--paper);padding:60px 6vw;text-align:center}
+footer h3{color:var(--accent-2)}
+footer p{color:rgba(240,253,244,.7);font-size:14px}
+footer a{color:var(--accent-2);text-decoration:none}
+
+@media(max-width:768px){
+  .compare-grid,.pp-vs-ps{grid-template-columns:1fr}
+  .pp-vs-ps .ps{border-right:none;border-bottom:2px solid var(--ink)}
+  .hero{padding:60px 6vw 80px}
+  main{padding:60px 6vw}
+  .timeline{flex-direction:column;gap:20px}
+  .timeline::before{display:none}
+  .score-display{bottom:12px;right:12px;padding:12px 16px;font-size:12px}
+  .score-display .pt-pts{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="tag">Level B1 — Intermediate</span>
+    <h1 class="title">
+      The <em>Present Perfect</em><br>
+      <strong>nightmare ends here.</strong>
+    </h1>
+    <p class="subtitle">
+      Este é o nível que separa o brasileiro intermediário do brasileiro fluente. Aqui mora <strong>Present Perfect</strong> — o tempo verbal que NÃO existe em português e que destrói a tradução literal. Domine isso e tudo depois flui.
+    </p>
+    <div class="hero-stats">
+      <div><div class="stat-num">10</div><div class="stat-label">Módulos</div></div>
+      <div><div class="stat-num">65+</div><div class="stat-label">Exercícios</div></div>
+      <div><div class="stat-num">25</div><div class="stat-label">Phrasal verbs</div></div>
+      <div><div class="stat-num">5</div><div class="stat-label">Vídeos</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h4>Índice</h4>
+  <ol>
+    <li><a href="#mind-shift">A mudança mental: tempo brasileiro vs tempo inglês</a></li>
+    <li><a href="#present-perfect">Present Perfect — formação e os 4 usos</a></li>
+    <li><a href="#pp-vs-ps">Present Perfect vs Past Simple — o duelo decisivo</a></li>
+    <li><a href="#past-cont">Past Continuous + when/while</a></li>
+    <li><a href="#used-to">Used to — hábitos do passado</a></li>
+    <li><a href="#first-cond">First Conditional — promessas e ameaças</a></li>
+    <li><a href="#reported">Reported Speech básico</a></li>
+    <li><a href="#phrasals">Os 25 phrasal verbs essenciais</a></li>
+    <li><a href="#ger-inf">Gerund vs Infinitive (verbos que pegam)</a></li>
+    <li><a href="#passive">Passive Voice — introdução</a></li>
+    <li><a href="#videos">Vídeos curados</a></li>
+    <li><a href="#final">Teste final B1</a></li>
+  </ol>
+</nav>
+
+<!-- 01 MIND SHIFT -->
+<section id="mind-shift">
+  <div class="section-num">01 / Mudança mental</div>
+  <h2>O tempo em português ≠ tempo em <em>inglês</em>.</h2>
+  <p class="lead">Antes de qualquer regra, precisamos resetar uma coisa na sua cabeça: <strong>português usa o presente para coisas que começaram no passado</strong>. Inglês NÃO faz isso. Essa única diferença é o motivo de 90% dos erros brasileiros no B1.</p>
+
+  <div class="warning-box coral">
+    <h3>⚠ A frase que destrói brasileiros</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Brasileiro traduz literal</span>
+        <div class="pt">"Eu moro aqui há 5 anos."</div>
+        <div class="en">I live here for 5 years.</div>
+        <div class="pt" style="margin-top:14px">"Faz 3 horas que estou esperando."</div>
+        <div class="en">I am waiting for 3 hours.</div>
+        <div class="why">Português usa <strong>presente</strong> + <strong>"há / faz"</strong>. Brasileiro mantém o presente em inglês. Resultado: frase erradíssima.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Inglês exige Present Perfect</span>
+        <div class="en"><strong>I have lived here for 5 years.</strong></div>
+        <div class="en" style="margin-top:14px"><strong>I have been waiting for 3 hours.</strong></div>
+        <div class="why">Sempre que a ação <strong>começou no passado e continua no presente</strong>, em inglês é Present Perfect. Sem exceção.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>A linha do tempo do inglês — 4 zonas</h3>
+  <div class="timeline">
+    <div class="tl-point"><div class="dot"></div><div class="label">Past Simple</div><div class="value">Acabou</div></div>
+    <div class="tl-point"><div class="dot" style="background:var(--accent-2)"></div><div class="label">Present Perfect</div><div class="value">Conecta passado→agora</div></div>
+    <div class="tl-point"><div class="dot"></div><div class="label">Present</div><div class="value">Agora</div></div>
+    <div class="tl-point"><div class="dot"></div><div class="label">Future</div><div class="value">Depois</div></div>
+  </div>
+
+  <p style="max-width:780px">O brasileiro tem 3 zonas (passado, presente, futuro). O inglês tem <strong>uma quarta zona</strong> entre passado e presente: o Present Perfect. É aí que acontece tudo que "começou antes e ainda importa agora".</p>
+
+  <div class="tip-box">
+    <h4>★ Mantra deste nível</h4>
+    <p><strong>"Há / Faz X tempo que..."</strong> em PT → <strong>"have/has + past participle + for/since..."</strong> em EN. Sempre. Decora isso como número de telefone.</p>
+  </div>
+</section>
+
+<!-- 02 PRESENT PERFECT -->
+<section id="present-perfect">
+  <div class="section-num">02 / Present Perfect</div>
+  <h2>Present Perfect — <em>formação</em> e os 4 usos.</h2>
+  <p class="lead">A fórmula é simples. O difícil é internalizar QUANDO usar. Vamos pelos dois lados.</p>
+
+  <h3>A fórmula — decora de olhos fechados</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Forma</th><th>Estrutura</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Afirmativa</td><td class="em-cell">have/has + past participle</td><td>I have lived here for 5 years.</td></tr>
+        <tr><td>Negativa</td><td class="em-cell">haven't/hasn't + past participle</td><td>She hasn't called me yet.</td></tr>
+        <tr><td>Pergunta</td><td class="em-cell">Have/Has + sujeito + past participle?</td><td>Have you ever been to Japan?</td></tr>
+        <tr><td>Resposta curta</td><td class="em-cell">Yes, I have. / No, I haven't.</td><td>(NUNCA "Yes, I do" para Present Perfect!)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Lembre: o <strong>past participle</strong> é a 3ª coluna dos verbos. Para regulares = mesmo que o passado (-ed). Para irregulares, decora as 100 mais comuns. Vou listar abaixo só as que pegam brasileiro.</p>
+
+  <h3>20 past participles que destroem brasileiros</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Base</th><th>Past Simple</th><th>Past Participle</th><th>Pegadinha BR</th></tr></thead>
+      <tbody>
+        <tr><td>be</td><td>was/were</td><td class="em-cell">been</td><td>"I have been" (já fui/estive). Brasileiro confunde com "being".</td></tr>
+        <tr><td>do</td><td>did</td><td class="em-cell">done</td><td>I have done it. NÃO "I have did it".</td></tr>
+        <tr><td>go</td><td>went</td><td class="em-cell">gone / been</td><td>"gone" = foi e não voltou. "been" = foi e voltou.</td></tr>
+        <tr><td>see</td><td>saw</td><td class="em-cell">seen</td><td>I have seen it. NÃO "I have saw it".</td></tr>
+        <tr><td>eat</td><td>ate</td><td class="em-cell">eaten</td><td>Have you eaten? (já comeu?)</td></tr>
+        <tr><td>write</td><td>wrote</td><td class="em-cell">written</td><td>I have written 3 books.</td></tr>
+        <tr><td>read</td><td>read</td><td class="em-cell">read (lê-se "réd")</td><td>Mesma escrita, pronúncia muda!</td></tr>
+        <tr><td>speak</td><td>spoke</td><td class="em-cell">spoken</td><td>Have you spoken to her?</td></tr>
+        <tr><td>break</td><td>broke</td><td class="em-cell">broken</td><td>I have broken my phone.</td></tr>
+        <tr><td>take</td><td>took</td><td class="em-cell">taken</td><td>I have taken the medicine.</td></tr>
+        <tr><td>give</td><td>gave</td><td class="em-cell">given</td><td>I have given up. (desisti)</td></tr>
+        <tr><td>know</td><td>knew</td><td class="em-cell">known</td><td>I have known him for 10 years.</td></tr>
+        <tr><td>come</td><td>came</td><td class="em-cell">come</td><td>Has anyone come yet? (mesma forma!)</td></tr>
+        <tr><td>run</td><td>ran</td><td class="em-cell">run</td><td>I have run a marathon. (mesma forma!)</td></tr>
+        <tr><td>find</td><td>found</td><td class="em-cell">found</td><td>I have found my keys.</td></tr>
+        <tr><td>buy</td><td>bought</td><td class="em-cell">bought</td><td>I have bought a new car.</td></tr>
+        <tr><td>think</td><td>thought</td><td class="em-cell">thought</td><td>I have thought about it.</td></tr>
+        <tr><td>get</td><td>got</td><td class="em-cell">got / gotten (US)</td><td>UK: got · US: gotten</td></tr>
+        <tr><td>make</td><td>made</td><td class="em-cell">made</td><td>I have made a decision.</td></tr>
+        <tr><td>leave</td><td>left</td><td class="em-cell">left</td><td>She has left the building.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Os 4 USOS do Present Perfect</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <h4>Experiência de vida</h4>
+      <p style="font-size:15px;line-height:1.6"><em>"Já fiz isso alguma vez na vida"</em>. Não importa quando. Marcadores: <strong>ever, never, before</strong>.</p>
+      <p style="font-size:14px;color:var(--accent);margin-top:8px"><strong>Have you ever been to Paris?</strong> · I have never tried sushi.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <h4>Ação que começou no passado e continua</h4>
+      <p style="font-size:15px;line-height:1.6"><em>"Faz X tempo que..."</em> Marcadores: <strong>for + período</strong>, <strong>since + ponto no tempo</strong>.</p>
+      <p style="font-size:14px;color:var(--accent);margin-top:8px"><strong>I have lived here for 5 years.</strong> · She has worked here since 2018.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <h4>Ação recente com efeito agora</h4>
+      <p style="font-size:15px;line-height:1.6"><em>"Acabei de..."</em> ou ação cujo resultado importa NO PRESENTE. Marcadores: <strong>just, already, yet</strong>.</p>
+      <p style="font-size:14px;color:var(--accent);margin-top:8px"><strong>I have just finished.</strong> · She has already left. · Have you done it yet?</p>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <h4>Período não terminado</h4>
+      <p style="font-size:15px;line-height:1.6">Quando o período de tempo (hoje, esta semana, este ano) <strong>ainda não acabou</strong>.</p>
+      <p style="font-size:14px;color:var(--accent);margin-top:8px"><strong>I have studied a lot today.</strong> · She has called me 3 times this week.</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ FOR vs SINCE — a regra que ninguém erra mais</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-right">
+        <span class="label">✅ FOR + duração</span>
+        <div class="en">I have known him <strong>for 10 years</strong>.<br>She has lived here <strong>for a long time</strong>.<br>We have been waiting <strong>for 2 hours</strong>.</div>
+        <div class="why">FOR = quanto tempo dura. Pergunte: "How long?". Resposta com FOR = um período.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ SINCE + ponto no tempo</span>
+        <div class="en">I have known him <strong>since 2014</strong>.<br>She has lived here <strong>since she was 5</strong>.<br>We have been waiting <strong>since 9am</strong>.</div>
+        <div class="why">SINCE = ponto de partida. Data, ano, dia, hora exata, evento específico.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="pp-form">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #1 — Past participle correto</div>
+        <div>Conjugue no Present Perfect.</div>
+      </div>
+      <span class="exercise-type">Fill-in</span>
+    </div>
+
+    <div class="q" data-q="1" data-correct="been">
+      <div class="q-text">1. I have ___ (be) to London twice. <em>(já fui)</em></div>
+      <input type="text" class="fill-input" data-answer="been">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="2" data-correct="seen">
+      <div class="q-text">2. She has ___ (see) that movie. <em>(ela já viu)</em></div>
+      <input type="text" class="fill-input" data-answer="seen">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="3" data-correct="done">
+      <div class="q-text">3. They have ___ (do) their homework.</div>
+      <input type="text" class="fill-input" data-answer="done">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="4" data-correct="written">
+      <div class="q-text">4. He has ___ (write) three novels.</div>
+      <input type="text" class="fill-input" data-answer="written">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="5" data-correct="eaten">
+      <div class="q-text">5. Have you ___ (eat) sushi before?</div>
+      <input type="text" class="fill-input" data-answer="eaten">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="6" data-correct="known">
+      <div class="q-text">6. We have ___ (know) each other for 20 years.</div>
+      <input type="text" class="fill-input" data-answer="known">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="7" data-correct="taken">
+      <div class="q-text">7. The kids have ___ (take) their medicine.</div>
+      <input type="text" class="fill-input" data-answer="taken">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="8" data-correct="bought">
+      <div class="q-text">8. I have ___ (buy) a new laptop.</div>
+      <input type="text" class="fill-input" data-answer="bought">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('pp-form')">Verificar respostas</button>
+  </div>
+
+  <div class="exercise" data-ex="for-since">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #2 — FOR ou SINCE?</div>
+        <div>A escolha mais traída pelo cérebro brasileiro.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="9" data-correct="for">
+      <div class="q-text">1. I have lived in Lisbon ___ 3 years.</div>
+      <div class="options">
+        <button class="opt" data-val="for">for</button>
+        <button class="opt" data-val="since">since</button>
+        <button class="opt" data-val="ago">ago</button>
+        <button class="opt" data-val="from">from</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="10" data-correct="since">
+      <div class="q-text">2. She has worked here ___ 2019.</div>
+      <div class="options">
+        <button class="opt" data-val="for">for</button>
+        <button class="opt" data-val="since">since</button>
+        <button class="opt" data-val="ago">ago</button>
+        <button class="opt" data-val="during">during</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="11" data-correct="for">
+      <div class="q-text">3. We've been friends ___ a long time.</div>
+      <div class="options">
+        <button class="opt" data-val="for">for</button>
+        <button class="opt" data-val="since">since</button>
+        <button class="opt" data-val="from">from</button>
+        <button class="opt" data-val="in">in</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="12" data-correct="since">
+      <div class="q-text">4. I haven't seen him ___ last Christmas.</div>
+      <div class="options">
+        <button class="opt" data-val="for">for</button>
+        <button class="opt" data-val="since">since</button>
+        <button class="opt" data-val="from">from</button>
+        <button class="opt" data-val="ago">ago</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="13" data-correct="for">
+      <div class="q-text">5. They have been married ___ 25 years.</div>
+      <div class="options">
+        <button class="opt" data-val="for">for</button>
+        <button class="opt" data-val="since">since</button>
+        <button class="opt" data-val="during">during</button>
+        <button class="opt" data-val="along">along</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="14" data-correct="since">
+      <div class="q-text">6. He has been studying ___ 8 o'clock this morning.</div>
+      <div class="options">
+        <button class="opt" data-val="for">for</button>
+        <button class="opt" data-val="since">since</button>
+        <button class="opt" data-val="from">from</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PP vs PS -->
+<section id="pp-vs-ps">
+  <div class="section-num">03 / O duelo decisivo</div>
+  <h2>Present Perfect <em>vs</em> Past Simple.</h2>
+  <p class="lead">A pergunta que separa quem fala B1 de quem fala B2: <strong>quando usar cada um?</strong> A regra é uma só. Mas é ferina.</p>
+
+  <div class="pp-vs-ps">
+    <div class="ps">
+      <h4>PAST SIMPLE</h4>
+      <p>Tempo TERMINADO + (geralmente) marcador de tempo específico.</p>
+      <div class="formula">verb + -ed (ou irregular: went, ate, saw)</div>
+      <p style="margin-top:12px;font-weight:600">Marcadores típicos:</p>
+      <p style="font-size:14px"><em>yesterday, last week, in 2018, two days ago, when I was a kid, this morning (passou)</em></p>
+      <p class="ex">I went to Paris last year.</p>
+      <p class="ex">She called me yesterday.</p>
+      <p class="ex">I ate sushi when I was in Japan.</p>
+    </div>
+    <div class="pp">
+      <h4>PRESENT PERFECT</h4>
+      <p>Conexão com o presente. Ação que ainda importa AGORA.</p>
+      <div class="formula">have/has + past participle</div>
+      <p style="margin-top:12px;font-weight:600">Marcadores típicos:</p>
+      <p style="font-size:14px"><em>ever, never, already, yet, just, for, since, this week (não terminou), today (ainda é hoje), recently</em></p>
+      <p class="ex">I have been to Paris (and I'm someone who's been there).</p>
+      <p class="ex">She has called me 3 times this week.</p>
+      <p class="ex">I have eaten sushi (in my life, sometime).</p>
+    </div>
+  </div>
+
+  <div class="warning-box coral">
+    <h3>⚠ A regra DECISIVA: tempo definido vs tempo conectado ao agora</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Erro brasileiro clássico</span>
+        <div class="pt">"Eu já fui pra Paris ano passado"</div>
+        <div class="en">I have been to Paris last year.</div>
+        <div class="why">"Last year" = tempo DEFINIDO no passado. Quebra a conexão com o presente. Tem que ser Past Simple.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Forma correta</span>
+        <div class="en"><strong>I went to Paris last year.</strong> (Past Simple, com marcador específico)<br><br><strong>I have been to Paris.</strong> (Present Perfect, sem marcador específico — é experiência de vida)</div>
+        <div class="why">Se você diz QUANDO exatamente foi → Past Simple. Se NÃO diz quando → geralmente Present Perfect.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>O teste rápido — qual usar?</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Pergunta-teste #1</h4>
+      <p style="font-size:15px;line-height:1.6"><strong>Tem marcador de tempo passado e fechado?</strong> (yesterday, last X, in 2020, ago, when I was...)</p>
+      <p style="margin-top:8px;color:var(--accent);font-weight:600">Sim → Past Simple. Sempre.</p>
+    </div>
+    <div class="card">
+      <h4>Pergunta-teste #2</h4>
+      <p style="font-size:15px;line-height:1.6"><strong>O período mencionado ainda não terminou?</strong> (this morning de manhã ainda, today, this week, this year)</p>
+      <p style="margin-top:8px;color:var(--accent);font-weight:600">Sim → Present Perfect.</p>
+    </div>
+    <div class="card">
+      <h4>Pergunta-teste #3</h4>
+      <p style="font-size:15px;line-height:1.6"><strong>É experiência de vida (já fez alguma vez)?</strong> Sem dizer quando.</p>
+      <p style="margin-top:8px;color:var(--accent);font-weight:600">Sim → Present Perfect com ever/never/before.</p>
+    </div>
+    <div class="card">
+      <h4>Pergunta-teste #4</h4>
+      <p style="font-size:15px;line-height:1.6"><strong>Acabou de acontecer e ainda importa?</strong> (just, already, yet)</p>
+      <p style="margin-top:8px;color:var(--accent);font-weight:600">Sim → Present Perfect.</p>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="pp-vs-ps">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #3 — Present Perfect ou Past Simple?</div>
+        <div>O exercício mais importante do nível.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="15" data-correct="went">
+      <div class="q-text">1. I ___ to the gym yesterday.</div>
+      <div class="options">
+        <button class="opt" data-val="went">went</button>
+        <button class="opt" data-val="have gone">have gone</button>
+        <button class="opt" data-val="have been">have been</button>
+        <button class="opt" data-val="goed">goed</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="16" data-correct="have lived">
+      <div class="q-text">2. She ___ in Berlin since 2015.</div>
+      <div class="options">
+        <button class="opt" data-val="lived">lived</button>
+        <button class="opt" data-val="lives">lives</button>
+        <button class="opt" data-val="have lived">have lived</button>
+        <button class="opt" data-val="has lived">has lived</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="17" data-correct="have you ever been">
+      <div class="q-text">3. ___ to Australia?</div>
+      <div class="options">
+        <button class="opt" data-val="did you ever go">Did you ever go</button>
+        <button class="opt" data-val="have you ever been">Have you ever been</button>
+        <button class="opt" data-val="were you ever">Were you ever</button>
+        <button class="opt" data-val="had you ever go">Had you ever go</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="18" data-correct="ate">
+      <div class="q-text">4. I ___ pizza for lunch today (it's now 8pm — lunch is over).</div>
+      <div class="options">
+        <button class="opt" data-val="ate">ate</button>
+        <button class="opt" data-val="have eaten">have eaten</button>
+        <button class="opt" data-val="eated">eated</button>
+        <button class="opt" data-val="have ate">have ate</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="19" data-correct="haven't seen">
+      <div class="q-text">5. I ___ him for ages! How is he?</div>
+      <div class="options">
+        <button class="opt" data-val="didn't see">didn't see</button>
+        <button class="opt" data-val="don't see">don't see</button>
+        <button class="opt" data-val="haven't seen">haven't seen</button>
+        <button class="opt" data-val="haven't saw">haven't saw</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="20" data-correct="have just finished">
+      <div class="q-text">6. I ___ my exam (1 minute ago).</div>
+      <div class="options">
+        <button class="opt" data-val="just finished">just finished</button>
+        <button class="opt" data-val="have just finished">have just finished</button>
+        <button class="opt" data-val="just have finished">just have finished</button>
+        <button class="opt" data-val="finished just">finished just</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="21" data-correct="bought">
+      <div class="q-text">7. We ___ this house in 2010.</div>
+      <div class="options">
+        <button class="opt" data-val="have bought">have bought</button>
+        <button class="opt" data-val="bought">bought</button>
+        <button class="opt" data-val="buyed">buyed</button>
+        <button class="opt" data-val="have buy">have buy</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="22" data-correct="hasn't called">
+      <div class="q-text">8. She ___ me yet. I'm worried.</div>
+      <div class="options">
+        <button class="opt" data-val="didn't call">didn't call</button>
+        <button class="opt" data-val="hasn't called">hasn't called</button>
+        <button class="opt" data-val="hasn't call">hasn't call</button>
+        <button class="opt" data-val="don't call">don't call</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="23" data-correct="have you done">
+      <div class="q-text">9. ___ your homework yet?</div>
+      <div class="options">
+        <button class="opt" data-val="Did you do">Did you do</button>
+        <button class="opt" data-val="Have you done">Have you done</button>
+        <button class="opt" data-val="Have you did">Have you did</button>
+        <button class="opt" data-val="Do you have done">Do you have done</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="24" data-correct="met">
+      <div class="q-text">10. I ___ my wife at university.</div>
+      <div class="options">
+        <button class="opt" data-val="have met">have met</button>
+        <button class="opt" data-val="met">met</button>
+        <button class="opt" data-val="meeted">meeted</button>
+        <button class="opt" data-val="have meet">have meet</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PAST CONTINUOUS -->
+<section id="past-cont">
+  <div class="section-num">04 / Past Continuous</div>
+  <h2>Past Continuous + <em>when / while</em>.</h2>
+  <p class="lead">"Estava fazendo algo quando outra coisa aconteceu". O brasileiro entende a ideia, mas tropeça em juntar com Past Simple. Aqui é onde a narrativa em inglês ganha textura.</p>
+
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Forma</th><th>Estrutura</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Afirmativa</td><td class="em-cell">was/were + verb-ing</td><td>I was reading a book.</td></tr>
+        <tr><td>Negativa</td><td class="em-cell">wasn't/weren't + verb-ing</td><td>They weren't paying attention.</td></tr>
+        <tr><td>Pergunta</td><td class="em-cell">Was/Were + sujeito + verb-ing?</td><td>What were you doing at 10pm?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O combo clássico — Past Continuous + Past Simple</h3>
+  <p>Use Past Continuous para a <strong>cena de fundo</strong> (ação longa em andamento). Use Past Simple para a <strong>ação que interrompe</strong> (curta, pontual).</p>
+
+  <div class="compare-grid">
+    <div class="compare-cell compare-right">
+      <span class="label">Cena longa (Past Continuous) + ação curta (Past Simple)</span>
+      <div class="en"><strong>I was taking a shower</strong> when the phone <strong>rang</strong>.<br><strong>She was driving home</strong> when she <strong>saw</strong> the accident.<br>It <strong>started</strong> raining while we <strong>were walking</strong>.</div>
+      <div class="why">A ação contínua é o "pano de fundo". A ação curta é o "evento" que aparece dentro dela.</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ When vs While — qual usar?</h3>
+    <p><strong>When</strong> = "quando" → vem antes de Past Simple (ação curta).<br><strong>While</strong> = "enquanto" → vem antes de Past Continuous (ação longa).</p>
+    <p style="margin-top:12px"><em>I was sleeping <strong>when</strong> the alarm rang.</em> ✓<br><em>The alarm rang <strong>while</strong> I was sleeping.</em> ✓<br>Os dois funcionam — a ordem das ações muda, não o significado.</p>
+  </div>
+
+  <div class="exercise" data-ex="past-cont">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #4 — Past Continuous vs Past Simple</div>
+        <div>Escolha a combinação certa.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="25" data-correct="was watching / rang">
+      <div class="q-text">1. I ___ TV when the phone ___.</div>
+      <div class="options">
+        <button class="opt" data-val="was watching / rang">was watching / rang</button>
+        <button class="opt" data-val="watched / was ringing">watched / was ringing</button>
+        <button class="opt" data-val="watched / rang">watched / rang</button>
+        <button class="opt" data-val="was watching / was ringing">was watching / was ringing</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="26" data-correct="were they doing">
+      <div class="q-text">2. What ___ at 9pm last night?</div>
+      <div class="options">
+        <button class="opt" data-val="did they do">did they do</button>
+        <button class="opt" data-val="were they doing">were they doing</button>
+        <button class="opt" data-val="they were doing">they were doing</button>
+        <button class="opt" data-val="they did">they did</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="27" data-correct="while">
+      <div class="q-text">3. ___ I was studying, my brother arrived.</div>
+      <div class="options">
+        <button class="opt" data-val="When">When</button>
+        <button class="opt" data-val="While">While</button>
+        <button class="opt" data-val="During">During</button>
+        <button class="opt" data-val="As though">As though</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="28" data-correct="was raining">
+      <div class="q-text">4. It ___ when I left the house this morning.</div>
+      <div class="options">
+        <button class="opt" data-val="rained">rained</button>
+        <button class="opt" data-val="was raining">was raining</button>
+        <button class="opt" data-val="were raining">were raining</button>
+        <button class="opt" data-val="has rained">has rained</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="29" data-correct="weren't listening">
+      <div class="q-text">5. The students ___ during the lecture.</div>
+      <div class="options">
+        <button class="opt" data-val="didn't listen">didn't listen</button>
+        <button class="opt" data-val="weren't listening">weren't listening</button>
+        <button class="opt" data-val="wasn't listening">wasn't listening</button>
+        <button class="opt" data-val="not listening">not listening</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 USED TO -->
+<section id="used-to">
+  <div class="section-num">05 / Used to</div>
+  <h2><em>Used to</em> — hábitos e estados que não existem mais.</h2>
+  <p class="lead">"Eu costumava jogar futebol" / "Eu morava em São Paulo". Em PT a gente usa imperfeito ou "costumava". Em EN existe uma estrutura específica para isso: <strong>used to + verbo</strong>.</p>
+
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Forma</th><th>Estrutura</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Afirmativa</td><td class="em-cell">used to + verbo no infinitivo</td><td>I used to smoke.</td></tr>
+        <tr><td>Negativa</td><td class="em-cell">didn't use to + verbo (CUIDADO: tira o D)</td><td>She didn't use to like coffee.</td></tr>
+        <tr><td>Pergunta</td><td class="em-cell">Did + sujeito + use to + verbo?</td><td>Did you use to play sports?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ A pegadinha: USE TO vs USED TO</h3>
+    <p>Na afirmativa: <strong>used to</strong> (com D). Na negativa e pergunta: <strong>use to</strong> (sem D, porque o "did" já carrega o passado).</p>
+    <div class="compare-grid" style="margin-top:16px">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Erro comum</span>
+        <div class="en">I didn't <span style="text-decoration:line-through">used</span> to like fish.<br><span style="text-decoration:line-through">Did you used</span> to live there?</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Correto</span>
+        <div class="en">I didn't <strong>use</strong> to like fish.<br>Did you <strong>use</strong> to live there?</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Used to vs Be used to vs Get used to (TODOS DIFERENTES)</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>used to + V (infinitivo)</h4>
+      <p style="font-size:14px"><em>"costumava fazer (não faço mais)"</em></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:8px">I used to play tennis. (não jogo mais)</p>
+    </div>
+    <div class="card">
+      <h4>be used to + V-ing</h4>
+      <p style="font-size:14px"><em>"estar acostumado com (faço, é normal)"</em></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:8px">I'm used to working from home. (acostumado)</p>
+    </div>
+    <div class="card">
+      <h4>get used to + V-ing</h4>
+      <p style="font-size:14px"><em>"se acostumar com (processo)"</em></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:8px">I got used to the cold. (me acostumei)</p>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="used-to">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #5 — Used to em todas as formas</div>
+        <div>Atenção à variante (used to / be used to / get used to).</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="30" data-correct="used to live">
+      <div class="q-text">1. We ___ in São Paulo (não moramos mais).</div>
+      <div class="options">
+        <button class="opt" data-val="used to live">used to live</button>
+        <button class="opt" data-val="used to living">used to living</button>
+        <button class="opt" data-val="are used to live">are used to live</button>
+        <button class="opt" data-val="used to lived">used to lived</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="31" data-correct="didn't use to">
+      <div class="q-text">2. She ___ like vegetables when she was a kid.</div>
+      <div class="options">
+        <button class="opt" data-val="didn't used to">didn't used to</button>
+        <button class="opt" data-val="didn't use to">didn't use to</button>
+        <button class="opt" data-val="wasn't used to">wasn't used to</button>
+        <button class="opt" data-val="don't use to">don't use to</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="32" data-correct="am used to">
+      <div class="q-text">3. I ___ waking up at 5am — I'm a doctor (estou acostumado).</div>
+      <div class="options">
+        <button class="opt" data-val="used to">used to</button>
+        <button class="opt" data-val="am used to">am used to</button>
+        <button class="opt" data-val="get used to">get used to</button>
+        <button class="opt" data-val="have used to">have used to</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="33" data-correct="getting used to">
+      <div class="q-text">4. He's still ___ the new schedule (se acostumando).</div>
+      <div class="options">
+        <button class="opt" data-val="used to">used to</button>
+        <button class="opt" data-val="being used to">being used to</button>
+        <button class="opt" data-val="getting used to">getting used to</button>
+        <button class="opt" data-val="get used to">get used to</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="34" data-correct="Did you use to">
+      <div class="q-text">5. ___ play football?</div>
+      <div class="options">
+        <button class="opt" data-val="Did you used to">Did you used to</button>
+        <button class="opt" data-val="Did you use to">Did you use to</button>
+        <button class="opt" data-val="Were you used to">Were you used to</button>
+        <button class="opt" data-val="Have you used to">Have you used to</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 FIRST CONDITIONAL -->
+<section id="first-cond">
+  <div class="section-num">06 / First Conditional</div>
+  <h2>First Conditional — <em>promessas</em>, ameaças, planos.</h2>
+  <p class="lead">"Se chover, eu fico em casa". Situação real, possível, no futuro. Aqui o brasileiro tropeça por uma única razão: depois de IF, NÃO se usa "will".</p>
+
+  <div class="warning-box coral">
+    <h3>⚠ A regra de ouro: nunca "if + will"</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Erro brasileiro clássico</span>
+        <div class="pt">"Se chover amanhã, eu fico em casa"</div>
+        <div class="en">If it will rain tomorrow, I will stay home.</div>
+        <div class="why">Brasileiro pensa "futuro = will" e coloca em todo lugar. Em condicional, o IF carrega o sentido de futuro sozinho.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Estrutura correta</span>
+        <div class="en"><strong>If it rains tomorrow, I will stay home.</strong><br><br>Estrutura: <em>If + presente, will + verbo</em></div>
+        <div class="why">Após IF, use SEMPRE present simple (mesmo falando do futuro). O "will" só aparece na outra cláusula.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>A fórmula</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Cláusula IF</th><th>Cláusula resultado</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td class="em-cell">If + present simple</td><td class="em-cell">will + verbo</td><td>If you study, you will pass.</td></tr>
+        <tr><td>If + present</td><td>can / may / might + V</td><td>If I have time, I might come.</td></tr>
+        <tr><td>If + present</td><td>imperative</td><td>If you see John, tell him to call me.</td></tr>
+        <tr><td>If + present (negativa)</td><td>will + V</td><td>If you don't hurry, you'll miss the bus.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ Truque: "unless" = "if not"</h4>
+    <p><em>I won't go <strong>unless</strong> you come</em> = <em>I won't go <strong>if you don't</strong> come</em>. Mesma coisa, mais elegante.</p>
+  </div>
+
+  <div class="exercise" data-ex="first-cond">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #6 — First Conditional</div>
+        <div>Sem cair na armadilha do "if will".</div>
+      </div>
+      <span class="exercise-type">Mixed</span>
+    </div>
+
+    <div class="q" data-q="35" data-correct="rains / will stay">
+      <div class="q-text">1. If it ___ tomorrow, I ___ home.</div>
+      <div class="options">
+        <button class="opt" data-val="will rain / stay">will rain / stay</button>
+        <button class="opt" data-val="rains / will stay">rains / will stay</button>
+        <button class="opt" data-val="rain / will stay">rain / will stay</button>
+        <button class="opt" data-val="will rain / will stay">will rain / will stay</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="36" data-correct="don't / will be">
+      <div class="q-text">2. If you ___ hurry, you ___ late.</div>
+      <div class="options">
+        <button class="opt" data-val="won't / will be">won't / will be</button>
+        <button class="opt" data-val="don't / will be">don't / will be</button>
+        <button class="opt" data-val="don't / are">don't / are</button>
+        <button class="opt" data-val="not / will be">not / will be</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="37" data-correct="see / tell">
+      <div class="q-text">3. If you ___ John, ___ him to call me.</div>
+      <div class="options">
+        <button class="opt" data-val="will see / tell">will see / tell</button>
+        <button class="opt" data-val="see / tell">see / tell</button>
+        <button class="opt" data-val="see / will tell">see / will tell</button>
+        <button class="opt" data-val="seeing / telling">seeing / telling</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="38" data-correct="rains">
+      <div class="q-text">4. Complete: "I'll bring an umbrella if it ___."</div>
+      <input type="text" class="fill-input" data-answer="rains">
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="39" data-correct="won't pass">
+      <div class="q-text">5. Complete: "If you don't study, you ___ the test." (use will + not)</div>
+      <input type="text" class="fill-input" data-answer="won't pass">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('first-cond')">Verificar fill-ins</button>
+  </div>
+</section>
+
+<!-- 07 REPORTED SPEECH -->
+<section id="reported">
+  <div class="section-num">07 / Reported Speech</div>
+  <h2>Reported Speech <em>básico</em>.</h2>
+  <p class="lead">"Ela disse que estava cansada". Quando você reporta o que alguém falou, em inglês os tempos verbais GERALMENTE recuam um nível pra trás. É a regra dos tempos retroativos.</p>
+
+  <h3>O recuo dos tempos</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Direct (fala original)</th><th>Reported (relatado)</th></tr></thead>
+      <tbody>
+        <tr><td>"I am tired" (Present Simple)</td><td class="em-cell">She said (that) she was tired.</td></tr>
+        <tr><td>"I'm working" (Present Continuous)</td><td class="em-cell">He said he was working.</td></tr>
+        <tr><td>"I went to Rio" (Past Simple)</td><td class="em-cell">She said she had gone to Rio.</td></tr>
+        <tr><td>"I have eaten" (Present Perfect)</td><td class="em-cell">He said he had eaten.</td></tr>
+        <tr><td>"I will come" (Future will)</td><td class="em-cell">She said she would come.</td></tr>
+        <tr><td>"I can swim" (modal can)</td><td class="em-cell">He said he could swim.</td></tr>
+        <tr><td>"I must leave" (modal must)</td><td class="em-cell">She said she had to leave.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Mudanças de pronome e tempo</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Pronomes</h4>
+      <p style="font-size:14px"><strong>I</strong> → <strong>he/she</strong><br><strong>my</strong> → <strong>his/her</strong><br><strong>we</strong> → <strong>they</strong><br><strong>you</strong> → <strong>I/we</strong> (depende)</p>
+    </div>
+    <div class="card">
+      <h4>Marcadores de tempo</h4>
+      <p style="font-size:14px"><strong>now</strong> → <strong>then</strong><br><strong>today</strong> → <strong>that day</strong><br><strong>tomorrow</strong> → <strong>the next day</strong><br><strong>yesterday</strong> → <strong>the day before</strong><br><strong>here</strong> → <strong>there</strong></p>
+    </div>
+    <div class="card">
+      <h4>Verbos de fala</h4>
+      <p style="font-size:14px"><strong>say</strong> = falou (sem objeto direto)<br><strong>tell</strong> = falou pra alguém (sempre com pessoa)<br><strong>ask</strong> = perguntou</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">She said she was tired. ✓<br>She told ME she was tired. ✓<br>She told she was tired. ❌</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ Pergunta indireta — sem inversão!</h3>
+    <p>Em pergunta direta: "Where are you?" (with inversion). Em reported question: <strong>"He asked where I was"</strong> — a ordem volta pro normal sujeito-verbo. SEM "?".</p>
+    <div class="compare-grid" style="margin-top:16px">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Erro de inversão</span>
+        <div class="en">He asked <span style="text-decoration:line-through">where was I</span>.<br>She wanted to know <span style="text-decoration:line-through">what time is it</span>.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Volta pra ordem normal</span>
+        <div class="en">He asked <strong>where I was</strong>.<br>She wanted to know <strong>what time it was</strong>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="reported">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #7 — Reported Speech</div>
+        <div>Transforme a fala direta em fala relatada.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="40" data-correct="She said she was busy">
+      <div class="q-text">1. "I am busy" → She said ___.</div>
+      <div class="options">
+        <button class="opt" data-val="She said she is busy">she is busy</button>
+        <button class="opt" data-val="She said she was busy">she was busy</button>
+        <button class="opt" data-val="She said I was busy">I was busy</button>
+        <button class="opt" data-val="She said she has been busy">she has been busy</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="41" data-correct="He said he had finished">
+      <div class="q-text">2. "I have finished" → He said ___.</div>
+      <div class="options">
+        <button class="opt" data-val="He said he has finished">he has finished</button>
+        <button class="opt" data-val="He said he had finished">he had finished</button>
+        <button class="opt" data-val="He said he finished">he finished</button>
+        <button class="opt" data-val="He said he was finished">he was finished</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="42" data-correct="She told me she would come">
+      <div class="q-text">3. "I will come" → ___.</div>
+      <div class="options">
+        <button class="opt" data-val="She said me she will come">She said me she will come</button>
+        <button class="opt" data-val="She told me she will come">She told me she will come</button>
+        <button class="opt" data-val="She told me she would come">She told me she would come</button>
+        <button class="opt" data-val="She said she will come to me">She said she will come to me</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="43" data-correct="He asked where I lived">
+      <div class="q-text">4. "Where do you live?" → ___.</div>
+      <div class="options">
+        <button class="opt" data-val="He asked where do I live">He asked where do I live</button>
+        <button class="opt" data-val="He asked where did I live">He asked where did I live</button>
+        <button class="opt" data-val="He asked where I lived">He asked where I lived</button>
+        <button class="opt" data-val="He asked where I live">He asked where I live</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="44" data-correct="She asked if I could swim">
+      <div class="q-text">5. "Can you swim?" → ___.</div>
+      <div class="options">
+        <button class="opt" data-val="She asked if I can swim">She asked if I can swim</button>
+        <button class="opt" data-val="She asked could I swim">She asked could I swim</button>
+        <button class="opt" data-val="She asked if I could swim">She asked if I could swim</button>
+        <button class="opt" data-val="She told me if I could swim">She told me if I could swim</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 PHRASAL VERBS -->
+<section id="phrasals">
+  <div class="section-num">08 / Phrasal Verbs</div>
+  <h2>Os <em>25 phrasal verbs</em> que abrem 50% da fala nativa.</h2>
+  <p class="lead">Phrasal verb = verbo + preposição/advérbio que tem significado próprio. Brasileiro odeia porque cada combinação tem que ser decorada — não dá pra deduzir. Mas não dá pra escapar: nativos usam o tempo todo.</p>
+
+  <div class="warning-box coral">
+    <h3>⚠ Por que phrasal verbs destruem brasileiros</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Tradução literal não funciona</span>
+        <div class="en"><strong>"give up"</strong> ≠ "dar para cima"<br><strong>"look up"</strong> ≠ "olhar para cima"<br><strong>"pick up"</strong> ≠ "pegar pra cima"</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Significado próprio</span>
+        <div class="en"><strong>give up</strong> = desistir<br><strong>look up</strong> = pesquisar (no dicionário, online)<br><strong>pick up</strong> = pegar / buscar alguém / aprender rapidinho</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Os 25 essenciais — decora todos</h3>
+  <div class="phrasal-grid">
+    <div class="phrasal-cell"><div class="pv">give up</div><div class="meaning">desistir</div><div class="example">Don't give up on your dream.</div></div>
+    <div class="phrasal-cell"><div class="pv">look up</div><div class="meaning">pesquisar</div><div class="example">I'll look it up online.</div></div>
+    <div class="phrasal-cell"><div class="pv">pick up</div><div class="meaning">pegar / buscar</div><div class="example">I'll pick you up at 7.</div></div>
+    <div class="phrasal-cell"><div class="pv">turn on / off</div><div class="meaning">ligar / desligar</div><div class="example">Turn off the lights.</div></div>
+    <div class="phrasal-cell"><div class="pv">turn up / down</div><div class="meaning">aumentar / diminuir volume</div><div class="example">Turn the music down, please.</div></div>
+    <div class="phrasal-cell"><div class="pv">get up</div><div class="meaning">levantar (da cama)</div><div class="example">I get up at 6 every day.</div></div>
+    <div class="phrasal-cell"><div class="pv">wake up</div><div class="meaning">acordar</div><div class="example">She woke up early.</div></div>
+    <div class="phrasal-cell"><div class="pv">show up</div><div class="meaning">aparecer</div><div class="example">He didn't show up to the party.</div></div>
+    <div class="phrasal-cell"><div class="pv">find out</div><div class="meaning">descobrir</div><div class="example">I found out he was lying.</div></div>
+    <div class="phrasal-cell"><div class="pv">work out</div><div class="meaning">malhar / dar certo</div><div class="example">I work out 3x a week. / It worked out.</div></div>
+    <div class="phrasal-cell"><div class="pv">figure out</div><div class="meaning">descobrir / sacar</div><div class="example">I can't figure out this problem.</div></div>
+    <div class="phrasal-cell"><div class="pv">hang out</div><div class="meaning">passar tempo / ficar</div><div class="example">Let's hang out this weekend.</div></div>
+    <div class="phrasal-cell"><div class="pv">look after</div><div class="meaning">cuidar de</div><div class="example">She looks after her grandma.</div></div>
+    <div class="phrasal-cell"><div class="pv">look forward to</div><div class="meaning">aguardar ansioso (+ ING)</div><div class="example">I look forward to seeing you.</div></div>
+    <div class="phrasal-cell"><div class="pv">put on</div><div class="meaning">vestir / colocar</div><div class="example">Put on your jacket — it's cold.</div></div>
+    <div class="phrasal-cell"><div class="pv">take off</div><div class="meaning">tirar (roupa) / decolar</div><div class="example">The plane takes off at 8.</div></div>
+    <div class="phrasal-cell"><div class="pv">break up</div><div class="meaning">terminar (relacionamento)</div><div class="example">They broke up last month.</div></div>
+    <div class="phrasal-cell"><div class="pv">come up with</div><div class="meaning">bolar / pensar em</div><div class="example">I came up with an idea.</div></div>
+    <div class="phrasal-cell"><div class="pv">run out of</div><div class="meaning">acabar (algo)</div><div class="example">We ran out of milk.</div></div>
+    <div class="phrasal-cell"><div class="pv">go on</div><div class="meaning">continuar / acontecer</div><div class="example">What's going on? · Go on, tell me.</div></div>
+    <div class="phrasal-cell"><div class="pv">put up with</div><div class="meaning">aguentar / tolerar</div><div class="example">I can't put up with this noise.</div></div>
+    <div class="phrasal-cell"><div class="pv">get along (with)</div><div class="meaning">se dar bem com</div><div class="example">I get along with my coworkers.</div></div>
+    <div class="phrasal-cell"><div class="pv">bring up</div><div class="meaning">criar (filhos) / mencionar</div><div class="example">She brought up an interesting point.</div></div>
+    <div class="phrasal-cell"><div class="pv">call off</div><div class="meaning">cancelar</div><div class="example">They called off the meeting.</div></div>
+    <div class="phrasal-cell"><div class="pv">make up</div><div class="meaning">inventar / fazer as pazes</div><div class="example">He made up an excuse.</div></div>
+  </div>
+
+  <div class="exercise" data-ex="phrasals">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #8 — Phrasal Verbs em contexto</div>
+        <div>Escolha o phrasal verb correto.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="45" data-correct="give up">
+      <div class="q-text">1. The math problem was too hard, so I had to ___.</div>
+      <div class="options">
+        <button class="opt" data-val="give up">give up</button>
+        <button class="opt" data-val="give in">give in</button>
+        <button class="opt" data-val="get up">get up</button>
+        <button class="opt" data-val="give over">give over</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="46" data-correct="pick you up">
+      <div class="q-text">2. I'll ___ at the airport at 7pm.</div>
+      <div class="options">
+        <button class="opt" data-val="catch you up">catch you up</button>
+        <button class="opt" data-val="pick you up">pick you up</button>
+        <button class="opt" data-val="pick up you">pick up you</button>
+        <button class="opt" data-val="get you up">get you up</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="47" data-correct="ran out of">
+      <div class="q-text">3. We have to go to the store — we ___ milk.</div>
+      <div class="options">
+        <button class="opt" data-val="ran out">ran out</button>
+        <button class="opt" data-val="ran out of">ran out of</button>
+        <button class="opt" data-val="ran out off">ran out off</button>
+        <button class="opt" data-val="get out of">get out of</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="48" data-correct="figure out">
+      <div class="q-text">4. I can't ___ how to use this app.</div>
+      <div class="options">
+        <button class="opt" data-val="find out">find out</button>
+        <button class="opt" data-val="figure out">figure out</button>
+        <button class="opt" data-val="look out">look out</button>
+        <button class="opt" data-val="check out">check out</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="49" data-correct="put up with">
+      <div class="q-text">5. I can't ___ his attitude anymore!</div>
+      <div class="options">
+        <button class="opt" data-val="put up">put up</button>
+        <button class="opt" data-val="put with">put with</button>
+        <button class="opt" data-val="put up with">put up with</button>
+        <button class="opt" data-val="put on">put on</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="50" data-correct="show up">
+      <div class="q-text">6. He didn't ___ to the meeting yesterday.</div>
+      <div class="options">
+        <button class="opt" data-val="show off">show off</button>
+        <button class="opt" data-val="show up">show up</button>
+        <button class="opt" data-val="show on">show on</button>
+        <button class="opt" data-val="appear up">appear up</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 GERUND vs INFINITIVE -->
+<section id="ger-inf">
+  <div class="section-num">09 / Gerund vs Infinitive</div>
+  <h2><em>Gerund</em> ou <em>infinitive</em> depois do verbo?</h2>
+  <p class="lead">"I enjoy <strong>swimming</strong>" mas "I want <strong>to swim</strong>". Por quê? Porque cada verbo "manda" no que vem depois. Não há regra perfeita — você precisa decorar listas. Mas existem padrões.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Verbos que pedem -ING (gerund)</h4>
+      <p style="font-size:14px;line-height:1.8"><strong>enjoy, mind, finish, avoid, suggest, recommend, miss, practice, keep, stop, can't help, can't stand, look forward to</strong></p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">I enjoy swimming. · I can't stand waiting. · She finished eating.</p>
+    </div>
+    <div class="card">
+      <h4>Verbos que pedem TO + verbo (infinitive)</h4>
+      <p style="font-size:14px;line-height:1.8"><strong>want, would like, plan, decide, hope, expect, promise, refuse, agree, manage, learn, need, offer</strong></p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">I want to leave. · She decided to stay. · I hope to see you.</p>
+    </div>
+    <div class="card">
+      <h4>Verbos que aceitam OS DOIS (sem mudança)</h4>
+      <p style="font-size:14px;line-height:1.8"><strong>like, love, hate, prefer, start, begin, continue</strong></p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">I like swimming = I like to swim.</p>
+    </div>
+    <div class="card">
+      <h4>OS DOIS, MAS COM SENTIDO DIFERENTE</h4>
+      <p style="font-size:14px"><strong>stop, remember, forget, try</strong></p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">I stopped <strong>smoking</strong> (parei de fumar). I stopped <strong>to smoke</strong> (parei pra fumar).</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ "stop", "remember", "forget", "try" — duas vidas</h3>
+    <table class="gram-table" style="margin-top:16px">
+      <tr><td><strong>stop + ING</strong></td><td>parar de fazer algo</td><td>I stopped smoking. (não fumo mais)</td></tr>
+      <tr><td><strong>stop + to + V</strong></td><td>parar PARA fazer algo</td><td>I stopped to smoke. (parei e fumei)</td></tr>
+      <tr><td><strong>remember + ING</strong></td><td>lembrar de algo do passado</td><td>I remember meeting her. (lembro do dia)</td></tr>
+      <tr><td><strong>remember + to + V</strong></td><td>lembrar de fazer (no futuro)</td><td>Remember to call mom. (não esquece)</td></tr>
+      <tr><td><strong>try + ING</strong></td><td>tentar (experimentar)</td><td>Try opening it with this key.</td></tr>
+      <tr><td><strong>try + to + V</strong></td><td>tentar (esforço)</td><td>I tried to call you, but couldn't.</td></tr>
+    </table>
+  </div>
+
+  <div class="exercise" data-ex="ger-inf">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #9 — Gerund ou Infinitive?</div>
+        <div>Decore os padrões.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="51" data-correct="swimming">
+      <div class="q-text">1. I enjoy ___ in the ocean.</div>
+      <div class="options">
+        <button class="opt" data-val="to swim">to swim</button>
+        <button class="opt" data-val="swimming">swimming</button>
+        <button class="opt" data-val="swim">swim</button>
+        <button class="opt" data-val="swam">swam</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="52" data-correct="to leave">
+      <div class="q-text">2. She decided ___ early.</div>
+      <div class="options">
+        <button class="opt" data-val="leaving">leaving</button>
+        <button class="opt" data-val="to leave">to leave</button>
+        <button class="opt" data-val="leave">leave</button>
+        <button class="opt" data-val="left">left</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="53" data-correct="seeing">
+      <div class="q-text">3. I look forward ___ you next week.</div>
+      <div class="options">
+        <button class="opt" data-val="to see">to see</button>
+        <button class="opt" data-val="see">see</button>
+        <button class="opt" data-val="seeing">seeing</button>
+        <button class="opt" data-val="to seeing">to seeing</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="54" data-correct="to call">
+      <div class="q-text">4. Don't forget ___ your mother on her birthday!</div>
+      <div class="options">
+        <button class="opt" data-val="calling">calling</button>
+        <button class="opt" data-val="to call">to call</button>
+        <button class="opt" data-val="call">call</button>
+        <button class="opt" data-val="to calling">to calling</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="55" data-correct="smoking">
+      <div class="q-text">5. He quit ___ five years ago.</div>
+      <div class="options">
+        <button class="opt" data-val="to smoke">to smoke</button>
+        <button class="opt" data-val="smoking">smoking</button>
+        <button class="opt" data-val="smoke">smoke</button>
+        <button class="opt" data-val="smoked">smoked</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="56" data-correct="meeting">
+      <div class="q-text">6. I remember ___ her at a conference last year.</div>
+      <div class="options">
+        <button class="opt" data-val="to meet">to meet</button>
+        <button class="opt" data-val="meeting">meeting</button>
+        <button class="opt" data-val="meet">meet</button>
+        <button class="opt" data-val="have met">have met</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PASSIVE VOICE -->
+<section id="passive">
+  <div class="section-num">10 / Passive Voice</div>
+  <h2>Passive Voice — <em>introdução</em>.</h2>
+  <p class="lead">"O bolo foi feito pela minha mãe". Em PT é direto. Em EN também é direto, mas a estrutura é específica: <strong>be + past participle</strong>.</p>
+
+  <h3>A fórmula em todos os tempos</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Tempo</th><th>Passive</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Present Simple</td><td class="em-cell">am/is/are + p.p.</td><td>The cake is made by my mother.</td></tr>
+        <tr><td>Past Simple</td><td class="em-cell">was/were + p.p.</td><td>The cake was made yesterday.</td></tr>
+        <tr><td>Present Continuous</td><td class="em-cell">am/is/are being + p.p.</td><td>The cake is being made now.</td></tr>
+        <tr><td>Present Perfect</td><td class="em-cell">have/has been + p.p.</td><td>The cake has been made.</td></tr>
+        <tr><td>Future will</td><td class="em-cell">will be + p.p.</td><td>The cake will be made tomorrow.</td></tr>
+        <tr><td>Modal (can/should)</td><td class="em-cell">modal + be + p.p.</td><td>The cake can be made today.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ Quando usar passive (e quando NÃO)</h3>
+    <p><strong>Use passive quando:</strong> não importa quem fez · você não sabe quem fez · o foco é a coisa, não o agente.</p>
+    <p style="margin-top:8px"><strong>Evite passive quando:</strong> a frase fica artificial · você sabe quem fez e isso importa.</p>
+    <div class="compare-grid" style="margin-top:16px">
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Passive faz sentido</span>
+        <div class="en">My car was stolen last night. (não sei quem)<br>English is spoken in many countries.<br>The bridge was built in 1880.</div>
+      </div>
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Passive desnecessário</span>
+        <div class="en"><span style="text-decoration:line-through">A pizza was eaten by me.</span><br>Use: <strong>I ate a pizza.</strong> (mais natural)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="passive">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #10 — Passive Voice</div>
+        <div>Transforme ou complete.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="57" data-correct="was built">
+      <div class="q-text">1. The Eiffel Tower ___ in 1889.</div>
+      <div class="options">
+        <button class="opt" data-val="built">built</button>
+        <button class="opt" data-val="was built">was built</button>
+        <button class="opt" data-val="was build">was build</button>
+        <button class="opt" data-val="were built">were built</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="58" data-correct="is spoken">
+      <div class="q-text">2. English ___ in over 60 countries.</div>
+      <div class="options">
+        <button class="opt" data-val="speaks">speaks</button>
+        <button class="opt" data-val="is speaking">is speaking</button>
+        <button class="opt" data-val="is spoken">is spoken</button>
+        <button class="opt" data-val="speaks by">speaks by</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="59" data-correct="have been written">
+      <div class="q-text">3. Three new books ___ this year by that author.</div>
+      <div class="options">
+        <button class="opt" data-val="have written">have written</button>
+        <button class="opt" data-val="have been written">have been written</button>
+        <button class="opt" data-val="has been written">has been written</button>
+        <button class="opt" data-val="were written">were written</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="60" data-correct="will be delivered">
+      <div class="q-text">4. The package ___ tomorrow.</div>
+      <div class="options">
+        <button class="opt" data-val="will deliver">will deliver</button>
+        <button class="opt" data-val="will be delivered">will be delivered</button>
+        <button class="opt" data-val="is delivered">is delivered</button>
+        <button class="opt" data-val="will been delivered">will been delivered</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="61" data-correct="is being repaired">
+      <div class="q-text">5. The car ___ right now (it's at the mechanic).</div>
+      <div class="options">
+        <button class="opt" data-val="is repairing">is repairing</button>
+        <button class="opt" data-val="is being repaired">is being repaired</button>
+        <button class="opt" data-val="has been repaired">has been repaired</button>
+        <button class="opt" data-val="repairs">repairs</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 VIDEOS -->
+<section id="videos">
+  <div class="section-num">11 / Vídeos curados</div>
+  <h2>5 vídeos para <em>destravar</em>.</h2>
+  <p class="lead">Foco no Present Perfect e nos phrasal verbs. Esses dois assuntos rendem 80% da diferença entre A2 e B2.</p>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/_q1wWNJtSfI" title="Present Perfect" allowfullscreen></iframe>
+      </div>
+      <h4>★ Present Perfect destravado</h4>
+      <p>Carina Fragozo — A explicação mais clara em PT pra entender a lógica do Present Perfect.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/lBKjE1y2hxQ" title="Present Perfect vs Past Simple" allowfullscreen></iframe>
+      </div>
+      <h4>★ Present Perfect vs Past Simple</h4>
+      <p>BBC Learning English — A diferença com exemplos cotidianos. Vídeo curto, denso, perfeito.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/UO3F5UvWsRg" title="Phrasal verbs essential" allowfullscreen></iframe>
+      </div>
+      <h4>★ 25 phrasal verbs essenciais</h4>
+      <p>English with Lucy — Os phrasal verbs que nativos REALMENTE usam, não os de livro.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/3ZxLT4cEKeo" title="Reported speech" allowfullscreen></iframe>
+      </div>
+      <h4>★ Reported speech</h4>
+      <p>EngVid — Como reportar o que outras pessoas falaram sem se perder no recuo dos tempos.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/gn9YGfeVlqU" title="First conditional" allowfullscreen></iframe>
+      </div>
+      <h4>★ First Conditional sem cair na cilada</h4>
+      <p>mmmEnglish — A regra do "if + presente" para falar de futuro.</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ Backup channels</h4>
+    <p>Se algum vídeo cair, busque por: "present perfect explained", "phrasal verbs daily english", "first conditional grammar". Canais top: <strong>BBC Learning English, English with Lucy, Carina Fragozo, mmmEnglish, EngVid (especialmente Adam e Emma), Mairo Vergara, Linguamarina</strong>.</p>
+  </div>
+</section>
+
+<!-- 12 FINAL TEST -->
+<section id="final">
+  <div class="section-num">12 / Teste final</div>
+  <h2>Teste final — <em>você está pronto pro B2?</em></h2>
+  <p class="lead">10 questões finais misturando TUDO. Mínimo pra seguir pro B2: 7/10. Especialmente: se você errou QUALQUER pergunta sobre Present Perfect vs Past Simple, refaça a Lição 03.</p>
+
+  <div class="exercise" data-ex="final">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Final B1 Test</div>
+        <div>Mix de tudo. Sem consultar.</div>
+      </div>
+      <span class="exercise-type">10 questões</span>
+    </div>
+
+    <div class="q" data-q="62" data-correct="have lived">
+      <div class="q-text">1. I ___ in this city for 7 years.</div>
+      <div class="options">
+        <button class="opt" data-val="live">live</button>
+        <button class="opt" data-val="lived">lived</button>
+        <button class="opt" data-val="have lived">have lived</button>
+        <button class="opt" data-val="am living">am living</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="63" data-correct="went">
+      <div class="q-text">2. I ___ to Paris in 2019.</div>
+      <div class="options">
+        <button class="opt" data-val="have gone">have gone</button>
+        <button class="opt" data-val="went">went</button>
+        <button class="opt" data-val="have been">have been</button>
+        <button class="opt" data-val="had gone">had gone</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="64" data-correct="rains / will stay">
+      <div class="q-text">3. If it ___ tomorrow, I ___ home.</div>
+      <div class="options">
+        <button class="opt" data-val="will rain / stay">will rain / stay</button>
+        <button class="opt" data-val="rains / will stay">rains / will stay</button>
+        <button class="opt" data-val="rain / stay">rain / stay</button>
+        <button class="opt" data-val="will rain / will stay">will rain / will stay</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="65" data-correct="was reading / called">
+      <div class="q-text">4. I ___ a book when she ___.</div>
+      <div class="options">
+        <button class="opt" data-val="read / was calling">read / was calling</button>
+        <button class="opt" data-val="was reading / called">was reading / called</button>
+        <button class="opt" data-val="read / called">read / called</button>
+        <button class="opt" data-val="have read / called">have read / called</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="66" data-correct="used to live">
+      <div class="q-text">5. We ___ in São Paulo, but we moved to Rio.</div>
+      <div class="options">
+        <button class="opt" data-val="use to live">use to live</button>
+        <button class="opt" data-val="used to live">used to live</button>
+        <button class="opt" data-val="are used to live">are used to live</button>
+        <button class="opt" data-val="were used to living">were used to living</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="67" data-correct="give up">
+      <div class="q-text">6. Don't ___ on your dreams!</div>
+      <div class="options">
+        <button class="opt" data-val="give in">give in</button>
+        <button class="opt" data-val="give up">give up</button>
+        <button class="opt" data-val="get up">get up</button>
+        <button class="opt" data-val="give over">give over</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="68" data-correct="seeing">
+      <div class="q-text">7. I look forward to ___ you next month.</div>
+      <div class="options">
+        <button class="opt" data-val="see">see</button>
+        <button class="opt" data-val="to see">to see</button>
+        <button class="opt" data-val="seeing">seeing</button>
+        <button class="opt" data-val="seen">seen</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="69" data-correct="was built">
+      <div class="q-text">8. The bridge ___ in 1932.</div>
+      <div class="options">
+        <button class="opt" data-val="built">built</button>
+        <button class="opt" data-val="was built">was built</button>
+        <button class="opt" data-val="has built">has built</button>
+        <button class="opt" data-val="was build">was build</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="70" data-correct="She told me she was tired">
+      <div class="q-text">9. "I am tired" — qual o reported speech correto?</div>
+      <div class="options">
+        <button class="opt" data-val="She said me she was tired">She said me she was tired</button>
+        <button class="opt" data-val="She told me she is tired">She told me she is tired</button>
+        <button class="opt" data-val="She told me she was tired">She told me she was tired</button>
+        <button class="opt" data-val="She said me she is tired">She said me she is tired</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="71" data-correct="I have lived here for 5 years">
+      <div class="q-text">10. Traduza: "Eu moro aqui há 5 anos"</div>
+      <input type="text" class="fill-input" data-answer="I have lived here for 5 years" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('final')">Verificar fill-ins</button>
+  </div>
+</section>
+
+</main>
+
+<div class="score-display">
+  <span>SCORE</span>
+  <span class="pt-pts" id="scoreNum">0</span>
+  <span>/ 71</span>
+</div>
+
+<nav class="level-nav">
+  <a href="02_A2_Elementary.html">
+    <div class="lbl">← Anterior</div>
+    <div class="ttl">A2 · Elementary</div>
+  </a>
+  <a href="04_B2_UpperIntermediate.html" class="next">
+    <div class="lbl">Próximo nível →</div>
+    <div class="ttl">B2 · Upper Intermediate</div>
+  </a>
+</nav>
+
+<footer>
+  <h3>Você atravessou o Present Perfect.</h3>
+  <p>Esse era o muro principal entre A2 e B2. Agora segue pro <strong>B2 — Upper Intermediate</strong>: Past Perfect, conditionals avançadas, modais de dedução, phrasal verbs avançados e relative clauses.</p>
+  <p style="margin-top:16px;font-family:'JetBrains Mono',monospace"><a href="index.html">← Voltar ao índice</a> · English Mastery © Built to break the translation habit</p>
+</footer>
+
+<script>
+let score = 0;
+const total = 71;
+
+document.querySelectorAll('.q').forEach(q => {
+  const correct = q.dataset.correct;
+  const opts = q.querySelectorAll('.opt');
+  const fb = q.querySelector('.feedback');
+
+  opts.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if(q.dataset.answered) return;
+      const val = opt.dataset.val;
+      opts.forEach(o => o.classList.add('disabled'));
+      if(val === correct){
+        opt.classList.add('correct');
+        fb.classList.add('show','correct');
+        fb.innerHTML = '<strong>✓ Correto!</strong> ' + getExplanation(q.dataset.q, true);
+        score++;
+        updateScore();
+      } else {
+        opt.classList.add('wrong');
+        opts.forEach(o => { if(o.dataset.val === correct) o.classList.add('correct'); });
+        fb.classList.add('show','wrong');
+        fb.innerHTML = '<strong>✗ Errado.</strong> ' + getExplanation(q.dataset.q, false);
+      }
+      q.dataset.answered = 'true';
+    });
+  });
+});
+
+function checkFillIns(exId){
+  const ex = document.querySelector(`[data-ex="${exId}"]`);
+  if(!ex) return;
+  const inputs = ex.querySelectorAll('.fill-input');
+  inputs.forEach(input => {
+    if(input.dataset.checked) return;
+    const expected = input.dataset.answer.toLowerCase().trim();
+    const got = input.value.toLowerCase().trim();
+    const q = input.closest('.q');
+    const fb = q.querySelector('.feedback');
+    if(got === expected){
+      input.classList.add('correct');
+      fb.classList.add('show','correct');
+      fb.innerHTML = '<strong>✓ Correto!</strong> ' + getExplanation(q.dataset.q, true);
+      score++;
+      updateScore();
+    } else {
+      input.classList.add('wrong');
+      fb.classList.add('show','wrong');
+      fb.innerHTML = `<strong>✗ Errado.</strong> Resposta correta: <em>${input.dataset.answer}</em>. ` + getExplanation(q.dataset.q, false);
+    }
+    input.dataset.checked = 'true';
+  });
+}
+
+function updateScore(){ document.getElementById('scoreNum').textContent = score; }
+
+function getExplanation(qNum, c){
+  const ex = {
+    '1':'be → been (past participle). I have been to London = já fui (experiência de vida).',
+    '2':'see → seen. NÃO confunda com "saw" (past simple).',
+    '3':'do → done. Have you done = já fez. Past simple seria "did", past participle é "done".',
+    '4':'write → written. Cuidado: writed não existe.',
+    '5':'eat → eaten. Past simple = ate. Past participle = eaten.',
+    '6':'know → known. Frase típica de B1: I have known him for X years.',
+    '7':'take → taken. Drill = drank, mas take = took / taken.',
+    '8':'buy → bought. Past simple e past participle são iguais aqui.',
+    '9':'FOR + duração (3 anos = um período). SINCE seria com data específica.',
+    '10':'SINCE + ponto no tempo (2019 = data específica).',
+    '11':'FOR + período de tempo abstrato. "A long time" = duração.',
+    '12':'SINCE + evento/data específica. "Last Christmas" = ponto no tempo.',
+    '13':'FOR + duração (25 anos). Sempre com período fechado.',
+    '14':'SINCE + hora específica (8 o\'clock = ponto inicial).',
+    '15':'"Yesterday" = marcador de tempo definido no passado → Past Simple obrigatório.',
+    '16':'"Since 2015" + ação contínua até agora → Present Perfect (has, porque "she").',
+    '17':'"Ever" = experiência de vida → Present Perfect com "Have you ever been to...".',
+    '18':'O dia ainda é hoje, mas o ALMOÇO já acabou. Como a ação foi pontual e completa, → Past Simple "ate".',
+    '19':'"For ages" = período até agora → Present Perfect negativa (haven\'t seen).',
+    '20':'"Just" + acabou de acontecer → Present Perfect: "have just finished" (just vai entre have e o p.p.).',
+    '21':'"In 2010" = data específica → Past Simple (bought).',
+    '22':'"Yet" + algo que ainda não aconteceu → Present Perfect negativa: "hasn\'t called".',
+    '23':'"Yet" em pergunta → Present Perfect: "Have you done?".',
+    '24':'Você conheceu a esposa num momento específico do passado (na universidade) → Past Simple "met".',
+    '25':'Ação longa (was watching) é interrompida pela curta (rang).',
+    '26':'Pergunta com Past Continuous: "What were they doing?".',
+    '27':'WHILE + Past Continuous (ação longa). When + Past Simple (ação curta).',
+    '28':'"It was raining" = estado em andamento naquele momento (manhã).',
+    '29':'Past Continuous negativo plural: weren\'t listening.',
+    '30':'used to + verbo no infinitivo. NÃO "used to living".',
+    '31':'Negativa: "didn\'t USE to" (sem D, porque o "did" carrega o passado).',
+    '32':'Be used to + ING = estar acostumado. Aqui é estado, não passado terminado.',
+    '33':'Get used to + ING = se acostumar (processo). "He\'s still getting used to..."',
+    '34':'Pergunta: "Did you USE to" (sem D no use).',
+    '35':'Após IF, present simple (rains). No outro lado, will + verbo (will stay).',
+    '36':'Após IF negativo, "don\'t" (presente). Outro lado: "will be" (futuro).',
+    '37':'Imperativo na cláusula resultado: "tell him". Após IF: present simple "see".',
+    '38':'Após IF, present simple sempre. "rains".',
+    '39':'will + not = won\'t. "won\'t pass". Frase comum em primeira condicional.',
+    '40':'"I am" → "she was" (recuo de present para past).',
+    '41':'"I have finished" → "he had finished" (Present Perfect → Past Perfect).',
+    '42':'"will" → "would". E "told ME" porque tem destinatário direto (me).',
+    '43':'Reported question: SEM inversão. "where I lived" (e present simple → past simple).',
+    '44':'Pergunta sim/não → "if/whether". "can" → "could".',
+    '45':'"give up" = desistir. Idiomático.',
+    '46':'"pick someone up" = ir buscar alguém. O "you" pode ir entre pick e up.',
+    '47':'"run out of" = acabar (algo). Sempre com "of".',
+    '48':'"figure out" = decifrar / entender (algo complicado).',
+    '49':'"put up with" = tolerar / aguentar. 3 partes obrigatórias.',
+    '50':'"show up" = aparecer / comparecer.',
+    '51':'enjoy + ING. Enjoy NUNCA pede infinitivo.',
+    '52':'decide + to + V (infinitivo).',
+    '53':'look forward TO + ING (cuidado: o "to" aqui é preposição, NÃO infinitivo).',
+    '54':'forget to + V (infinitivo) = não esquecer de fazer (no futuro). Forget ING = lembrar do passado.',
+    '55':'quit + ING (mesma família de stop, finish, etc).',
+    '56':'remember + ING = lembrar de algo do passado. (Remember to + V = lembrar de fazer no futuro)',
+    '57':'Past simple passive: was/were + p.p. "was built".',
+    '58':'Present simple passive: is + p.p. "is spoken".',
+    '59':'Present perfect passive: have/has BEEN + p.p. "have been written" (3 books → plural).',
+    '60':'Future passive: will BE + p.p. "will be delivered".',
+    '61':'Present continuous passive: is/are BEING + p.p. "is being repaired".',
+    '62':'"For 7 years" + ação até agora → Present Perfect "have lived".',
+    '63':'"In 2019" = data específica → Past Simple "went".',
+    '64':'IF + present (rains), will + V (will stay). NUNCA "if will".',
+    '65':'Combo clássico: ação longa (was reading) + ação curta interruptora (called).',
+    '66':'used to + verbo no infinitivo. Indica hábito do passado que não existe mais.',
+    '67':'"give up" = desistir. Phrasal verb essencial.',
+    '68':'look forward TO + ING (preposição, não infinitivo). "seeing" não "to see".',
+    '69':'"in 1932" = data específica + foco no objeto → Past Simple Passive "was built".',
+    '70':'Reported speech: "told me" (com destinatário) + recuo "am" → "was".',
+    '71':'I have lived here for 5 years. Estrutura: have + p.p. + for + duração.'
+  };
+  return ex[qNum] || '';
+}
+
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+</body>
+</html>
