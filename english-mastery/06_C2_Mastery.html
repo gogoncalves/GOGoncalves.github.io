@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Mastery — C2 Mastery | Indistinguível de nativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f23;
+  --paper:#fdf2f8;
+  --paper-dark:#fce7f3;
+  --ink:#0a0a14;
+  --accent:#ec4899;
+  --accent-2:#f9a8d4;
+  --accent-soft:#fbcfe8;
+  --gold:#fbbf24;
+  --green:#15803d;
+  --red:#dc2626;
+  --line:rgba(15,15,35,.13);
+  --shadow:0 1px 0 rgba(0,0,0,.06), 0 8px 24px -4px rgba(15,15,35,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(15,15,35,.06) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.5}
+
+.hero{position:relative;background:var(--bg);color:var(--paper);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(236,72,153,.32),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(251,191,36,.1),transparent 50%)}
+.hero::after{content:'C2';position:absolute;right:-30px;bottom:-80px;font-family:'Fraunces',serif;font-size:380px;font-weight:300;color:rgba(253,242,248,.05);line-height:.8;letter-spacing:-.05em;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:#fff;padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:#fff;font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,120px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px}
+h1.title em{font-style:italic;color:var(--accent-2);font-weight:400}
+h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,22px);max-width:680px;color:rgba(253,242,248,.78);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(253,242,248,.18)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent-2);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(253,242,248,.65);margin-top:8px}
+
+main{max-width:1200px;margin:0 auto;padding:80px 6vw;position:relative;z-index:1}
+section{margin-bottom:120px;scroll-margin-top:20px}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#9d174d;letter-spacing:.2em;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.section-num::after{content:'';flex:1;height:1px;background:var(--line)}
+h2{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,64px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:32px}
+h2 em{font-style:italic;color:var(--accent)}
+h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;margin:32px 0 16px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:12px}
+p{margin-bottom:16px;font-size:17px}
+.lead{font-size:20px;color:#1e1b4b;max-width:780px}
+
+.warning-box{background:linear-gradient(135deg,#1e1b4b,#0f0f23);color:var(--paper);padding:48px;border-radius:8px;margin:40px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent-2);margin-top:0}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:24px;font-size:16px}
+.compare-wrong{background:rgba(220,38,38,.16);border-left:4px solid var(--red)}
+.compare-right{background:rgba(21,128,61,.16);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}
+.compare-right .label{color:#86efac}
+.compare-cell .pt{font-style:italic;opacity:.7;font-size:14px;margin-bottom:8px}
+.compare-cell .en{font-weight:600;font-size:18px}
+.compare-cell .why{font-size:13px;margin-top:12px;opacity:.78;line-height:1.5}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:32px 0}
+.card{background:#fff;border:1px solid var(--line);padding:32px;border-radius:8px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(0,0,0,.08), 0 16px 40px -8px rgba(15,15,35,.22)}
+.card-num{font-family:'Fraunces',serif;font-size:60px;font-weight:300;color:var(--accent);line-height:1;opacity:.6}
+
+.exercise{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:32px;margin:32px 0;box-shadow:6px 6px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:12px}
+.exercise-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;background:var(--accent);color:#fff;padding:6px 12px;border-radius:4px}
+.q{margin:20px 0;padding:20px;background:#fdf2f8;border-radius:6px;border-left:3px solid var(--accent)}
+.q-text{font-size:17px;margin-bottom:14px;font-weight:500}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:10px 18px;font-size:15px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--accent-2)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.feedback{margin-top:12px;padding:12px 16px;border-radius:6px;font-size:14px;display:none}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:rgba(21,128,61,.14);color:#14532d;border-left:3px solid var(--green)}
+.feedback.wrong{background:rgba(220,38,38,.14);color:#7f1d1d;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:4px}
+
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:inherit;font-size:17px;font-weight:600;padding:4px 8px;width:160px;text-align:center;color:var(--accent);outline:none}
+.fill-input:focus{border-color:var(--accent)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+
+.btn{background:var(--ink);color:var(--paper);border:none;padding:14px 28px;font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:6px;transition:all .2s;margin-top:12px}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+
+.gram-table{width:100%;border-collapse:collapse;margin:24px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--accent-2);padding:14px 18px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-table tr:hover{background:#fdf2f8}
+.gram-table .em-cell{color:var(--accent);font-weight:700}
+
+.video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin:24px 0;box-shadow:var(--shadow);background:var(--ink)}
+.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:32px 0}
+.video-card h4{margin-bottom:8px;color:var(--ink);font-family:'Fraunces',serif;font-size:18px;text-transform:none;letter-spacing:0}
+.video-card p{font-size:14px;color:#4c1d95}
+
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));width:0%;transition:width .2s}
+
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:16px 24px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;box-shadow:0 8px 24px rgba(15,15,35,.4);z-index:50;display:flex;align-items:center;gap:12px}
+.score-display .pt-pts{color:var(--accent-2);font-size:20px}
+
+.tip-box{background:linear-gradient(135deg,#fce7f3,#fbcfe8);padding:24px;border-radius:8px;margin:24px 0;border-left:4px solid var(--accent)}
+.tip-box h4{color:#9d174d;margin-bottom:8px}
+
+.toc{position:sticky;top:20px;background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent-2);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent-2);font-weight:700;margin-right:12px;font-size:12px}
+.toc a{color:var(--paper);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--accent-2)}
+
+.register-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin:24px 0;border:2px solid var(--ink);border-radius:8px;overflow:hidden}
+.register-grid > div{padding:24px;border-right:2px solid var(--ink)}
+.register-grid > div:last-child{border-right:none}
+.register-grid h5{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-weight:700;margin-bottom:14px}
+.register-grid .ex-line{font-family:'Fraunces',serif;font-size:16px;margin:8px 0}
+@media(max-width:900px){.register-grid{grid-template-columns:1fr}.register-grid > div{border-right:none;border-bottom:2px solid var(--ink)}}
+
+.figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:24px 0}
+.figure-cell{background:#fff;padding:20px;border-radius:8px;border-top:4px solid var(--accent);box-shadow:var(--shadow)}
+.figure-cell .name{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:18px;margin-bottom:4px}
+.figure-cell .meaning{color:var(--accent);font-size:13px;font-weight:600;margin-bottom:8px}
+.figure-cell .ex{font-size:14px;color:#374151;font-style:italic;margin-top:8px}
+
+.idiom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:24px 0}
+.idiom-cell{background:#fff;padding:18px;border-radius:6px;border-left:3px solid var(--accent);box-shadow:var(--shadow)}
+.idiom-cell .pv{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:18px}
+.idiom-cell .meaning{color:var(--accent);font-size:13px;margin-top:4px;font-weight:600}
+.idiom-cell .example{font-size:13px;color:#374151;margin-top:8px;font-style:italic}
+
+.level-nav{padding:60px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line)}
+.level-nav a{background:var(--paper);padding:30px;text-decoration:none;color:var(--ink);transition:background .2s}
+.level-nav a:hover{background:#fff}
+.level-nav a.next{text-align:right}
+.level-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#4c1d95;margin-bottom:8px}
+.level-nav .ttl{font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300}
+
+footer{background:var(--ink);color:var(--paper);padding:60px 6vw;text-align:center}
+footer h3{color:var(--accent-2)}
+footer p{color:rgba(253,242,248,.7);font-size:14px}
+footer a{color:var(--accent-2);text-decoration:none}
+
+@media(max-width:768px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero{padding:60px 6vw 80px}
+  main{padding:60px 6vw}
+  .score-display{bottom:12px;right:12px;padding:12px 16px;font-size:12px}
+  .score-display .pt-pts{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="tag">Level C2 — Mastery</span>
+    <h1 class="title">
+      <em>Indistinguishable</em><br>
+      <strong>from a native.</strong>
+    </h1>
+    <p class="subtitle">
+      Aqui não tem mais regra de gramática pra decorar. Tem <strong>nuance</strong>, <strong>registro</strong>, <strong>cultura</strong>, <strong>pragmática</strong>. É a fronteira entre falar inglês perfeito e <em>ser</em> alguém que pensa em inglês. O nível em que sotaque deixa de importar e o que importa é tom, ironia, contexto.
+    </p>
+    <div class="hero-stats">
+      <div><div class="stat-num">11</div><div class="stat-label">Módulos</div></div>
+      <div><div class="stat-num">55+</div><div class="stat-label">Exercícios</div></div>
+      <div><div class="stat-num">∞</div><div class="stat-label">Camadas de nuance</div></div>
+      <div><div class="stat-num">5</div><div class="stat-label">Vídeos</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h4>Índice</h4>
+  <ol>
+    <li><a href="#mind-shift">A última fronteira: do C1 ao indistinguível</a></li>
+    <li><a href="#registers">Registers — formal vs casual vs slang vs academic</a></li>
+    <li><a href="#figures">Figuras de linguagem (litotes, metáfora, irony, hiperbole)</a></li>
+    <li><a href="#pragmatics">Pragmatic competence — implicatura e indireto</a></li>
+    <li><a href="#cultural">Referências culturais & regional differences (US/UK)</a></li>
+    <li><a href="#syntax">Complex syntax — fluência sintática</a></li>
+    <li><a href="#idioms-c2">Idioms e expressões avançadas</a></li>
+    <li><a href="#academic">Academic English</a></li>
+    <li><a href="#business">Business English avançado</a></li>
+    <li><a href="#creative">Creative writing — voz autoral</a></li>
+    <li><a href="#videos">Vídeos curados</a></li>
+    <li><a href="#final">Teste final C2</a></li>
+  </ol>
+</nav>
+
+<!-- 01 MIND SHIFT -->
+<section id="mind-shift">
+  <div class="section-num">01 / Última fronteira</div>
+  <h2>Do C1 ao <em>indistinguível</em>.</h2>
+  <p class="lead">No C1 você fala "perfectly correct English" — todas as regras estão certas. No C2 você aprende quando <strong>quebrar</strong> as regras com propósito. Quando soar formal demais é estranho. Quando ser indireto é elegante. Quando uma frase aparentemente errada é exatamente certa em contexto.</p>
+
+  <div class="warning-box">
+    <h3>★ As 5 marcas do C2</h3>
+    <ol style="margin-left:24px;margin-top:14px;color:var(--paper)">
+      <li style="margin:10px 0"><strong>Domínio de registro:</strong> você troca entre formal, casual, slang sem fricção. Em uma reunião com diretor + colega + amigo, você muda 3 vezes em 30 segundos.</li>
+      <li style="margin:10px 0"><strong>Uso natural de implicatura:</strong> você diz "It's an interesting choice" e todo mundo sabe que você odiou.</li>
+      <li style="margin:10px 0"><strong>Sintaxe fluida:</strong> escreve frases longas, com cláusulas embedded, sem perder clareza.</li>
+      <li style="margin:10px 0"><strong>Referências culturais:</strong> entende a piada de Seinfeld, a referência a Shakespeare, o sarcasmo britânico vs irônica americano.</li>
+      <li style="margin:10px 0"><strong>Voz própria:</strong> você não soa "como um livro de inglês". Tem ritmo, marcas, escolhas estilísticas.</li>
+    </ol>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ O paradoxo do C2</h4>
+    <p>Quanto mais alto seu inglês, MENOS você usa as estruturas "complicadas" que aprendeu no C1. Você simplifica. Mas cada palavra é a mais precisa possível. <strong>Eloquence ≠ complication.</strong></p>
+  </div>
+</section>
+
+<!-- 02 REGISTERS -->
+<section id="registers">
+  <div class="section-num">02 / Registers</div>
+  <h2>Trocando de <em>registro</em> sem fricção.</h2>
+  <p class="lead">A mesma ideia, dita de 4 formas diferentes — e cada forma é "correta" em SEU contexto. Esse é o jogo do C2: saber qual usar com quem.</p>
+
+  <h3>"Eu não consegui terminar o relatório" em 4 registros</h3>
+  <div class="register-grid">
+    <div>
+      <h5>Academic / Formal</h5>
+      <p class="ex-line">Owing to unforeseen circumstances, I was unable to complete the report by the proposed deadline.</p>
+    </div>
+    <div>
+      <h5>Business / Neutral</h5>
+      <p class="ex-line">I wasn't able to finish the report on time. Apologies for the delay.</p>
+    </div>
+    <div>
+      <h5>Casual / Spoken</h5>
+      <p class="ex-line">I didn't manage to finish the report. Sorry about that.</p>
+    </div>
+    <div>
+      <h5>Slang / Informal</h5>
+      <p class="ex-line">Yeah, I couldn't get through the report — totally my bad.</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>★ Vocabulário muda 100% entre registros</h3>
+    <p style="color:rgba(253,242,248,.85)">Use o vocabulário formal num bar e você soa robótico. Use o casual numa apresentação e parece amador. C2 é troca instantânea.</p>
+    <table class="gram-table" style="margin-top:16px">
+      <thead><tr><th>Casual</th><th>Neutral</th><th>Formal/Academic</th></tr></thead>
+      <tbody>
+        <tr><td>get</td><td>obtain / receive</td><td class="em-cell">acquire / procure</td></tr>
+        <tr><td>start</td><td>begin</td><td class="em-cell">commence / initiate</td></tr>
+        <tr><td>show</td><td>demonstrate</td><td class="em-cell">illustrate / exemplify</td></tr>
+        <tr><td>think about</td><td>consider</td><td class="em-cell">contemplate / deliberate on</td></tr>
+        <tr><td>ask for</td><td>request</td><td class="em-cell">solicit</td></tr>
+        <tr><td>find out</td><td>discover</td><td class="em-cell">ascertain / unearth</td></tr>
+        <tr><td>need</td><td>require</td><td class="em-cell">necessitate</td></tr>
+        <tr><td>help</td><td>assist</td><td class="em-cell">facilitate</td></tr>
+        <tr><td>go up</td><td>increase</td><td class="em-cell">escalate / surge</td></tr>
+        <tr><td>tell about</td><td>explain</td><td class="em-cell">elucidate / expound on</td></tr>
+        <tr><td>look at</td><td>examine</td><td class="em-cell">scrutinize</td></tr>
+        <tr><td>about</td><td>regarding / concerning</td><td class="em-cell">pertaining to</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exercise" data-ex="registers">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #1 — Identificando registers</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="1" data-correct="ascertain">
+      <div class="q-text">1. Qual o equivalente FORMAL de "find out"?</div>
+      <div class="options">
+        <button class="opt" data-val="check">check</button>
+        <button class="opt" data-val="learn">learn</button>
+        <button class="opt" data-val="ascertain">ascertain</button>
+        <button class="opt" data-val="get">get</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="2" data-correct="commence">
+      <div class="q-text">2. "We will ___ the meeting at 9am sharp." (registro mais formal)</div>
+      <div class="options">
+        <button class="opt" data-val="start">start</button>
+        <button class="opt" data-val="begin">begin</button>
+        <button class="opt" data-val="commence">commence</button>
+        <button class="opt" data-val="kick off">kick off</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="3" data-correct="my bad">
+      <div class="q-text">3. Qual destas é SLANG (informal)?</div>
+      <div class="options">
+        <button class="opt" data-val="my apologies">my apologies</button>
+        <button class="opt" data-val="I'm sorry">I'm sorry</button>
+        <button class="opt" data-val="my bad">my bad</button>
+        <button class="opt" data-val="I regret to inform you">I regret to inform you</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="4" data-correct="elucidate">
+      <div class="q-text">4. "Could you ___ your reasoning?" (academic)</div>
+      <div class="options">
+        <button class="opt" data-val="tell about">tell about</button>
+        <button class="opt" data-val="explain">explain</button>
+        <button class="opt" data-val="elucidate">elucidate</button>
+        <button class="opt" data-val="say">say</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="5" data-correct="kick off">
+      <div class="q-text">5. Casual conversation: "Let's ___ the project!"</div>
+      <div class="options">
+        <button class="opt" data-val="commence">commence</button>
+        <button class="opt" data-val="initiate">initiate</button>
+        <button class="opt" data-val="kick off">kick off</button>
+        <button class="opt" data-val="inaugurate">inaugurate</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FIGURES OF SPEECH -->
+<section id="figures">
+  <div class="section-num">03 / Figuras de linguagem</div>
+  <h2>Figuras de linguagem — <em>quando o literal não é o ponto</em>.</h2>
+  <p class="lead">Litotes, metonímia, hipérbole, metáfora viva, irony, sarcasmo. Você precisa <strong>reconhecer</strong> e <strong>usar</strong>. Sem isso, perde 30% do que ouve em filme/série/conversa adulta.</p>
+
+  <div class="figure-grid">
+    <div class="figure-cell">
+      <div class="name">Litotes</div>
+      <div class="meaning">afirmar negando o oposto (suaviza)</div>
+      <div class="ex">"It's not bad" = It's good · "She's not unintelligent" = She's smart · "I'm not unhappy with the result"</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Hyperbole</div>
+      <div class="meaning">exagero proposital</div>
+      <div class="ex">"I've told you a million times" · "I'm starving" · "This bag weighs a ton"</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Metaphor</div>
+      <div class="meaning">comparação implícita (sem "as/like")</div>
+      <div class="ex">"Time is money" · "She's a shining star" · "Life is a journey"</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Simile</div>
+      <div class="meaning">comparação explícita com "as/like"</div>
+      <div class="ex">"As cold as ice" · "Sleeps like a baby" · "Quick as a fox"</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Metonymy</div>
+      <div class="meaning">substituir por algo associado</div>
+      <div class="ex">"The White House said..." (= o presidente) · "The crown will visit..." (= rainha) · "Hollywood loves..." (= indústria do cinema)</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Synecdoche</div>
+      <div class="meaning">parte pelo todo</div>
+      <div class="ex">"All hands on deck" (hands = pessoas) · "Nice wheels!" (wheels = carro)</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Irony</div>
+      <div class="meaning">dizer o oposto do que se quer dizer (suave)</div>
+      <div class="ex">[Chovendo torrencial] "Lovely weather!" · [Após desastre] "That went well."</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Sarcasm</div>
+      <div class="meaning">ironia com tom crítico/mordaz</div>
+      <div class="ex">"Oh, GREAT idea, genius." · "Sure, because that's worked SO well before."</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Personification</div>
+      <div class="meaning">dar características humanas a objetos/ideias</div>
+      <div class="ex">"The wind whispered through the trees" · "Opportunity knocked"</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Oxymoron</div>
+      <div class="meaning">junção de contrários</div>
+      <div class="ex">"Bittersweet" · "Deafening silence" · "Open secret" · "Living dead"</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Euphemism</div>
+      <div class="meaning">suavizar tema desagradável</div>
+      <div class="ex">"He passed away" (= died) · "Let go" (= fired) · "Between jobs" (= unemployed)</div>
+    </div>
+    <div class="figure-cell">
+      <div class="name">Understatement</div>
+      <div class="meaning">minimizar (especialmente britânico)</div>
+      <div class="ex">[Após furacão] "A bit of weather, that." · "Slight problem" (= huge problem)</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>★ Litotes vs Understatement — a marca britânica</h3>
+    <p style="color:rgba(253,242,248,.85)">Brasileiros adoram <strong>hipérbole</strong> (exagero). Britânicos adoram <strong>understatement</strong> (subestimação). Quando um inglês diz "It's a bit chilly", pode estar -10°C. Quando ele diz "I'm rather displeased", está furioso.</p>
+    <p style="margin-top:12px">Aprender a <em>ouvir</em> understatement é tão importante quanto aprender a usá-lo.</p>
+  </div>
+
+  <div class="exercise" data-ex="figures">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #2 — Figuras de linguagem</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="6" data-correct="Litotes">
+      <div class="q-text">1. "She's not unkind." — qual figura?</div>
+      <div class="options">
+        <button class="opt" data-val="Hyperbole">Hyperbole</button>
+        <button class="opt" data-val="Litotes">Litotes</button>
+        <button class="opt" data-val="Sarcasm">Sarcasm</button>
+        <button class="opt" data-val="Metaphor">Metaphor</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="7" data-correct="Hyperbole">
+      <div class="q-text">2. "I've told you a thousand times!" — figura?</div>
+      <div class="options">
+        <button class="opt" data-val="Litotes">Litotes</button>
+        <button class="opt" data-val="Metonymy">Metonymy</button>
+        <button class="opt" data-val="Hyperbole">Hyperbole</button>
+        <button class="opt" data-val="Simile">Simile</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="8" data-correct="Metonymy">
+      <div class="q-text">3. "The Pentagon issued a statement." — figura?</div>
+      <div class="options">
+        <button class="opt" data-val="Metaphor">Metaphor</button>
+        <button class="opt" data-val="Personification">Personification</button>
+        <button class="opt" data-val="Metonymy">Metonymy</button>
+        <button class="opt" data-val="Hyperbole">Hyperbole</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="9" data-correct="Oxymoron">
+      <div class="q-text">4. "Deafening silence" — figura?</div>
+      <div class="options">
+        <button class="opt" data-val="Hyperbole">Hyperbole</button>
+        <button class="opt" data-val="Oxymoron">Oxymoron</button>
+        <button class="opt" data-val="Personification">Personification</button>
+        <button class="opt" data-val="Simile">Simile</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="10" data-correct="Euphemism">
+      <div class="q-text">5. "She passed away last year" — figura?</div>
+      <div class="options">
+        <button class="opt" data-val="Euphemism">Euphemism</button>
+        <button class="opt" data-val="Hyperbole">Hyperbole</button>
+        <button class="opt" data-val="Sarcasm">Sarcasm</button>
+        <button class="opt" data-val="Synecdoche">Synecdoche</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="11" data-correct="Understatement">
+      <div class="q-text">6. [After tornado] "A bit windy out there." — figura?</div>
+      <div class="options">
+        <button class="opt" data-val="Hyperbole">Hyperbole</button>
+        <button class="opt" data-val="Sarcasm">Sarcasm</button>
+        <button class="opt" data-val="Understatement">Understatement</button>
+        <button class="opt" data-val="Metaphor">Metaphor</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRAGMATICS -->
+<section id="pragmatics">
+  <div class="section-num">04 / Pragmatic competence</div>
+  <h2>Implicatura — o que é dito <em>nas entrelinhas</em>.</h2>
+  <p class="lead">"Pragmatic competence" = saber o que uma frase REALMENTE significa em contexto, mesmo quando o literal diz outra coisa. Brasileiro literal demais perde 50% das nuances.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Implicatura clássica #1: indireto</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>"Could you pass the salt?"</strong></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:6px">Literal: você É CAPAZ de passar?<br>Real: passa o sal, por favor.</p>
+      <p style="font-size:13px;color:#6b7280;margin-top:8px">Brasileiro entende. Mas usa? Use a forma indireta — soa muito mais educado.</p>
+    </div>
+    <div class="card">
+      <h4>Implicatura #2: aceitar negando</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>"That's an interesting choice."</strong></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:6px">Literal: é uma escolha interessante.<br>Real: discordo / acho duvidoso.</p>
+    </div>
+    <div class="card">
+      <h4>Implicatura #3: recusa indireta</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>"I'll think about it."</strong></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:6px">Literal: vou pensar.<br>Real (90% das vezes): não.</p>
+    </div>
+    <div class="card">
+      <h4>Implicatura #4: pedido velado</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>"It's getting cold in here."</strong></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:6px">Literal: tá ficando frio.<br>Real: feche a janela / aumente o aquecedor.</p>
+    </div>
+    <div class="card">
+      <h4>Implicatura #5: elogio que critica</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>"You look... rested."</strong></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:6px">Literal: você parece descansado.<br>Real: você ganhou peso / parece relaxado demais.</p>
+    </div>
+    <div class="card">
+      <h4>Implicatura #6: concordar negando</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>"I won't say no to a beer."</strong></p>
+      <p style="font-size:14px;color:var(--accent);margin-top:6px">Literal: não vou dizer não.<br>Real: aceito a cerveja, sim.</p>
+    </div>
+  </div>
+
+  <h3>Polidez por nível</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Pedido</th><th>Tom</th><th>Estrutura</th></tr></thead>
+      <tbody>
+        <tr><td>"Pass the salt."</td><td>Direto / rude (família)</td><td>Imperative</td></tr>
+        <tr><td>"Pass the salt, please."</td><td>Casual</td><td>Imperative + please</td></tr>
+        <tr><td>"Can you pass the salt?"</td><td>Neutro</td><td>Modal can</td></tr>
+        <tr><td>"Could you pass the salt?"</td><td>Educado</td><td class="em-cell">Modal could (mais distante = mais educado)</td></tr>
+        <tr><td>"Would you mind passing the salt?"</td><td>Formal</td><td class="em-cell">Would you mind + ING</td></tr>
+        <tr><td>"I wonder if you could pass the salt..."</td><td>Muito formal</td><td class="em-cell">I wonder if + indirect</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exercise" data-ex="pragmatics">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #3 — Pragmatica</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="12" data-correct="They're declining politely">
+      <div class="q-text">1. Você convidou alguém. Resposta: "I'll think about it." Provavelmente significa:</div>
+      <div class="options">
+        <button class="opt" data-val="They need more info">They need more info</button>
+        <button class="opt" data-val="They're declining politely">They're declining politely</button>
+        <button class="opt" data-val="They are excited">They are excited</button>
+        <button class="opt" data-val="They want to negotiate">They want to negotiate</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="13" data-correct="Could you / Would you mind">
+      <div class="q-text">2. Pedido educado em reunião formal:</div>
+      <div class="options">
+        <button class="opt" data-val="Pass me the report">Pass me the report</button>
+        <button class="opt" data-val="Can you pass the report">Can you pass the report</button>
+        <button class="opt" data-val="Could you / Would you mind">Could you / Would you mind</button>
+        <button class="opt" data-val="Give me the report now">Give me the report now</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="14" data-correct="They actually disagree">
+      <div class="q-text">3. Apresentação: você sugere uma ideia. Resposta: "That's an interesting take." Provavelmente:</div>
+      <div class="options">
+        <button class="opt" data-val="They love it">They love it</button>
+        <button class="opt" data-val="They actually disagree">They actually disagree</button>
+        <button class="opt" data-val="They're confused">They're confused</button>
+        <button class="opt" data-val="They want to copy it">They want to copy it</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="15" data-correct="They want you to close the window">
+      <div class="q-text">4. Alguém em casa: "It's a bit chilly." Provavelmente quer dizer:</div>
+      <div class="options">
+        <button class="opt" data-val="They are giving a weather report">They are giving a weather report</button>
+        <button class="opt" data-val="They want you to close the window">They want you to close the window</button>
+        <button class="opt" data-val="They want a hug">They want a hug</button>
+        <button class="opt" data-val="They feel sick">They feel sick</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="16" data-correct="Yes, I'll have one">
+      <div class="q-text">5. Oferta de cerveja. Você responde "I won't say no." Você está dizendo:</div>
+      <div class="options">
+        <button class="opt" data-val="No, thanks">No, thanks</button>
+        <button class="opt" data-val="Maybe later">Maybe later</button>
+        <button class="opt" data-val="Yes, I'll have one">Yes, I'll have one</button>
+        <button class="opt" data-val="Ask me again">Ask me again</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CULTURAL -->
+<section id="cultural">
+  <div class="section-num">05 / Referências culturais</div>
+  <h2>Cultural references & US <em>vs</em> UK.</h2>
+  <p class="lead">Para ser indistinguível de nativo, precisa entender referências culturais e variantes regionais. Não decora tudo — adquire por exposição. Mas vou te dar o mapa.</p>
+
+  <h3>15 referências culturais que aparecem CONSTANTEMENTE</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Catch-22</h4>
+      <p style="font-size:14px">Romance de Joseph Heller. Significa: situação onde toda saída leva ao mesmo problema. Beco sem saída lógico.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"It's a Catch-22 — to get the job you need experience, to get experience you need the job."</em></p>
+    </div>
+    <div class="card">
+      <h4>Big Brother is watching</h4>
+      <p style="font-size:14px">"1984" de Orwell. Vigilância estatal/corporativa onipresente.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"With all this data tracking, Big Brother really is watching."</em></p>
+    </div>
+    <div class="card">
+      <h4>Pandora's box</h4>
+      <p style="font-size:14px">Mitologia grega. Algo que, uma vez aberto, libera consequências incontroláveis.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"That decision opened a Pandora's box of legal issues."</em></p>
+    </div>
+    <div class="card">
+      <h4>Achilles' heel</h4>
+      <p style="font-size:14px">Mitologia grega. Ponto fraco fatal de alguém forte.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"His ego is his Achilles' heel."</em></p>
+    </div>
+    <div class="card">
+      <h4>Trojan horse</h4>
+      <p style="font-size:14px">Algo aparentemente inofensivo que esconde ameaça.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"That email turned out to be a Trojan horse."</em></p>
+    </div>
+    <div class="card">
+      <h4>Kafkaesque</h4>
+      <p style="font-size:14px">Franz Kafka. Burocracia absurda, opressiva, sem lógica.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"Dealing with that government office was Kafkaesque."</em></p>
+    </div>
+    <div class="card">
+      <h4>Quixotic</h4>
+      <p style="font-size:14px">Don Quixote. Idealista impraticável, lutando contra moinhos.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"It was a quixotic quest from the start."</em></p>
+    </div>
+    <div class="card">
+      <h4>The Holy Grail</h4>
+      <p style="font-size:14px">Lendas arturianas. O objetivo supremo, impossível, perseguido.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"Cancer's cure is the holy grail of medicine."</em></p>
+    </div>
+  </div>
+
+  <h3>US vs UK — vocabulário que muda</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>US English</th><th>UK English</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td class="em-cell">apartment</td><td>flat</td><td>apartamento</td></tr>
+        <tr><td class="em-cell">elevator</td><td>lift</td><td>elevador</td></tr>
+        <tr><td class="em-cell">truck</td><td>lorry</td><td>caminhão</td></tr>
+        <tr><td class="em-cell">subway</td><td>underground / tube</td><td>metrô</td></tr>
+        <tr><td class="em-cell">vacation</td><td>holiday</td><td>férias</td></tr>
+        <tr><td class="em-cell">fall</td><td>autumn</td><td>outono</td></tr>
+        <tr><td class="em-cell">cookie</td><td>biscuit</td><td>biscoito</td></tr>
+        <tr><td class="em-cell">candy</td><td>sweets</td><td>doces</td></tr>
+        <tr><td class="em-cell">chips</td><td>crisps</td><td>batata frita (saco)</td></tr>
+        <tr><td class="em-cell">fries</td><td>chips</td><td>batata frita (palito)</td></tr>
+        <tr><td class="em-cell">soccer</td><td>football</td><td>futebol</td></tr>
+        <tr><td class="em-cell">trash / garbage</td><td>rubbish</td><td>lixo</td></tr>
+        <tr><td class="em-cell">trunk (car)</td><td>boot</td><td>porta-malas</td></tr>
+        <tr><td class="em-cell">hood (car)</td><td>bonnet</td><td>capô</td></tr>
+        <tr><td class="em-cell">faucet</td><td>tap</td><td>torneira</td></tr>
+        <tr><td class="em-cell">bathroom / restroom</td><td>toilet / loo</td><td>banheiro</td></tr>
+        <tr><td class="em-cell">eraser</td><td>rubber</td><td>borracha (atenção: rubber em US = camisinha!)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exercise" data-ex="cultural">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #4 — Referências & US/UK</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="17" data-correct="Catch-22">
+      <div class="q-text">1. "Você precisa de experiência pra conseguir o emprego, mas precisa do emprego pra conseguir experiência" descreve qual situação?</div>
+      <div class="options">
+        <button class="opt" data-val="Catch-22">Catch-22</button>
+        <button class="opt" data-val="Trojan horse">Trojan horse</button>
+        <button class="opt" data-val="Holy grail">Holy grail</button>
+        <button class="opt" data-val="Pyrrhic victory">Pyrrhic victory</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="18" data-correct="Achilles' heel">
+      <div class="q-text">2. "Seu único ponto fraco" =</div>
+      <div class="options">
+        <button class="opt" data-val="Pandora's box">Pandora's box</button>
+        <button class="opt" data-val="Achilles' heel">Achilles' heel</button>
+        <button class="opt" data-val="Quixotic">Quixotic</button>
+        <button class="opt" data-val="Kafkaesque">Kafkaesque</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="19" data-correct="lift">
+      <div class="q-text">3. UK English para "elevator":</div>
+      <div class="options">
+        <button class="opt" data-val="raise">raise</button>
+        <button class="opt" data-val="lift">lift</button>
+        <button class="opt" data-val="up-stair">up-stair</button>
+        <button class="opt" data-val="elevation">elevation</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="20" data-correct="boot">
+      <div class="q-text">4. UK English para "trunk" (parte do carro):</div>
+      <div class="options">
+        <button class="opt" data-val="bonnet">bonnet</button>
+        <button class="opt" data-val="boot">boot</button>
+        <button class="opt" data-val="luggage">luggage</button>
+        <button class="opt" data-val="storage">storage</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="21" data-correct="Kafkaesque">
+      <div class="q-text">5. Burocracia absurda e opressiva é descrita como:</div>
+      <div class="options">
+        <button class="opt" data-val="Quixotic">Quixotic</button>
+        <button class="opt" data-val="Kafkaesque">Kafkaesque</button>
+        <button class="opt" data-val="Orwellian">Orwellian</button>
+        <button class="opt" data-val="Sisyphean">Sisyphean</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 SYNTAX -->
+<section id="syntax">
+  <div class="section-num">06 / Complex syntax</div>
+  <h2>Sintaxe complexa — frases que <em>respiram</em>.</h2>
+  <p class="lead">No C2 você escreve frases longas COM clareza. Não confunde. Não embaralha. Cada cláusula encadeada pra próxima de forma orgânica. Esse é o estilo de bons jornalistas, ensaístas, escritores.</p>
+
+  <h3>Recursos sintáticos avançados</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Embedded clauses</h4>
+      <p style="font-size:14px">Cláusulas dentro de cláusulas — sem se perder.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>The book that I borrowed from the library, which had been recommended by my professor, who specializes in Renaissance literature, turned out to be exactly what I needed.</em></p>
+    </div>
+    <div class="card">
+      <h4>Parallelism</h4>
+      <p style="font-size:14px">Estruturas paralelas pra clareza e ritmo.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"I came, I saw, I conquered."</em><br><em>"To err is human, to forgive divine."</em></p>
+    </div>
+    <div class="card">
+      <h4>Nominalization</h4>
+      <p style="font-size:14px">Transformar verbos em substantivos pra elevar registro.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">decide → decision · realize → realization<br><em>The realization that I was wrong was painful.</em></p>
+    </div>
+    <div class="card">
+      <h4>Participle clauses</h4>
+      <p style="font-size:14px">Reduzir cláusulas com -ing ou -ed.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>Walking down the street, I saw an old friend. (= While I was walking...)</em><br><em>Frustrated by the delay, she left. (= Because she was frustrated...)</em></p>
+    </div>
+    <div class="card">
+      <h4>Fronting</h4>
+      <p style="font-size:14px">Mudar a posição do que se quer enfatizar.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>Difficult, this is.</em> (Yoda effect — não use, mas reconheça.)<br><em>Whatever happens, I'll be there.</em> (clean fronting)</p>
+    </div>
+    <div class="card">
+      <h4>Anticipatory "it"</h4>
+      <p style="font-size:14px">"It" prepara o leitor pra ideia complexa que vem.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>It is widely believed that...</em><br><em>It came as a shock that he resigned.</em></p>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="syntax">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #5 — Sintaxe avançada</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="22" data-correct="Walking through the park">
+      <div class="q-text">1. Reduza: "While I was walking through the park, I saw a deer." (use participle)</div>
+      <div class="options">
+        <button class="opt" data-val="When walking the park">When walking the park</button>
+        <button class="opt" data-val="Walking through the park">Walking through the park</button>
+        <button class="opt" data-val="Having walked the park">Having walked the park</button>
+        <button class="opt" data-val="On walking the park">On walking the park</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="23" data-correct="Frustrated by the noise">
+      <div class="q-text">2. Reduza: "Because she was frustrated by the noise, she left." (use participle passivo)</div>
+      <div class="options">
+        <button class="opt" data-val="Frustrating by the noise">Frustrating by the noise</button>
+        <button class="opt" data-val="Being frustrated by the noise">Being frustrated by the noise</button>
+        <button class="opt" data-val="Frustrated by the noise">Frustrated by the noise</button>
+        <button class="opt" data-val="Have been frustrated">Have been frustrated</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="24" data-correct="It is widely believed that">
+      <div class="q-text">3. Versão impessoal/formal: ___ the climate is changing.</div>
+      <div class="options">
+        <button class="opt" data-val="Many people think">Many people think</button>
+        <button class="opt" data-val="It is widely believed that">It is widely believed that</button>
+        <button class="opt" data-val="The opinion is">The opinion is</button>
+        <button class="opt" data-val="Believing widely is">Believing widely is</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="25" data-correct="Whatever happens">
+      <div class="q-text">4. Estrutura paralela: "___, I'll support you."</div>
+      <div class="options">
+        <button class="opt" data-val="What happens">What happens</button>
+        <button class="opt" data-val="Whatever happens">Whatever happens</button>
+        <button class="opt" data-val="Anything that happens">Anything that happens</button>
+        <button class="opt" data-val="In whatever case">In whatever case</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 IDIOMS C2 -->
+<section id="idioms-c2">
+  <div class="section-num">07 / Idioms avançados</div>
+  <h2>Idioms de <em>nível mestre</em>.</h2>
+  <p class="lead">Você já decorou os de B2/C1. Agora os que aparecem em conversa adulta culta, em romance, em coluna de jornal. Cada um carrega cor cultural específica.</p>
+
+  <div class="idiom-grid">
+    <div class="idiom-cell"><div class="pv">a chip on one's shoulder</div><div class="meaning">ressentimento crônico</div><div class="example">He has a chip on his shoulder about being passed over for promotion.</div></div>
+    <div class="idiom-cell"><div class="pv">a bone of contention</div><div class="meaning">motivo de discórdia</div><div class="example">The inheritance was a bone of contention between the siblings.</div></div>
+    <div class="idiom-cell"><div class="pv">to pull strings</div><div class="meaning">usar influência (geralmente injusto)</div><div class="example">He pulled some strings to get his nephew the job.</div></div>
+    <div class="idiom-cell"><div class="pv">to read someone the riot act</div><div class="meaning">dar uma bronca dura</div><div class="example">My boss read me the riot act for missing the deadline.</div></div>
+    <div class="idiom-cell"><div class="pv">a Pyrrhic victory</div><div class="meaning">vitória que custa caro demais</div><div class="example">Winning that lawsuit was a Pyrrhic victory.</div></div>
+    <div class="idiom-cell"><div class="pv">to throw caution to the wind</div><div class="meaning">arriscar tudo</div><div class="example">She threw caution to the wind and quit her stable job.</div></div>
+    <div class="idiom-cell"><div class="pv">a wolf in sheep's clothing</div><div class="meaning">pessoa perigosa fingindo ser inofensiva</div><div class="example">Don't trust him — he's a wolf in sheep's clothing.</div></div>
+    <div class="idiom-cell"><div class="pv">to skirt around the issue</div><div class="meaning">desviar do assunto</div><div class="example">Stop skirting around the issue and answer me.</div></div>
+    <div class="idiom-cell"><div class="pv">a double-edged sword</div><div class="meaning">algo com vantagens e desvantagens</div><div class="example">Fame is a double-edged sword.</div></div>
+    <div class="idiom-cell"><div class="pv">to burn the midnight oil</div><div class="meaning">virar a noite trabalhando</div><div class="example">She's been burning the midnight oil to finish the thesis.</div></div>
+    <div class="idiom-cell"><div class="pv">to cut to the chase</div><div class="meaning">ir direto ao ponto</div><div class="example">Let me cut to the chase — we need to talk.</div></div>
+    <div class="idiom-cell"><div class="pv">to leave no stone unturned</div><div class="meaning">tentar tudo, esgotar opções</div><div class="example">The detective left no stone unturned in the investigation.</div></div>
+    <div class="idiom-cell"><div class="pv">to take with a grain of salt</div><div class="meaning">não levar muito a sério</div><div class="example">Take her advice with a grain of salt.</div></div>
+    <div class="idiom-cell"><div class="pv">to cross the Rubicon</div><div class="meaning">tomar decisão irreversível</div><div class="example">Once you sign that, you've crossed the Rubicon.</div></div>
+    <div class="idiom-cell"><div class="pv">an albatross around one's neck</div><div class="meaning">peso/fardo que persegue</div><div class="example">The debt has been an albatross around my neck.</div></div>
+    <div class="idiom-cell"><div class="pv">a red herring</div><div class="meaning">distração / pista falsa</div><div class="example">That clue turned out to be a red herring.</div></div>
+    <div class="idiom-cell"><div class="pv">to play devil's advocate</div><div class="meaning">defender o ponto contrário pra debater</div><div class="example">Let me play devil's advocate for a moment.</div></div>
+    <div class="idiom-cell"><div class="pv">a sword of Damocles</div><div class="meaning">ameaça constante pendurada</div><div class="example">The merger hangs over us like a sword of Damocles.</div></div>
+    <div class="idiom-cell"><div class="pv">to throw in the towel</div><div class="meaning">desistir</div><div class="example">After 5 attempts, he threw in the towel.</div></div>
+    <div class="idiom-cell"><div class="pv">to nip in the bud</div><div class="meaning">cortar pela raiz</div><div class="example">We need to nip this rumor in the bud.</div></div>
+  </div>
+
+  <div class="exercise" data-ex="idioms-c2">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #6 — Advanced idioms</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="26" data-correct="cut to the chase">
+      <div class="q-text">1. "Stop wasting time — let me ___."</div>
+      <div class="options">
+        <button class="opt" data-val="cut to the chase">cut to the chase</button>
+        <button class="opt" data-val="cross the Rubicon">cross the Rubicon</button>
+        <button class="opt" data-val="play devil's advocate">play devil's advocate</button>
+        <button class="opt" data-val="burn the midnight oil">burn the midnight oil</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="27" data-correct="play devil's advocate">
+      <div class="q-text">2. "Let me ___ here — what if she's right?"</div>
+      <div class="options">
+        <button class="opt" data-val="cross the Rubicon">cross the Rubicon</button>
+        <button class="opt" data-val="play devil's advocate">play devil's advocate</button>
+        <button class="opt" data-val="throw in the towel">throw in the towel</button>
+        <button class="opt" data-val="cut to the chase">cut to the chase</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="28" data-correct="grain of salt">
+      <div class="q-text">3. "Take everything he says with a ___ — he exaggerates."</div>
+      <div class="options">
+        <button class="opt" data-val="grain of truth">grain of truth</button>
+        <button class="opt" data-val="grain of salt">grain of salt</button>
+        <button class="opt" data-val="pinch of doubt">pinch of doubt</button>
+        <button class="opt" data-val="dose of skepticism">dose of skepticism</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="29" data-correct="double-edged sword">
+      <div class="q-text">4. "Social media is a ___ — connects people but also isolates."</div>
+      <div class="options">
+        <button class="opt" data-val="silver bullet">silver bullet</button>
+        <button class="opt" data-val="double-edged sword">double-edged sword</button>
+        <button class="opt" data-val="red herring">red herring</button>
+        <button class="opt" data-val="albatross">albatross</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="30" data-correct="nip it in the bud">
+      <div class="q-text">5. "If we don't ___, this problem will spread."</div>
+      <div class="options">
+        <button class="opt" data-val="cross the Rubicon">cross the Rubicon</button>
+        <button class="opt" data-val="throw in the towel">throw in the towel</button>
+        <button class="opt" data-val="nip it in the bud">nip it in the bud</button>
+        <button class="opt" data-val="leave no stone unturned">leave no stone unturned</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ACADEMIC -->
+<section id="academic">
+  <div class="section-num">08 / Academic English</div>
+  <h2>Academic English — <em>papers</em>, ensaios, tese.</h2>
+  <p class="lead">Inglês acadêmico tem sintaxe específica, vocabulário próprio e regras de tom. É frio, impessoal, preciso. Brasileiro tende a ser muito subjetivo / direto demais.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Voz passiva e impessoalidade</h4>
+      <p style="font-size:14px">Academia usa muito passive + "it is" pra distanciar o autor.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"It has been observed that..."</em><br><em>"It is widely accepted that..."</em><br><em>"The data suggests..."</em></p>
+    </div>
+    <div class="card">
+      <h4>Hedging acadêmico</h4>
+      <p style="font-size:14px">Academia raramente afirma com certeza absoluta. Sempre qualifica.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">may, might, could, appears to, seems to, tends to, is likely to, suggests that</p>
+    </div>
+    <div class="card">
+      <h4>Conectores formais</h4>
+      <p style="font-size:14px">Substitui conectores casuais.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">"so" → therefore / hence<br>"but" → however / nevertheless<br>"and also" → moreover / furthermore<br>"in fact" → indeed</p>
+    </div>
+    <div class="card">
+      <h4>Vocabulário acadêmico</h4>
+      <p style="font-size:14px">Cada área tem seu jargão, mas algumas palavras são universais.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">to investigate, to examine, to analyze, to assess, to evaluate, to demonstrate, to indicate, to imply, to constitute, to comprise</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>★ As 5 regras invisíveis do academic English</h3>
+    <ol style="margin-left:24px;margin-top:12px;color:var(--paper)">
+      <li style="margin:8px 0">NUNCA use contractions: <em>don't, isn't, can't</em> → <strong>do not, is not, cannot</strong>.</li>
+      <li style="margin:8px 0">NUNCA use "I" diretamente em ciências hard: prefira "this paper argues / it is argued".</li>
+      <li style="margin:8px 0">EVITE phrasal verbs casuais: "look into" → <strong>investigate</strong>; "find out" → <strong>discover</strong>; "put up with" → <strong>tolerate</strong>.</li>
+      <li style="margin:8px 0">TODA afirmação precisa estar referenciada (a fonte). Sem citação = opinião pessoal = inadequado.</li>
+      <li style="margin:8px 0">SEMPRE hedge: prefira "this suggests" a "this proves".</li>
+    </ol>
+  </div>
+
+  <div class="exercise" data-ex="academic">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #7 — Academic English</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="31" data-correct="It is widely believed that">
+      <div class="q-text">1. Versão acadêmica de "Many people think that...":</div>
+      <div class="options">
+        <button class="opt" data-val="A lot of people believe">A lot of people believe</button>
+        <button class="opt" data-val="It is widely believed that">It is widely believed that</button>
+        <button class="opt" data-val="People often say">People often say</button>
+        <button class="opt" data-val="Plenty of folks reckon">Plenty of folks reckon</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="32" data-correct="suggests">
+      <div class="q-text">2. Hedging acadêmico: "The data ___ a strong correlation."</div>
+      <div class="options">
+        <button class="opt" data-val="proves">proves</button>
+        <button class="opt" data-val="suggests">suggests</button>
+        <button class="opt" data-val="says">says</button>
+        <button class="opt" data-val="tells">tells</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="33" data-correct="investigate">
+      <div class="q-text">3. Versão acadêmica de "look into":</div>
+      <div class="options">
+        <button class="opt" data-val="check out">check out</button>
+        <button class="opt" data-val="investigate">investigate</button>
+        <button class="opt" data-val="see">see</button>
+        <button class="opt" data-val="watch">watch</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="34" data-correct="cannot">
+      <div class="q-text">4. Em academic writing, "can't" deve virar:</div>
+      <div class="options">
+        <button class="opt" data-val="can not">can not</button>
+        <button class="opt" data-val="cannot">cannot</button>
+        <button class="opt" data-val="couldn't">couldn't</button>
+        <button class="opt" data-val="will not">will not</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="35" data-correct="Furthermore">
+      <div class="q-text">5. "And also" em academic writing vira:</div>
+      <div class="options">
+        <button class="opt" data-val="And too">And too</button>
+        <button class="opt" data-val="Furthermore">Furthermore</button>
+        <button class="opt" data-val="Plus">Plus</button>
+        <button class="opt" data-val="Also additionally">Also additionally</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 BUSINESS -->
+<section id="business">
+  <div class="section-num">09 / Business English</div>
+  <h2>Business English — <em>negociação</em>, reuniões, email.</h2>
+  <p class="lead">Em business você precisa ser claro, profissional, eficiente. Brasileiro tende a ser ou casual demais (informal) ou exageradamente formal (rígido). C2 = encontra o meio termo perfeito.</p>
+
+  <h3>Email profissional — frases-chave</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Aberturas</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>Dear [Name],</strong> (formal)<br><strong>Hi [Name],</strong> (semi-formal)<br><strong>Hello [Team],</strong> (em equipe)<br><strong>To Whom It May Concern,</strong> (sem destinatário)</p>
+    </div>
+    <div class="card">
+      <h4>Subjects formais</h4>
+      <p style="font-size:14px;line-height:1.7">"I am writing to..."<br>"I would like to inquire about..."<br>"Following our recent conversation..."<br>"With reference to your email of..."</p>
+    </div>
+    <div class="card">
+      <h4>Pedidos</h4>
+      <p style="font-size:14px;line-height:1.7">"Could you please..."<br>"I would appreciate it if you could..."<br>"Would it be possible to..."<br>"At your earliest convenience..."</p>
+    </div>
+    <div class="card">
+      <h4>Encerramentos</h4>
+      <p style="font-size:14px;line-height:1.7"><strong>Best regards,</strong> (padrão)<br><strong>Kind regards,</strong> (caloroso)<br><strong>Yours sincerely,</strong> (super formal, dest. conhecido)<br><strong>Yours faithfully,</strong> (super formal, dest. desconhecido)</p>
+    </div>
+  </div>
+
+  <h3>Reuniões e negociação</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Função</th><th>Frase profissional</th></tr></thead>
+      <tbody>
+        <tr><td>Concordar parcialmente</td><td class="em-cell">"I see your point, however..."</td></tr>
+        <tr><td>Discordar diplomaticamente</td><td class="em-cell">"I'm afraid I don't quite share that view."</td></tr>
+        <tr><td>Pedir esclarecimento</td><td class="em-cell">"Could you elaborate on that point?"</td></tr>
+        <tr><td>Voltar ao tópico</td><td class="em-cell">"Going back to the original question..."</td></tr>
+        <tr><td>Sugerir compromisso</td><td class="em-cell">"Perhaps we could meet halfway by..."</td></tr>
+        <tr><td>Resumir</td><td class="em-cell">"To recap, we've agreed that..."</td></tr>
+        <tr><td>Encerrar reunião</td><td class="em-cell">"Let's wrap up. The next steps are..."</td></tr>
+        <tr><td>Buscar consenso</td><td class="em-cell">"Are we all on the same page with this?"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exercise" data-ex="business">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #8 — Business English</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="36" data-correct="I'm afraid I don't quite share that view">
+      <div class="q-text">1. Discordar educadamente em reunião formal:</div>
+      <div class="options">
+        <button class="opt" data-val="No, you're wrong">No, you're wrong</button>
+        <button class="opt" data-val="That's not right">That's not right</button>
+        <button class="opt" data-val="I'm afraid I don't quite share that view">I'm afraid I don't quite share that view</button>
+        <button class="opt" data-val="I disagree completely">I disagree completely</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="37" data-correct="At your earliest convenience">
+      <div class="q-text">2. Email formal: pedir resposta com urgência educada:</div>
+      <div class="options">
+        <button class="opt" data-val="Get back to me ASAP">Get back to me ASAP</button>
+        <button class="opt" data-val="Please reply soon">Please reply soon</button>
+        <button class="opt" data-val="At your earliest convenience">At your earliest convenience</button>
+        <button class="opt" data-val="Hurry and answer">Hurry and answer</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="38" data-correct="Yours faithfully">
+      <div class="q-text">3. Encerramento formal de email para destinatário desconhecido (UK):</div>
+      <div class="options">
+        <button class="opt" data-val="Best regards">Best regards</button>
+        <button class="opt" data-val="Yours sincerely">Yours sincerely</button>
+        <button class="opt" data-val="Yours faithfully">Yours faithfully</button>
+        <button class="opt" data-val="Cheers">Cheers</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="39" data-correct="Could you elaborate">
+      <div class="q-text">4. Pedir mais detalhes em reunião:</div>
+      <div class="options">
+        <button class="opt" data-val="Tell me more">Tell me more</button>
+        <button class="opt" data-val="What do you mean">What do you mean</button>
+        <button class="opt" data-val="Could you elaborate">Could you elaborate</button>
+        <button class="opt" data-val="Speak again">Speak again</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="40" data-correct="To recap">
+      <div class="q-text">5. Resumir o que foi discutido:</div>
+      <div class="options">
+        <button class="opt" data-val="Let's summary">Let's summary</button>
+        <button class="opt" data-val="To recap">To recap</button>
+        <button class="opt" data-val="Quickly say again">Quickly say again</button>
+        <button class="opt" data-val="In short brief">In short brief</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CREATIVE -->
+<section id="creative">
+  <div class="section-num">10 / Creative writing</div>
+  <h2>Creative writing — <em>voz</em> autoral.</h2>
+  <p class="lead">Aqui você escapa das regras formais e desenvolve VOZ. Ritmo das frases, escolha precisa de palavras, pacing, texture. Não tem certo e errado — tem efeito.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Show, don't tell</h4>
+      <p style="font-size:14px">Em vez de afirmar, faça o leitor sentir.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">❌ <em>She was sad.</em><br>✅ <em>She stared at the cold coffee, no longer bothering to wipe her cheek.</em></p>
+    </div>
+    <div class="card">
+      <h4>Sentence rhythm</h4>
+      <p style="font-size:14px">Alterne curtas e longas pra criar pulso.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>The door opened. There she was, after all those years of distance, standing in the rain like nothing had ever happened. He froze.</em></p>
+    </div>
+    <div class="card">
+      <h4>Active verbs</h4>
+      <p style="font-size:14px">Substitua "was/were + V-ing" por verbos vivos.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">❌ <em>He was walking slowly</em><br>✅ <em>He shuffled / ambled / dragged his feet</em></p>
+    </div>
+    <div class="card">
+      <h4>Specific over general</h4>
+      <p style="font-size:14px">Detalhe específico cria imagem.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px">❌ <em>She had a nice dog.</em><br>✅ <em>Her terrier, a lopsided thing with one floppy ear, followed her everywhere.</em></p>
+    </div>
+    <div class="card">
+      <h4>Avoid clichés</h4>
+      <p style="font-size:14px">"Heart of gold", "tip of the iceberg", "at the end of the day" — chumbo na escrita criativa. Reinvente.</p>
+    </div>
+    <div class="card">
+      <h4>Voice & register</h4>
+      <p style="font-size:14px">Cada personagem tem voz própria. Diálogo natural ≠ gramática perfeita.</p>
+      <p style="font-size:13px;color:var(--accent);margin-top:8px"><em>"You ain't gonna believe this."</em> — funciona se a voz é assim.</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ Voz própria — o teste do C2</h4>
+    <p>Pegue 3 textos curtos seus em inglês. Leia em voz alta. Eles soam como livro de gramática? Como tradução? Ou soam como <strong>você</strong>? O dia em que sua escrita em inglês tem ritmo, marcas, escolhas próprias — você é C2.</p>
+  </div>
+
+  <div class="exercise" data-ex="creative">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #9 — Creative principles</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="41" data-correct="She slammed the door without a word">
+      <div class="q-text">1. "Show don't tell" — qual versão é melhor?</div>
+      <div class="options">
+        <button class="opt" data-val="She was very angry">She was very angry</button>
+        <button class="opt" data-val="She slammed the door without a word">She slammed the door without a word</button>
+        <button class="opt" data-val="She felt anger inside">She felt anger inside</button>
+        <button class="opt" data-val="She had a lot of anger">She had a lot of anger</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="42" data-correct="His old labrador">
+      <div class="q-text">2. "Specific over general":</div>
+      <div class="options">
+        <button class="opt" data-val="His pet">His pet</button>
+        <button class="opt" data-val="His dog">His dog</button>
+        <button class="opt" data-val="His old labrador">His old labrador</button>
+        <button class="opt" data-val="His animal companion">His animal companion</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="43" data-correct="bolted">
+      <div class="q-text">3. Active verb melhor que "ran very fast":</div>
+      <div class="options">
+        <button class="opt" data-val="moved fast">moved fast</button>
+        <button class="opt" data-val="bolted">bolted</button>
+        <button class="opt" data-val="went speedily">went speedily</button>
+        <button class="opt" data-val="was running fast">was running fast</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="44" data-correct="Cliché">
+      <div class="q-text">4. "At the end of the day, every cloud has a silver lining" — problema?</div>
+      <div class="options">
+        <button class="opt" data-val="Grammatically incorrect">Grammatically incorrect</button>
+        <button class="opt" data-val="Cliché">Cliché</button>
+        <button class="opt" data-val="Too formal">Too formal</button>
+        <button class="opt" data-val="Too short">Too short</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 VIDEOS -->
+<section id="videos">
+  <div class="section-num">11 / Vídeos curados</div>
+  <h2>5 vídeos para <em>respirar</em> nuance.</h2>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/jPsLW-H3o-4" title="British vs American" allowfullscreen></iframe>
+      </div>
+      <h4>★ British vs American English</h4>
+      <p>English with Lucy + Rachel — As diferenças culturais que vão além do vocabulário.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/4_GFaFb0bUk" title="British understatement" allowfullscreen></iframe>
+      </div>
+      <h4>★ British understatement explained</h4>
+      <p>BBC — A arte britânica de minimizar. Aprenda a decodificar.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/u4uvllzaBHk" title="Idioms native speakers" allowfullscreen></iframe>
+      </div>
+      <h4>★ Advanced idioms used by natives</h4>
+      <p>EngVid — Os idioms que aparecem em jornal, livro, conversa adulta.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/X2k0LkjHjJA" title="Academic writing tips" allowfullscreen></iframe>
+      </div>
+      <h4>★ Academic writing — formal English</h4>
+      <p>Cambridge — Princípios de escrita acadêmica para ensaios e papers.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/NkOpCgzSbgg" title="Sound natural" allowfullscreen></iframe>
+      </div>
+      <h4>★ How to sound like a native</h4>
+      <p>mmmEnglish — Connected speech, sentence stress, intonation patterns.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 FINAL TEST -->
+<section id="final">
+  <div class="section-num">12 / Teste final</div>
+  <h2>Teste final — <em>mestria</em>.</h2>
+  <p class="lead">12 questões finais cobrindo tudo. Mínimo pra dizer "atingi o C2": 10/12.</p>
+
+  <div class="exercise" data-ex="final">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Final C2 Test</div>
+      </div>
+      <span class="exercise-type">12 questões</span>
+    </div>
+
+    <div class="q" data-q="45" data-correct="ascertain">
+      <div class="q-text">1. Versão formal/acadêmica de "find out":</div>
+      <div class="options">
+        <button class="opt" data-val="see">see</button>
+        <button class="opt" data-val="check">check</button>
+        <button class="opt" data-val="ascertain">ascertain</button>
+        <button class="opt" data-val="get">get</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="46" data-correct="Litotes">
+      <div class="q-text">2. "She's not unkind" — qual figura?</div>
+      <div class="options">
+        <button class="opt" data-val="Hyperbole">Hyperbole</button>
+        <button class="opt" data-val="Sarcasm">Sarcasm</button>
+        <button class="opt" data-val="Litotes">Litotes</button>
+        <button class="opt" data-val="Metaphor">Metaphor</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="47" data-correct="They are politely declining">
+      <div class="q-text">3. "I'll think about it" como resposta a convite. Implicatura mais comum:</div>
+      <div class="options">
+        <button class="opt" data-val="They are excited">They are excited</button>
+        <button class="opt" data-val="They are politely declining">They are politely declining</button>
+        <button class="opt" data-val="They want details">They want details</button>
+        <button class="opt" data-val="They want to negotiate">They want to negotiate</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="48" data-correct="lift">
+      <div class="q-text">4. UK English para "elevator":</div>
+      <div class="options">
+        <button class="opt" data-val="lift">lift</button>
+        <button class="opt" data-val="raise">raise</button>
+        <button class="opt" data-val="elevation">elevation</button>
+        <button class="opt" data-val="up-mover">up-mover</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="49" data-correct="cut to the chase">
+      <div class="q-text">5. "Stop wasting time and ___."</div>
+      <div class="options">
+        <button class="opt" data-val="cross the Rubicon">cross the Rubicon</button>
+        <button class="opt" data-val="cut to the chase">cut to the chase</button>
+        <button class="opt" data-val="play devil's advocate">play devil's advocate</button>
+        <button class="opt" data-val="leave no stone unturned">leave no stone unturned</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="50" data-correct="Walking through the park">
+      <div class="q-text">6. Reduza com participle: "While I was walking through the park..."</div>
+      <div class="options">
+        <button class="opt" data-val="When walking the park">When walking the park</button>
+        <button class="opt" data-val="Walking through the park">Walking through the park</button>
+        <button class="opt" data-val="Having walked the park">Having walked the park</button>
+        <button class="opt" data-val="On walking through the park">On walking through the park</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="51" data-correct="suggests">
+      <div class="q-text">7. Hedging acadêmico: "The data ___ a strong correlation."</div>
+      <div class="options">
+        <button class="opt" data-val="proves">proves</button>
+        <button class="opt" data-val="suggests">suggests</button>
+        <button class="opt" data-val="says">says</button>
+        <button class="opt" data-val="screams">screams</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="52" data-correct="Yours faithfully">
+      <div class="q-text">8. UK formal email: encerramento para destinatário desconhecido:</div>
+      <div class="options">
+        <button class="opt" data-val="Yours truly">Yours truly</button>
+        <button class="opt" data-val="Yours sincerely">Yours sincerely</button>
+        <button class="opt" data-val="Yours faithfully">Yours faithfully</button>
+        <button class="opt" data-val="Best">Best</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="53" data-correct="Kafkaesque">
+      <div class="q-text">9. Burocracia absurda e irracional:</div>
+      <div class="options">
+        <button class="opt" data-val="Quixotic">Quixotic</button>
+        <button class="opt" data-val="Kafkaesque">Kafkaesque</button>
+        <button class="opt" data-val="Pyrrhic">Pyrrhic</button>
+        <button class="opt" data-val="Sisyphean">Sisyphean</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="54" data-correct="She slammed the door, not looking back">
+      <div class="q-text">10. "Show don't tell" — melhor versão:</div>
+      <div class="options">
+        <button class="opt" data-val="She was angry">She was angry</button>
+        <button class="opt" data-val="She slammed the door, not looking back">She slammed the door, not looking back</button>
+        <button class="opt" data-val="She showed anger">She showed anger</button>
+        <button class="opt" data-val="The door was slammed by her angrily">The door was slammed by her angrily</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="55" data-correct="might want to">
+      <div class="q-text">11. Hedging em sugestão profissional: "You ___ reconsider."</div>
+      <div class="options">
+        <button class="opt" data-val="must">must</button>
+        <button class="opt" data-val="have to">have to</button>
+        <button class="opt" data-val="might want to">might want to</button>
+        <button class="opt" data-val="will absolutely">will absolutely</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="q" data-q="56" data-correct="It is widely believed that the climate is changing">
+      <div class="q-text">12. Versão acadêmica formal de "Many people think the climate is changing":</div>
+      <input type="text" class="fill-input" data-answer="It is widely believed that the climate is changing" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('final')">Verificar fill-ins</button>
+  </div>
+</section>
+
+</main>
+
+<div class="score-display">
+  <span>SCORE</span>
+  <span class="pt-pts" id="scoreNum">0</span>
+  <span>/ 56</span>
+</div>
+
+<nav class="level-nav">
+  <a href="05_C1_Advanced.html">
+    <div class="lbl">← Anterior</div>
+    <div class="ttl">C1 · Advanced</div>
+  </a>
+  <a href="index.html" class="next">
+    <div class="lbl">Curso completo →</div>
+    <div class="ttl">Voltar ao Índice</div>
+  </a>
+</nav>
+
+<footer>
+  <h3>Você atingiu C2.</h3>
+  <p>Você passou por todos os 7 níveis. Mas o C2 é menos um destino e mais uma <strong>prática</strong>: ler romance, escrever ensaio, ouvir podcast, conversar com nativo. Mantém a exposição diária e seu inglês continua afiando indefinidamente.</p>
+  <p style="margin-top:24px;color:var(--accent-2);font-style:italic;font-family:'Fraunces',serif;font-size:18px">"You don't learn a language. You become someone who speaks it."</p>
+  <p style="margin-top:24px;font-family:'JetBrains Mono',monospace"><a href="index.html">← Voltar ao índice geral</a> · English Mastery © Built to break the translation habit</p>
+</footer>
+
+<script>
+let score = 0;
+const total = 56;
+
+document.querySelectorAll('.q').forEach(q => {
+  const correct = q.dataset.correct;
+  const opts = q.querySelectorAll('.opt');
+  const fb = q.querySelector('.feedback');
+
+  opts.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if(q.dataset.answered) return;
+      const val = opt.dataset.val;
+      opts.forEach(o => o.classList.add('disabled'));
+      if(val === correct){
+        opt.classList.add('correct');
+        fb.classList.add('show','correct');
+        fb.innerHTML = '<strong>✓ Correto.</strong> ' + getExplanation(q.dataset.q, true);
+        score++;
+        updateScore();
+      } else {
+        opt.classList.add('wrong');
+        opts.forEach(o => { if(o.dataset.val === correct) o.classList.add('correct'); });
+        fb.classList.add('show','wrong');
+        fb.innerHTML = '<strong>✗ Incorreto.</strong> ' + getExplanation(q.dataset.q, false);
+      }
+      q.dataset.answered = 'true';
+    });
+  });
+});
+
+function checkFillIns(exId){
+  const ex = document.querySelector(`[data-ex="${exId}"]`);
+  if(!ex) return;
+  const inputs = ex.querySelectorAll('.fill-input');
+  inputs.forEach(input => {
+    if(input.dataset.checked) return;
+    const expected = input.dataset.answer.toLowerCase().trim();
+    const got = input.value.toLowerCase().trim();
+    const q = input.closest('.q');
+    const fb = q.querySelector('.feedback');
+    if(got === expected){
+      input.classList.add('correct');
+      fb.classList.add('show','correct');
+      fb.innerHTML = '<strong>✓ Correto!</strong> ' + getExplanation(q.dataset.q, true);
+      score++;
+      updateScore();
+    } else {
+      input.classList.add('wrong');
+      fb.classList.add('show','wrong');
+      fb.innerHTML = `<strong>✗ Errado.</strong> Resposta correta: <em>${input.dataset.answer}</em>. ` + getExplanation(q.dataset.q, false);
+    }
+    input.dataset.checked = 'true';
+  });
+}
+
+function updateScore(){ document.getElementById('scoreNum').textContent = score; }
+
+function getExplanation(qNum, c){
+  const ex = {
+    '1':'ascertain = formal/acadêmico de "find out". Comum em texto científico, jurídico, jornalístico.',
+    '2':'commence = registro mais formal. "Start" é casual, "begin" é neutro, "commence" é formal.',
+    '3':'"my bad" é gíria moderna pra "minha culpa". Casual, usado entre amigos.',
+    '4':'elucidate = explicar de forma clara/detalhada. Vocabulário acadêmico.',
+    '5':'kick off = iniciar (informal). Comum em contexto de projetos, eventos, esportes.',
+    '6':'Litotes = afirmar negando o oposto. "not unkind" = kind. Suaviza a afirmação.',
+    '7':'Hyperbole = exagero proposital. "A thousand times" não é literal.',
+    '8':'Metonymy = substituir um conceito pelo outro associado. "The Pentagon" = governo militar US.',
+    '9':'Oxymoron = junção de contrários ("deafening" + "silence"). Cria contraste poético.',
+    '10':'Euphemism = suavização de tema desagradável. "Passed away" suaviza "died".',
+    '11':'Understatement = minimizar uma situação extrema. Marca registrada do humor britânico.',
+    '12':'"I\'ll think about it" 90% das vezes = recusa indireta polida. Pragmatic implicature.',
+    '13':'"Could you" / "Would you mind" são as formas mais educadas em contextos formais.',
+    '14':'"That\'s an interesting take/choice" geralmente sinaliza discordância polida.',
+    '15':'"It\'s a bit chilly" é pedido velado pra resolver o frio (fechar janela, ligar aquecedor).',
+    '16':'"I won\'t say no" = aceitar elegantemente. Equivalente positivo via negação.',
+    '17':'Catch-22 = paradoxo lógico onde toda saída leva ao mesmo problema. Joseph Heller.',
+    '18':'Achilles\' heel = ponto fraco fatal. Da Ilíada de Homero.',
+    '19':'lift = UK English. US é "elevator". Pode causar confusão na primeira viagem.',
+    '20':'boot (UK) = trunk (US) = porta-malas. Bonnet (UK) = hood (US) = capô.',
+    '21':'Kafkaesque = burocracia absurda, opressiva. De Franz Kafka ("O Processo", "O Castelo").',
+    '22':'Participle clause: "Walking through the park..." = "While I was walking...".',
+    '23':'Past participle clause passivo: "Frustrated by the noise..." = "Because she was frustrated...".',
+    '24':'"It is widely believed that..." é a forma impessoal/acadêmica padrão. Hedging built-in.',
+    '25':'"Whatever happens" = estrutura paralela com "wh-ever" + present.',
+    '26':'cut to the chase = ir direto ao ponto, sem rodeios. De cinema mudo (cortar pra cena de perseguição).',
+    '27':'play devil\'s advocate = defender o lado oposto pra estimular debate.',
+    '28':'"Take with a grain of salt" = não levar muito a sério. Origem latina (cum grano salis).',
+    '29':'double-edged sword = algo com vantagens e desvantagens igualmente fortes.',
+    '30':'nip in the bud = cortar pela raiz, antes de crescer. Metáfora botânica.',
+    '31':'"It is widely believed that..." é o padrão academic. Impessoal, hedged, formal.',
+    '32':'"suggests" hedging acadêmico — "proves" é absoluto demais para escrita científica.',
+    '33':'investigate = formal de "look into". Phrasal verb deve ser evitado em academic writing.',
+    '34':'cannot (uma palavra) é a forma acadêmica. "Can not" só quando "not" enfatiza outra coisa.',
+    '35':'Furthermore = formal de "and also". Outros: moreover, in addition, additionally.',
+    '36':'"I\'m afraid I don\'t quite share that view" = discordância diplomática britânica.',
+    '37':'"At your earliest convenience" = padrão para urgência educada em business email.',
+    '38':'UK: "Yours faithfully" para destinatário desconhecido (Dear Sir/Madam). "Yours sincerely" se sabe o nome.',
+    '39':'"Could you elaborate?" = pedir mais detalhes. Vocabulário corporativo padrão.',
+    '40':'"To recap" / "To sum up" / "In summary" = encerrar resumindo. "Recap" é o mais natural em business.',
+    '41':'"She slammed the door without a word" mostra a raiva via ação. Show don\'t tell.',
+    '42':'"His old labrador" = específico cria imagem mental. Sempre prefira específico.',
+    '43':'"bolted" = correu rápido com urgência. Active verb forte. Substitua "ran fast" por verbos vivos.',
+    '44':'"At the end of the day" + "every cloud has silver lining" = clichês empilhados. Reescreva.',
+    '45':'ascertain = formal/acadêmico de "find out". Comum em texto científico/jurídico.',
+    '46':'Litotes — afirmação por negação do oposto. Marca de erudição escrita.',
+    '47':'"I\'ll think about it" como resposta a convite quase sempre indica recusa polida.',
+    '48':'lift = UK. Tube (UK) = subway (US). Bonnet (UK) = hood (US).',
+    '49':'cut to the chase = ir direto ao ponto. Idiom muito usado em business.',
+    '50':'Participle clause: substitui "While I was walking" por "Walking" — sintaxe avançada.',
+    '51':'"suggests" = hedging acadêmico. Nunca "proves" em pesquisa científica honesta.',
+    '52':'UK formal email: "Yours faithfully" para "Dear Sir/Madam". "Yours sincerely" se sabe o nome.',
+    '53':'Kafkaesque = burocracia absurda. Vocabulário cult comum em jornal, romance, ensaio.',
+    '54':'"Show don\'t tell" — ação concreta (slammed) revela emoção sem nomear ("angry").',
+    '55':'"might want to" = hedging educado. Suaviza sugestão sem comando direto.',
+    '56':'"It is widely believed that..." = forma impessoal acadêmica. Substitui "many people think".'
+  };
+  return ex[qNum] || '';
+}
+
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+</body>
+</html>
