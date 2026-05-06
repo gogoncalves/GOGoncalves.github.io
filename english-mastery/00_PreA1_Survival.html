@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Mastery — Pre-A1 Survival | Do absoluto zero à primeira frase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#451a03;
+  --paper:#fef3c7;
+  --paper-dark:#fde68a;
+  --ink:#431407;
+  --accent:#c2410c;
+  --accent-2:#fbbf24;
+  --accent-soft:#fed7aa;
+  --green:#15803d;
+  --red:#b91c1c;
+  --line:rgba(67,20,7,.14);
+  --shadow:0 1px 0 rgba(0,0,0,.06), 0 8px 24px -4px rgba(67,20,7,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(67,20,7,.06) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.6}
+
+.hero{position:relative;background:var(--bg);color:var(--paper);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(194,65,12,.4),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(251,191,36,.15),transparent 50%)}
+.hero::after{content:'A0';position:absolute;right:-30px;bottom:-80px;font-family:'Fraunces',serif;font-size:380px;font-weight:300;color:rgba(254,243,199,.05);line-height:.8;letter-spacing:-.05em;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:#fff;padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:#fff;font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,120px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px}
+h1.title em{font-style:italic;color:var(--accent-2);font-weight:400}
+h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,22px);max-width:680px;color:rgba(254,243,199,.78);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(254,243,199,.18)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent-2);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(254,243,199,.65);margin-top:8px}
+
+main{max-width:1200px;margin:0 auto;padding:80px 6vw;position:relative;z-index:1}
+section{margin-bottom:120px;scroll-margin-top:20px}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.2em;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.section-num::after{content:'';flex:1;height:1px;background:var(--line)}
+h2{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,64px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:32px}
+h2 em{font-style:italic;color:var(--accent)}
+h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;margin:32px 0 16px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:12px}
+p{margin-bottom:16px;font-size:17px}
+.lead{font-size:20px;color:#5b3210;max-width:780px}
+
+.warning-box{background:linear-gradient(135deg,#5a1f04,#451a03);color:var(--paper);padding:48px;border-radius:8px;margin:40px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent-2);margin-top:0}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:24px;font-size:16px}
+.compare-wrong{background:rgba(185,28,28,.18);border-left:4px solid var(--red)}
+.compare-right{background:rgba(21,128,61,.18);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}
+.compare-right .label{color:#86efac}
+.compare-cell .pt{font-style:italic;opacity:.7;font-size:14px;margin-bottom:8px}
+.compare-cell .en{font-weight:600;font-size:18px}
+.compare-cell .why{font-size:13px;margin-top:12px;opacity:.78;line-height:1.5}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:32px 0}
+.card{background:#fffbeb;border:1px solid var(--line);padding:32px;border-radius:8px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(0,0,0,.08), 0 16px 40px -8px rgba(67,20,7,.22)}
+.card-num{font-family:'Fraunces',serif;font-size:60px;font-weight:300;color:var(--accent);line-height:1;opacity:.5}
+.card h4{margin-top:8px}
+
+.exercise{background:#fffbeb;border:2px solid var(--ink);border-radius:10px;padding:32px;margin:32px 0;box-shadow:6px 6px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:12px}
+.exercise-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;background:var(--accent);color:#fff;padding:6px 12px;border-radius:4px}
+.q{margin:20px 0;padding:20px;background:#fef9e7;border-radius:6px;border-left:3px solid var(--accent)}
+.q-text{font-size:17px;margin-bottom:14px;font-weight:500}
+.q-text .blank{display:inline-block;min-width:80px;border-bottom:2px solid var(--ink);text-align:center;font-weight:700;color:var(--accent)}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:10px 18px;font-size:15px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--paper)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.feedback{margin-top:12px;padding:12px 16px;border-radius:6px;font-size:14px;display:none}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:rgba(21,128,61,.14);color:#14532d;border-left:3px solid var(--green)}
+.feedback.wrong{background:rgba(185,28,28,.14);color:#7f1d1d;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:4px}
+
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:inherit;font-size:17px;font-weight:600;padding:4px 8px;width:160px;text-align:center;color:var(--accent);outline:none}
+.fill-input:focus{border-color:var(--accent)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+
+.btn{background:var(--ink);color:var(--paper);border:none;padding:14px 28px;font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:6px;transition:all .2s;margin-top:12px}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+
+.gram-table{width:100%;border-collapse:collapse;margin:24px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--paper);padding:14px 18px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-table tr:hover{background:#fef9e7}
+.gram-table .em-cell{color:var(--accent);font-weight:600}
+.gram-table .ipa{font-family:'JetBrains Mono',monospace;color:#6b3410;font-size:14px}
+
+.video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin:24px 0;box-shadow:var(--shadow);background:var(--ink)}
+.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:32px 0}
+.video-card h4{margin-bottom:8px;color:var(--ink);font-family:'Fraunces',serif;font-size:18px;text-transform:none;letter-spacing:0}
+.video-card p{font-size:14px;color:#6b3410}
+
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width .2s}
+
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:16px 24px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;box-shadow:0 8px 24px rgba(67,20,7,.4);z-index:50;display:flex;align-items:center;gap:12px}
+.score-display .pt-pts{color:var(--accent-2);font-size:20px}
+
+.tip-box{background:linear-gradient(135deg,#fef3c7,#fde68a);padding:24px;border-radius:8px;margin:24px 0;border-left:4px solid var(--accent)}
+.tip-box h4{color:#7c2d12;margin-bottom:8px}
+
+.toc{position:sticky;top:20px;background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent-2);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent-2);font-weight:700;margin-right:12px;font-size:12px}
+.toc a{color:var(--paper);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--accent-2)}
+
+footer{background:var(--ink);color:var(--paper);padding:60px 6vw;text-align:center}
+footer h3{color:var(--accent-2)}
+footer p{color:rgba(254,243,199,.7);font-size:14px}
+footer a{color:var(--accent-2);text-decoration:none}
+
+.alphabet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin:24px 0}
+.letter-cell{background:#fff;border:2px solid var(--line);border-radius:8px;padding:14px;text-align:center;transition:all .2s;cursor:default}
+.letter-cell:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow)}
+.letter-cell .letter{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--ink);line-height:1}
+.letter-cell .pron{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);margin-top:4px;letter-spacing:.05em}
+.letter-cell.tricky{background:#fef3c7;border-color:var(--accent)}
+
+.phrase-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;background:var(--line);border-radius:6px;overflow:hidden}
+.phrase-grid > div{background:#fffbeb;padding:20px}
+.phrase-pt{font-style:italic;color:#6b3410;border-right:2px solid var(--line)}
+.phrase-en{font-weight:700;font-family:'Fraunces',serif;font-size:18px}
+.phrase-en .pron{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:400;font-style:normal;margin-top:4px;letter-spacing:.05em}
+@media(max-width:600px){.phrase-grid{grid-template-columns:1fr}.phrase-pt{border-right:none;border-bottom:2px solid var(--line)}}
+
+.level-nav{padding:60px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line)}
+.level-nav a{background:var(--paper);padding:30px;text-decoration:none;color:var(--ink);transition:background .2s}
+.level-nav a:hover{background:#fffbeb}
+.level-nav a.next{text-align:right}
+.level-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#6b3410;margin-bottom:8px}
+.level-nav .ttl{font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300}
+
+@media(max-width:768px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero{padding:60px 6vw 80px}
+  main{padding:60px 6vw}
+  .score-display{bottom:12px;right:12px;padding:12px 16px;font-size:12px}
+  .score-display .pt-pts{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="tag">Level Pre-A1 — Survival</span>
+    <h1 class="title">
+      Stop being <em>silent</em>.<br>
+      <strong>Start surviving.</strong>
+    </h1>
+    <p class="subtitle">
+      Você nunca abriu a boca em inglês? Perfeito — esse arquivo foi feito pra exatamente isso. Aqui você sai do zero absoluto: alfabeto, números, cumprimentos, e as <strong>40 frases que salvam sua vida</strong> em qualquer interação básica.
+    </p>
+    <div class="hero-stats">
+      <div><div class="stat-num">9</div><div class="stat-label">Módulos</div></div>
+      <div><div class="stat-num">50+</div><div class="stat-label">Exercícios</div></div>
+      <div><div class="stat-num">40</div><div class="stat-label">Frases-âncora</div></div>
+      <div><div class="stat-num">5</div><div class="stat-label">Vídeos</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h4>Índice</h4>
+  <ol>
+    <li><a href="#alphabet">O alfabeto — letras que pegam o brasileiro</a></li>
+    <li><a href="#numbers">Números 0-100 + ordinais</a></li>
+    <li><a href="#greetings">Cumprimentos & polidez</a></li>
+    <li><a href="#how-are-you">"How are you?" — abrindo conversa</a></li>
+    <li><a href="#personal">Informação pessoal: nome, idade, origem</a></li>
+    <li><a href="#survival">Frases de sobrevivência (não morrer no aeroporto)</a></li>
+    <li><a href="#where">"Where is...?" — perguntando direções</a></li>
+    <li><a href="#time">Dias, meses, horas básicas</a></li>
+    <li><a href="#videos">Vídeos curados</a></li>
+    <li><a href="#final">Teste final — Pre-A1</a></li>
+  </ol>
+</nav>
+
+<!-- 01 ALPHABET -->
+<section id="alphabet">
+  <div class="section-num">01 / Alfabeto</div>
+  <h2>O alfabeto e as letras que <em>derrubam o brasileiro</em>.</h2>
+  <p class="lead">Antes de qualquer frase, você precisa conseguir soletrar seu nome ao telefone, num hotel, num cadastro. E mais: precisa entender quando alguém soletra pra você. Algumas letras são quase iguais ao português — outras são completamente diferentes.</p>
+
+  <div class="warning-box">
+    <h3>⚠ As 5 letras que destroem brasileiro</h3>
+    <p>Nem tente decorar tudo de uma vez. Decore primeiro estas 5 que NÃO se pronunciam como em PT — o resto vem por osmose.</p>
+    <div class="compare-grid" style="margin-top:24px">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Brasileiro tipicamente diz</span>
+        <div class="en">"Jota" para J, "agá" para H, "u" para W, "Y-grega" para Y, "érre" para R</div>
+        <div class="why">Você importou os nomes em português direto. NINGUÉM em inglês entende.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Em inglês é assim</span>
+        <div class="en">J = "djei", H = "eitch", W = "dábliu", Y = "uái", R = "ar" (rolado leve, no fundo da boca)</div>
+        <div class="why">Estas 5 são as que mais aparecem em emails (G·M·A·I·L), nomes (J·O·H·N), URLs (W·W·W).</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>O alfabeto completo (com pronúncia BR-friendly)</h3>
+  <div class="alphabet-grid">
+    <div class="letter-cell"><div class="letter">A</div><div class="pron">ei</div></div>
+    <div class="letter-cell"><div class="letter">B</div><div class="pron">bi</div></div>
+    <div class="letter-cell"><div class="letter">C</div><div class="pron">si</div></div>
+    <div class="letter-cell"><div class="letter">D</div><div class="pron">di</div></div>
+    <div class="letter-cell"><div class="letter">E</div><div class="pron">i</div></div>
+    <div class="letter-cell"><div class="letter">F</div><div class="pron">éf</div></div>
+    <div class="letter-cell"><div class="letter">G</div><div class="pron">dji</div></div>
+    <div class="letter-cell tricky"><div class="letter">H</div><div class="pron">eitch</div></div>
+    <div class="letter-cell"><div class="letter">I</div><div class="pron">ai</div></div>
+    <div class="letter-cell tricky"><div class="letter">J</div><div class="pron">djei</div></div>
+    <div class="letter-cell"><div class="letter">K</div><div class="pron">kei</div></div>
+    <div class="letter-cell"><div class="letter">L</div><div class="pron">él</div></div>
+    <div class="letter-cell"><div class="letter">M</div><div class="pron">ém</div></div>
+    <div class="letter-cell"><div class="letter">N</div><div class="pron">én</div></div>
+    <div class="letter-cell"><div class="letter">O</div><div class="pron">ou</div></div>
+    <div class="letter-cell"><div class="letter">P</div><div class="pron">pi</div></div>
+    <div class="letter-cell"><div class="letter">Q</div><div class="pron">kiu</div></div>
+    <div class="letter-cell tricky"><div class="letter">R</div><div class="pron">ar</div></div>
+    <div class="letter-cell"><div class="letter">S</div><div class="pron">és</div></div>
+    <div class="letter-cell"><div class="letter">T</div><div class="pron">ti</div></div>
+    <div class="letter-cell"><div class="letter">U</div><div class="pron">iu</div></div>
+    <div class="letter-cell"><div class="letter">V</div><div class="pron">vi</div></div>
+    <div class="letter-cell tricky"><div class="letter">W</div><div class="pron">dábliu</div></div>
+    <div class="letter-cell"><div class="letter">X</div><div class="pron">éks</div></div>
+    <div class="letter-cell tricky"><div class="letter">Y</div><div class="pron">uái</div></div>
+    <div class="letter-cell"><div class="letter">Z</div><div class="pron">zi (US) / zéd (UK)</div></div>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ Dica de ouro: spell your email</h4>
+    <p>Treine soletrar seu email em voz alta TODO DIA por 1 semana. Comece pelos pedaços: <em>"G·M·A·I·L · DOT · COM"</em>. "Dot" é o ponto, "at" é o @. Se conseguir soletrar seu email sem travar, 80% das interações cotidianas estão resolvidas.</p>
+  </div>
+
+  <div class="exercise" data-ex="alphabet">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #1 — Pronúncia das letras</div>
+        <div>Qual a pronúncia correta da letra?</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="1" data-correct="djei">
+      <div class="q-text">1. Como se pronuncia a letra <strong>J</strong>?</div>
+      <div class="options">
+        <button class="opt" data-val="djei">djei</button>
+        <button class="opt" data-val="jota">jota</button>
+        <button class="opt" data-val="ji">ji</button>
+        <button class="opt" data-val="iei">iei</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="2" data-correct="eitch">
+      <div class="q-text">2. Como se pronuncia a letra <strong>H</strong>?</div>
+      <div class="options">
+        <button class="opt" data-val="agá">agá</button>
+        <button class="opt" data-val="ha">ha</button>
+        <button class="opt" data-val="eitch">eitch</button>
+        <button class="opt" data-val="hi">hi</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="3" data-correct="dábliu">
+      <div class="q-text">3. Como se pronuncia a letra <strong>W</strong>?</div>
+      <div class="options">
+        <button class="opt" data-val="vê">vê</button>
+        <button class="opt" data-val="dábliu">dábliu</button>
+        <button class="opt" data-val="u">u</button>
+        <button class="opt" data-val="vê-duplo">vê-duplo</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="4" data-correct="uái">
+      <div class="q-text">4. Como se pronuncia a letra <strong>Y</strong>?</div>
+      <div class="options">
+        <button class="opt" data-val="ípsilon">ípsilon</button>
+        <button class="opt" data-val="i-grega">i-grega</button>
+        <button class="opt" data-val="uái">uái</button>
+        <button class="opt" data-val="iey">iey</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="5" data-correct="iu">
+      <div class="q-text">5. Como se pronuncia a letra <strong>U</strong>?</div>
+      <div class="options">
+        <button class="opt" data-val="u">u</button>
+        <button class="opt" data-val="iu">iu</button>
+        <button class="opt" data-val="uá">uá</button>
+        <button class="opt" data-val="ai">ai</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 NUMBERS -->
+<section id="numbers">
+  <div class="section-num">02 / Números</div>
+  <h2>Números 0–100 + <em>ordinais</em>.</h2>
+  <p class="lead">Você precisa de números todo dia: dizer sua idade, ler preço, dar telefone, marcar hora. O brasileiro tropeça em <strong>30 vs 13</strong>, em <strong>3 vs free</strong>, e em ordinais (1st, 2nd, 3rd).</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-num">0–10</div>
+      <h4>Os fundamentais</h4>
+      <p style="font-size:15px;line-height:1.7"><strong>0</strong> zero · <strong>1</strong> one · <strong>2</strong> two · <strong>3</strong> three · <strong>4</strong> four · <strong>5</strong> five · <strong>6</strong> six · <strong>7</strong> seven · <strong>8</strong> eight · <strong>9</strong> nine · <strong>10</strong> ten</p>
+    </div>
+    <div class="card">
+      <div class="card-num">11–20</div>
+      <h4>Os irregulares</h4>
+      <p style="font-size:15px;line-height:1.7"><strong>11</strong> eleven · <strong>12</strong> twelve · <strong>13</strong> thirteen · <strong>14</strong> fourteen · <strong>15</strong> fifteen · <strong>16</strong> sixteen · <strong>17</strong> seventeen · <strong>18</strong> eighteen · <strong>19</strong> nineteen · <strong>20</strong> twenty</p>
+    </div>
+    <div class="card">
+      <div class="card-num">×10</div>
+      <h4>As dezenas</h4>
+      <p style="font-size:15px;line-height:1.7"><strong>20</strong> twenty · <strong>30</strong> thirty · <strong>40</strong> forty (sem U!) · <strong>50</strong> fifty · <strong>60</strong> sixty · <strong>70</strong> seventy · <strong>80</strong> eighty · <strong>90</strong> ninety · <strong>100</strong> one hundred</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ A confusão mortal: -teen vs -ty</h3>
+    <p><strong>thirTEEN</strong> (13) vs <strong>THIRty</strong> (30). A diferença está só na sílaba tônica + o som final.</p>
+    <div class="compare-grid" style="margin-top:24px">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Brasileiro confunde</span>
+        <div class="en">"Eu tenho 13 anos" sai como <em>"I'm thirty"</em> (30)</div>
+        <div class="why">Brasileiro tende a dar tônica errada. Resultado: você diz que tem 30 anos quando quis dizer 13.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ A regra</span>
+        <div class="en"><strong>-TEEN</strong> = tônica NO FIM, som "tin" alongado<br><strong>-TY</strong> = tônica NO COMEÇO, som "ti" curto</div>
+        <div class="why">Treine: "thir·TEEN" / "THIR·ti". "four·TEEN" / "FOR·ti". Sempre exagere a tônica até a diferença ficar nítida.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Ordinais — "primeiro, segundo, terceiro..."</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Cardinal</th><th>Ordinal</th><th>Forma curta</th><th>Uso típico</th></tr></thead>
+      <tbody>
+        <tr><td>1 one</td><td class="em-cell">first</td><td>1st</td><td>my first day · January 1st</td></tr>
+        <tr><td>2 two</td><td class="em-cell">second</td><td>2nd</td><td>second floor · 2nd place</td></tr>
+        <tr><td>3 three</td><td class="em-cell">third</td><td>3rd</td><td>third time · March 3rd</td></tr>
+        <tr><td>4 four</td><td>fourth</td><td>4th</td><td>4th of July</td></tr>
+        <tr><td>5 five</td><td>fifth</td><td>5th</td><td>fifth try (regra: tira o "ve", põe "fth")</td></tr>
+        <tr><td>9 nine</td><td>ninth</td><td>9th</td><td>tira o "e": ninth (não nineth)</td></tr>
+        <tr><td>12 twelve</td><td>twelfth</td><td>12th</td><td>tira "ve", põe "fth": twelfth</td></tr>
+        <tr><td>20 twenty</td><td>twentieth</td><td>20th</td><td>"y" vira "ie": twentieth</td></tr>
+        <tr><td>21 twenty-one</td><td>twenty-first</td><td>21st</td><td>só o ÚLTIMO vira ordinal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ Dica: data em inglês</h4>
+    <p>Inglês americano: <em>March 5th, 2024</em> (mês primeiro). Inglês britânico: <em>5th of March, 2024</em>. Ao falar SEMPRE use o ordinal: "March fifth", não "March five".</p>
+  </div>
+
+  <div class="exercise" data-ex="numbers">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #2 — Números & ordinais</div>
+        <div>Escolha a forma correta.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="6" data-correct="thirty">
+      <div class="q-text">1. Eu tenho <strong>30 anos</strong>. → I'm ___ years old.</div>
+      <div class="options">
+        <button class="opt" data-val="thirteen">thirteen</button>
+        <button class="opt" data-val="thirty">thirty</button>
+        <button class="opt" data-val="threety">threety</button>
+        <button class="opt" data-val="three-zero">three-zero</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="7" data-correct="forty">
+      <div class="q-text">2. Como se escreve <strong>40</strong>?</div>
+      <div class="options">
+        <button class="opt" data-val="fourty">fourty</button>
+        <button class="opt" data-val="forty">forty</button>
+        <button class="opt" data-val="fortie">fortie</button>
+        <button class="opt" data-val="fourteen">fourteen</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="8" data-correct="fifth">
+      <div class="q-text">3. <strong>5º</strong> andar = ___ floor</div>
+      <div class="options">
+        <button class="opt" data-val="fiveth">fiveth</button>
+        <button class="opt" data-val="fivth">fivth</button>
+        <button class="opt" data-val="fifth">fifth</button>
+        <button class="opt" data-val="five">five</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="9" data-correct="twenty-one">
+      <div class="q-text">4. <strong>21</strong> em inglês:</div>
+      <div class="options">
+        <button class="opt" data-val="twentyone">twentyone</button>
+        <button class="opt" data-val="twenty-one">twenty-one</button>
+        <button class="opt" data-val="twenty and one">twenty and one</button>
+        <button class="opt" data-val="two-one">two-one</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="10" data-correct="ninth">
+      <div class="q-text">5. <strong>9º</strong> em forma ordinal:</div>
+      <div class="options">
+        <button class="opt" data-val="nineth">nineth</button>
+        <button class="opt" data-val="ninth">ninth</button>
+        <button class="opt" data-val="nineth">ninine</button>
+        <button class="opt" data-val="ninest">ninest</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="11" data-correct="one hundred">
+      <div class="q-text">6. <strong>100</strong> em inglês:</div>
+      <div class="options">
+        <button class="opt" data-val="ten ten">ten ten</button>
+        <button class="opt" data-val="hundred">hundred</button>
+        <button class="opt" data-val="one hundred">one hundred</button>
+        <button class="opt" data-val="onehundred">onehundred</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 GREETINGS -->
+<section id="greetings">
+  <div class="section-num">03 / Cumprimentos</div>
+  <h2>Hello, hi, good <em>morning</em>.</h2>
+  <p class="lead">Existe um cumprimento certo pra cada hora do dia, e um certo pro nível de formalidade. Brasileiro tende a usar "Hello!" pra TUDO. É correto, mas soa robótico. Use a tabela abaixo como cardápio.</p>
+
+  <div class="phrase-grid">
+    <div class="phrase-pt">Oi (informal, qualquer hora)</div>
+    <div class="phrase-en">Hi! / Hey!<span class="pron">(rai / rei)</span></div>
+    <div class="phrase-pt">Olá (neutro, qualquer hora)</div>
+    <div class="phrase-en">Hello.<span class="pron">(relôu)</span></div>
+    <div class="phrase-pt">Bom dia (manhã, até ~12h)</div>
+    <div class="phrase-en">Good morning.<span class="pron">(gud môr·ning)</span></div>
+    <div class="phrase-pt">Boa tarde (12h–18h)</div>
+    <div class="phrase-en">Good afternoon.<span class="pron">(gud áf·ter·nun)</span></div>
+    <div class="phrase-pt">Boa noite (chegando — depois das 18h)</div>
+    <div class="phrase-en">Good evening.<span class="pron">(gud iv·ning)</span></div>
+    <div class="phrase-pt">Boa noite (despedida, hora de dormir)</div>
+    <div class="phrase-en">Good night.<span class="pron">(gud nait)</span></div>
+    <div class="phrase-pt">Prazer em te conhecer</div>
+    <div class="phrase-en">Nice to meet you.<span class="pron">(nais tchu mit iu)</span></div>
+    <div class="phrase-pt">Igualmente / Prazer em te conhecer também</div>
+    <div class="phrase-en">Nice to meet you too. / Likewise.<span class="pron">(nais tchu mit iu tu / lai·kuáiz)</span></div>
+    <div class="phrase-pt">Tchau / Até mais</div>
+    <div class="phrase-en">Bye! / See you!<span class="pron">(bai / si iu)</span></div>
+    <div class="phrase-pt">Até logo</div>
+    <div class="phrase-en">See you later.<span class="pron">(si iu lei·ter)</span></div>
+    <div class="phrase-pt">Até amanhã</div>
+    <div class="phrase-en">See you tomorrow.<span class="pron">(si iu tu·mór·ou)</span></div>
+    <div class="phrase-pt">Tenha um bom dia</div>
+    <div class="phrase-en">Have a nice day.<span class="pron">(rév a nais dei)</span></div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ A armadilha do "Good night"</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Brasileiro chega num jantar e diz</span>
+        <div class="pt">"Boa noite a todos!"</div>
+        <div class="en">"Good night, everyone!"</div>
+        <div class="why">Em inglês isso significa "Boa noite, vou dormir agora". Você acabou de chegar e já se despediu.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Cumprimento de chegada à noite</span>
+        <div class="en">"Good evening, everyone!"</div>
+        <div class="why"><strong>Evening</strong> = noite ao chegar/durante. <strong>Night</strong> = noite ao se despedir/dormir. NÃO são intercambiáveis.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="greetings">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #3 — Cumprimentos por contexto</div>
+        <div>Escolha a melhor opção pra cada situação.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="12" data-correct="Good morning">
+      <div class="q-text">1. São <strong>9 da manhã</strong>, você chega no trabalho. Diz:</div>
+      <div class="options">
+        <button class="opt" data-val="Good evening">Good evening</button>
+        <button class="opt" data-val="Good morning">Good morning</button>
+        <button class="opt" data-val="Good night">Good night</button>
+        <button class="opt" data-val="Good afternoon">Good afternoon</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="13" data-correct="Good night">
+      <div class="q-text">2. <strong>23h</strong>, você está saindo da casa de um amigo, indo pra casa dormir. Diz:</div>
+      <div class="options">
+        <button class="opt" data-val="Good evening">Good evening</button>
+        <button class="opt" data-val="Good morning">Good morning</button>
+        <button class="opt" data-val="Good night">Good night</button>
+        <button class="opt" data-val="Hi!">Hi!</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="14" data-correct="Nice to meet you">
+      <div class="q-text">3. Você acabou de ser apresentado a alguém. Diz:</div>
+      <div class="options">
+        <button class="opt" data-val="See you later">See you later</button>
+        <button class="opt" data-val="Nice to meet you">Nice to meet you</button>
+        <button class="opt" data-val="Good night">Good night</button>
+        <button class="opt" data-val="How do you do that">How do you do that</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="15" data-correct="Good evening">
+      <div class="q-text">4. Você chega num restaurante <strong>às 20h</strong>. O garçom diz:</div>
+      <div class="options">
+        <button class="opt" data-val="Good night">Good night</button>
+        <button class="opt" data-val="Good morning">Good morning</button>
+        <button class="opt" data-val="Good evening">Good evening</button>
+        <button class="opt" data-val="See you">See you</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="16" data-correct="See you tomorrow">
+      <div class="q-text">5. Você sai do escritório sexta-feira sabendo que vê o colega segunda. Diz:</div>
+      <div class="options">
+        <button class="opt" data-val="See you tomorrow">See you tomorrow</button>
+        <button class="opt" data-val="Goodbye forever">Goodbye forever</button>
+        <button class="opt" data-val="See you Monday">See you Monday</button>
+        <button class="opt" data-val="Bye-bye-bye">Bye-bye-bye</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 HOW ARE YOU -->
+<section id="how-are-you">
+  <div class="section-num">04 / Como vai?</div>
+  <h2>"How are <em>you</em>?" e a resposta que ninguém te ensinou.</h2>
+  <p class="lead">A grande verdade: <strong>"How are you?" não é uma pergunta real</strong>. É um cumprimento. Ninguém quer ouvir sobre seus problemas. A resposta esperada é curta, simpática, e devolve a pergunta.</p>
+
+  <div class="warning-box">
+    <h3>⚠ Brasileiro responde longo demais</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Resposta brasileira típica</span>
+        <div class="pt">"How are you?" → "Estou bem, obrigado, ontem eu fui no médico mas hoje to melhor..."</div>
+        <div class="en">"I'm fine, thank you, yesterday I went to the doctor but..."</div>
+        <div class="why">A pessoa não quer saber. Era só um "oi". Você acaba de tornar a interação esquisita.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Resposta nativa</span>
+        <div class="en">"Good, thanks. <strong>How about you?</strong>" / "Pretty good, you?"</div>
+        <div class="why">Curta, devolve a pergunta. Em 2 segundos. Esse é o ritual.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>O cardápio de respostas (do mais formal ao mais casual)</h3>
+  <div class="table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Resposta</th><th>Tom</th><th>Quando usar</th></tr></thead>
+      <tbody>
+        <tr><td class="em-cell">Very well, thank you.</td><td>Formal</td><td>Entrevista, reunião com superior, idoso</td></tr>
+        <tr><td class="em-cell">I'm fine, thanks.</td><td>Neutro</td><td>Colega de trabalho, professor, atendente</td></tr>
+        <tr><td class="em-cell">Good, thanks. You?</td><td>Casual</td><td>Amigo, conhecido, rotina diária</td></tr>
+        <tr><td class="em-cell">Pretty good, you?</td><td>Casual+</td><td>Amigo próximo, contexto descontraído</td></tr>
+        <tr><td class="em-cell">Not bad, you?</td><td>Casual</td><td>Resposta honesta sem ser dramática</td></tr>
+        <tr><td class="em-cell">Same old, same old.</td><td>Informal</td><td>Amigo: "tudo na mesma"</td></tr>
+        <tr><td class="em-cell">Hanging in there.</td><td>Informal</td><td>"Indo levando" — quando não está bem</td></tr>
+        <tr><td class="em-cell">Could be better.</td><td>Honesto</td><td>"Já estive melhor" — abre conversa</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Variações de "How are you?" que você precisa reconhecer</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>How's it going?</h4>
+      <p style="font-size:14px">Mais casual. "Como vai?" Resposta: "Going well, thanks!" ou "Pretty good!"</p>
+    </div>
+    <div class="card">
+      <h4>What's up? / 'Sup?</h4>
+      <p style="font-size:14px">Bem casual, jovem. "E aí?" Resposta: "Not much, you?" — NÃO descreva sua semana.</p>
+    </div>
+    <div class="card">
+      <h4>How have you been?</h4>
+      <p style="font-size:14px">Pra alguém que você não vê faz tempo. "Como você tem estado?" Resposta com Present Perfect: "I've been good, thanks."</p>
+    </div>
+    <div class="card">
+      <h4>How's everything?</h4>
+      <p style="font-size:14px">"Como estão as coisas?" Resposta: "Everything's good, thanks. You?"</p>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="howareyou">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #4 — Respondendo cumprimentos</div>
+        <div>Qual a resposta mais natural?</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="17" data-correct="Good, thanks. How about you?">
+      <div class="q-text">1. Colega de trabalho: "Hi! How are you?" — você responde:</div>
+      <div class="options">
+        <button class="opt" data-val="I am very fine, thank you for asking">I am very fine, thank you for asking</button>
+        <button class="opt" data-val="Good, thanks. How about you?">Good, thanks. How about you?</button>
+        <button class="opt" data-val="Yes please">Yes please</button>
+        <button class="opt" data-val="Me too">Me too</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="18" data-correct="Not much, you?">
+      <div class="q-text">2. Amigo casual: "Hey, what's up?" — resposta natural:</div>
+      <div class="options">
+        <button class="opt" data-val="Up is the sky">Up is the sky</button>
+        <button class="opt" data-val="I am very well thank you">I am very well thank you</button>
+        <button class="opt" data-val="Not much, you?">Not much, you?</button>
+        <button class="opt" data-val="Up I am">Up I am</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="19" data-correct="I've been good, thanks">
+      <div class="q-text">3. Amigo que você não vê há meses: "How have you been?" — resposta correta:</div>
+      <div class="options">
+        <button class="opt" data-val="I am good">I am good</button>
+        <button class="opt" data-val="I had been good">I had been good</button>
+        <button class="opt" data-val="I've been good, thanks">I've been good, thanks</button>
+        <button class="opt" data-val="I were good">I were good</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="20" data-correct="Very well, thank you">
+      <div class="q-text">4. Entrevista de emprego: "Good morning, how are you today?" — resposta IDEAL:</div>
+      <div class="options">
+        <button class="opt" data-val="Cool dude">Cool dude</button>
+        <button class="opt" data-val="Very well, thank you">Very well, thank you</button>
+        <button class="opt" data-val="Same old">Same old</button>
+        <button class="opt" data-val="Whatever">Whatever</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="21" data-correct="Hanging in there">
+      <div class="q-text">5. Amigo: "How's it going?" — você está cansado mas não quer drama. Resposta natural:</div>
+      <div class="options">
+        <button class="opt" data-val="Hanging in there">Hanging in there</button>
+        <button class="opt" data-val="I am dying inside">I am dying inside</button>
+        <button class="opt" data-val="Going from the place">Going from the place</button>
+        <button class="opt" data-val="It is goes well">It is goes well</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PERSONAL -->
+<section id="personal">
+  <div class="section-num">05 / Informação pessoal</div>
+  <h2>Quem você <em>é</em>: as 5 perguntas universais.</h2>
+  <p class="lead">Todo cadastro, todo aplicativo, toda primeira conversa pede as mesmas 5 informações. Decora isso e você sobrevive em qualquer país anglófono.</p>
+
+  <div class="phrase-grid">
+    <div class="phrase-pt">Qual é o seu nome?</div>
+    <div class="phrase-en">What's your name?<span class="pron">(uáts iór neim)</span></div>
+    <div class="phrase-pt">Meu nome é Gustavo.</div>
+    <div class="phrase-en">My name is Gustavo. / I'm Gustavo.<span class="pron">(mai neim iz... / aim...)</span></div>
+    <div class="phrase-pt">De onde você é?</div>
+    <div class="phrase-en">Where are you from?<span class="pron">(uér ár iu fram)</span></div>
+    <div class="phrase-pt">Eu sou do Brasil.</div>
+    <div class="phrase-en">I'm from Brazil.<span class="pron">(aim fram bra·zíl)</span></div>
+    <div class="phrase-pt">Quantos anos você tem?</div>
+    <div class="phrase-en">How old are you?<span class="pron">(rau ould ár iu)</span></div>
+    <div class="phrase-pt">Eu tenho 32 anos.</div>
+    <div class="phrase-en">I'm 32 (years old).<span class="pron">(aim thirti-tu)</span></div>
+    <div class="phrase-pt">Onde você mora?</div>
+    <div class="phrase-en">Where do you live?<span class="pron">(uér du iu lív)</span></div>
+    <div class="phrase-pt">Eu moro em São Paulo.</div>
+    <div class="phrase-en">I live in São Paulo.<span class="pron">(ai liv in...)</span></div>
+    <div class="phrase-pt">O que você faz da vida?</div>
+    <div class="phrase-en">What do you do (for a living)?<span class="pron">(uát du iu du)</span></div>
+    <div class="phrase-pt">Eu sou engenheiro.</div>
+    <div class="phrase-en">I'm an engineer.<span class="pron">(aim an én·dji·níer)</span></div>
+    <div class="phrase-pt">Você fala inglês?</div>
+    <div class="phrase-en">Do you speak English?<span class="pron">(du iu spik ínglich)</span></div>
+    <div class="phrase-pt">Eu falo um pouco.</div>
+    <div class="phrase-en">I speak a little.<span class="pron">(ai spik a lirou)</span></div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ Os 3 erros clássicos brasileiros</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Tradução literal</span>
+        <div class="pt">"Eu tenho 30 anos"</div>
+        <div class="en">I have 30 years</div>
+        <div class="pt" style="margin-top:12px">"Sou engenheiro"</div>
+        <div class="en">I am engineer</div>
+        <div class="pt" style="margin-top:12px">"Eu sou de Brasil"</div>
+        <div class="en">I am from the Brazil</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Inglês correto</span>
+        <div class="en"><strong>I'm 30</strong> (years old é opcional)</div>
+        <div class="en" style="margin-top:12px"><strong>I'm AN engineer</strong> (artigo obrigatório!)</div>
+        <div class="en" style="margin-top:12px"><strong>I'm from Brazil</strong> (sem "the")</div>
+        <div class="why" style="margin-top:12px">Países geralmente NÃO levam "the" (exceto: the US, the UK, the Netherlands, the Philippines).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="personal">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #5 — Apresentação pessoal</div>
+        <div>Complete com a forma correta.</div>
+      </div>
+      <span class="exercise-type">Fill-in</span>
+    </div>
+
+    <div class="q" data-q="22" data-correct="I'm">
+      <div class="q-text">1. Eu tenho 28 anos. → ___ 28 (years old).</div>
+      <input type="text" class="fill-input" data-answer="I'm">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="23" data-correct="from">
+      <div class="q-text">2. Eu sou do Brasil. → I'm ___ Brazil.</div>
+      <input type="text" class="fill-input" data-answer="from">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="24" data-correct="an">
+      <div class="q-text">3. Sou engenheiro. → I'm ___ engineer. (artigo!)</div>
+      <input type="text" class="fill-input" data-answer="an">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="25" data-correct="live">
+      <div class="q-text">4. Eu moro em Lisboa. → I ___ in Lisbon.</div>
+      <input type="text" class="fill-input" data-answer="live">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="26" data-correct="speak">
+      <div class="q-text">5. Você fala inglês? → Do you ___ English?</div>
+      <input type="text" class="fill-input" data-answer="speak">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('personal')">Verificar respostas</button>
+  </div>
+</section>
+
+<!-- 06 SURVIVAL PHRASES -->
+<section id="survival">
+  <div class="section-num">06 / Sobrevivência</div>
+  <h2>As <em>40 frases</em> que salvam sua vida.</h2>
+  <p class="lead">Aeroporto, restaurante, hotel, loja, farmácia, perdido na rua. Estas frases cobrem 90% das emergências de comunicação. Decora elas como se fossem números de telefone.</p>
+
+  <h3>Polidez básica (use SEMPRE — em PT a gente engole, em EN é obrigatório)</h3>
+  <div class="phrase-grid">
+    <div class="phrase-pt">Por favor</div>
+    <div class="phrase-en">Please<span class="pron">(plis)</span></div>
+    <div class="phrase-pt">Obrigado(a)</div>
+    <div class="phrase-en">Thank you. / Thanks.<span class="pron">(thénk iu / thénks)</span></div>
+    <div class="phrase-pt">Muito obrigado</div>
+    <div class="phrase-en">Thank you so much. / Thanks a lot.<span class="pron">(thénk iu sô mátch)</span></div>
+    <div class="phrase-pt">De nada</div>
+    <div class="phrase-en">You're welcome. / No problem.<span class="pron">(iór uél·cám)</span></div>
+    <div class="phrase-pt">Desculpa (perdão)</div>
+    <div class="phrase-en">Sorry. / I'm sorry.<span class="pron">(sórri)</span></div>
+    <div class="phrase-pt">Com licença / Desculpa atrapalhar</div>
+    <div class="phrase-en">Excuse me.<span class="pron">(ek·skíuz mi)</span></div>
+    <div class="phrase-pt">Tudo bem (em resposta a desculpa)</div>
+    <div class="phrase-en">It's okay. / No worries.<span class="pron">(its ô·kei / nou uér·is)</span></div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ Sorry vs Excuse me — não são iguais</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Brasileiro usa "sorry" pra tudo</span>
+        <div class="en">Você quer passar no metrô lotado: "Sorry, sorry, sorry..."</div>
+        <div class="why">Sorry = "estou pedindo perdão por algo que fiz". Esquisito antes de fazer.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Use o certo pro contexto</span>
+        <div class="en"><strong>Excuse me</strong> = ANTES (passar, chamar atenção, pedir info)<br><strong>Sorry</strong> = DEPOIS (você pisou no pé de alguém, errou)</div>
+        <div class="why">"Excuse me, where's the bathroom?" ✓ · "Sorry I'm late" ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Quando você não entendeu (a frase mais importante do nível)</h3>
+  <div class="phrase-grid">
+    <div class="phrase-pt">Não entendi</div>
+    <div class="phrase-en">I don't understand.<span class="pron">(ai dont an·der·sténd)</span></div>
+    <div class="phrase-pt">Pode repetir, por favor?</div>
+    <div class="phrase-en">Can you repeat that, please?<span class="pron">(ken iu re·pít dét plis)</span></div>
+    <div class="phrase-pt">Pode falar mais devagar?</div>
+    <div class="phrase-en">Can you speak more slowly, please?<span class="pron">(ken iu spik mór slou·li)</span></div>
+    <div class="phrase-pt">Como se diz X em inglês?</div>
+    <div class="phrase-en">How do you say X in English?<span class="pron">(rau du iu sei...)</span></div>
+    <div class="phrase-pt">O que significa X?</div>
+    <div class="phrase-en">What does X mean?<span class="pron">(uát daz... min)</span></div>
+    <div class="phrase-pt">Eu falo só um pouquinho de inglês</div>
+    <div class="phrase-en">I only speak a little English.<span class="pron">(ai ôn·li spik a lírou)</span></div>
+    <div class="phrase-pt">Você fala português?</div>
+    <div class="phrase-en">Do you speak Portuguese?<span class="pron">(du iu spik pôrt·iu·guíz)</span></div>
+  </div>
+
+  <h3>No restaurante / café</h3>
+  <div class="phrase-grid">
+    <div class="phrase-pt">Uma mesa para 2, por favor</div>
+    <div class="phrase-en">A table for two, please.</div>
+    <div class="phrase-pt">O cardápio, por favor</div>
+    <div class="phrase-en">The menu, please.</div>
+    <div class="phrase-pt">Eu vou querer...</div>
+    <div class="phrase-en">I'll have... / I'd like...</div>
+    <div class="phrase-pt">Tá bom, obrigado</div>
+    <div class="phrase-en">That's all, thanks.</div>
+    <div class="phrase-pt">A conta, por favor</div>
+    <div class="phrase-en">The check, please. (US) / The bill, please. (UK)</div>
+    <div class="phrase-pt">Posso pagar com cartão?</div>
+    <div class="phrase-en">Can I pay by card?</div>
+    <div class="phrase-pt">Estava ótimo, obrigado</div>
+    <div class="phrase-en">It was delicious, thank you.</div>
+  </div>
+
+  <h3>Compras / Loja</h3>
+  <div class="phrase-grid">
+    <div class="phrase-pt">Quanto custa?</div>
+    <div class="phrase-en">How much is it? / How much does it cost?</div>
+    <div class="phrase-pt">Tá caro!</div>
+    <div class="phrase-en">That's expensive!</div>
+    <div class="phrase-pt">Vocês têm em outro tamanho?</div>
+    <div class="phrase-en">Do you have it in another size?</div>
+    <div class="phrase-pt">Posso experimentar?</div>
+    <div class="phrase-en">Can I try it on?</div>
+    <div class="phrase-pt">Só estou olhando, obrigado</div>
+    <div class="phrase-en">I'm just looking, thanks.</div>
+    <div class="phrase-pt">Eu vou levar este</div>
+    <div class="phrase-en">I'll take this one.</div>
+  </div>
+
+  <div class="exercise" data-ex="survival">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #6 — Sobrevivência aplicada</div>
+        <div>Escolha a frase certa pro contexto.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="27" data-correct="Excuse me">
+      <div class="q-text">1. Você quer passar no meio de uma multidão. Diz:</div>
+      <div class="options">
+        <button class="opt" data-val="Sorry sorry sorry">Sorry sorry sorry</button>
+        <button class="opt" data-val="Excuse me">Excuse me</button>
+        <button class="opt" data-val="Hello">Hello</button>
+        <button class="opt" data-val="Please go">Please go</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="28" data-correct="I'm sorry">
+      <div class="q-text">2. Você acabou de pisar no pé de alguém:</div>
+      <div class="options">
+        <button class="opt" data-val="Excuse me">Excuse me</button>
+        <button class="opt" data-val="I'm sorry">I'm sorry</button>
+        <button class="opt" data-val="Welcome">Welcome</button>
+        <button class="opt" data-val="No problem">No problem</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="29" data-correct="Can you repeat that, please?">
+      <div class="q-text">3. Atendente falou rápido demais. Você diz:</div>
+      <div class="options">
+        <button class="opt" data-val="Repeat please">Repeat please</button>
+        <button class="opt" data-val="Say again that please">Say again that please</button>
+        <button class="opt" data-val="Can you repeat that, please?">Can you repeat that, please?</button>
+        <button class="opt" data-val="Make it again please">Make it again please</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="30" data-correct="The check, please">
+      <div class="q-text">4. Pedindo a conta no restaurante (US):</div>
+      <div class="options">
+        <button class="opt" data-val="The account, please">The account, please</button>
+        <button class="opt" data-val="The check, please">The check, please</button>
+        <button class="opt" data-val="The price, please">The price, please</button>
+        <button class="opt" data-val="The note, please">The note, please</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="31" data-correct="I'm just looking, thanks">
+      <div class="q-text">5. Vendedor pergunta "Can I help you?" e você só quer olhar:</div>
+      <div class="options">
+        <button class="opt" data-val="Yes can help me to look">Yes can help me to look</button>
+        <button class="opt" data-val="I'm just looking, thanks">I'm just looking, thanks</button>
+        <button class="opt" data-val="No no no no">No no no no</button>
+        <button class="opt" data-val="I am only watching">I am only watching</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 WHERE IS -->
+<section id="where">
+  <div class="section-num">07 / Direções</div>
+  <h2>"<em>Where is</em>...?" — perguntando direções.</h2>
+  <p class="lead">A frase <strong>"Where is...?"</strong> abre 1.000 portas. E você só precisa conhecer ~10 palavras pra entender qualquer resposta básica.</p>
+
+  <h3>Vocabulário de direções essencial</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Direções básicas</h4>
+      <p style="font-size:14px;line-height:2"><strong>here</strong> aqui · <strong>there</strong> lá · <strong>left</strong> esquerda · <strong>right</strong> direita · <strong>straight</strong> reto · <strong>back</strong> volta</p>
+    </div>
+    <div class="card">
+      <h4>Distância</h4>
+      <p style="font-size:14px;line-height:2"><strong>near</strong> perto · <strong>far</strong> longe · <strong>next to</strong> ao lado de · <strong>behind</strong> atrás · <strong>in front of</strong> em frente · <strong>across from</strong> do outro lado</p>
+    </div>
+    <div class="card">
+      <h4>Lugares úteis</h4>
+      <p style="font-size:14px;line-height:2"><strong>bathroom / restroom</strong> banheiro · <strong>exit</strong> saída · <strong>entrance</strong> entrada · <strong>elevator</strong> elevador · <strong>stairs</strong> escada · <strong>parking</strong> estacionamento</p>
+    </div>
+  </div>
+
+  <div class="phrase-grid">
+    <div class="phrase-pt">Onde fica o banheiro?</div>
+    <div class="phrase-en">Where is the bathroom?<span class="pron">(uér iz dê báth·rum)</span></div>
+    <div class="phrase-pt">Onde fica a saída?</div>
+    <div class="phrase-en">Where is the exit?<span class="pron">(uér iz dê ék·sit)</span></div>
+    <div class="phrase-pt">Como eu chego lá?</div>
+    <div class="phrase-en">How do I get there?<span class="pron">(rau du ai guét dér)</span></div>
+    <div class="phrase-pt">É perto / longe daqui?</div>
+    <div class="phrase-en">Is it near / far from here?</div>
+    <div class="phrase-pt">Vire à esquerda / direita</div>
+    <div class="phrase-en">Turn left / right.</div>
+    <div class="phrase-pt">Siga reto</div>
+    <div class="phrase-en">Go straight (ahead).</div>
+    <div class="phrase-pt">Fica do outro lado da rua</div>
+    <div class="phrase-en">It's across the street.</div>
+    <div class="phrase-pt">Eu estou perdido</div>
+    <div class="phrase-en">I'm lost.<span class="pron">(aim lóst)</span></div>
+    <div class="phrase-pt">Você pode me mostrar no mapa?</div>
+    <div class="phrase-en">Can you show me on the map?</div>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ Bathroom vs Restroom vs Toilet</h4>
+    <p>Em <strong>casa</strong>: bathroom. Em <strong>lugar público (US)</strong>: restroom (mais educado). <strong>UK</strong>: toilet ou loo. Brasileiro tende a falar "WC" — em inglês ninguém usa isso falado, só em placas.</p>
+  </div>
+
+  <div class="exercise" data-ex="where">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #7 — Direções</div>
+        <div>Múltipla escolha + fill-in.</div>
+      </div>
+      <span class="exercise-type">Mixed</span>
+    </div>
+
+    <div class="q" data-q="32" data-correct="Where is the">
+      <div class="q-text">1. Como começar a pergunta "Onde fica o banheiro?": ___ bathroom?</div>
+      <div class="options">
+        <button class="opt" data-val="Where the">Where the</button>
+        <button class="opt" data-val="Where is the">Where is the</button>
+        <button class="opt" data-val="Where stay the">Where stay the</button>
+        <button class="opt" data-val="Where it is">Where it is</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="33" data-correct="Turn right">
+      <div class="q-text">2. "Vire à direita":</div>
+      <div class="options">
+        <button class="opt" data-val="Turn the right">Turn the right</button>
+        <button class="opt" data-val="Turn on right">Turn on right</button>
+        <button class="opt" data-val="Turn right">Turn right</button>
+        <button class="opt" data-val="Make right">Make right</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="34" data-correct="straight">
+      <div class="q-text">3. Complete: "Go ___ ahead and then turn left." (siga reto)</div>
+      <input type="text" class="fill-input" data-answer="straight">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="35" data-correct="lost">
+      <div class="q-text">4. Complete: "I'm ___, can you help me?" (perdido)</div>
+      <input type="text" class="fill-input" data-answer="lost">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('where')">Verificar fill-ins</button>
+  </div>
+</section>
+
+<!-- 08 TIME -->
+<section id="time">
+  <div class="section-num">08 / Tempo</div>
+  <h2>Dias, meses, e <em>que horas são</em>.</h2>
+  <p class="lead">Você precisa saber dizer o dia da semana, o mês, marcar uma hora. Não dá pra escapar disso. E aqui aparece de novo o monstro: as preposições <strong>IN, ON, AT</strong>.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Days of the week</h4>
+      <p style="font-size:14px;line-height:2;font-weight:500"><strong>Monday</strong> seg · <strong>Tuesday</strong> ter · <strong>Wednesday</strong> qua · <strong>Thursday</strong> qui · <strong>Friday</strong> sex · <strong>Saturday</strong> sáb · <strong>Sunday</strong> dom</p>
+      <p style="font-size:13px;color:#7c2d12;margin-top:8px">⚠ SEMPRE com inicial MAIÚSCULA. E é "on Monday" (não "in").</p>
+    </div>
+    <div class="card">
+      <h4>Months</h4>
+      <p style="font-size:14px;line-height:2;font-weight:500"><strong>January, February, March, April, May, June, July, August, September, October, November, December</strong></p>
+      <p style="font-size:13px;color:#7c2d12;margin-top:8px">⚠ SEMPRE maiúscula. E é "in March" (não "on").</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ A regra de ouro: AT · ON · IN</h3>
+    <table style="width:100%;color:var(--paper);margin-top:16px">
+      <tr><td style="padding:10px;border-bottom:1px solid rgba(255,255,255,.1)"><strong style="color:var(--accent-2)">AT</strong></td><td style="padding:10px;border-bottom:1px solid rgba(255,255,255,.1)">hora exata, lugar específico</td><td style="padding:10px;border-bottom:1px solid rgba(255,255,255,.1)">at 7pm, at home, at the bus stop</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid rgba(255,255,255,.1)"><strong style="color:var(--accent-2)">ON</strong></td><td style="padding:10px;border-bottom:1px solid rgba(255,255,255,.1)">dia, data, dia da semana, superfície</td><td style="padding:10px;border-bottom:1px solid rgba(255,255,255,.1)">on Monday, on July 4th, on the table</td></tr>
+      <tr><td style="padding:10px"><strong style="color:var(--accent-2)">IN</strong></td><td style="padding:10px">mês, ano, estação, período do dia, dentro</td><td style="padding:10px">in July, in 2024, in summer, in the morning, in the box</td></tr>
+    </table>
+  </div>
+
+  <h3>Que horas são?</h3>
+  <div class="phrase-grid">
+    <div class="phrase-pt">Que horas são?</div>
+    <div class="phrase-en">What time is it?<span class="pron">(uát taim iz it)</span></div>
+    <div class="phrase-pt">São 7 horas (em ponto)</div>
+    <div class="phrase-en">It's 7 o'clock.</div>
+    <div class="phrase-pt">São 7 e meia</div>
+    <div class="phrase-en">It's half past seven. / It's seven thirty.</div>
+    <div class="phrase-pt">São 7 e quinze</div>
+    <div class="phrase-en">It's a quarter past seven. / It's seven fifteen.</div>
+    <div class="phrase-pt">Faltam 15 pras 8</div>
+    <div class="phrase-en">It's a quarter to eight. / It's seven forty-five.</div>
+    <div class="phrase-pt">Meio-dia / Meia-noite</div>
+    <div class="phrase-en">Noon / Midnight</div>
+    <div class="phrase-pt">A reunião é às 3</div>
+    <div class="phrase-en">The meeting is at 3 (pm).</div>
+    <div class="phrase-pt">Te vejo na segunda</div>
+    <div class="phrase-en">See you on Monday.</div>
+    <div class="phrase-pt">Meu aniversário é em julho</div>
+    <div class="phrase-en">My birthday is in July.</div>
+  </div>
+
+  <div class="exercise" data-ex="time">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #8 — Preposições de tempo</div>
+        <div>Escolha entre IN, ON, AT.</div>
+      </div>
+      <span class="exercise-type">Múltipla escolha</span>
+    </div>
+
+    <div class="q" data-q="36" data-correct="at">
+      <div class="q-text">1. The class starts ___ 9 am.</div>
+      <div class="options">
+        <button class="opt" data-val="in">in</button>
+        <button class="opt" data-val="on">on</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="37" data-correct="on">
+      <div class="q-text">2. We have a meeting ___ Monday.</div>
+      <div class="options">
+        <button class="opt" data-val="in">in</button>
+        <button class="opt" data-val="on">on</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="38" data-correct="in">
+      <div class="q-text">3. Her birthday is ___ October.</div>
+      <div class="options">
+        <button class="opt" data-val="in">in</button>
+        <button class="opt" data-val="on">on</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="39" data-correct="in">
+      <div class="q-text">4. I usually run ___ the morning.</div>
+      <div class="options">
+        <button class="opt" data-val="in">in</button>
+        <button class="opt" data-val="on">on</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="40" data-correct="at">
+      <div class="q-text">5. I'll see you ___ midnight.</div>
+      <div class="options">
+        <button class="opt" data-val="in">in</button>
+        <button class="opt" data-val="on">on</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 VIDEOS -->
+<section id="videos">
+  <div class="section-num">09 / Vídeos curados</div>
+  <h2>5 vídeos para <em>imergir</em>.</h2>
+  <p class="lead">Não pule. Cada vídeo reforça uma área que você acabou de estudar. Recomendo: 1ª passada com legenda em PT, 2ª com legenda em EN, 3ª SEM legenda.</p>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/G7tgFvAXIv4" title="English alphabet pronunciation" allowfullscreen></iframe>
+      </div>
+      <h4>★ Alphabet pronunciation</h4>
+      <p>Carina Fragozo — Pronúncia do alfabeto inglês com explicação em PT.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/e0_VuY5b1xE" title="Numbers in English" allowfullscreen></iframe>
+      </div>
+      <h4>★ Numbers 0-100</h4>
+      <p>BBC Learning English — Como contar de 0 a 100 sem confundir 13/30, 14/40 etc.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/2JT5wxN-bMA" title="Greetings English" allowfullscreen></iframe>
+      </div>
+      <h4>★ Greetings & introductions</h4>
+      <p>English with Lucy — Cumprimentos formais e informais que nativos realmente usam.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7ndnVUFlxUM" title="How are you responses" allowfullscreen></iframe>
+      </div>
+      <h4>★ "How are you?" — beyond "fine"</h4>
+      <p>mmmEnglish — As 10 melhores respostas pra "How are you?" sem soar robótico.</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/5dhg3yUuVcI" title="Asking for directions" allowfullscreen></iframe>
+      </div>
+      <h4>★ Asking for directions</h4>
+      <p>Real English — Vídeo gravado na rua: como perguntar e entender direções de verdade.</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>★ Se algum vídeo estiver indisponível</h4>
+    <p>Busque no YouTube por: "english alphabet pronunciation", "numbers 0 to 100 english", "how to introduce yourself english", "asking for directions english". Canais sempre confiáveis: <strong>Carina Fragozo, BBC Learning English, English with Lucy, mmmEnglish, Real English, EngVid, English in Brazil, Mairo Vergara</strong>.</p>
+  </div>
+</section>
+
+<!-- 10 FINAL TEST -->
+<section id="final">
+  <div class="section-num">10 / Teste final</div>
+  <h2>Teste final — você está pronto pro <em>A1</em>?</h2>
+  <p class="lead">14 questões misturando TUDO que viu. Faça SEM consultar. Mínimo pra avançar pro A1: 10/14. Se errar mais que isso, refaça as seções correspondentes antes de seguir.</p>
+
+  <div class="exercise" data-ex="final">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Final Pre-A1 Test</div>
+        <div>Mix de tudo. Boa sorte!</div>
+      </div>
+      <span class="exercise-type">14 questões</span>
+    </div>
+
+    <div class="q" data-q="41" data-correct="djei">
+      <div class="q-text">1. Letra <strong>J</strong> se pronuncia:</div>
+      <div class="options">
+        <button class="opt" data-val="iei">iei</button>
+        <button class="opt" data-val="djei">djei</button>
+        <button class="opt" data-val="ji">ji</button>
+        <button class="opt" data-val="djai">djai</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="42" data-correct="forty">
+      <div class="q-text">2. Como se escreve <strong>40</strong>?</div>
+      <div class="options">
+        <button class="opt" data-val="fourty">fourty</button>
+        <button class="opt" data-val="forty">forty</button>
+        <button class="opt" data-val="fortie">fortie</button>
+        <button class="opt" data-val="fourteen">fourteen</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="43" data-correct="Good evening">
+      <div class="q-text">3. Você chega num jantar às 20h. Diz:</div>
+      <div class="options">
+        <button class="opt" data-val="Good night">Good night</button>
+        <button class="opt" data-val="Good evening">Good evening</button>
+        <button class="opt" data-val="Good morning">Good morning</button>
+        <button class="opt" data-val="Bye">Bye</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="44" data-correct="Good, thanks. You?">
+      <div class="q-text">4. Resposta natural pra "How are you?" (casual):</div>
+      <div class="options">
+        <button class="opt" data-val="I am very good thank you very much">I am very good thank you very much</button>
+        <button class="opt" data-val="Good, thanks. You?">Good, thanks. You?</button>
+        <button class="opt" data-val="I have good">I have good</button>
+        <button class="opt" data-val="Today not good">Today not good</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="45" data-correct="I'm 28">
+      <div class="q-text">5. "Eu tenho 28 anos":</div>
+      <div class="options">
+        <button class="opt" data-val="I have 28 years">I have 28 years</button>
+        <button class="opt" data-val="I am with 28">I am with 28</button>
+        <button class="opt" data-val="I'm 28">I'm 28</button>
+        <button class="opt" data-val="My age is 28 years">My age is 28 years</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="46" data-correct="I'm from Brazil">
+      <div class="q-text">6. "Eu sou do Brasil":</div>
+      <div class="options">
+        <button class="opt" data-val="I am of Brazil">I am of Brazil</button>
+        <button class="opt" data-val="I am from the Brazil">I am from the Brazil</button>
+        <button class="opt" data-val="I'm from Brazil">I'm from Brazil</button>
+        <button class="opt" data-val="I from Brazil">I from Brazil</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="47" data-correct="Excuse me">
+      <div class="q-text">7. Você quer chamar a atenção do garçom. Diz:</div>
+      <div class="options">
+        <button class="opt" data-val="Sorry">Sorry</button>
+        <button class="opt" data-val="Hey you">Hey you</button>
+        <button class="opt" data-val="Excuse me">Excuse me</button>
+        <button class="opt" data-val="Please come">Please come</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="48" data-correct="I don't understand">
+      <div class="q-text">8. Você não entendeu o que falaram:</div>
+      <div class="options">
+        <button class="opt" data-val="I no understand">I no understand</button>
+        <button class="opt" data-val="I don't understand">I don't understand</button>
+        <button class="opt" data-val="No understand">No understand</button>
+        <button class="opt" data-val="I am not understand">I am not understand</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="49" data-correct="at">
+      <div class="q-text">9. The party starts ___ 8pm. (preposição correta)</div>
+      <div class="options">
+        <button class="opt" data-val="in">in</button>
+        <button class="opt" data-val="on">on</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="50" data-correct="on">
+      <div class="q-text">10. See you ___ Friday. (preposição correta)</div>
+      <div class="options">
+        <button class="opt" data-val="in">in</button>
+        <button class="opt" data-val="on">on</button>
+        <button class="opt" data-val="at">at</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="51" data-correct="My name is Maria">
+      <div class="q-text">11. Traduza: "Meu nome é Maria"</div>
+      <input type="text" class="fill-input" data-answer="My name is Maria" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="52" data-correct="I'm an engineer">
+      <div class="q-text">12. Traduza: "Eu sou engenheiro" (cuidado com o artigo!)</div>
+      <input type="text" class="fill-input" data-answer="I'm an engineer" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="53" data-correct="Where is the bathroom">
+      <div class="q-text">13. Traduza: "Onde fica o banheiro" (sem ?, em forma básica)</div>
+      <input type="text" class="fill-input" data-answer="Where is the bathroom" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="54" data-correct="Thank you so much">
+      <div class="q-text">14. Traduza: "Muito obrigado"</div>
+      <input type="text" class="fill-input" data-answer="Thank you so much" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('final')">Verificar fill-ins</button>
+  </div>
+</section>
+
+</main>
+
+<div class="score-display">
+  <span>SCORE</span>
+  <span class="pt-pts" id="scoreNum">0</span>
+  <span>/ 54</span>
+</div>
+
+<nav class="level-nav">
+  <a href="index.html">
+    <div class="lbl">← Voltar</div>
+    <div class="ttl">Índice geral</div>
+  </a>
+  <a href="01_A1_Foundations.html" class="next">
+    <div class="lbl">Próximo nível →</div>
+    <div class="ttl">A1 · Foundations</div>
+  </a>
+</nav>
+
+<footer>
+  <h3>Você completou o Pre-A1.</h3>
+  <p>Você agora consegue: soletrar seu nome, dizer sua idade, cumprimentar em qualquer hora, pedir comida e direções, sobreviver num aeroporto. <strong>Próximo:</strong> A1 — onde você aprende a conjugar verbos e construir frases de verdade.</p>
+  <p style="margin-top:16px;font-family:'JetBrains Mono',monospace"><a href="index.html">← Voltar ao índice</a> · English Mastery © Built to break the translation habit</p>
+</footer>
+
+<script>
+let score = 0;
+const total = 54;
+
+document.querySelectorAll('.q').forEach(q => {
+  const correct = q.dataset.correct;
+  const opts = q.querySelectorAll('.opt');
+  const fb = q.querySelector('.feedback');
+
+  opts.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if(q.dataset.answered) return;
+      const val = opt.dataset.val;
+      opts.forEach(o => o.classList.add('disabled'));
+      if(val === correct){
+        opt.classList.add('correct');
+        fb.classList.add('show','correct');
+        fb.innerHTML = '<strong>✓ Correto!</strong> ' + getExplanation(q.dataset.q, true);
+        score++;
+        updateScore();
+      } else {
+        opt.classList.add('wrong');
+        opts.forEach(o => { if(o.dataset.val === correct) o.classList.add('correct'); });
+        fb.classList.add('show','wrong');
+        fb.innerHTML = '<strong>✗ Errado.</strong> ' + getExplanation(q.dataset.q, false);
+      }
+      q.dataset.answered = 'true';
+    });
+  });
+});
+
+function checkFillIns(exId){
+  const ex = document.querySelector(`[data-ex="${exId}"]`);
+  if(!ex) return;
+  const inputs = ex.querySelectorAll('.fill-input');
+  inputs.forEach(input => {
+    if(input.dataset.checked) return;
+    const expected = input.dataset.answer.toLowerCase().trim();
+    const got = input.value.toLowerCase().trim();
+    const q = input.closest('.q');
+    const fb = q.querySelector('.feedback');
+    if(got === expected){
+      input.classList.add('correct');
+      fb.classList.add('show','correct');
+      fb.innerHTML = '<strong>✓ Correto!</strong> ' + getExplanation(q.dataset.q, true);
+      score++;
+      updateScore();
+    } else {
+      input.classList.add('wrong');
+      fb.classList.add('show','wrong');
+      fb.innerHTML = `<strong>✗ Errado.</strong> Resposta correta: <em>${input.dataset.answer}</em>. ` + getExplanation(q.dataset.q, false);
+    }
+    input.dataset.checked = 'true';
+  });
+}
+
+function updateScore(){ document.getElementById('scoreNum').textContent = score; }
+
+function getExplanation(qNum, c){
+  const ex = {
+    '1':'J = "djei". O nome português "jota" não existe em inglês.',
+    '2':'H = "eitch". "agá" é só português.',
+    '3':'W = "dábliu" (literalmente "double U" — duplo U).',
+    '4':'Y = "uái". "Ípsilon" é grego/português, em inglês é uái.',
+    '5':'U = "iu". Não confunda com a vogal U do português.',
+    '6':'thirty = 30 (THIR·ty, tônica no começo). thirteen = 13 (thir·TEEN, tônica no fim).',
+    '7':'forty (sem U!). É a única dezena que perde uma letra do número-base. four → forty (não fourty).',
+    '8':'fifth — regra: tira o "ve" de "five", coloca "fth". Mesma lógica em "twelfth".',
+    '9':'twenty-one. Hífen entre as dezenas e a unidade. SEMPRE.',
+    '10':'ninth — tira o "e" de "nine". Cuidado: nineth está errado.',
+    '11':'one hundred. Em inglês, o "one" antes de hundred/thousand é OBRIGATÓRIO.',
+    '12':'Good morning até por volta de meio-dia. Depois entra "afternoon".',
+    '13':'Good night = se despedir/ir dormir. NÃO use ao chegar à noite.',
+    '14':'"Nice to meet you" — frase fixa. Resposta esperada: "Nice to meet you too" ou "Likewise".',
+    '15':'Good evening = ao chegar à noite. Good night = ao se despedir/dormir.',
+    '16':'See you tomorrow / See you Monday — qualquer dos dois funciona, dependendo do contexto.',
+    '17':'Resposta curta + devolução da pergunta. É o ritual social. Não dramatize.',
+    '18':'"Not much, you?" é o padrão pra "What\'s up?". NÃO é uma pergunta literal sobre o que está pra cima.',
+    '19':'Pergunta no Present Perfect (have you been?) → resposta no Present Perfect (I\'ve been).',
+    '20':'Em entrevista, mantenha formal: "Very well, thank you." Sem "how about you?" se for hierárquico.',
+    '21':'"Hanging in there" = "indo levando". Honesto sem ser dramático. Útil pra sextas cansadas.',
+    '22':'I\'m = I am. Em inglês idade é estado, não posse: você É 28, não TEM 28.',
+    '23':'from = de (origem). Países geralmente sem artigo: I\'m from Brazil (não "from the Brazil").',
+    '24':'an engineer (artigo OBRIGATÓRIO antes de profissão). E "an" porque "engineer" começa com som de vogal.',
+    '25':'live (1ª pessoa, sem -s). I live, you live, he/she liveS.',
+    '26':'speak (verbo no infinitivo depois de "do you"). Pergunta: Do + sujeito + verbo.',
+    '27':'Excuse me = ANTES de fazer algo (passar, chamar atenção). Sorry = DEPOIS (algo aconteceu).',
+    '28':'Sorry / I\'m sorry = pedido de desculpa por algo que JÁ aconteceu. "Sorry" sozinho funciona.',
+    '29':'"Can you repeat that, please?" — frase completa, educada. "Repeat please" funciona mas soa rude.',
+    '30':'US: "the check, please". UK: "the bill, please". Nunca "the account".',
+    '31':'"I\'m just looking, thanks" — frase fixa. "Watching" não funciona (watching é assistir TV).',
+    '32':'Where is the [lugar]? Estrutura fixa, sem inversão estranha.',
+    '33':'Turn left/right (sem artigo). NUNCA "turn the right" — em PT você fala "vire À direita" mas em EN não tem preposição.',
+    '34':'straight (ahead) = reto. Cuidado com a pronúncia: "streit", não "strait".',
+    '35':'lost = perdido (do verbo "to lose"). I\'m lost. Frase salva-vidas.',
+    '36':'AT + hora exata. AT 9 AM, AT noon, AT midnight.',
+    '37':'ON + dia da semana / data específica. ON Monday, ON July 4th.',
+    '38':'IN + mês. IN October, IN July, IN 2024.',
+    '39':'IN + período do dia: IN the morning, IN the afternoon, IN the evening. EXCEÇÃO: AT night.',
+    '40':'AT midnight / AT noon — pontos exatos no relógio.',
+    '41':'J = "djei", igual no nome de "Jay-Z". Decora pelo cantor.',
+    '42':'forty (sem U). É a pegadinha clássica de soletração.',
+    '43':'Good evening ao chegar de noite. Good night só pra dormir/ir embora.',
+    '44':'"Good, thanks. You?" — curto, devolve. Esse é o ritual americano padrão.',
+    '45':'I\'m 28. Idade é estado de SER, não TER. "Years old" é opcional.',
+    '46':'I\'m from Brazil. Sem "the" antes de Brasil. Sem "of" — é from.',
+    '47':'Excuse me = chamar atenção educadamente. Funciona pra garçom, atendente, qualquer um.',
+    '48':'I don\'t understand. Negativa com don\'t + verbo no infinitivo. NUNCA "I no understand".',
+    '49':'AT + hora exata. AT 8pm.',
+    '50':'ON + dia da semana. See you ON Friday.',
+    '51':'My name is + nome. Estrutura fixa. Alternativa curta: "I\'m Maria".',
+    '52':'I\'m AN engineer. Artigo "an" porque "engineer" começa com som de vogal.',
+    '53':'Where is the bathroom. Estrutura: Where is + the + lugar.',
+    '54':'Thank you so much. Mais enfático que "thank you" simples. Alternativa: "Thanks a lot".'
+  };
+  return ex[qNum] || '';
+}
+
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+</body>
+</html>

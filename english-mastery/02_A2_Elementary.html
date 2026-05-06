@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Mastery — A2 Elementary | O passado e os tempos contínuos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1b2a;
+  --paper:#f4f0e6;
+  --paper-dark:#e6dfc9;
+  --ink:#0d1b2a;
+  --accent:#06b6d4;
+  --accent-2:#fde047;
+  --green:#10b981;
+  --red:#ef4444;
+  --line:rgba(13,27,42,.12);
+  --shadow:0 1px 0 rgba(0,0,0,.08), 0 8px 24px -4px rgba(0,0,0,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(13,27,42,.07) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.5}
+
+.hero{position:relative;background:var(--bg);color:var(--paper);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(6,182,212,.25),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(253,224,71,.12),transparent 50%)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:#fff;padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:#fff;font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,120px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px}
+h1.title em{font-style:italic;color:var(--accent-2);font-weight:400}
+h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,22px);max-width:680px;color:rgba(244,240,230,.75);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(244,240,230,.15)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent-2);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(244,240,230,.6);margin-top:8px}
+
+main{max-width:1200px;margin:0 auto;padding:80px 6vw;position:relative;z-index:1}
+section{margin-bottom:120px;scroll-margin-top:20px}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.2em;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.section-num::after{content:'';flex:1;height:1px;background:var(--line)}
+h2{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,64px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:32px}
+h2 em{font-style:italic;color:var(--accent)}
+h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;margin:32px 0 16px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:12px}
+p{margin-bottom:16px;font-size:17px}
+.lead{font-size:20px;color:#374151;max-width:780px}
+
+.warning-box{background:linear-gradient(135deg,#1a2a3a,#0d1b2a);color:var(--paper);padding:48px;border-radius:8px;margin:40px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent-2);margin-top:0}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:24px;font-size:16px}
+.compare-wrong{background:rgba(239,68,68,.15);border-left:4px solid var(--red)}
+.compare-right{background:rgba(16,185,129,.15);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}
+.compare-right .label{color:#6ee7b7}
+.compare-cell .pt{font-style:italic;opacity:.6;font-size:14px;margin-bottom:8px}
+.compare-cell .en{font-weight:600;font-size:18px}
+.compare-cell .why{font-size:13px;margin-top:12px;opacity:.75;line-height:1.5}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:32px 0}
+.card{background:#fff;border:1px solid var(--line);padding:32px;border-radius:8px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(0,0,0,.08), 0 16px 40px -8px rgba(0,0,0,.18)}
+.card-num{font-family:'Fraunces',serif;font-size:60px;font-weight:300;color:var(--accent);line-height:1;opacity:.4}
+
+.exercise{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:32px;margin:32px 0;box-shadow:6px 6px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:12px}
+.exercise-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;background:var(--accent);color:#fff;padding:6px 12px;border-radius:4px}
+.q{margin:20px 0;padding:20px;background:#fafafa;border-radius:6px;border-left:3px solid var(--accent)}
+.q-text{font-size:17px;margin-bottom:14px;font-weight:500}
+.q-text .blank{display:inline-block;min-width:80px;border-bottom:2px solid var(--ink);text-align:center;font-weight:700;color:var(--accent)}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:10px 18px;font-size:15px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--paper)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.5}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.feedback{margin-top:12px;padding:12px 16px;border-radius:6px;font-size:14px;display:none}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:rgba(16,185,129,.12);color:#065f46;border-left:3px solid var(--green)}
+.feedback.wrong{background:rgba(239,68,68,.12);color:#991b1b;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:4px}
+
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:inherit;font-size:17px;font-weight:600;padding:4px 8px;width:140px;text-align:center;color:var(--accent);outline:none}
+.fill-input:focus{border-color:var(--accent)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+
+.btn{background:var(--ink);color:var(--paper);border:none;padding:14px 28px;font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:6px;transition:all .2s;margin-top:12px}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+
+.gram-table{width:100%;border-collapse:collapse;margin:24px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--paper);padding:14px 18px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-table tr:hover{background:#fafafa}
+.gram-table .em-cell{color:var(--accent);font-weight:600}
+
+.video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin:24px 0;box-shadow:var(--shadow);background:var(--ink)}
+.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:32px 0}
+.video-card h4{margin-bottom:8px}
+.video-card p{font-size:14px;color:#666}
+
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width .2s}
+
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:16px 24px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:50;display:flex;align-items:center;gap:12px}
+.score-display .pt-pts{color:var(--accent-2);font-size:20px}
+
+.tip-box{background:linear-gradient(135deg,#cffafe,#a5f3fc);padding:24px;border-radius:8px;margin:24px 0;border-left:4px solid var(--accent)}
+.tip-box h4{color:#0e7490;margin-bottom:8px}
+
+.toc{position:sticky;top:20px;background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent-2);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;margin-right:12px;font-size:12px}
+.toc a{color:var(--paper);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--accent-2)}
+
+footer{background:var(--ink);color:var(--paper);padding:60px 6vw;text-align:center}
+footer h3{color:var(--accent-2)}
+footer p{color:rgba(244,240,230,.6);font-size:14px}
+
+.timeline{display:flex;align-items:center;gap:0;margin:32px 0;padding:32px 0;position:relative}
+.timeline::before{content:'';position:absolute;top:50%;left:0;right:0;height:2px;background:var(--ink)}
+.tl-point{flex:1;text-align:center;position:relative;background:var(--paper);padding:8px 0}
+.tl-point .dot{width:16px;height:16px;background:var(--accent);border-radius:50%;margin:0 auto 12px;position:relative;z-index:2}
+.tl-point .label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#666}
+.tl-point .value{font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink);margin-top:4px}
+
+.irreg-table{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin:24px 0}
+.irreg-cell{background:#fff;padding:14px;border-radius:6px;border-left:3px solid var(--accent);font-size:14px;box-shadow:var(--shadow)}
+.irreg-cell .base{font-weight:700;color:var(--ink);font-size:16px}
+.irreg-cell .past{color:var(--accent);font-weight:600}
+.irreg-cell .pp{color:#666;font-style:italic}
+.irreg-cell .meaning{font-size:12px;color:#999;margin-top:4px}
+
+@media(max-width:768px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero{padding:60px 6vw 80px}
+  main{padding:60px 6vw}
+  .score-display{bottom:12px;right:12px;padding:12px 16px;font-size:12px}
+  .score-display .pt-pts{font-size:16px}
+  .timeline{flex-direction:column;gap:24px}
+  .timeline::before{display:none}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="tag">Level A2 — Elementary</span>
+    <h1 class="title">
+      Master <em>time</em>.<br>
+      <strong>Past, present, future.</strong>
+    </h1>
+    <p class="subtitle">
+      No A1 você aprendeu o presente. Agora chegou a hora dos tempos verbais que destroem brasileiros: Past Simple (verbos irregulares!), Present Continuous, "Going to", e os comparativos.
+    </p>
+    <div class="hero-stats">
+      <div><div class="stat-num">8</div><div class="stat-label">Módulos</div></div>
+      <div><div class="stat-num">75+</div><div class="stat-label">Exercícios</div></div>
+      <div><div class="stat-num">100</div><div class="stat-label">Verbos irreg.</div></div>
+      <div><div class="stat-num">10+</div><div class="stat-label">Vídeos</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h4>Índice</h4>
+  <ol>
+    <li><a href="#mind-shift">A diferença mental: ação vs hábito</a></li>
+    <li><a href="#present-cont">Present Continuous — agora mesmo</a></li>
+    <li><a href="#past-simple">Past Simple — o passado regular</a></li>
+    <li><a href="#irregular">Verbos irregulares — os 50 essenciais</a></li>
+    <li><a href="#future">Going to vs Will — futuros diferentes</a></li>
+    <li><a href="#comparatives">Comparativos & Superlativos</a></li>
+    <li><a href="#modals">Can / Could / Should — modais</a></li>
+    <li><a href="#countable">Countable & Uncountable nouns</a></li>
+    <li><a href="#final">Teste final A2</a></li>
+  </ol>
+</nav>
+
+<!-- 01 MIND SHIFT -->
+<section id="mind-shift">
+  <div class="section-num">01 / Mindset</div>
+  <h2>A grande virada: <em>ação vs hábito</em></h2>
+  <p class="lead">
+    Em português, "Eu trabalho" pode significar "eu trabalho agora" OU "eu trabalho todo dia".
+    Em inglês, são DUAS frases diferentes. Esta é a maior fonte de confusão para brasileiros.
+  </p>
+
+  <div class="warning-box">
+    <h3>🇧🇷 Em PT, uma frase = duas situações em EN</h3>
+
+    <div class="compare-grid">
+      <div class="compare-cell" style="background:rgba(6,182,212,.15);border-left:4px solid var(--accent)">
+        <span class="label" style="color:#06b6d4">Hábito (Present Simple)</span>
+        <div class="pt">"Eu trabalho num banco" (todo dia)</div>
+        <div class="en">I work in a bank.</div>
+        <div class="why">Use Present Simple para verdades, hábitos, rotinas.</div>
+      </div>
+      <div class="compare-cell" style="background:rgba(253,224,71,.2);border-left:4px solid var(--accent-2)">
+        <span class="label" style="color:#a16207">Ação agora (Present Continuous)</span>
+        <div class="pt">"Eu estou trabalhando" (neste momento)</div>
+        <div class="en">I am working.</div>
+        <div class="why">Use Present Continuous para algo acontecendo AGORA.</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-cell" style="background:rgba(6,182,212,.15);border-left:4px solid var(--accent)">
+        <span class="label" style="color:#06b6d4">Hábito</span>
+        <div class="pt">"Ela mora no Rio"</div>
+        <div class="en">She lives in Rio.</div>
+      </div>
+      <div class="compare-cell" style="background:rgba(253,224,71,.2);border-left:4px solid var(--accent-2)">
+        <span class="label" style="color:#a16207">Temporário</span>
+        <div class="pt">"Ela está morando no Rio (por enquanto)"</div>
+        <div class="en">She is living in Rio.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 Pergunte sempre: "É AGORA ou SEMPRE?"</h4>
+    <p>
+      Antes de falar uma frase no presente, pergunte-se: "Isso é uma ação acontecendo NESTE MOMENTO ou é uma rotina/verdade?".
+      Se for AGORA → Present Continuous (am/is/are + verbo-ING).
+      Se for SEMPRE/HÁBITO → Present Simple (verbo no infinitivo).
+    </p>
+  </div>
+</section>
+
+<!-- 02 PRESENT CONTINUOUS -->
+<section id="present-cont">
+  <div class="section-num">02 / Tense</div>
+  <h2>Present Continuous — <em>aqui e agora</em></h2>
+
+  <table class="gram-table">
+    <thead><tr><th>Forma</th><th>Estrutura</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td>Afirmativa</td><td class="em-cell">am/is/are + verbo-ING</td><td>I am studying.</td></tr>
+      <tr><td>Negativa</td><td class="em-cell">am/is/are + NOT + verbo-ING</td><td>She isn't sleeping.</td></tr>
+      <tr><td>Pergunta</td><td class="em-cell">Am/Is/Are + sujeito + verbo-ING?</td><td>Are you working?</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Regras do -ING (atenção!)</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Regra geral</h4>
+      <p><strong>+ ING</strong><br>work → working<br>play → playing<br>read → reading</p>
+    </div>
+    <div class="card">
+      <h4>Termina em -E mudo</h4>
+      <p><strong>tira o E + ING</strong><br>make → making<br>write → writing<br>dance → dancing</p>
+    </div>
+    <div class="card">
+      <h4>Termina em consoante+vogal+consoante</h4>
+      <p><strong>dobra a consoante + ING</strong><br>run → running<br>swim → swimming<br>get → getting</p>
+    </div>
+    <div class="card">
+      <h4>Termina em -IE</h4>
+      <p><strong>IE → Y + ING</strong><br>lie → lying<br>die → dying<br>tie → tying</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⛔ Verbos que NÃO usam -ING (Stative Verbs)</h3>
+    <p style="color:rgba(244,240,230,.85);margin-bottom:16px">
+      Estes verbos descrevem ESTADOS (não ações), e por isso quase nunca aparecem no Continuous, mesmo quando você quer dizer "agora":
+    </p>
+    <div class="card-grid" style="margin-top:0">
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">Sentidos</h4>
+        <p>like, love, hate, want, need, prefer</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">Pensamento</h4>
+        <p>know, believe, understand, remember, think</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">Posse / Ser</h4>
+        <p>have (posse), own, belong, be, seem</p>
+      </div>
+    </div>
+
+    <div class="compare-grid" style="margin-top:24px">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Errado</span>
+        <div class="en">I am loving you.</div>
+        <div class="en">I am knowing the answer.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Certo</span>
+        <div class="en">I love you.</div>
+        <div class="en">I know the answer.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>📺 Vídeo: Present Continuous explicado</h3>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/A7hvCLG8jCY" allowfullscreen></iframe>
+  </div>
+
+  <div class="exercise" data-ex="1">
+    <div class="exercise-header">
+      <div class="exercise-title">Exercise 1 — Present Simple OR Continuous?</div>
+      <div class="exercise-type">Multiple choice</div>
+    </div>
+
+    <div class="q" data-q="1" data-correct="am studying">
+      <div class="q-text">Right now, I ___ for my exam.</div>
+      <div class="options">
+        <button class="opt" data-val="study">study</button>
+        <button class="opt" data-val="am studying">am studying</button>
+        <button class="opt" data-val="studies">studies</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="2" data-correct="works">
+      <div class="q-text">My father ___ in a bank every day.</div>
+      <div class="options">
+        <button class="opt" data-val="works">works</button>
+        <button class="opt" data-val="is working">is working</button>
+        <button class="opt" data-val="working">working</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="3" data-correct="love">
+      <div class="q-text">I ___ chocolate. (it's my favorite)</div>
+      <div class="options">
+        <button class="opt" data-val="love">love</button>
+        <button class="opt" data-val="am loving">am loving</button>
+        <button class="opt" data-val="loving">loving</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="4" data-correct="is raining">
+      <div class="q-text">Look! It ___ outside.</div>
+      <div class="options">
+        <button class="opt" data-val="rains">rains</button>
+        <button class="opt" data-val="is raining">is raining</button>
+        <button class="opt" data-val="rain">rain</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="5" data-correct="is making">
+      <div class="q-text">She ___ a cake at the moment.</div>
+      <div class="options">
+        <button class="opt" data-val="makes">makes</button>
+        <button class="opt" data-val="is makeing">is makeing</button>
+        <button class="opt" data-val="is making">is making</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PAST SIMPLE -->
+<section id="past-simple">
+  <div class="section-num">03 / Past</div>
+  <h2>Past Simple — <em>o passado terminado</em></h2>
+  <p class="lead">
+    Para ações que aconteceram e ACABARAM. Em inglês, regulares ganham -ED, irregulares mudam totalmente. Você precisa decorar os irregulares — não tem jeito.
+  </p>
+
+  <table class="gram-table">
+    <thead><tr><th>Forma</th><th>Estrutura</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td>Afirmativa</td><td class="em-cell">verbo + ED (regular) ou forma irregular</td><td>I worked. / I went.</td></tr>
+      <tr><td>Negativa</td><td class="em-cell">DID NOT (didn't) + verbo no infinitivo</td><td>I didn't work. / I didn't go.</td></tr>
+      <tr><td>Pergunta</td><td class="em-cell">DID + sujeito + verbo no infinitivo?</td><td>Did you work? / Did you go?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>🚨 ERRO MORTAL: brasileiro coloca o passado DEPOIS do "did"</h3>
+
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ MUITO comum em brasileiros</span>
+        <div class="en">I didn't went to the party.</div>
+        <div class="en">Did you saw the movie?</div>
+        <div class="why">DID já é o passado. O verbo principal volta ao INFINITIVO.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Correto</span>
+        <div class="en">I didn't go to the party.</div>
+        <div class="en">Did you see the movie?</div>
+        <div class="why">Depois de DID/DIDN'T → verbo SEM passado, sempre infinitivo.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Regras do -ED (regulares)</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Regra geral</h4>
+      <p>+ ED<br><strong>work → worked<br>play → played</strong></p>
+    </div>
+    <div class="card">
+      <h4>Termina em -E</h4>
+      <p>+ D<br><strong>live → lived<br>love → loved</strong></p>
+    </div>
+    <div class="card">
+      <h4>Consoante + Y</h4>
+      <p>Y → IED<br><strong>study → studied<br>cry → cried</strong></p>
+    </div>
+    <div class="card">
+      <h4>Cons.+vogal+cons. (sílaba tônica)</h4>
+      <p>dobra a consoante + ED<br><strong>stop → stopped<br>plan → planned</strong></p>
+    </div>
+  </div>
+
+  <h3>Pronúncia do -ED (3 sons!)</h3>
+  <table class="gram-table">
+    <thead><tr><th>Som final do verbo</th><th>-ED soa como</th><th>Exemplos</th></tr></thead>
+    <tbody>
+      <tr><td>Som /t/, /p/, /k/, /f/, /s/, /ʃ/, /tʃ/</td><td class="em-cell">/t/</td><td>worked, stopped, kissed</td></tr>
+      <tr><td>Som /d/ ou /t/ no final</td><td class="em-cell">/ɪd/</td><td>wanted, needed, decided</td></tr>
+      <tr><td>Outros sons (vogais, /b/, /g/, /v/, /z/, /m/, /n/, /l/)</td><td class="em-cell">/d/</td><td>played, lived, loved</td></tr>
+    </tbody>
+  </table>
+
+  <h3>📺 Vídeo: Past Simple completo</h3>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/yumxJTQGwSo" allowfullscreen></iframe>
+  </div>
+
+  <div class="exercise" data-ex="2">
+    <div class="exercise-header">
+      <div class="exercise-title">Exercise 2 — Past Simple</div>
+      <div class="exercise-type">Fill in</div>
+    </div>
+
+    <div class="q" data-q="6" data-correct="worked">
+      <div class="q-text">Yesterday, I <input type="text" class="fill-input" data-answer="worked"> from 9 to 5. (work)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="7" data-correct="studied">
+      <div class="q-text">She <input type="text" class="fill-input" data-answer="studied"> all night for the test. (study)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="8" data-correct="stopped">
+      <div class="q-text">The bus <input type="text" class="fill-input" data-answer="stopped"> at the corner. (stop)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="9" data-correct="didn't watch">
+      <div class="q-text">We <input type="text" class="fill-input" data-answer="didn't watch" style="width:160px"> the movie. (negative — not watch)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="10" data-correct="Did">
+      <div class="q-text"><input type="text" class="fill-input" data-answer="Did" style="width:80px"> they arrive on time? (question)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns(2)">Verificar respostas</button>
+  </div>
+</section>
+
+<!-- 04 IRREGULAR -->
+<section id="irregular">
+  <div class="section-num">04 / Irregulars</div>
+  <h2>Irregular Verbs — <em>os 50 essenciais</em></h2>
+  <p class="lead">
+    Você precisa decorar estes. Não há regra. Mas a boa notícia: em qualquer livro/filme/conversa, são SEMPRE os mesmos. Aprende-os de uma vez e está resolvido.
+  </p>
+
+  <h3>Top 50 verbos irregulares — em ordem de frequência</h3>
+  <div class="irreg-table">
+    <div class="irreg-cell"><div class="base">be</div><div class="past">was/were</div><div class="pp">been</div><div class="meaning">ser/estar</div></div>
+    <div class="irreg-cell"><div class="base">have</div><div class="past">had</div><div class="pp">had</div><div class="meaning">ter</div></div>
+    <div class="irreg-cell"><div class="base">do</div><div class="past">did</div><div class="pp">done</div><div class="meaning">fazer</div></div>
+    <div class="irreg-cell"><div class="base">say</div><div class="past">said</div><div class="pp">said</div><div class="meaning">dizer</div></div>
+    <div class="irreg-cell"><div class="base">go</div><div class="past">went</div><div class="pp">gone</div><div class="meaning">ir</div></div>
+    <div class="irreg-cell"><div class="base">get</div><div class="past">got</div><div class="pp">got/gotten</div><div class="meaning">conseguir</div></div>
+    <div class="irreg-cell"><div class="base">make</div><div class="past">made</div><div class="pp">made</div><div class="meaning">fazer</div></div>
+    <div class="irreg-cell"><div class="base">know</div><div class="past">knew</div><div class="pp">known</div><div class="meaning">saber</div></div>
+    <div class="irreg-cell"><div class="base">think</div><div class="past">thought</div><div class="pp">thought</div><div class="meaning">pensar</div></div>
+    <div class="irreg-cell"><div class="base">take</div><div class="past">took</div><div class="pp">taken</div><div class="meaning">pegar</div></div>
+    <div class="irreg-cell"><div class="base">see</div><div class="past">saw</div><div class="pp">seen</div><div class="meaning">ver</div></div>
+    <div class="irreg-cell"><div class="base">come</div><div class="past">came</div><div class="pp">come</div><div class="meaning">vir</div></div>
+    <div class="irreg-cell"><div class="base">give</div><div class="past">gave</div><div class="pp">given</div><div class="meaning">dar</div></div>
+    <div class="irreg-cell"><div class="base">find</div><div class="past">found</div><div class="pp">found</div><div class="meaning">encontrar</div></div>
+    <div class="irreg-cell"><div class="base">tell</div><div class="past">told</div><div class="pp">told</div><div class="meaning">contar</div></div>
+    <div class="irreg-cell"><div class="base">become</div><div class="past">became</div><div class="pp">become</div><div class="meaning">tornar-se</div></div>
+    <div class="irreg-cell"><div class="base">leave</div><div class="past">left</div><div class="pp">left</div><div class="meaning">sair/deixar</div></div>
+    <div class="irreg-cell"><div class="base">feel</div><div class="past">felt</div><div class="pp">felt</div><div class="meaning">sentir</div></div>
+    <div class="irreg-cell"><div class="base">put</div><div class="past">put</div><div class="pp">put</div><div class="meaning">colocar</div></div>
+    <div class="irreg-cell"><div class="base">bring</div><div class="past">brought</div><div class="pp">brought</div><div class="meaning">trazer</div></div>
+    <div class="irreg-cell"><div class="base">begin</div><div class="past">began</div><div class="pp">begun</div><div class="meaning">começar</div></div>
+    <div class="irreg-cell"><div class="base">keep</div><div class="past">kept</div><div class="pp">kept</div><div class="meaning">manter</div></div>
+    <div class="irreg-cell"><div class="base">hold</div><div class="past">held</div><div class="pp">held</div><div class="meaning">segurar</div></div>
+    <div class="irreg-cell"><div class="base">write</div><div class="past">wrote</div><div class="pp">written</div><div class="meaning">escrever</div></div>
+    <div class="irreg-cell"><div class="base">stand</div><div class="past">stood</div><div class="pp">stood</div><div class="meaning">estar de pé</div></div>
+    <div class="irreg-cell"><div class="base">hear</div><div class="past">heard</div><div class="pp">heard</div><div class="meaning">ouvir</div></div>
+    <div class="irreg-cell"><div class="base">let</div><div class="past">let</div><div class="pp">let</div><div class="meaning">deixar/permitir</div></div>
+    <div class="irreg-cell"><div class="base">mean</div><div class="past">meant</div><div class="pp">meant</div><div class="meaning">significar</div></div>
+    <div class="irreg-cell"><div class="base">set</div><div class="past">set</div><div class="pp">set</div><div class="meaning">definir/colocar</div></div>
+    <div class="irreg-cell"><div class="base">meet</div><div class="past">met</div><div class="pp">met</div><div class="meaning">encontrar (pessoas)</div></div>
+    <div class="irreg-cell"><div class="base">pay</div><div class="past">paid</div><div class="pp">paid</div><div class="meaning">pagar</div></div>
+    <div class="irreg-cell"><div class="base">sit</div><div class="past">sat</div><div class="pp">sat</div><div class="meaning">sentar</div></div>
+    <div class="irreg-cell"><div class="base">speak</div><div class="past">spoke</div><div class="pp">spoken</div><div class="meaning">falar</div></div>
+    <div class="irreg-cell"><div class="base">read</div><div class="past">read*</div><div class="pp">read*</div><div class="meaning">ler (*pronúncia muda)</div></div>
+    <div class="irreg-cell"><div class="base">spend</div><div class="past">spent</div><div class="pp">spent</div><div class="meaning">gastar</div></div>
+    <div class="irreg-cell"><div class="base">grow</div><div class="past">grew</div><div class="pp">grown</div><div class="meaning">crescer</div></div>
+    <div class="irreg-cell"><div class="base">win</div><div class="past">won</div><div class="pp">won</div><div class="meaning">ganhar</div></div>
+    <div class="irreg-cell"><div class="base">buy</div><div class="past">bought</div><div class="pp">bought</div><div class="meaning">comprar</div></div>
+    <div class="irreg-cell"><div class="base">teach</div><div class="past">taught</div><div class="pp">taught</div><div class="meaning">ensinar</div></div>
+    <div class="irreg-cell"><div class="base">catch</div><div class="past">caught</div><div class="pp">caught</div><div class="meaning">pegar/capturar</div></div>
+    <div class="irreg-cell"><div class="base">drive</div><div class="past">drove</div><div class="pp">driven</div><div class="meaning">dirigir</div></div>
+    <div class="irreg-cell"><div class="base">eat</div><div class="past">ate</div><div class="pp">eaten</div><div class="meaning">comer</div></div>
+    <div class="irreg-cell"><div class="base">drink</div><div class="past">drank</div><div class="pp">drunk</div><div class="meaning">beber</div></div>
+    <div class="irreg-cell"><div class="base">fly</div><div class="past">flew</div><div class="pp">flown</div><div class="meaning">voar</div></div>
+    <div class="irreg-cell"><div class="base">break</div><div class="past">broke</div><div class="pp">broken</div><div class="meaning">quebrar</div></div>
+    <div class="irreg-cell"><div class="base">choose</div><div class="past">chose</div><div class="pp">chosen</div><div class="meaning">escolher</div></div>
+    <div class="irreg-cell"><div class="base">sleep</div><div class="past">slept</div><div class="pp">slept</div><div class="meaning">dormir</div></div>
+    <div class="irreg-cell"><div class="base">run</div><div class="past">ran</div><div class="pp">run</div><div class="meaning">correr</div></div>
+    <div class="irreg-cell"><div class="base">sell</div><div class="past">sold</div><div class="pp">sold</div><div class="meaning">vender</div></div>
+    <div class="irreg-cell"><div class="base">forget</div><div class="past">forgot</div><div class="pp">forgotten</div><div class="meaning">esquecer</div></div>
+  </div>
+
+  <h3>📺 Vídeo: 50 verbos irregulares com pronúncia</h3>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/HUH9SbtJqiU" allowfullscreen></iframe>
+  </div>
+
+  <div class="exercise" data-ex="3">
+    <div class="exercise-header">
+      <div class="exercise-title">Exercise 3 — Verbos irregulares no passado</div>
+      <div class="exercise-type">Fill in</div>
+    </div>
+
+    <div class="q" data-q="11" data-correct="went">
+      <div class="q-text">I <input type="text" class="fill-input" data-answer="went"> to the beach yesterday. (go)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="12" data-correct="ate">
+      <div class="q-text">She <input type="text" class="fill-input" data-answer="ate"> pizza for dinner. (eat)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="13" data-correct="bought">
+      <div class="q-text">We <input type="text" class="fill-input" data-answer="bought"> a new car last month. (buy)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="14" data-correct="saw">
+      <div class="q-text">They <input type="text" class="fill-input" data-answer="saw"> a great movie. (see)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="15" data-correct="had">
+      <div class="q-text">He <input type="text" class="fill-input" data-answer="had"> a long meeting. (have)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="16" data-correct="took">
+      <div class="q-text">I <input type="text" class="fill-input" data-answer="took"> the bus this morning. (take)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="17" data-correct="didn't go">
+      <div class="q-text">She <input type="text" class="fill-input" data-answer="didn't go" style="width:140px"> to school. (negative — go)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="18" data-correct="Did you see">
+      <div class="q-text"><input type="text" class="fill-input" data-answer="Did you see" style="width:160px"> the news? (question — you / see)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns(3)">Verificar respostas</button>
+  </div>
+</section>
+
+<!-- 05 FUTURE -->
+<section id="future">
+  <div class="section-num">05 / Future</div>
+  <h2>Going to vs Will — <em>dois futuros, dois sentidos</em></h2>
+  <p class="lead">
+    Em português, "vou viajar" pode ser uma decisão que tomei agora ou um plano antigo. Em inglês, são DOIS futuros diferentes. A escolha não é estilística — muda o significado.
+  </p>
+
+  <div class="card-grid">
+    <div class="card" style="background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;border:none">
+      <h4 style="color:var(--accent-2)">GOING TO</h4>
+      <p style="font-size:18px;font-weight:600;margin-bottom:12px">Plano + Evidência</p>
+      <p>Use quando você JÁ DECIDIU antes ou quando há EVIDÊNCIA visível.</p>
+      <ul style="margin-top:12px;padding-left:20px;font-size:14px">
+        <li>I'm going to study tonight. (já planejado)</li>
+        <li>Look at those clouds! It's going to rain. (evidência)</li>
+        <li>She's going to have a baby. (evidência)</li>
+      </ul>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#fde047,#facc15);color:var(--ink);border:none">
+      <h4 style="color:#0d1b2a">WILL</h4>
+      <p style="font-size:18px;font-weight:600;margin-bottom:12px">Decisão + Promessa + Previsão</p>
+      <p>Use para decisões TOMADAS AGORA, promessas, ofertas, previsões sem evidência.</p>
+      <ul style="margin-top:12px;padding-left:20px;font-size:14px">
+        <li>"I'm thirsty." → "I'll get you water." (decisão na hora)</li>
+        <li>I will always love you. (promessa)</li>
+        <li>I think it will rain tomorrow. (previsão)</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="gram-table">
+    <thead><tr><th>Forma</th><th>Going to</th><th>Will</th></tr></thead>
+    <tbody>
+      <tr><td>Afirmativa</td><td class="em-cell">am/is/are going to + verbo</td><td class="em-cell">will + verbo</td></tr>
+      <tr><td>Negativa</td><td>am/is/are NOT going to + verbo</td><td>will NOT (won't) + verbo</td></tr>
+      <tr><td>Pergunta</td><td>Am/Is/Are + sujeito + going to + verbo?</td><td>Will + sujeito + verbo?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>🇧🇷 Erro clássico: "Eu vou" não é sempre "I will"</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Brasileiro tipicamente diz</span>
+        <div class="pt">"Amanhã eu vou estudar"</div>
+        <div class="en">Tomorrow I will study.</div>
+        <div class="why">Se você JÁ PLANEJOU isso, não é WILL. Mas se decidiu agora, está ok.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Mais natural</span>
+        <div class="pt">"Amanhã eu vou estudar" (já planejei)</div>
+        <div class="en">Tomorrow I'm going to study.</div>
+        <div class="why">Plano = GOING TO. WILL é mais para decisão na hora ou previsão.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="4">
+    <div class="exercise-header">
+      <div class="exercise-title">Exercise 4 — Going to or Will?</div>
+      <div class="exercise-type">Multiple choice</div>
+    </div>
+
+    <div class="q" data-q="19" data-correct="am going to visit">
+      <div class="q-text">Next summer, I ___ my grandparents. (já planejado)</div>
+      <div class="options">
+        <button class="opt" data-val="will visit">will visit</button>
+        <button class="opt" data-val="am going to visit">am going to visit</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="20" data-correct="'ll get">
+      <div class="q-text">"I'm thirsty." — "I ___ you some water." (decisão na hora)</div>
+      <div class="options">
+        <button class="opt" data-val="'ll get">'ll get</button>
+        <button class="opt" data-val="am going to get">am going to get</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="21" data-correct="is going to rain">
+      <div class="q-text">Look at those dark clouds! It ___.</div>
+      <div class="options">
+        <button class="opt" data-val="will rain">will rain</button>
+        <button class="opt" data-val="is going to rain">is going to rain</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="22" data-correct="will help">
+      <div class="q-text">Don't worry, I ___ you with the project. (promessa)</div>
+      <div class="options">
+        <button class="opt" data-val="will help">will help</button>
+        <button class="opt" data-val="am going to help">am going to help</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 COMPARATIVES -->
+<section id="comparatives">
+  <div class="section-num">06 / Comparatives</div>
+  <h2>Comparatives & Superlatives — <em>maior, melhor, o mais...</em></h2>
+
+  <table class="gram-table">
+    <thead><tr><th>Tipo</th><th>Comparativo</th><th>Superlativo</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td>1 sílaba</td><td class="em-cell">+ ER + than</td><td>the + EST</td><td>tall → taller → the tallest</td></tr>
+      <tr><td>1 sílaba terminada em E</td><td class="em-cell">+ R + than</td><td>the + ST</td><td>nice → nicer → the nicest</td></tr>
+      <tr><td>1 sílaba (cons+vog+cons)</td><td class="em-cell">dobra + ER</td><td>dobra + EST</td><td>big → bigger → the biggest</td></tr>
+      <tr><td>2 sílabas em -Y</td><td class="em-cell">Y → IER</td><td>Y → IEST</td><td>happy → happier → the happiest</td></tr>
+      <tr><td>2+ sílabas</td><td class="em-cell">more + adj + than</td><td>the most + adj</td><td>beautiful → more beautiful → the most beautiful</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Irregulares (decore!)</h3>
+  <table class="gram-table">
+    <thead><tr><th>Adjetivo</th><th>Comparativo</th><th>Superlativo</th></tr></thead>
+    <tbody>
+      <tr><td>good (bom)</td><td class="em-cell">better</td><td>the best</td></tr>
+      <tr><td>bad (ruim)</td><td class="em-cell">worse</td><td>the worst</td></tr>
+      <tr><td>far (longe)</td><td class="em-cell">farther/further</td><td>the farthest/furthest</td></tr>
+      <tr><td>much/many (muito)</td><td class="em-cell">more</td><td>the most</td></tr>
+      <tr><td>little (pouco)</td><td class="em-cell">less</td><td>the least</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>🇧🇷 Brasileiro diz "more better" — NUNCA!</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Errado</span>
+        <div class="en">This is more better than that.</div>
+        <div class="en">She is more taller than me.</div>
+        <div class="why">Se já tem "-er" ou irregular, NÃO use "more". Escolha um!</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Certo</span>
+        <div class="en">This is better than that.</div>
+        <div class="en">She is taller than me.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>📺 Vídeo: Comparativos com exemplos práticos</h3>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/cf24Ycaepss" allowfullscreen></iframe>
+  </div>
+
+  <div class="exercise" data-ex="5">
+    <div class="exercise-header">
+      <div class="exercise-title">Exercise 5 — Comparatives</div>
+      <div class="exercise-type">Fill in</div>
+    </div>
+
+    <div class="q" data-q="23" data-correct="taller than">
+      <div class="q-text">My brother is <input type="text" class="fill-input" data-answer="taller than" style="width:160px"> me. (tall)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="24" data-correct="more expensive than">
+      <div class="q-text">This phone is <input type="text" class="fill-input" data-answer="more expensive than" style="width:240px"> mine. (expensive)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="25" data-correct="the best">
+      <div class="q-text">She's <input type="text" class="fill-input" data-answer="the best" style="width:120px"> teacher in the school. (good — superlativo)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="26" data-correct="happier">
+      <div class="q-text">I am <input type="text" class="fill-input" data-answer="happier"> now than last year. (happy)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="27" data-correct="the biggest">
+      <div class="q-text">Russia is <input type="text" class="fill-input" data-answer="the biggest" style="width:140px"> country in the world. (big — superlativo)</div>
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns(5)">Verificar respostas</button>
+  </div>
+</section>
+
+<!-- 07 MODALS -->
+<section id="modals">
+  <div class="section-num">07 / Modals</div>
+  <h2>Can / Could / Should / Must — <em>os verbos do "poder", "dever"</em></h2>
+  <p class="lead">
+    Modais são verbos especiais. Regra de ouro: depois de modal, SEMPRE verbo no infinitivo SEM "to". E nunca conjugue (he can, ela can, eles can — todos iguais).
+  </p>
+
+  <table class="gram-table">
+    <thead><tr><th>Modal</th><th>Significado</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td class="em-cell">Can</td><td>Habilidade / Permissão (presente)</td><td>I can swim. / Can I leave?</td></tr>
+      <tr><td class="em-cell">Could</td><td>Habilidade no passado / pedido educado</td><td>I could run fast as a kid. / Could you help me?</td></tr>
+      <tr><td class="em-cell">May / Might</td><td>Possibilidade / permissão formal</td><td>It might rain. / May I sit here?</td></tr>
+      <tr><td class="em-cell">Should</td><td>Conselho / recomendação</td><td>You should sleep more.</td></tr>
+      <tr><td class="em-cell">Must</td><td>Obrigação forte / dedução certeza</td><td>You must wear a seatbelt.</td></tr>
+      <tr><td class="em-cell">Have to</td><td>Obrigação externa</td><td>I have to work tomorrow.</td></tr>
+      <tr><td class="em-cell">Would</td><td>Hipótese / educação</td><td>I would like a coffee.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>⛔ Os 3 erros fatais com modais</h3>
+
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Conjugar o modal</span>
+        <div class="en">She cans speak French.</div>
+        <div class="en">He musts go.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Modal nunca muda</span>
+        <div class="en">She can speak French.</div>
+        <div class="en">He must go.</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ TO depois do modal</span>
+        <div class="en">I can to swim.</div>
+        <div class="en">You should to study.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Sem TO</span>
+        <div class="en">I can swim.</div>
+        <div class="en">You should study.</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Verbo no passado depois do modal</span>
+        <div class="en">She could went there.</div>
+        <div class="en">I should studied more.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Sempre infinitivo</span>
+        <div class="en">She could go there.</div>
+        <div class="en">I should study more. / I should HAVE studied more. (passado)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="6">
+    <div class="exercise-header">
+      <div class="exercise-title">Exercise 6 — Modal verbs</div>
+      <div class="exercise-type">Multiple choice</div>
+    </div>
+
+    <div class="q" data-q="28" data-correct="can">
+      <div class="q-text">I ___ speak three languages.</div>
+      <div class="options">
+        <button class="opt" data-val="can">can</button>
+        <button class="opt" data-val="cans">cans</button>
+        <button class="opt" data-val="can to">can to</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="29" data-correct="should">
+      <div class="q-text">You look tired. You ___ sleep more.</div>
+      <div class="options">
+        <button class="opt" data-val="should">should</button>
+        <button class="opt" data-val="must">must</button>
+        <button class="opt" data-val="can">can</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="30" data-correct="have to">
+      <div class="q-text">I ___ work tomorrow. (obrigação por causa do trabalho)</div>
+      <div class="options">
+        <button class="opt" data-val="should">should</button>
+        <button class="opt" data-val="have to">have to</button>
+        <button class="opt" data-val="can">can</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="31" data-correct="Could you">
+      <div class="q-text">___ open the window, please? (pedido educado)</div>
+      <div class="options">
+        <button class="opt" data-val="Can you">Can you</button>
+        <button class="opt" data-val="Could you">Could you</button>
+        <button class="opt" data-val="Should you">Should you</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 COUNTABLE -->
+<section id="countable">
+  <div class="section-num">08 / Nouns</div>
+  <h2>Countable & Uncountable — <em>arroz não tem plural</em></h2>
+  <p class="lead">
+    Em inglês, alguns substantivos NÃO têm plural porque são vistos como massa, não como unidades. "Rice" (arroz), "water" (água), "money" (dinheiro), "advice" (conselho) — todos uncountable.
+  </p>
+
+  <table class="gram-table">
+    <thead><tr><th>Tipo</th><th>Característica</th><th>Exemplos</th></tr></thead>
+    <tbody>
+      <tr><td class="em-cell">Countable</td><td>Tem plural, usa A/AN</td><td>book/books, dog/dogs, idea/ideas</td></tr>
+      <tr><td class="em-cell">Uncountable</td><td>SEM plural, SEM A/AN. Sempre singular.</td><td>water, rice, money, advice, information, news, furniture</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Quantificadores: muitas regras escondidas</h3>
+  <table class="gram-table">
+    <thead><tr><th>Quantif.</th><th>Countable</th><th>Uncountable</th></tr></thead>
+    <tbody>
+      <tr><td>muitos/muito</td><td class="em-cell">many books</td><td class="em-cell">much water</td></tr>
+      <tr><td>pouco(s)</td><td class="em-cell">few books / a few books</td><td class="em-cell">little water / a little water</td></tr>
+      <tr><td>algum(s)</td><td>some books</td><td>some water</td></tr>
+      <tr><td>nenhum</td><td>no books / any books (negativa)</td><td>no water / any water</td></tr>
+      <tr><td>muito/muita</td><td>a lot of / lots of</td><td>a lot of / lots of</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>⚠️ Substantivos que CONFUNDEM brasileiros</h3>
+    <p style="color:rgba(244,240,230,.85);margin-bottom:16px">Estes são uncountable em inglês mas a gente acha que são contáveis:</p>
+
+    <div class="card-grid" style="margin-top:0">
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">advice</h4>
+        <p>conselho(s) — sempre singular!<br><strong>Some advice</strong> (não "advices")</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">information</h4>
+        <p>informação(ões) — sempre singular<br><strong>Some information</strong> (não "informations")</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">news</h4>
+        <p>notícia(s) — TERMINA em S mas é SINGULAR!<br><strong>The news IS good.</strong></p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">furniture</h4>
+        <p>móvel(is)<br><strong>A piece of furniture</strong> (para contar)</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">money</h4>
+        <p>dinheiro<br><strong>Some money</strong> (não "moneys")</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.08);color:var(--paper);border-color:rgba(255,255,255,.15)">
+        <h4 style="color:var(--accent-2)">homework</h4>
+        <p>tarefa de casa<br><strong>A lot of homework</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise" data-ex="7">
+    <div class="exercise-header">
+      <div class="exercise-title">Exercise 7 — Countable / Uncountable</div>
+      <div class="exercise-type">Multiple choice</div>
+    </div>
+
+    <div class="q" data-q="32" data-correct="much">
+      <div class="q-text">How ___ money do you have?</div>
+      <div class="options">
+        <button class="opt" data-val="many">many</button>
+        <button class="opt" data-val="much">much</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="33" data-correct="many">
+      <div class="q-text">There are too ___ people here.</div>
+      <div class="options">
+        <button class="opt" data-val="many">many</button>
+        <button class="opt" data-val="much">much</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="34" data-correct="some advice">
+      <div class="q-text">Can you give me ___?</div>
+      <div class="options">
+        <button class="opt" data-val="some advices">some advices</button>
+        <button class="opt" data-val="some advice">some advice</button>
+        <button class="opt" data-val="an advice">an advice</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="35" data-correct="is">
+      <div class="q-text">The news ___ great today!</div>
+      <div class="options">
+        <button class="opt" data-val="is">is</button>
+        <button class="opt" data-val="are">are</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="36" data-correct="a few">
+      <div class="q-text">I have ___ friends in Canada. (alguns, contável)</div>
+      <div class="options">
+        <button class="opt" data-val="a few">a few</button>
+        <button class="opt" data-val="a little">a little</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 FINAL -->
+<section id="final">
+  <div class="section-num">09 / Final Test</div>
+  <h2>Teste final <em>A2</em></h2>
+
+  <div class="exercise" data-ex="final">
+    <div class="exercise-header">
+      <div class="exercise-title">Final Test — A2</div>
+      <div class="exercise-type">Mixed</div>
+    </div>
+
+    <div class="q" data-q="37" data-correct="am working">
+      <div class="q-text">1. Right now, I ___ on a project.</div>
+      <div class="options">
+        <button class="opt" data-val="work">work</button>
+        <button class="opt" data-val="am working">am working</button>
+        <button class="opt" data-val="working">working</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="38" data-correct="went">
+      <div class="q-text">2. Last weekend we ___ to the beach.</div>
+      <div class="options">
+        <button class="opt" data-val="goed">goed</button>
+        <button class="opt" data-val="went">went</button>
+        <button class="opt" data-val="gone">gone</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="39" data-correct="didn't see">
+      <div class="q-text">3. I ___ him yesterday.</div>
+      <div class="options">
+        <button class="opt" data-val="didn't see">didn't see</button>
+        <button class="opt" data-val="didn't saw">didn't saw</button>
+        <button class="opt" data-val="not saw">not saw</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="40" data-correct="is going to rain">
+      <div class="q-text">4. Look at the sky! It ___.</div>
+      <div class="options">
+        <button class="opt" data-val="will rain">will rain</button>
+        <button class="opt" data-val="is going to rain">is going to rain</button>
+        <button class="opt" data-val="rains">rains</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="41" data-correct="better">
+      <div class="q-text">5. This restaurant is ___ than the other one.</div>
+      <div class="options">
+        <button class="opt" data-val="more better">more better</button>
+        <button class="opt" data-val="better">better</button>
+        <button class="opt" data-val="more good">more good</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="42" data-correct="should">
+      <div class="q-text">6. You ___ see a doctor about that cough.</div>
+      <div class="options">
+        <button class="opt" data-val="should">should</button>
+        <button class="opt" data-val="can">can</button>
+        <button class="opt" data-val="would">would</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="43" data-correct="much">
+      <div class="q-text">7. I don't have ___ time today.</div>
+      <div class="options">
+        <button class="opt" data-val="many">many</button>
+        <button class="opt" data-val="much">much</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="44" data-correct="know">
+      <div class="q-text">8. I ___ the answer right now! (stative verb!)</div>
+      <div class="options">
+        <button class="opt" data-val="am knowing">am knowing</button>
+        <button class="opt" data-val="know">know</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="45" data-correct="ate">
+      <div class="q-text">9. We ___ pizza last night. (eat)</div>
+      <input type="text" class="fill-input" data-answer="ate">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="46" data-correct="bought">
+      <div class="q-text">10. She ___ a new dress. (buy)</div>
+      <input type="text" class="fill-input" data-answer="bought">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="47" data-correct="I am studying English now">
+      <div class="q-text">11. Traduza: "Eu estou estudando inglês agora"</div>
+      <input type="text" class="fill-input" data-answer="I am studying English now" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="48" data-correct="She didn't go to work yesterday">
+      <div class="q-text">12. Traduza: "Ela não foi trabalhar ontem"</div>
+      <input type="text" class="fill-input" data-answer="She didn't go to work yesterday" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="49" data-correct="I'm going to travel next month">
+      <div class="q-text">13. Traduza: "Eu vou viajar mês que vem" (já planejado)</div>
+      <input type="text" class="fill-input" data-answer="I'm going to travel next month" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q" data-q="50" data-correct="He is taller than his brother">
+      <div class="q-text">14. Traduza: "Ele é mais alto que o irmão dele"</div>
+      <input type="text" class="fill-input" data-answer="He is taller than his brother" style="width:100%;text-align:left;font-size:16px">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn" onclick="checkFillIns('final')">Verificar respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div class="score-display">
+  <span>SCORE</span>
+  <span class="pt-pts" id="scoreNum">0</span>
+  <span>/ 50</span>
+</div>
+
+<nav style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line)">
+  <a href="01_A1_Foundations.html" style="background:var(--paper);padding:30px;text-decoration:none;color:var(--ink);transition:background .2s">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#666;margin-bottom:8px">← Anterior</div>
+    <div style="font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300">A1 · Foundations</div>
+  </a>
+  <a href="03_B1_Intermediate.html" style="background:var(--paper);padding:30px;text-decoration:none;color:var(--ink);text-align:right;transition:background .2s">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#666;margin-bottom:8px">Próximo nível →</div>
+    <div style="font-family:'Fraunces',serif;font-style:italic;font-size:28px;font-weight:300">B1 · Intermediate</div>
+  </a>
+</nav>
+
+<footer>
+  <h3>Você completou o A2.</h3>
+  <p>Próximo nível: B1 — Intermediate. Aqui o jogo muda: Present Perfect, Conditionals e os primeiros Phrasal Verbs.</p>
+  <p style="margin-top:16px;font-family:'JetBrains Mono',monospace"><a href="index.html" style="color:var(--accent-2);text-decoration:none">← Voltar ao índice</a> · English Mastery © Built to break the translation habit</p>
+</footer>
+
+<script>
+let score = 0;
+const total = 50;
+
+document.querySelectorAll('.q').forEach(q => {
+  const correct = q.dataset.correct;
+  const opts = q.querySelectorAll('.opt');
+  const fb = q.querySelector('.feedback');
+
+  opts.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if(q.dataset.answered) return;
+      const val = opt.dataset.val;
+      opts.forEach(o => o.classList.add('disabled'));
+      if(val === correct){
+        opt.classList.add('correct');
+        fb.classList.add('show','correct');
+        fb.innerHTML = '<strong>✓ Correto!</strong> ' + getExplanation(q.dataset.q, true);
+        score++;
+        updateScore();
+      } else {
+        opt.classList.add('wrong');
+        opts.forEach(o => { if(o.dataset.val === correct) o.classList.add('correct'); });
+        fb.classList.add('show','wrong');
+        fb.innerHTML = '<strong>✗ Errado.</strong> ' + getExplanation(q.dataset.q, false);
+      }
+      q.dataset.answered = 'true';
+    });
+  });
+});
+
+function checkFillIns(exId){
+  const ex = document.querySelector(`[data-ex="${exId}"]`);
+  const inputs = ex.querySelectorAll('.fill-input');
+  inputs.forEach(input => {
+    if(input.dataset.checked) return;
+    const expected = input.dataset.answer.toLowerCase().trim();
+    const got = input.value.toLowerCase().trim();
+    const q = input.closest('.q');
+    const fb = q.querySelector('.feedback');
+    if(got === expected){
+      input.classList.add('correct');
+      fb.classList.add('show','correct');
+      fb.innerHTML = '<strong>✓ Correto!</strong> ' + getExplanation(q.dataset.q, true);
+      score++;
+      updateScore();
+    } else {
+      input.classList.add('wrong');
+      fb.classList.add('show','wrong');
+      fb.innerHTML = `<strong>✗ Errado.</strong> Resposta correta: <em>${input.dataset.answer}</em>. ` + getExplanation(q.dataset.q, false);
+    }
+    input.dataset.checked = 'true';
+  });
+}
+
+function updateScore(){ document.getElementById('scoreNum').textContent = score; }
+
+function getExplanation(qNum, c){
+  const ex = {
+    '1':'"Right now" pede Present Continuous (am + verbo-ING).',
+    '2':'"Every day" = hábito → Present Simple, e father é 3ª pessoa → works.',
+    '3':'Love é stative verb. Use Present Simple, mesmo pra "agora".',
+    '4':'"Look!" indica AGORA → Present Continuous.',
+    '5':'Make termina em -E mudo → tira o E + ING = making.',
+    '6':'Work → worked (regular).',
+    '7':'Study termina em consoante+Y → studied.',
+    '8':'Stop tem cons+vog+cons (sílaba tônica) → dobra: stopped.',
+    '9':'WE + DIDN\'T + verbo no infinitivo (NÃO didn\'t watched).',
+    '10':'Pergunta no passado começa com DID + sujeito + verbo no infinitivo.',
+    '11':'Go é irregular: went.',
+    '12':'Eat → ate.',
+    '13':'Buy → bought.',
+    '14':'See → saw.',
+    '15':'Have → had.',
+    '16':'Take → took.',
+    '17':'Negativa: didn\'t + go (NUNCA didn\'t went).',
+    '18':'Pergunta: Did + you + see + ...?',
+    '19':'Plano já decidido → going to.',
+    '20':'Decisão NA HORA (alguém disse algo agora) → will.',
+    '21':'Evidência visível (nuvens) → going to.',
+    '22':'Promessa, oferecer ajuda → will.',
+    '23':'Tall (1 sílaba) → taller + than.',
+    '24':'Expensive (3 sílabas) → more + expensive + than.',
+    '25':'Good é irregular → the best.',
+    '26':'Happy termina em -Y → happier.',
+    '27':'Big (cons+vog+cons) → biggest, com THE.',
+    '28':'Modal NUNCA recebe S e o verbo vai SEM TO.',
+    '29':'Conselho → SHOULD.',
+    '30':'Obrigação externa (do trabalho) → HAVE TO.',
+    '31':'Pedido educado → COULD YOU.',
+    '32':'Money é uncountable → MUCH.',
+    '33':'People é countable (plural) → MANY.',
+    '34':'Advice é uncountable: SOME ADVICE (nunca "advices" ou "an advice").',
+    '35':'News termina em S mas é SINGULAR → IS.',
+    '36':'Friends é contável → A FEW (poucos).',
+    '37':'"Right now" → Present Continuous.',
+    '38':'Go é irregular: went.',
+    '39':'Didn\'t + verbo no infinitivo: didn\'t SEE.',
+    '40':'Evidência visível → going to.',
+    '41':'Good → better (irregular). Não use "more better".',
+    '42':'Conselho → SHOULD.',
+    '43':'Time é uncountable → MUCH.',
+    '44':'Know é stative verb. Sempre Simple, nunca Continuous.',
+    '45':'Eat → ate.',
+    '46':'Buy → bought.',
+    '47':'I am studying English now (Present Continuous + adv. de tempo no fim).',
+    '48':'didn\'t go (sem -ED em "go" depois de DIDN\'T).',
+    '49':'Going to (plano) + to + verbo no infinitivo.',
+    '50':'Tall → taller + than. THAN HIS BROTHER (não "of").'
+  };
+  return ex[qNum] || '';
+}
+
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+</body>
+</html>

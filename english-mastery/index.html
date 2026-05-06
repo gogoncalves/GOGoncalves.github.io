@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Mastery — Brain Reset for Brazilians</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;700&family=Inter+Tight:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --paper: #f5f1e8;
+    --ink: #111;
+    --accent: #ff3d00;
+    --accent-2: #ffd60a;
+    --accent-3: #00d9a3;
+    --accent-4: #4361ee;
+    --accent-5: #b5179e;
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter Tight', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--paper);
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 60px 8vw 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+  }
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .top-bar .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(60px, 13vw, 220px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin: 80px 0 40px;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-2);
+  }
+  .hero-title .strike {
+    position: relative;
+    color: #555;
+    font-style: italic;
+  }
+  .hero-title .strike::after {
+    content: '';
+    position: absolute;
+    left: -2%; right: -2%;
+    top: 52%;
+    height: 4px;
+    background: var(--accent);
+    transform: rotate(-2deg);
+  }
+  .hero-sub {
+    max-width: 700px;
+    font-size: clamp(18px, 1.6vw, 22px);
+    color: #bbb;
+    margin-bottom: 60px;
+    line-height: 1.4;
+  }
+  .hero-sub strong { color: var(--paper); }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    border-top: 1px solid #333;
+    padding-top: 30px;
+  }
+  .meta-item .num {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--accent-2);
+    line-height: 1;
+  }
+  .meta-item .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin-top: 8px;
+  }
+  @media (max-width: 700px) {
+    .hero-meta { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* DIAGNOSTIC SECTION */
+  .diagnostic {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 100px 8vw;
+  }
+  .diag-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .diag-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    max-width: 900px;
+  }
+  .diag-title em { font-style: italic; color: var(--accent); }
+  .diag-intro {
+    font-size: 19px;
+    max-width: 700px;
+    color: #444;
+    margin-bottom: 60px;
+    line-height: 1.6;
+  }
+
+  .errors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: #ddd;
+    border: 1px solid #ddd;
+  }
+  .error-card {
+    background: var(--paper);
+    padding: 30px;
+    transition: background 0.3s;
+  }
+  .error-card:hover { background: #fff; }
+  .error-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 12px;
+  }
+  .error-pt {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 12px;
+  }
+  .error-wrong {
+    font-family: var(--sans);
+    font-size: 17px;
+    color: #c00;
+    text-decoration: line-through;
+    margin-bottom: 6px;
+  }
+  .error-right {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 19px;
+    color: #0a8000;
+    margin-bottom: 14px;
+  }
+  .error-why {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    border-top: 1px dashed #ccc;
+    padding-top: 12px;
+  }
+
+  /* LEVELS */
+  .levels {
+    padding: 100px 8vw;
+    background: var(--bg);
+  }
+  .levels-header {
+    margin-bottom: 80px;
+  }
+  .levels-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .levels-title em { font-style: italic; color: var(--accent-2); }
+  .levels-sub {
+    font-size: 18px;
+    color: #999;
+    margin-top: 20px;
+    max-width: 700px;
+  }
+
+  .level-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .level-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 1.1fr auto;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 0;
+    border-top: 1px solid #222;
+    text-decoration: none;
+    color: var(--paper);
+    transition: padding 0.4s;
+    position: relative;
+  }
+  .level-row:last-child { border-bottom: 1px solid #222; }
+  .level-row:hover {
+    padding-left: 30px;
+  }
+  .level-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: var(--lvl-color, var(--accent));
+    transition: width 0.4s;
+  }
+  .level-row:hover::before { width: 6px; }
+  .level-row:hover .level-arrow { transform: translateX(10px); color: var(--lvl-color); }
+
+  .level-code {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--lvl-color);
+    letter-spacing: -0.04em;
+  }
+  .level-code small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #666;
+    letter-spacing: 0.2em;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .level-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  .level-name span {
+    display: block;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin-top: 8px;
+  }
+  .level-desc {
+    font-size: 15px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+  .level-arrow {
+    font-size: 32px;
+    color: #444;
+    transition: transform 0.4s, color 0.4s;
+  }
+  @media (max-width: 800px) {
+    .level-row {
+      grid-template-columns: 70px 1fr auto;
+    }
+    .level-desc { display: none; }
+    .level-code { font-size: 46px; }
+    .level-name { font-size: 22px; }
+  }
+
+  /* HOW TO USE */
+  .howto {
+    background: linear-gradient(180deg, var(--bg) 0%, #1a1208 100%);
+    padding: 100px 8vw;
+    border-top: 1px solid #222;
+  }
+  .howto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+  }
+  .step {
+    border: 1px solid #333;
+    padding: 40px 30px;
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-2);
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 60px;
+    font-weight: 300;
+    color: var(--accent-2);
+    line-height: 1;
+  }
+  .step h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin: 16px 0 12px;
+  }
+  .step p {
+    font-size: 15px;
+    color: #aaa;
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 60px 8vw 40px;
+    border-top: 1px solid #222;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #666;
+    text-align: center;
+  }
+  footer p { margin: 8px 0; }
+  footer em {
+    font-family: var(--serif);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    color: var(--accent-2);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .section-title em { font-style: italic; color: var(--accent-2); }
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="top-bar">
+    <span><span class="dot"></span>ENGLISH MASTERY · BR EDITION</span>
+    <span>VOL. 01 / 7 LEVELS · CEFR</span>
+  </div>
+
+  <div>
+    <h1 class="hero-title">
+      Stop <span class="strike">translating</span><br>
+      Start <em>thinking</em><br>
+      in English.
+    </h1>
+    <p class="hero-sub">
+      Um curso completo de <strong>Pre-A1 a C2</strong> desenhado especificamente para brasileiros que <strong>pensam em português e traduzem ao pé da letra</strong>. Cada lição expõe os falsos cognatos da gramática — momentos em que sua intuição em PT te trai. Você vai aprender a sentir o inglês, não decodificá-lo.
+    </p>
+  </div>
+
+  <div class="hero-meta">
+    <div class="meta-item">
+      <div class="num">7</div>
+      <div class="lbl">Níveis CEFR</div>
+    </div>
+    <div class="meta-item">
+      <div class="num">350+</div>
+      <div class="lbl">Exercícios interativos</div>
+    </div>
+    <div class="meta-item">
+      <div class="num">30+</div>
+      <div class="lbl">Vídeos curados</div>
+    </div>
+    <div class="meta-item">
+      <div class="num">PT→EN</div>
+      <div class="lbl">Foco anti-tradução</div>
+    </div>
+  </div>
+</section>
+
+<section class="diagnostic">
+  <div class="diag-label">★ DIAGNÓSTICO</div>
+  <h2 class="diag-title">Os 6 erros que <em>todo brasileiro</em> comete sem perceber.</h2>
+  <p class="diag-intro">Antes de começar qualquer nível, leia isto. Se você se reconhecer em <strong>3 ou mais</strong> destes erros, você tem o vício clássico de tradução literal — e este curso foi feito para você.</p>
+
+  <div class="errors-grid">
+    <div class="error-card">
+      <div class="error-num">ERRO Nº 01</div>
+      <div class="error-pt">"Eu tenho 30 anos"</div>
+      <div class="error-wrong">I have 30 years</div>
+      <div class="error-right">I'm 30 (years old)</div>
+      <div class="error-why">Em inglês idade é um <em>estado</em>, não posse. Você <strong>É</strong> 30, não <strong>tem</strong> 30. Mesma lógica para fome, sede, frio: <em>I'm hungry / thirsty / cold</em>.</div>
+    </div>
+
+    <div class="error-card">
+      <div class="error-num">ERRO Nº 02</div>
+      <div class="error-pt">"Concordo com você"</div>
+      <div class="error-wrong">I am agree with you</div>
+      <div class="error-right">I agree with you</div>
+      <div class="error-why">"Agree" já é um verbo — não precisa de "to be". Mesma armadilha: <em>I'm depend on you</em> ❌ → <em>I depend on you</em> ✓.</div>
+    </div>
+
+    <div class="error-card">
+      <div class="error-num">ERRO Nº 03</div>
+      <div class="error-pt">"Faz 3 anos que moro aqui"</div>
+      <div class="error-wrong">I live here for 3 years</div>
+      <div class="error-right">I've lived here for 3 years</div>
+      <div class="error-why">Português usa presente para coisas que começaram no passado. Inglês exige <strong>Present Perfect</strong> (have + past participle). É a regra mais traída pela tradução literal.</div>
+    </div>
+
+    <div class="error-card">
+      <div class="error-num">ERRO Nº 04</div>
+      <div class="error-pt">"Estou com saudade"</div>
+      <div class="error-wrong">I am with miss / I have miss</div>
+      <div class="error-right">I miss you</div>
+      <div class="error-why">"Miss" é verbo direto. Não existe "estar com" emoção em inglês — você <strong>É</strong> ou <strong>SENTE</strong> a coisa: <em>I'm sad, I miss you, I love you</em>.</div>
+    </div>
+
+    <div class="error-card">
+      <div class="error-num">ERRO Nº 05</div>
+      <div class="error-pt">"Pessoas é importante"</div>
+      <div class="error-wrong">People is important</div>
+      <div class="error-right">People are important</div>
+      <div class="error-why">"People" é PLURAL em inglês (não tem "peoples" no normal). Já "information", "advice", "news" são SEMPRE singular — ao contrário do PT.</div>
+    </div>
+
+    <div class="error-card">
+      <div class="error-num">ERRO Nº 06</div>
+      <div class="error-pt">"No dia 5 / De manhã"</div>
+      <div class="error-wrong">In day 5 / In Monday</div>
+      <div class="error-right">On day 5 / On Monday / In the morning</div>
+      <div class="error-why">Preposições NÃO traduzem 1:1. Decore por categoria: <strong>AT</strong> hora exata · <strong>ON</strong> dia/data · <strong>IN</strong> mês/ano/período do dia. Esqueça o português.</div>
+    </div>
+  </div>
+</section>
+
+<section class="levels" id="levels">
+  <div class="levels-header">
+    <h2 class="levels-title">Escolha seu <em>ponto de partida</em>.</h2>
+    <p class="levels-sub">Cada nível é um documento HTML completo, com teoria, exercícios interativos auto-corrigíveis, vídeos curados do YouTube e — o mais importante — uma seção dedicada aos erros típicos de quem pensa em português. Tudo em PT-BR.</p>
+  </div>
+
+  <div class="level-list">
+    <a href="00_PreA1_Survival.html" class="level-row" style="--lvl-color: #c2410c;">
+      <div class="level-code">A0<small>Pre-A1</small></div>
+      <div class="level-name">Survival<span>Do absoluto zero</span></div>
+      <div class="level-desc">Alfabeto, números, cumprimentos, frases de sobrevivência, "How are you?", "Where is...?". Para quem nunca abriu a boca em inglês na vida.</div>
+      <div class="level-arrow">→</div>
+    </a>
+
+    <a href="01_A1_Foundations.html" class="level-row" style="--lvl-color: #ff3d00;">
+      <div class="level-code">A1<small>Iniciante</small></div>
+      <div class="level-name">Foundations<span>Onde nasce o vício de tradução</span></div>
+      <div class="level-desc">Verbo TO BE, pronomes, presente simples, artigos a/an, plurais, perguntas Wh-, números, dias, horas. A fundação anti-tradução.</div>
+      <div class="level-arrow">→</div>
+    </a>
+
+    <a href="02_A2_Elementary.html" class="level-row" style="--lvl-color: #06b6d4;">
+      <div class="level-code">A2<small>Elementar</small></div>
+      <div class="level-name">Elementary<span>Domínio do tempo</span></div>
+      <div class="level-desc">Past Simple (50 verbos irregulares!), Present Continuous, going to vs will, comparativos, modais, contáveis vs incontáveis.</div>
+      <div class="level-arrow">→</div>
+    </a>
+
+    <a href="03_B1_Intermediate.html" class="level-row" style="--lvl-color: #fb7185;">
+      <div class="level-code">B1<small>Intermediário</small></div>
+      <div class="level-name">Intermediate<span>O monstro Present Perfect</span></div>
+      <div class="level-desc">Present Perfect vs Past Simple (o terror brasileiro!), Past Continuous, used to, First Conditional, Reported Speech, primeiros phrasal verbs, gerund vs infinitive, passive voice intro.</div>
+      <div class="level-arrow">→</div>
+    </a>
+
+    <a href="04_B2_UpperIntermediate.html" class="level-row" style="--lvl-color: #f59e0b;">
+      <div class="level-code">B2<small>Upper Int.</small></div>
+      <div class="level-name">Upper Intermediate<span>Fluência funcional</span></div>
+      <div class="level-desc">Present Perfect Continuous, Past Perfect, Second/Third/Mixed Conditionals, Wish/If only, modais de dedução (must/might have done), phrasal verbs avançados, relative clauses, causative.</div>
+      <div class="level-arrow">→</div>
+    </a>
+
+    <a href="05_C1_Advanced.html" class="level-row" style="--lvl-color: #d4af37;">
+      <div class="level-code">C1<small>Avançado</small></div>
+      <div class="level-name">Advanced<span>Como um educado nativo</span></div>
+      <div class="level-desc">Inversões (Hardly had I..., Never have I...), cleft sentences, advanced conditionals, subjuntivo, would rather/had better, discourse markers, collocations, idioms, hedging language.</div>
+      <div class="level-arrow">→</div>
+    </a>
+
+    <a href="06_C2_Mastery.html" class="level-row" style="--lvl-color: #ec4899;">
+      <div class="level-code">C2<small>Maestria</small></div>
+      <div class="level-name">Mastery<span>Indistinguível de nativo</span></div>
+      <div class="level-desc">Nuance native-like, registros (formal vs colloquial vs slang), figuras de linguagem, idioms avançados, referências culturais, pragmatic competence, sintaxe complexa, English acadêmico vs business vs creative.</div>
+      <div class="level-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="diag-label" style="color: var(--accent-2);">★ COMO USAR ESTE MATERIAL</div>
+  <h2 class="section-title">Método <em>Brain Reset</em>.</h2>
+
+  <div class="howto-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Não traduza. Sinta.</h3>
+      <p>Toda vez que você ler uma frase em inglês e a tradução em PT vier automática, PARE. Releia em inglês 3x até a frase fazer sentido sozinha. Esse é o exercício mais importante.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Erre primeiro. Sempre.</h3>
+      <p>Faça os exercícios SEM olhar a teoria depois de uma primeira leitura. O erro é o ouro — ele revela exatamente onde sua intuição em PT te enganou.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Refaça em voz alta.</h3>
+      <p>Cada exercício correto deve ser falado 3x em voz alta. O músculo da fala é diferente do músculo da leitura — você precisa treinar os dois.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Vídeo é obrigatório.</h3>
+      <p>Cada nível tem 4-6 vídeos do YouTube embedados. Eles não são "extras" — são parte essencial. Assista, anote, repita.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <h3>Volte ao A1.</h3>
+      <p>Mesmo se você está no B2, revise o A1. Os erros mais teimosos de brasileiros estão na base — TO BE, artigos, ordem das palavras. Não pule etapas.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">06</div>
+      <h3>Revise em 24h, 7d, 30d.</h3>
+      <p>Curva de esquecimento de Ebbinghaus: revise um nível 24h depois de completar, depois 1 semana, depois 1 mês. Sem revisão, 80% se perde.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>ENGLISH MASTERY · BRAZILIAN BRAIN RESET EDITION</p>
+  <p><em>"You don't learn a language. You become someone who speaks it."</em></p>
+  <p>BUILT FOR THE LONG GAME · 7 LEVELS · 350+ EXERCISES</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 — Foundations · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;700&family=Inter+Tight:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fefaf3;
+    --paper: #ffffff;
+    --ink: #0a0a0a;
+    --muted: #6b6256;
+    --accent: #ff3d00;
+    --accent-soft: #ffe8df;
+    --green: #0d8a3e;
+    --green-soft: #d8f0e0;
+    --red: #c8102e;
+    --red-soft: #fbe1e4;
+    --yellow: #f4c542;
+    --line: #e7dfd0;
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter Tight', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(254, 250, 243, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  .top a { color: var(--ink); text-decoration: none; }
+  .top a:hover { color: var(--accent); }
+  .top .level-badge {
+    background: var(--accent);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 5vw 60px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .hero::after {
+    content: 'A1';
+    position: absolute;
+    right: -40px;
+    top: 20px;
+    font-family: var(--serif);
+    font-size: 400px;
+    font-weight: 300;
+    color: var(--accent-soft);
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero p {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 700px;
+  }
+
+  /* TOC */
+  .toc {
+    padding: 50px 5vw;
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .toc-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--yellow);
+    margin-bottom: 30px;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    columns: 2;
+    column-gap: 60px;
+  }
+  .toc li {
+    counter-increment: toc;
+    padding: 14px 0;
+    border-bottom: 1px solid #333;
+    break-inside: avoid;
+  }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--yellow);
+    margin-right: 20px;
+  }
+  .toc a {
+    color: var(--bg);
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+  }
+  .toc a:hover { color: var(--yellow); }
+  @media (max-width: 700px) { .toc ol { columns: 1; } }
+
+  /* LESSON SECTION */
+  section.lesson {
+    padding: 80px 5vw;
+    border-bottom: 1px solid var(--line);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .lesson-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .lesson h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .lesson h2 em { font-style: italic; color: var(--accent); }
+  .lesson .lead {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 750px;
+    margin-bottom: 50px;
+  }
+  .lesson h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    margin: 40px 0 16px;
+    line-height: 1.2;
+  }
+  .lesson h4 {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin: 30px 0 12px;
+  }
+  .lesson p { margin-bottom: 16px; max-width: 750px; font-size: 16px; }
+  .lesson strong { font-weight: 700; }
+  .lesson em { font-style: italic; }
+
+  /* COMPARISON BOX (PT vs EN) */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 24px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .compare > div { background: var(--paper); padding: 20px; }
+  .compare .pt { border-right: 3px solid var(--yellow); }
+  .compare .en { border-left: 3px solid var(--green); }
+  .compare-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .compare-text {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  @media (max-width: 600px) { .compare { grid-template-columns: 1fr; } }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin: 24px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--paper);
+    font-size: 15px;
+  }
+  th, td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+  th {
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+  }
+  tr:hover td { background: var(--accent-soft); }
+  td.formula { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+
+  /* CALLOUT BOXES */
+  .callout {
+    padding: 24px 28px;
+    margin: 30px 0;
+    border-left: 4px solid;
+    border-radius: 0 4px 4px 0;
+    max-width: 800px;
+  }
+  .callout.warning { background: var(--red-soft); border-color: var(--red); }
+  .callout.tip { background: var(--green-soft); border-color: var(--green); }
+  .callout.brain { background: #fff3cd; border-color: var(--yellow); }
+  .callout-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .callout.warning .callout-title { color: var(--red); }
+  .callout.tip .callout-title { color: var(--green); }
+  .callout.brain .callout-title { color: #8a6d00; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* WRONG/RIGHT */
+  .wrong { color: var(--red); text-decoration: line-through; }
+  .right { color: var(--green); font-weight: 700; }
+  code, .code-inline {
+    font-family: var(--mono);
+    background: #f0e8d8;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  /* EXERCISE */
+  .exercise {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .exercise-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .exercise-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .exercise-sub {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .ex-q {
+    margin: 18px 0;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ex-q:last-of-type { border-bottom: none; }
+  .ex-num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-family: var(--mono);
+    font-size: 12px;
+    margin-right: 12px;
+  }
+  .ex-prompt {
+    display: inline;
+    font-size: 16px;
+  }
+  .ex-prompt .pt-hint {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+  }
+  .ex-input, .ex-select {
+    font-family: var(--mono);
+    font-size: 15px;
+    padding: 8px 12px;
+    border: 2px solid var(--line);
+    border-radius: 4px;
+    background: var(--bg);
+    margin: 0 4px;
+    min-width: 120px;
+    transition: border 0.2s;
+  }
+  .ex-input:focus, .ex-select:focus { outline: none; border-color: var(--accent); }
+  .ex-input.correct, .ex-select.correct { border-color: var(--green); background: var(--green-soft); }
+  .ex-input.incorrect, .ex-select.incorrect { border-color: var(--red); background: var(--red-soft); }
+
+  .ex-options { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .ex-option {
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 8px 14px;
+    border: 2px solid var(--line);
+    background: var(--paper);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .ex-option:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .ex-option.selected { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+  .ex-option.correct { border-color: var(--green); background: var(--green-soft); color: var(--green); }
+  .ex-option.incorrect { border-color: var(--red); background: var(--red-soft); color: var(--red); }
+
+  .ex-feedback {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .ex-feedback.show { display: block; }
+  .ex-feedback.correct { background: var(--green-soft); color: #064a1f; border-left: 3px solid var(--green); }
+  .ex-feedback.incorrect { background: var(--red-soft); color: #5a0a18; border-left: 3px solid var(--red); }
+
+  .ex-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    padding: 12px 20px;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .btn:hover { background: var(--accent); border-color: var(--accent); }
+  .btn.secondary { background: transparent; color: var(--ink); }
+  .btn.secondary:hover { background: var(--ink); color: var(--bg); }
+  .ex-score {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .ex-score .num { font-size: 20px; font-weight: 700; color: var(--ink); }
+
+  /* VIDEO */
+  .video-wrap {
+    margin: 30px 0;
+    background: var(--ink);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .video-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+  }
+  .video-header h4 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--bg);
+    margin: 0;
+  }
+  .video-header span {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .video-frame {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+  .video-frame iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* DRILL CARD */
+  .drill {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 30px;
+    border-radius: 6px;
+    margin: 30px 0;
+  }
+  .drill h4 {
+    color: var(--yellow);
+    margin-top: 0;
+  }
+  .drill ul { list-style: none; padding: 0; }
+  .drill li {
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+  }
+  .drill li:last-child { border: none; }
+  .drill li .pt { color: var(--yellow); font-style: normal; font-family: var(--mono); font-size: 12px; display: block; margin-top: 4px; }
+
+  /* FOOTER NAV */
+  .level-nav {
+    padding: 60px 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+  }
+  .level-nav a {
+    background: var(--bg);
+    padding: 30px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.2s;
+  }
+  .level-nav a:hover { background: var(--paper); }
+  .level-nav a.next { text-align: right; }
+  .level-nav .lbl {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .level-nav .ttl {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  footer.bottom {
+    padding: 40px 5vw;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    background: var(--ink);
+  }
+  footer.bottom em {
+    font-family: var(--serif);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--yellow);
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="index.html">← English Mastery</a>
+  <span><span class="level-badge">A1</span> · Foundations</span>
+  <a href="02_A2_Elementary.html">A2 Elementary →</a>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">★ Nível A1 — Iniciante absoluto</div>
+    <h1>Foundations.<br>Onde você <em>desaprende</em> o português.</h1>
+    <p>Este é o nível mais importante de todos. Não porque o conteúdo é complexo — ao contrário, é simples. Mas é AQUI que os vícios de tradução literal nascem. Cada lição expõe um momento em que sua intuição em PT vai te trair. Domine isso, e tudo depois fica mais fácil.</p>
+  </div>
+</section>
+
+<section class="toc">
+  <div class="toc-title">★ Conteúdo deste nível</div>
+  <ol>
+    <li><a href="#lesson1">Verbo TO BE — A obsessão errada</a></li>
+    <li><a href="#lesson2">Pronomes & Possessivos</a></li>
+    <li><a href="#lesson3">Artigos A / AN / THE</a></li>
+    <li><a href="#lesson4">Plurais regulares e irregulares</a></li>
+    <li><a href="#lesson5">Presente Simples — A regra do S</a></li>
+    <li><a href="#lesson6">Perguntas Wh- (Who, What, Where...)</a></li>
+    <li><a href="#lesson7">Preposições básicas IN/ON/AT</a></li>
+    <li><a href="#lesson8">Ordem das palavras na frase</a></li>
+    <li><a href="#lesson9">Vídeos curados</a></li>
+    <li><a href="#lesson10">Drill final — Falar em voz alta</a></li>
+  </ol>
+</section>
+
+<!-- LESSON 1: TO BE -->
+<section class="lesson" id="lesson1">
+  <div class="lesson-num">Lição 01 / 10</div>
+  <h2>O verbo <em>TO BE</em>.<br>O primeiro grande tropeço.</h2>
+  <p class="lead">"To be" significa <strong>ser</strong> E <strong>estar</strong> — esse é o detalhe que destrói o tradutor automático que você tem na cabeça. Não existem dois verbos separados como em PT. Em inglês, ser e estar são a mesma coisa.</p>
+
+  <h3>A conjugação (decora isso de olhos fechados)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pronome</th><th>Forma completa</th><th>Contração</th><th>Negativo</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>I am</td><td class="formula">I'm</td><td>I'm not</td></tr>
+        <tr><td>you</td><td>you are</td><td class="formula">you're</td><td>you aren't</td></tr>
+        <tr><td>he</td><td>he is</td><td class="formula">he's</td><td>he isn't</td></tr>
+        <tr><td>she</td><td>she is</td><td class="formula">she's</td><td>she isn't</td></tr>
+        <tr><td>it</td><td>it is</td><td class="formula">it's</td><td>it isn't</td></tr>
+        <tr><td>we</td><td>we are</td><td class="formula">we're</td><td>we aren't</td></tr>
+        <tr><td>they</td><td>they are</td><td class="formula">they're</td><td>they aren't</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout brain">
+    <div class="callout-title">⚠ ALERTA DE TRADUÇÃO</div>
+    <p>Em PT você diz "Eu tenho 30 anos", "Estou com fome", "Estou com frio". O brasileiro traduz: <span class="wrong">I have 30 years</span>, <span class="wrong">I am with hunger</span>, <span class="wrong">I am with cold</span>. <strong>TODAS ERRADAS.</strong></p>
+    <p>A regra para destravar: em inglês, <strong>idade, fome, sede, frio, calor, sono, medo, vergonha</strong> são <em>estados do ser</em>. Você É a coisa, não tem a coisa.</p>
+  </div>
+
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">Eu tenho 25 anos.<br>Eu estou com fome.<br>Ela está com frio.<br>Estou com sono.<br>Estou com medo.</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">I'm 25.<br>I'm hungry.<br>She's cold.<br>I'm sleepy.<br>I'm scared.</div>
+    </div>
+  </div>
+
+  <h3>Perguntas com TO BE — INVERSÃO obrigatória</h3>
+  <p>Português você sobe a entonação: "Você está bem?" Inglês você <strong>inverte</strong> a ordem: <code>Are you ok?</code> O verbo VEM PRIMEIRO. Sem exceção.</p>
+
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">Você é brasileiro?<br>Eles são meus amigos?<br>Ela está aqui?</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">Are you Brazilian?<br>Are they my friends?<br>Is she here?</div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 1 -->
+  <div class="exercise" data-ex="1">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #1 — TO BE em frases reais</div>
+        <div class="exercise-sub">Complete com a forma correta do verbo TO BE (am / is / are). Foque na lógica do estado.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.1</div>
+    </div>
+
+    <div class="ex-q" data-answer="am">
+      <span class="ex-num">1</span><span class="ex-prompt">I <input class="ex-input" data-q="1" placeholder="?"> hungry. <span class="pt-hint">(Estou com fome.)</span></span>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+    <div class="ex-q" data-answer="is">
+      <span class="ex-num">2</span><span class="ex-prompt">My sister <input class="ex-input" data-q="2" placeholder="?"> a doctor. <span class="pt-hint">(Minha irmã é médica.)</span></span>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+    <div class="ex-q" data-answer="are">
+      <span class="ex-num">3</span><span class="ex-prompt">We <input class="ex-input" data-q="3" placeholder="?"> from Brazil. <span class="pt-hint">(Nós somos do Brasil.)</span></span>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+    <div class="ex-q" data-answer="is">
+      <span class="ex-num">4</span><span class="ex-prompt">It <input class="ex-input" data-q="4" placeholder="?"> very cold today. <span class="pt-hint">(Está muito frio hoje.)</span></span>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+    <div class="ex-q" data-answer="am">
+      <span class="ex-num">5</span><span class="ex-prompt">I <input class="ex-input" data-q="5" placeholder="?"> 32 years old. <span class="pt-hint">(Eu tenho 32 anos.)</span></span>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+    <div class="ex-q" data-answer="are">
+      <span class="ex-num">6</span><span class="ex-prompt">You <input class="ex-input" data-q="6" placeholder="?"> right. <span class="pt-hint">(Você tem razão.)</span></span>
+      <div class="ex-feedback" data-fb="6"></div>
+    </div>
+    <div class="ex-q" data-answer="is">
+      <span class="ex-num">7</span><span class="ex-prompt">My coffee <input class="ex-input" data-q="7" placeholder="?"> cold. <span class="pt-hint">(Meu café está frio.)</span></span>
+      <div class="ex-feedback" data-fb="7"></div>
+    </div>
+    <div class="ex-q" data-answer="are">
+      <span class="ex-num">8</span><span class="ex-prompt">They <input class="ex-input" data-q="8" placeholder="?"> in the kitchen. <span class="pt-hint">(Eles estão na cozinha.)</span></span>
+      <div class="ex-feedback" data-fb="8"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(1)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(1)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-1">—</span> / 8</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 2: PRONOMES -->
+<section class="lesson" id="lesson2">
+  <div class="lesson-num">Lição 02 / 10</div>
+  <h2>Pronomes e <em>possessivos</em>.<br>Sutilezas que mudam tudo.</h2>
+  <p class="lead">Existem 3 tipos que confundem brasileiros: pronome sujeito (I, you, he), pronome objeto (me, you, him), e adjetivo possessivo (my, your, his). O erro clássico: usar "I" onde deveria ser "me".</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Sujeito</th><th>Objeto</th><th>Possessivo (+ subst.)</th><th>Pronome possessivo</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>me</td><td>my (book)</td><td>mine</td></tr>
+        <tr><td>you</td><td>you</td><td>your (book)</td><td>yours</td></tr>
+        <tr><td>he</td><td>him</td><td>his (book)</td><td>his</td></tr>
+        <tr><td>she</td><td>her</td><td>her (book)</td><td>hers</td></tr>
+        <tr><td>it</td><td>it</td><td>its (book)</td><td>—</td></tr>
+        <tr><td>we</td><td>us</td><td>our (book)</td><td>ours</td></tr>
+        <tr><td>they</td><td>them</td><td>their (book)</td><td>theirs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠ ARMADILHA Nº 1: ITS vs IT'S</div>
+    <p><code>its</code> = possessivo (do animal, da coisa). Sem apóstrofo. <em>The dog likes <strong>its</strong> bone.</em></p>
+    <p><code>it's</code> = it is (contração). Com apóstrofo. <em><strong>It's</strong> raining.</em></p>
+    <p>Esse erro é o que mais marca não-nativos. Se houver dúvida, expanda: cabe "it is"? Use <code>it's</code>. Não cabe? Use <code>its</code>.</p>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠ ARMADILHA Nº 2: HIS / HER NÃO MUDA</div>
+    <p>Em PT, "seu" muda com a coisa possuída: <em>seu carro / sua casa</em>. Em inglês muda com a PESSOA. <em>His car / his house</em> (dele) — sempre <strong>his</strong>, independente do objeto.</p>
+    <p>Brasileiro pensa: "casa é feminino, vai ser <em>her house</em>". <strong>NÃO!</strong> Se for casa do João, é <em>HIS house</em>. Se for casa da Maria, é <em>HER house</em>. O gênero do objeto NÃO IMPORTA em inglês.</p>
+  </div>
+
+  <!-- EXERCISE 2 -->
+  <div class="exercise" data-ex="2">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #2 — Pronomes corretos</div>
+        <div class="exercise-sub">Escolha entre as opções. Atenção: gênero é da PESSOA, não da coisa.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.2</div>
+    </div>
+
+    <div class="ex-q" data-answer="his">
+      <span class="ex-num">1</span><span class="ex-prompt">João loves ___ mother. <span class="pt-hint">(O João ama a mãe dele.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="1">her</button>
+        <button class="ex-option" data-q="1">his</button>
+        <button class="ex-option" data-q="1">your</button>
+      </div>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+
+    <div class="ex-q" data-answer="her">
+      <span class="ex-num">2</span><span class="ex-prompt">Mary lost ___ keys. <span class="pt-hint">(Mary perdeu as chaves dela.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="2">his</button>
+        <button class="ex-option" data-q="2">hers</button>
+        <button class="ex-option" data-q="2">her</button>
+      </div>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+
+    <div class="ex-q" data-answer="me">
+      <span class="ex-num">3</span><span class="ex-prompt">Can you help ___? <span class="pt-hint">(Você pode me ajudar?)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="3">I</button>
+        <button class="ex-option" data-q="3">me</button>
+        <button class="ex-option" data-q="3">my</button>
+      </div>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+
+    <div class="ex-q" data-answer="its">
+      <span class="ex-num">4</span><span class="ex-prompt">The cat is washing ___ paws. <span class="pt-hint">(O gato está lavando as patas dele.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="4">it's</button>
+        <button class="ex-option" data-q="4">its</button>
+        <button class="ex-option" data-q="4">his</button>
+      </div>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+
+    <div class="ex-q" data-answer="theirs">
+      <span class="ex-num">5</span><span class="ex-prompt">This house is ___. <span class="pt-hint">(Esta casa é deles.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="5">their</button>
+        <button class="ex-option" data-q="5">theirs</button>
+        <button class="ex-option" data-q="5">them</button>
+      </div>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+
+    <div class="ex-q" data-answer="us">
+      <span class="ex-num">6</span><span class="ex-prompt">She invited ___ to the party. <span class="pt-hint">(Ela nos convidou pra festa.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="6">we</button>
+        <button class="ex-option" data-q="6">our</button>
+        <button class="ex-option" data-q="6">us</button>
+      </div>
+      <div class="ex-feedback" data-fb="6"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(2)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(2)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-2">—</span> / 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 3: ARTIGOS -->
+<section class="lesson" id="lesson3">
+  <div class="lesson-num">Lição 03 / 10</div>
+  <h2>Artigos <em>A / AN / THE</em>.<br>O detalhe que ninguém domina.</h2>
+  <p class="lead">Brasileiros falam: <span class="wrong">"I am engineer"</span>. Errado. O artigo <code>a</code> é OBRIGATÓRIO antes de profissões e substantivos contáveis no singular. Português pula, inglês não.</p>
+
+  <h3>A regra de ouro</h3>
+  <p><strong>A</strong> antes de som de consoante: <em>a book, a university</em> (university começa com som "yu", consoante).<br>
+  <strong>AN</strong> antes de som de vogal: <em>an apple, an hour</em> (hour, o "h" é mudo).<br>
+  <strong>THE</strong> quando você sabe DE QUAL específico está falando: <em>I have a car. The car is red.</em></p>
+
+  <div class="callout brain">
+    <div class="callout-title">⚠ É O SOM, NÃO A LETRA</div>
+    <p>"University" começa com U mas o SOM é "yu" (consoante) → <strong>a</strong> university.<br>"Hour" começa com H mas o H é mudo, o SOM é "ow" (vogal) → <strong>an</strong> hour.<br>"European" → <strong>a</strong> European country (som "yu").</p>
+  </div>
+
+  <h3>Quando NÃO usar artigo (sem "the")</h3>
+  <p>Português adora "o", "a". Inglês <strong>OMITE</strong> o artigo em vários casos:</p>
+  <ul style="margin-left: 20px; margin-bottom: 20px;">
+    <li>Generalizações: <em>Cats are cute.</em> (não "The cats are cute" se você fala de gatos em geral)</li>
+    <li>Refeições: <em>I had breakfast.</em> (não "the breakfast")</li>
+    <li>Países (a maioria): <em>Brazil is huge.</em> (não "the Brazil")</li>
+    <li>Idiomas: <em>I speak Portuguese.</em> (não "the Portuguese")</li>
+    <li>Esportes: <em>I play football.</em> (não "the football")</li>
+  </ul>
+
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">Sou engenheiro.<br>Os gatos são fofos.<br>Tomei o café da manhã.<br>Falo o português.<br>O Brasil é enorme.</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">I'm an engineer.<br>Cats are cute.<br>I had breakfast.<br>I speak Portuguese.<br>Brazil is huge.</div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3 -->
+  <div class="exercise" data-ex="3">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #3 — A / AN / THE / —</div>
+        <div class="exercise-sub">Use "—" para indicar AUSÊNCIA de artigo. Pense no SOM, não na letra.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.3</div>
+    </div>
+
+    <div class="ex-q" data-answer="an">
+      <span class="ex-num">1</span><span class="ex-prompt">She is ___ engineer. <span class="pt-hint">(Ela é engenheira.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="1">a</button>
+        <button class="ex-option" data-q="1">an</button>
+        <button class="ex-option" data-q="1">the</button>
+        <button class="ex-option" data-q="1">—</button>
+      </div>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+
+    <div class="ex-q" data-answer="a">
+      <span class="ex-num">2</span><span class="ex-prompt">He works at ___ university. <span class="pt-hint">(Cuidado com o som!)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="2">a</button>
+        <button class="ex-option" data-q="2">an</button>
+        <button class="ex-option" data-q="2">the</button>
+      </div>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+
+    <div class="ex-q" data-answer="—">
+      <span class="ex-num">3</span><span class="ex-prompt">I love ___ dogs. <span class="pt-hint">(Eu amo cachorros — em geral.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="3">a</button>
+        <button class="ex-option" data-q="3">the</button>
+        <button class="ex-option" data-q="3">—</button>
+      </div>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+
+    <div class="ex-q" data-answer="an">
+      <span class="ex-num">4</span><span class="ex-prompt">Wait ___ hour, please. <span class="pt-hint">(O H é mudo!)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="4">a</button>
+        <button class="ex-option" data-q="4">an</button>
+        <button class="ex-option" data-q="4">the</button>
+      </div>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+
+    <div class="ex-q" data-answer="—">
+      <span class="ex-num">5</span><span class="ex-prompt">I speak ___ English every day. <span class="pt-hint">(Idioma — sem artigo.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="5">a</button>
+        <button class="ex-option" data-q="5">the</button>
+        <button class="ex-option" data-q="5">—</button>
+      </div>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+
+    <div class="ex-q" data-answer="the">
+      <span class="ex-num">6</span><span class="ex-prompt">I bought a car. ___ car is red. <span class="pt-hint">(Já mencionado, então é específico.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="6">a</button>
+        <button class="ex-option" data-q="6">an</button>
+        <button class="ex-option" data-q="6">the</button>
+      </div>
+      <div class="ex-feedback" data-fb="6"></div>
+    </div>
+
+    <div class="ex-q" data-answer="—">
+      <span class="ex-num">7</span><span class="ex-prompt">___ Brazil is in South America. <span class="pt-hint">(País — geralmente sem artigo.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="7">a</button>
+        <button class="ex-option" data-q="7">the</button>
+        <button class="ex-option" data-q="7">—</button>
+      </div>
+      <div class="ex-feedback" data-fb="7"></div>
+    </div>
+
+    <div class="ex-q" data-answer="—">
+      <span class="ex-num">8</span><span class="ex-prompt">I had ___ lunch at noon. <span class="pt-hint">(Refeição — sem artigo.)</span></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="8">a</button>
+        <button class="ex-option" data-q="8">the</button>
+        <button class="ex-option" data-q="8">—</button>
+      </div>
+      <div class="ex-feedback" data-fb="8"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(3)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(3)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-3">—</span> / 8</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 4: PLURAIS -->
+<section class="lesson" id="lesson4">
+  <div class="lesson-num">Lição 04 / 10</div>
+  <h2>Plurais — <em>regulares</em><br>e os que viram outra palavra.</h2>
+  <p class="lead">A regra padrão: adiciona "s". Mas existem ~10 plurais irregulares ESSENCIAIS que você precisa saber de cor, e eles aparecem o tempo todo.</p>
+
+  <h3>Regulares (95% dos casos)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Termina em...</th><th>Regra</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td>(geral)</td><td>+ s</td><td>book → books</td></tr>
+        <tr><td>-s, -ss, -sh, -ch, -x</td><td>+ es</td><td>bus → buses, box → boxes</td></tr>
+        <tr><td>consoante + y</td><td>y → ies</td><td>baby → babies, city → cities</td></tr>
+        <tr><td>vogal + y</td><td>+ s</td><td>boy → boys, key → keys</td></tr>
+        <tr><td>-f, -fe</td><td>→ ves</td><td>knife → knives, leaf → leaves</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Irregulares de DECORAR</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Singular</th><th>Plural</th><th>Tradução</th></tr></thead>
+      <tbody>
+        <tr><td>man</td><td class="formula">men</td><td>homem(ns)</td></tr>
+        <tr><td>woman</td><td class="formula">women</td><td>mulher(es)</td></tr>
+        <tr><td>child</td><td class="formula">children</td><td>criança(s)</td></tr>
+        <tr><td>person</td><td class="formula">people</td><td>pessoa(s)</td></tr>
+        <tr><td>foot</td><td class="formula">feet</td><td>pé(s)</td></tr>
+        <tr><td>tooth</td><td class="formula">teeth</td><td>dente(s)</td></tr>
+        <tr><td>mouse</td><td class="formula">mice</td><td>rato(s)</td></tr>
+        <tr><td>fish</td><td class="formula">fish</td><td>peixe(s) — não muda!</td></tr>
+        <tr><td>sheep</td><td class="formula">sheep</td><td>ovelha(s) — não muda!</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠ INCONTÁVEIS — Diferentes do PT</div>
+    <p>Estes são SEMPRE singulares em inglês (não usam plural, não pegam "a/an"):</p>
+    <p><code>information</code>, <code>advice</code>, <code>news</code>, <code>furniture</code>, <code>luggage</code>, <code>research</code>, <code>knowledge</code>, <code>traffic</code>, <code>money</code>, <code>homework</code>.</p>
+    <p>Você NUNCA diz <span class="wrong">an information / informations / advices</span>. Diga: <span class="right">a piece of information, some information, two pieces of advice</span>.</p>
+  </div>
+
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">As pessoas são legais.<br>Tenho uma informação.<br>Boas notícias!<br>Os móveis são caros.</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">People are nice. (plural)<br>I have some information.<br>Good news! (singular!)<br>The furniture is expensive.</div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 4 -->
+  <div class="exercise" data-ex="4">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #4 — Plurais e incontáveis</div>
+        <div class="exercise-sub">Digite o plural correto. Cuidado com incontáveis — alguns ficam IGUAL.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.4</div>
+    </div>
+
+    <div class="ex-q" data-answer="children">
+      <span class="ex-num">1</span><span class="ex-prompt">child → <input class="ex-input" data-q="1" placeholder="?"></span>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+    <div class="ex-q" data-answer="people">
+      <span class="ex-num">2</span><span class="ex-prompt">person → <input class="ex-input" data-q="2" placeholder="?"></span>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+    <div class="ex-q" data-answer="women">
+      <span class="ex-num">3</span><span class="ex-prompt">woman → <input class="ex-input" data-q="3" placeholder="?"></span>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+    <div class="ex-q" data-answer="boxes">
+      <span class="ex-num">4</span><span class="ex-prompt">box → <input class="ex-input" data-q="4" placeholder="?"></span>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+    <div class="ex-q" data-answer="cities">
+      <span class="ex-num">5</span><span class="ex-prompt">city → <input class="ex-input" data-q="5" placeholder="?"></span>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+    <div class="ex-q" data-answer="knives">
+      <span class="ex-num">6</span><span class="ex-prompt">knife → <input class="ex-input" data-q="6" placeholder="?"></span>
+      <div class="ex-feedback" data-fb="6"></div>
+    </div>
+    <div class="ex-q" data-answer="feet">
+      <span class="ex-num">7</span><span class="ex-prompt">foot → <input class="ex-input" data-q="7" placeholder="?"></span>
+      <div class="ex-feedback" data-fb="7"></div>
+    </div>
+    <div class="ex-q" data-answer="information">
+      <span class="ex-num">8</span><span class="ex-prompt">information → <input class="ex-input" data-q="8" placeholder="?"> <span class="pt-hint">(É contável?)</span></span>
+      <div class="ex-feedback" data-fb="8"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(4)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(4)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-4">—</span> / 8</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 5: PRESENT SIMPLE -->
+<section class="lesson" id="lesson5">
+  <div class="lesson-num">Lição 05 / 10</div>
+  <h2>Presente Simples<br>e a <em>regra do S</em>.</h2>
+  <p class="lead">Em PT você conjuga em todas as pessoas (eu falo, você fala, ele fala). Em inglês é quase tudo igual — EXCETO na 3ª pessoa do singular (he/she/it), que ganha um S no final. É a regra mais esquecida do A1.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pronome</th><th>Verbo "work"</th><th>Verbo "go"</th><th>Verbo "study"</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>work</td><td>go</td><td>study</td></tr>
+        <tr><td>you</td><td>work</td><td>go</td><td>study</td></tr>
+        <tr><td><strong>he/she/it</strong></td><td class="formula">works</td><td class="formula">goes</td><td class="formula">studies</td></tr>
+        <tr><td>we</td><td>work</td><td>go</td><td>study</td></tr>
+        <tr><td>they</td><td>work</td><td>go</td><td>study</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>As 3 sub-regras do S</h3>
+  <p><strong>1.</strong> Geral: + s → <em>work</em>s, <em>play</em>s, <em>read</em>s</p>
+  <p><strong>2.</strong> Termina em -s, -ss, -sh, -ch, -x, -o: + es → <em>go</em>es, <em>watch</em>es, <em>fix</em>es, <em>do</em>es, <em>kiss</em>es</p>
+  <p><strong>3.</strong> Consoante + y: y vira ies → <em>study</em> → studi<strong>es</strong>, <em>cry</em> → cri<strong>es</strong>, <em>fly</em> → fli<strong>es</strong></p>
+
+  <h3>Negativo e perguntas — DO/DOES</h3>
+  <p>Em PT você fala "Eu não trabalho" / "Você trabalha?". Em inglês você precisa do auxiliar <code>do</code> (eu/você/nós/eles) ou <code>does</code> (he/she/it).</p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠ ATENÇÃO MÁXIMA</div>
+    <p>Quando aparece <code>does</code>, o S do verbo SOME — porque o "does" já carrega o S.</p>
+    <p><span class="wrong">Does she works?</span> ❌ ❌ ❌<br><span class="right">Does she work?</span> ✓</p>
+    <p>Mesma lógica no negativo: <span class="wrong">She doesn't works.</span> ❌ → <span class="right">She doesn't work.</span> ✓</p>
+  </div>
+
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">Ela trabalha em casa.<br>Ela não trabalha aos sábados.<br>Ela trabalha aqui?<br>Onde ela trabalha?</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">She works from home.<br>She doesn't work on Saturdays.<br>Does she work here?<br>Where does she work?</div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 5 -->
+  <div class="exercise" data-ex="5">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #5 — Presente Simples na vida real</div>
+        <div class="exercise-sub">Conjugue o verbo entre parênteses. Atenção à 3ª pessoa.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.5</div>
+    </div>
+
+    <div class="ex-q" data-answer="works">
+      <span class="ex-num">1</span><span class="ex-prompt">My father <input class="ex-input" data-q="1" placeholder="?"> at a bank. <em>(work)</em></span>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+    <div class="ex-q" data-answer="studies">
+      <span class="ex-num">2</span><span class="ex-prompt">She <input class="ex-input" data-q="2" placeholder="?"> English every day. <em>(study)</em></span>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+    <div class="ex-q" data-answer="goes">
+      <span class="ex-num">3</span><span class="ex-prompt">He <input class="ex-input" data-q="3" placeholder="?"> to the gym on Mondays. <em>(go)</em></span>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+    <div class="ex-q" data-answer="don't like">
+      <span class="ex-num">4</span><span class="ex-prompt">I <input class="ex-input" data-q="4" placeholder="?"> coffee. <em>(not like)</em> <span class="pt-hint">(Use contração: don't ...)</span></span>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+    <div class="ex-q" data-answer="doesn't speak">
+      <span class="ex-num">5</span><span class="ex-prompt">My sister <input class="ex-input" data-q="5" placeholder="?"> Spanish. <em>(not speak)</em> <span class="pt-hint">(Use contração: doesn't ...)</span></span>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+    <div class="ex-q" data-answer="watches">
+      <span class="ex-num">6</span><span class="ex-prompt">My mom <input class="ex-input" data-q="6" placeholder="?"> Netflix at night. <em>(watch)</em></span>
+      <div class="ex-feedback" data-fb="6"></div>
+    </div>
+    <div class="ex-q" data-answer="Does">
+      <span class="ex-num">7</span><span class="ex-prompt">___ he live in São Paulo? <em>(Aux. de pergunta)</em></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="7">Do</button>
+        <button class="ex-option" data-q="7">Does</button>
+        <button class="ex-option" data-q="7">Is</button>
+      </div>
+      <div class="ex-feedback" data-fb="7"></div>
+    </div>
+    <div class="ex-q" data-answer="Do">
+      <span class="ex-num">8</span><span class="ex-prompt">___ they speak English? <em>(Aux. de pergunta)</em></span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="8">Do</button>
+        <button class="ex-option" data-q="8">Does</button>
+        <button class="ex-option" data-q="8">Are</button>
+      </div>
+      <div class="ex-feedback" data-fb="8"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(5)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(5)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-5">—</span> / 8</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 6: WH QUESTIONS -->
+<section class="lesson" id="lesson6">
+  <div class="lesson-num">Lição 06 / 10</div>
+  <h2>Perguntas Wh-<br>e a <em>ordem</em> sagrada.</h2>
+  <p class="lead">Em PT a ordem da pergunta é flexível: "Onde você mora?" ou "Você mora onde?". Em inglês a estrutura é RÍGIDA: <strong>Wh + auxiliar + sujeito + verbo</strong>. Inverter quebra a frase.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Wh-</th><th>Significado</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        <tr><td class="formula">What</td><td>O que / Qual</td><td>What is your name?</td></tr>
+        <tr><td class="formula">Who</td><td>Quem</td><td>Who is she?</td></tr>
+        <tr><td class="formula">Where</td><td>Onde</td><td>Where do you live?</td></tr>
+        <tr><td class="formula">When</td><td>Quando</td><td>When do we meet?</td></tr>
+        <tr><td class="formula">Why</td><td>Por que</td><td>Why are you sad?</td></tr>
+        <tr><td class="formula">How</td><td>Como</td><td>How do you feel?</td></tr>
+        <tr><td class="formula">How much</td><td>Quanto (incontável)</td><td>How much money?</td></tr>
+        <tr><td class="formula">How many</td><td>Quantos (contável)</td><td>How many people?</td></tr>
+        <tr><td class="formula">How old</td><td>Quantos anos</td><td>How old are you?</td></tr>
+        <tr><td class="formula">Whose</td><td>De quem</td><td>Whose car is this?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout brain">
+    <div class="callout-title">⚠ A FÓRMULA INFALÍVEL</div>
+    <p style="font-family: var(--mono); font-size: 18px; margin: 12px 0;"><strong>WH + AUX + SUJEITO + VERBO + ?</strong></p>
+    <p>Where + do + you + live? · What + does + she + want? · How + are + they + doing?</p>
+    <p>Brasileiro tende a falar: <span class="wrong">Where you live?</span> (esqueceu o "do") ou <span class="wrong">Where do you lives?</span> (botou S no verbo). Repete a fórmula 100x: <strong>WH + AUX + SUJ + VERBO</strong>.</p>
+  </div>
+
+  <!-- EXERCISE 6 -->
+  <div class="exercise" data-ex="6">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #6 — Construindo perguntas</div>
+        <div class="exercise-sub">Reconstrua as palavras na ORDEM CORRETA. Pense na fórmula Wh + Aux + Suj + Verbo.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.6</div>
+    </div>
+
+    <div class="ex-q" data-answer="Where do you live">
+      <span class="ex-num">1</span><span class="ex-prompt">live / where / you / do → <input class="ex-input" data-q="1" style="min-width:280px" placeholder="reordene aqui"> ?</span>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+    <div class="ex-q" data-answer="What does she want">
+      <span class="ex-num">2</span><span class="ex-prompt">want / does / she / what → <input class="ex-input" data-q="2" style="min-width:280px" placeholder="?"> ?</span>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+    <div class="ex-q" data-answer="How old is your brother">
+      <span class="ex-num">3</span><span class="ex-prompt">old / your brother / how / is → <input class="ex-input" data-q="3" style="min-width:280px" placeholder="?"> ?</span>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+    <div class="ex-q" data-answer="Why are you sad">
+      <span class="ex-num">4</span><span class="ex-prompt">you / sad / are / why → <input class="ex-input" data-q="4" style="min-width:280px" placeholder="?"> ?</span>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+    <div class="ex-q" data-answer="How many books do you have">
+      <span class="ex-num">5</span><span class="ex-prompt">books / how many / you / do / have → <input class="ex-input" data-q="5" style="min-width:280px" placeholder="?"> ?</span>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+    <div class="ex-q" data-answer="When does the movie start">
+      <span class="ex-num">6</span><span class="ex-prompt">start / does / when / the movie → <input class="ex-input" data-q="6" style="min-width:280px" placeholder="?"> ?</span>
+      <div class="ex-feedback" data-fb="6"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(6)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(6)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-6">—</span> / 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 7: PREPOSIÇÕES -->
+<section class="lesson" id="lesson7">
+  <div class="lesson-num">Lição 07 / 10</div>
+  <h2>Preposições <em>IN / ON / AT</em>.<br>A maior armadilha do A1.</h2>
+  <p class="lead">Preposições NUNCA traduzem 1 por 1 do português. Você precisa decorar por CATEGORIA. A regra de ouro do tempo é: <strong>IN é grande → ON é médio → AT é específico</strong>.</p>
+
+  <h3>Tempo (when?)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>AT (preciso)</th><th>ON (dia/data)</th><th>IN (período)</th></tr></thead>
+      <tbody>
+        <tr><td>at 8 o'clock</td><td>on Monday</td><td>in 2024</td></tr>
+        <tr><td>at noon / midnight</td><td>on Christmas Day</td><td>in January</td></tr>
+        <tr><td>at lunchtime</td><td>on my birthday</td><td>in summer</td></tr>
+        <tr><td>at night ⚠</td><td>on weekends (US)</td><td>in the morning ⚠</td></tr>
+        <tr><td>at the weekend (UK)</td><td>on April 5th</td><td>in 2 hours (daqui a)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠ AS EXCEÇÕES TRAIÇOEIRAS</div>
+    <p><strong>at night</strong> (não "in the night")<br>
+    <strong>in the morning / afternoon / evening</strong> (não "at"!)<br>
+    <strong>on the weekend</strong> (US) / <strong>at the weekend</strong> (UK)<br>
+    <strong>on Monday morning</strong> (combinou dia + período → ON vence)</p>
+  </div>
+
+  <h3>Lugar (where?)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>AT (ponto)</th><th>ON (superfície/linha)</th><th>IN (dentro)</th></tr></thead>
+      <tbody>
+        <tr><td>at home</td><td>on the table</td><td>in the kitchen</td></tr>
+        <tr><td>at school</td><td>on the wall</td><td>in Brazil</td></tr>
+        <tr><td>at work</td><td>on the bus / train ⚠</td><td>in the car ⚠</td></tr>
+        <tr><td>at the airport</td><td>on the floor</td><td>in a taxi (UK) / in a cab</td></tr>
+        <tr><td>at the door</td><td>on the second floor</td><td>in the world</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout brain">
+    <div class="callout-title">⚠ ÔNIBUS, TREM, AVIÃO = ON. CARRO = IN.</div>
+    <p>É contraintuitivo, mas decora: você fica EM CIMA (on) de transporte público, e DENTRO (in) de carros pequenos. <em>I'm <strong>on</strong> the bus / <strong>on</strong> the plane / <strong>on</strong> the train.</em><br>
+    <em>I'm <strong>in</strong> the car / <strong>in</strong> a taxi.</em></p>
+  </div>
+
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">No domingo, às 7 da manhã.<br>Em janeiro de 2024.<br>Na escola.<br>Estou no ônibus.</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">On Sunday, at 7 in the morning.<br>In January 2024.<br>At school.<br>I'm on the bus.</div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 7 -->
+  <div class="exercise" data-ex="7">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #7 — In / On / At</div>
+        <div class="exercise-sub">Tempo e lugar misturados. Pense por categoria, não traduza.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.7</div>
+    </div>
+
+    <div class="ex-q" data-answer="at">
+      <span class="ex-num">1</span><span class="ex-prompt">The meeting starts ___ 9 a.m.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="1">in</button>
+        <button class="ex-option" data-q="1">on</button>
+        <button class="ex-option" data-q="1">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+    <div class="ex-q" data-answer="on">
+      <span class="ex-num">2</span><span class="ex-prompt">My birthday is ___ March 15th.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="2">in</button>
+        <button class="ex-option" data-q="2">on</button>
+        <button class="ex-option" data-q="2">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+    <div class="ex-q" data-answer="in">
+      <span class="ex-num">3</span><span class="ex-prompt">She was born ___ 1995.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="3">in</button>
+        <button class="ex-option" data-q="3">on</button>
+        <button class="ex-option" data-q="3">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+    <div class="ex-q" data-answer="in">
+      <span class="ex-num">4</span><span class="ex-prompt">I usually work out ___ the morning.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="4">in</button>
+        <button class="ex-option" data-q="4">on</button>
+        <button class="ex-option" data-q="4">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+    <div class="ex-q" data-answer="at">
+      <span class="ex-num">5</span><span class="ex-prompt">I can't sleep ___ night.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="5">in</button>
+        <button class="ex-option" data-q="5">on</button>
+        <button class="ex-option" data-q="5">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+    <div class="ex-q" data-answer="on">
+      <span class="ex-num">6</span><span class="ex-prompt">I'm ___ the bus right now.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="6">in</button>
+        <button class="ex-option" data-q="6">on</button>
+        <button class="ex-option" data-q="6">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="6"></div>
+    </div>
+    <div class="ex-q" data-answer="in">
+      <span class="ex-num">7</span><span class="ex-prompt">Please get ___ the car, we're late.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="7">in</button>
+        <button class="ex-option" data-q="7">on</button>
+        <button class="ex-option" data-q="7">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="7"></div>
+    </div>
+    <div class="ex-q" data-answer="at">
+      <span class="ex-num">8</span><span class="ex-prompt">She's ___ home today.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="8">in</button>
+        <button class="ex-option" data-q="8">on</button>
+        <button class="ex-option" data-q="8">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="8"></div>
+    </div>
+    <div class="ex-q" data-answer="in">
+      <span class="ex-num">9</span><span class="ex-prompt">My keys are ___ my pocket.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="9">in</button>
+        <button class="ex-option" data-q="9">on</button>
+        <button class="ex-option" data-q="9">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="9"></div>
+    </div>
+    <div class="ex-q" data-answer="on">
+      <span class="ex-num">10</span><span class="ex-prompt">The book is ___ the table.</span>
+      <div class="ex-options">
+        <button class="ex-option" data-q="10">in</button>
+        <button class="ex-option" data-q="10">on</button>
+        <button class="ex-option" data-q="10">at</button>
+      </div>
+      <div class="ex-feedback" data-fb="10"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(7)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(7)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-7">—</span> / 10</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 8: ORDEM DAS PALAVRAS -->
+<section class="lesson" id="lesson8">
+  <div class="lesson-num">Lição 08 / 10</div>
+  <h2>Ordem das palavras — <em>SVO</em><br>e o adjetivo NA FRENTE.</h2>
+  <p class="lead">Em PT a ordem é flexível, e o adjetivo geralmente vem DEPOIS do substantivo: "carro vermelho". Em inglês a ordem é fixa: <strong>Sujeito + Verbo + Objeto</strong>, e o adjetivo SEMPRE vem ANTES: "<strong>red</strong> car".</p>
+
+  <h3>SVO — A regra básica</h3>
+  <p>Em inglês o sujeito quase nunca é omitido (diferente do PT), e a ordem é praticamente sagrada.</p>
+
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">Comprei um livro novo.<br>(sujeito "eu" omitido)<br><br>O livro novo eu comprei ontem.<br>(ordem flexível)</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">I bought a new book.<br>(SUJEITO obrigatório!)<br><br>I bought the new book yesterday.<br>(ordem fixa: SVO + tempo)</div>
+    </div>
+  </div>
+
+  <h3>Adjetivos antes do substantivo</h3>
+  <div class="compare">
+    <div class="pt">
+      <div class="compare-label">PORTUGUÊS</div>
+      <div class="compare-text">Uma casa grande<br>Um carro vermelho<br>Uma menina inteligente<br>Uma noite longa</div>
+    </div>
+    <div class="en">
+      <div class="compare-label">INGLÊS</div>
+      <div class="compare-text">A big house<br>A red car<br>A smart girl<br>A long night</div>
+    </div>
+  </div>
+
+  <h3>Ordem de múltiplos adjetivos (OSASCOMP)</h3>
+  <p>Quando você usa vários adjetivos antes de um substantivo, a ordem importa. Mnemônico inglês: <strong>OSASCOMP</strong>:</p>
+  <p style="font-family: var(--mono); background: var(--accent-soft); padding: 16px; border-radius: 4px;">
+  <strong>O</strong>pinion → <strong>S</strong>ize → <strong>A</strong>ge → <strong>S</strong>hape → <strong>C</strong>olor → <strong>O</strong>rigin → <strong>M</strong>aterial → <strong>P</strong>urpose → noun
+  </p>
+  <p>Exemplo: <em>A <strong>beautiful</strong> (op) <strong>small</strong> (size) <strong>old</strong> (age) <strong>round</strong> (shape) <strong>red</strong> (color) <strong>Italian</strong> (origin) <strong>wooden</strong> (material) <strong>dining</strong> (purpose) table.</em></p>
+  <p>Você dificilmente usa todos juntos. Mas aprenda 2-3 ordens comuns: <em>a beautiful red car / a small old house / a nice young man</em>.</p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠ ADVÉRBIOS DE FREQUÊNCIA: NO MEIO</div>
+    <p>"Sempre", "nunca", "geralmente" vão ENTRE o sujeito e o verbo principal — exceto com "to be", aí vão depois.</p>
+    <p><span class="right">I <strong>always</strong> drink coffee.</span> (verbo comum: ANTES)<br>
+    <span class="right">She is <strong>always</strong> happy.</span> (verbo to be: DEPOIS)<br>
+    <span class="wrong">I drink always coffee.</span> ❌</p>
+  </div>
+
+  <!-- EXERCISE 8 -->
+  <div class="exercise" data-ex="8">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill #8 — Ordem das palavras</div>
+        <div class="exercise-sub">Reordene as palavras para formar uma frase correta em inglês.</div>
+      </div>
+      <div class="exercise-tag">Lvl A1.8</div>
+    </div>
+
+    <div class="ex-q" data-answer="I have a red car">
+      <span class="ex-num">1</span><span class="ex-prompt">car / red / I / a / have → <input class="ex-input" data-q="1" style="min-width:280px"></span>
+      <div class="ex-feedback" data-fb="1"></div>
+    </div>
+    <div class="ex-q" data-answer="She lives in a big house">
+      <span class="ex-num">2</span><span class="ex-prompt">house / lives / a / big / she / in → <input class="ex-input" data-q="2" style="min-width:280px"></span>
+      <div class="ex-feedback" data-fb="2"></div>
+    </div>
+    <div class="ex-q" data-answer="I always drink coffee in the morning">
+      <span class="ex-num">3</span><span class="ex-prompt">always / I / coffee / drink / in the morning → <input class="ex-input" data-q="3" style="min-width:280px"></span>
+      <div class="ex-feedback" data-fb="3"></div>
+    </div>
+    <div class="ex-q" data-answer="My brother is a smart boy">
+      <span class="ex-num">4</span><span class="ex-prompt">boy / smart / a / is / my brother → <input class="ex-input" data-q="4" style="min-width:280px"></span>
+      <div class="ex-feedback" data-fb="4"></div>
+    </div>
+    <div class="ex-q" data-answer="They never go to bed early">
+      <span class="ex-num">5</span><span class="ex-prompt">to bed / never / they / early / go → <input class="ex-input" data-q="5" style="min-width:280px"></span>
+      <div class="ex-feedback" data-fb="5"></div>
+    </div>
+
+    <div class="ex-actions">
+      <button class="btn" onclick="checkExercise(8)">Verificar</button>
+      <button class="btn secondary" onclick="resetExercise(8)">Refazer</button>
+      <div class="ex-score">Pontuação: <span class="num" id="score-8">—</span> / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 9: VIDEOS -->
+<section class="lesson" id="lesson9">
+  <div class="lesson-num">Lição 09 / 10</div>
+  <h2>Vídeos <em>essenciais</em><br>do YouTube.</h2>
+  <p class="lead">Assista TODOS. Eles consolidam exatamente o que você acabou de ler. Recomendo: 1ª passada com legenda em PT, 2ª com legenda em EN, 3ª SEM legenda.</p>
+
+  <div class="video-wrap">
+    <div class="video-header">
+      <h4>Mairo Vergara — Por que brasileiros falam inglês traduzindo</h4>
+      <span>★ Mindset</span>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/iCwLs2nfwCk" title="YouTube video" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="video-wrap">
+    <div class="video-header">
+      <h4>Carina Fragozo — Verbo TO BE para iniciantes</h4>
+      <span>★ Lição 1</span>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/6vNBmLjZqSg" title="YouTube video" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="video-wrap">
+    <div class="video-header">
+      <h4>BBC Learning English — Present Simple</h4>
+      <span>★ Lição 5</span>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/8sAQwO9zNQA" title="YouTube video" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="video-wrap">
+    <div class="video-header">
+      <h4>English with Lucy — IN / ON / AT preposições</h4>
+      <span>★ Lição 7</span>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/AhPK69Q3vMQ" title="YouTube video" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title">★ DICA DE OURO</div>
+    <p>Se algum link de vídeo estiver indisponível, busque no YouTube por: "verbo to be aula", "present simple Mairo Vergara", "in on at prepositions" + canais que recomendo: <strong>Mairo Vergara, English in Brazil, BBC Learning English, English with Lucy, EngVid (Adam, Emma, Ronnie), Carina Fragozo, Linguriosa</strong>.</p>
+  </div>
+</section>
+
+<!-- LESSON 10: SPEAKING DRILL -->
+<section class="lesson" id="lesson10">
+  <div class="lesson-num">Lição 10 / 10</div>
+  <h2>Drill final — Falar em <em>voz alta</em>.</h2>
+  <p class="lead">Leia cada frase abaixo em voz alta, 3x cada. NÃO traduza — apenas absorva o som. Esse drill ativa a memória muscular da fala. Faça TODOS OS DIAS por 1 semana antes de passar para A2.</p>
+
+  <div class="drill">
+    <h4>Frases-âncora do A1 (pronuncie 3x cada)</h4>
+    <ul>
+      <li>I'm 30 years old. <span class="pt">Eu tenho 30 anos.</span></li>
+      <li>I'm hungry. Let's eat. <span class="pt">Estou com fome. Vamos comer.</span></li>
+      <li>She's not at home right now. <span class="pt">Ela não está em casa agora.</span></li>
+      <li>What do you do for a living? <span class="pt">O que você faz da vida?</span></li>
+      <li>I'm an engineer. <span class="pt">Sou engenheiro.</span></li>
+      <li>How old is your brother? <span class="pt">Quantos anos tem seu irmão?</span></li>
+      <li>I always have coffee in the morning. <span class="pt">Eu sempre tomo café de manhã.</span></li>
+      <li>She doesn't speak Spanish. <span class="pt">Ela não fala espanhol.</span></li>
+      <li>Where do you live? <span class="pt">Onde você mora?</span></li>
+      <li>I have two children. <span class="pt">Tenho dois filhos.</span></li>
+      <li>People are nice here. <span class="pt">As pessoas aqui são legais.</span></li>
+      <li>I need some information. <span class="pt">Preciso de uma informação.</span></li>
+      <li>The meeting is on Monday at 10. <span class="pt">A reunião é segunda às 10.</span></li>
+      <li>My birthday is in April. <span class="pt">Meu aniversário é em abril.</span></li>
+      <li>I'm on the bus. <span class="pt">Estou no ônibus.</span></li>
+      <li>It's a beautiful red car. <span class="pt">É um lindo carro vermelho.</span></li>
+      <li>I have a big problem. <span class="pt">Tenho um problema grande.</span></li>
+      <li>She is always late. <span class="pt">Ela está sempre atrasada.</span></li>
+      <li>Does he live alone? <span class="pt">Ele mora sozinho?</span></li>
+      <li>Why are you sad? <span class="pt">Por que você está triste?</span></li>
+    </ul>
+  </div>
+
+  <div class="callout brain">
+    <div class="callout-title">★ CHECKLIST DE DOMÍNIO A1</div>
+    <p>Antes de seguir para A2, você deve conseguir, sem pensar:</p>
+    <ul style="margin-left: 20px;">
+      <li>Conjugar TO BE em todas as pessoas (afirmativo, negativo, interrogativo)</li>
+      <li>Conjugar verbos no presente simples lembrando do S na 3ª pessoa</li>
+      <li>Fazer perguntas com "do/does" + Wh-</li>
+      <li>Usar a/an pelo SOM, e omitir artigo em generalizações</li>
+      <li>Saber 5+ plurais irregulares (children, people, men, women, feet)</li>
+      <li>Acertar IN/ON/AT em tempo e lugar 80% das vezes</li>
+      <li>Construir frases na ordem SVO sem pensar</li>
+      <li>Dizer sua idade, fome, frio com TO BE (não com "have")</li>
+    </ul>
+  </div>
+</section>
+
+<nav class="level-nav">
+  <a href="index.html">
+    <div class="lbl">← Voltar</div>
+    <div class="ttl">Índice geral</div>
+  </a>
+  <a href="02_A2_Elementary.html" class="next">
+    <div class="lbl">Próximo nível →</div>
+    <div class="ttl">A2 · Elementary</div>
+  </a>
+</nav>
+
+<footer class="bottom">
+  <p>ENGLISH MASTERY · A1 FOUNDATIONS · <em>"Stop translating. Start thinking."</em></p>
+</footer>
+
+<script>
+// ============= INTERACTIVE EXERCISE ENGINE =============
+function normalize(s) {
+  return (s || '').toLowerCase().trim().replace(/[.,!?;:'"]/g, '').replace(/\s+/g, ' ');
+}
+
+// Setup option-button click handlers
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('ex-option')) {
+    const q = e.target.dataset.q;
+    const exDiv = e.target.closest('.exercise');
+    // unselect siblings
+    exDiv.querySelectorAll(`.ex-option[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
+    e.target.classList.add('selected');
+  }
+});
+
+function checkExercise(exNum) {
+  const exDiv = document.querySelector(`.exercise[data-ex="${exNum}"]`);
+  if (!exDiv) return;
+  const questions = exDiv.querySelectorAll('.ex-q');
+  let correct = 0;
+  let total = questions.length;
+
+  questions.forEach((q, idx) => {
+    const expected = normalize(q.dataset.answer);
+    const qNum = idx + 1;
+    const fb = q.querySelector('.ex-feedback');
+
+    // input answer
+    const input = q.querySelector('.ex-input');
+    let userAnswer = '';
+
+    if (input) {
+      userAnswer = normalize(input.value);
+      input.classList.remove('correct', 'incorrect');
+      if (userAnswer === expected) {
+        input.classList.add('correct');
+        correct++;
+        fb.className = 'ex-feedback show correct';
+        fb.innerHTML = '✓ Perfect! ' + (q.dataset.answer);
+      } else {
+        input.classList.add('incorrect');
+        fb.className = 'ex-feedback show incorrect';
+        fb.innerHTML = `✗ Not quite. Resposta correta: <strong>${q.dataset.answer}</strong>`;
+      }
+    } else {
+      // option buttons
+      const selected = q.querySelector('.ex-option.selected');
+      const allOptions = q.querySelectorAll('.ex-option');
+      allOptions.forEach(o => o.classList.remove('correct', 'incorrect'));
+
+      if (!selected) {
+        fb.className = 'ex-feedback show incorrect';
+        fb.innerHTML = `✗ Você não respondeu. Correta: <strong>${q.dataset.answer}</strong>`;
+        // mark correct one
+        allOptions.forEach(o => { if (normalize(o.textContent) === expected) o.classList.add('correct'); });
+        return;
+      }
+      userAnswer = normalize(selected.textContent);
+      if (userAnswer === expected) {
+        selected.classList.add('correct');
+        correct++;
+        fb.className = 'ex-feedback show correct';
+        fb.innerHTML = '✓ Perfect!';
+      } else {
+        selected.classList.add('incorrect');
+        // highlight correct
+        allOptions.forEach(o => { if (normalize(o.textContent) === expected) o.classList.add('correct'); });
+        fb.className = 'ex-feedback show incorrect';
+        fb.innerHTML = `✗ Resposta correta: <strong>${q.dataset.answer}</strong>`;
+      }
+    }
+  });
+
+  document.getElementById(`score-${exNum}`).textContent = correct;
+  // scroll a bit
+  exDiv.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function resetExercise(exNum) {
+  const exDiv = document.querySelector(`.exercise[data-ex="${exNum}"]`);
+  if (!exDiv) return;
+  exDiv.querySelectorAll('.ex-input').forEach(i => {
+    i.value = '';
+    i.classList.remove('correct', 'incorrect');
+  });
+  exDiv.querySelectorAll('.ex-option').forEach(b => {
+    b.classList.remove('selected', 'correct', 'incorrect');
+  });
+  exDiv.querySelectorAll('.ex-feedback').forEach(f => {
+    f.classList.remove('show', 'correct', 'incorrect');
+    f.innerHTML = '';
+  });
+  document.getElementById(`score-${exNum}`).textContent = '—';
+}
+</script>
+
+</body>
+</html>
