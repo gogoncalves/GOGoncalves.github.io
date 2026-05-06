@@ -120,7 +120,7 @@ p{margin-bottom:16px;font-size:17px}
 .tip-box{background:linear-gradient(135deg,#cffafe,#a5f3fc);padding:24px;border-radius:8px;margin:24px 0;border-left:4px solid var(--accent)}
 .tip-box h4{color:#0e7490;margin-bottom:8px}
 
-.toc{position:sticky;top:20px;background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc{background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
 .toc h4{color:var(--accent-2);margin-bottom:16px}
 .toc ol{list-style:none;counter-reset:toc-counter}
 .toc li{counter-increment:toc-counter;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -146,6 +146,7 @@ footer p{color:rgba(244,240,230,.6);font-size:14px}
 .irreg-cell .pp{color:#666;font-style:italic}
 .irreg-cell .meaning{font-size:12px;color:#999;margin-top:4px}
 
+@media(min-width:1024px){main{display:grid;grid-template-columns:240px 1fr;gap:60px;align-items:start}main > .toc{grid-column:1;grid-row:1/-1;position:sticky;top:24px;max-height:calc(100vh - 60px);overflow-y:auto;margin-bottom:0;padding:20px;align-self:start}main > .toc h4{font-size:11px}main > .toc li{padding:5px 0;font-size:13px;line-height:1.4}main > .toc li::before{margin-right:8px;font-size:11px}main > section{grid-column:2;min-width:0}}
 @media(max-width:768px){
   .compare-grid{grid-template-columns:1fr}
   .hero{padding:60px 6vw 80px}

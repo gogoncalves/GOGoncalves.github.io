@@ -121,7 +121,7 @@ p{margin-bottom:16px;font-size:17px}
 .tip-box{background:linear-gradient(135deg,#fef3c7,#fde68a);padding:24px;border-radius:8px;margin:24px 0;border-left:4px solid var(--ink)}
 .tip-box h4{color:var(--ink);margin-bottom:8px}
 
-.toc{position:sticky;top:20px;background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc{background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
 .toc h4{color:var(--accent);margin-bottom:16px}
 .toc ol{list-style:none;counter-reset:toc-counter}
 .toc li{counter-increment:toc-counter;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -157,6 +157,7 @@ footer h3{color:var(--accent)}
 footer p{color:rgba(250,250,249,.7);font-size:14px}
 footer a{color:var(--accent);text-decoration:none}
 
+@media(min-width:1024px){main{display:grid;grid-template-columns:240px 1fr;gap:60px;align-items:start}main > .toc{grid-column:1;grid-row:1/-1;position:sticky;top:24px;max-height:calc(100vh - 60px);overflow-y:auto;margin-bottom:0;padding:20px;align-self:start}main > .toc h4{font-size:11px}main > .toc li{padding:5px 0;font-size:13px;line-height:1.4}main > .toc li::before{margin-right:8px;font-size:11px}main > section{grid-column:2;min-width:0}}
 @media(max-width:768px){
   .compare-grid{grid-template-columns:1fr}
   .hero{padding:60px 6vw 80px}
