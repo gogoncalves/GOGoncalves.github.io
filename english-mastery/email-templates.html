@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Templates — Tech English · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="em-enhance.css">
+<style>
+:root{--bg:#1f2937;--paper:#fafaf9;--ink:#0c0a09;--accent:#d4af37;--accent-2:#fbbf24;--green:#15803d;--red:#dc2626;--line:rgba(12,10,9,.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+.hero{background:var(--bg);color:var(--paper);padding:60px 6vw;border-bottom:6px solid var(--accent)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,80px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{max-width:680px;color:rgba(250,250,249,.78);font-size:18px}
+.hero .tag{display:inline-block;background:var(--accent);color:var(--ink);padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.2em;border-radius:4px;margin-bottom:18px}
+.hero .back-link{display:inline-block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(250,250,249,.6);text-decoration:none}
+.hero .back-link:hover{color:var(--accent)}
+main{max-width:1100px;margin:0 auto;padding:50px 6vw}
+.toc-template{background:#fff;padding:30px;border-radius:10px;border-left:4px solid var(--accent);margin-bottom:40px;box-shadow:0 8px 24px -4px rgba(12,10,9,.1)}
+.toc-template h3{font-family:'Fraunces',serif;font-size:22px;margin-bottom:16px}
+.toc-template ol{list-style:none;counter-reset:tpl;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px}
+.toc-template li{counter-increment:tpl;padding:8px 0;font-size:14px}
+.toc-template li::before{content:counter(tpl,decimal-leading-zero) ". ";font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;margin-right:6px}
+.toc-template a{color:var(--ink);text-decoration:none}
+.toc-template a:hover{color:var(--accent);text-decoration:underline}
+.template{background:#fff;border:2px solid var(--ink);border-radius:10px;margin:30px 0;overflow:hidden;box-shadow:5px 5px 0 var(--ink)}
+.template-header{background:var(--ink);color:var(--accent);padding:18px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.template-num{background:var(--accent);color:var(--ink);padding:4px 10px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.template-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--accent)}
+.template-context{padding:18px 24px;background:#fef3c7;color:#5b3210;font-size:14px;border-bottom:1px dashed var(--line)}
+.template-context strong{color:var(--ink)}
+.email-body{padding:24px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.7;color:#3d2f1a;background:#fffbeb;white-space:pre-wrap;border-bottom:1px dashed var(--line)}
+.email-body .hi{color:#0066cc;font-weight:700}
+.email-body .key{background:#fde68a;padding:1px 4px;border-radius:2px;font-weight:700;color:#7c2d12}
+.email-body .signature{color:#999;font-style:italic}
+.annotations{padding:20px 24px;background:var(--paper)}
+.annotations h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:14px}
+.annotations ul{list-style:none}
+.annotations li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;display:flex;gap:10px;align-items:flex-start}
+.annotations li:last-child{border:none}
+.annotations li::before{content:'★';color:var(--accent);flex-shrink:0;margin-top:2px}
+.annotations li strong{font-family:'JetBrains Mono',monospace;background:#fef3c7;padding:1px 5px;border-radius:2px;font-size:13px}
+.warning{padding:18px 24px;background:rgba(220,38,38,.08);border-top:1px solid rgba(220,38,38,.2);font-size:13px;color:#7f1d1d}
+.warning strong{color:var(--red)}
+footer{background:var(--ink);color:var(--paper);padding:40px 6vw;text-align:center}
+footer p{color:rgba(250,250,249,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer a{color:var(--accent);text-decoration:none}
+@media(max-width:600px){.email-body{font-size:13px;padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a href="index.html" class="back-link">← Voltar ao índice</a>
+  <span class="tag">Reference · 12 templates</span>
+  <h1>Email templates pra <em>tech</em>.</h1>
+  <p>12 templates anotados pras situações mais frequentes na vida de dev: pedir ajuda, escalar incident, dar push back em prazo, responder code review, pedir aumento, entregar bad news. Cada template tem vocabulário-chave destacado e armadilhas brasileiras explicadas.</p>
+</header>
+<main>
+<nav class="toc-template">
+  <h3>Conteúdo</h3>
+  <ol>
+    <li><a href="#t1">Pedir ajuda num bug travado</a></li>
+    <li><a href="#t2">Escalar um incident</a></li>
+    <li><a href="#t3">Push back em deadline irreal</a></li>
+    <li><a href="#t4">Responder code review hostil</a></li>
+    <li><a href="#t5">Negociar escopo / dizer não</a></li>
+    <li><a href="#t6">Follow-up em PR sem review</a></li>
+    <li><a href="#t7">Pedir aumento / promoção</a></li>
+    <li><a href="#t8">Self-eval pra performance review</a></li>
+    <li><a href="#t9">Onboarding novo membro</a></li>
+    <li><a href="#t10">Postmortem público (alto impacto)</a></li>
+    <li><a href="#t11">Recusar reunião sem agenda</a></li>
+    <li><a href="#t12">Aviso de PTO / out of office</a></li>
+  </ol>
+</nav>
+
+<!-- TEMPLATE 1 -->
+<div class="template" id="t1">
+  <div class="template-header"><span class="template-num">01</span><span class="template-title">Pedir ajuda num bug travado</span></div>
+  <div class="template-context"><strong>Situação:</strong> tá há 3h num bug intermitente, exausto, precisa de uma cabeça fresca. Slack de canal — não DM.</div>
+  <div class="email-body"><span class="hi">Hi #engineering,</span>
+
+<span class="key">Could anyone help me debug this?</span> Been at it for 3h, fresh eyes would help.
+
+<strong>What:</strong> Intermittent 502s on /api/users
+<strong>When:</strong> Started ~14:00 UTC today
+<strong>What I've tried:</strong>
+  - Checked logs (no obvious errors)
+  - Bumped memory limits (no change)
+  - Reverted last 3 commits to staging (still happens)
+
+<strong>Repro:</strong> https://shortlink/repro
+<strong>Logs:</strong> https://shortlink/logs
+
+<span class="key">Happy to pair if anyone has 30 min.</span> No rush — I'll keep digging meanwhile.
+
+<span class="signature">Thanks,
+Gustavo</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"Could anyone help me debug this?"</strong> — não "Can you help me?". "Could" + "anyone" deixa público sem cobrar resposta de uma pessoa específica.</li>
+      <li><strong>"What I've tried"</strong> — sempre liste antes de pedir ajuda. Mostra você fez homework.</li>
+      <li><strong>"Happy to pair if anyone has 30 min"</strong> — open invite sem pressão. "Happy to" = oferta cordial.</li>
+      <li><strong>"No rush — I'll keep digging meanwhile"</strong> — sinaliza você não tá bloqueado de outras coisas.</li>
+    </ul>
+  </div>
+  <div class="warning"><strong>⚠ Armadilha BR:</strong> não comece com "Sorry to bother you". Soa servil. Vá direto: "Could anyone help me debug this?".</div>
+</div>
+
+<!-- TEMPLATE 2 -->
+<div class="template" id="t2">
+  <div class="template-header"><span class="template-num">02</span><span class="template-title">Escalar um incident pro EM/manager</span></div>
+  <div class="template-context"><strong>Situação:</strong> serviço caiu, time de plataforma não responde, você precisa que seu EM acione gente. Tom firme mas profissional.</div>
+  <div class="email-body"><span class="hi">Hi [EM Name],</span>
+
+<span class="key">Flagging an incident that needs your attention.</span>
+
+The auth service is down (started 13:42 UTC, ~25 min ago). I've paged the platform team but haven't heard back. <span class="key">Customer impact is significant</span> — login flow broken, ~30% of active sessions.
+
+<strong>What I need:</strong>
+  - Help getting platform team's attention (slack/page)
+  - Approval to roll back our last deploy if needed
+  - Decision on customer comms (status page?)
+
+<strong>Status doc:</strong> https://shortlink/incident
+<strong>I'm on the call:</strong> [link]
+
+<span class="key">Will keep you posted as it evolves.</span>
+
+<span class="signature">Best,
+Gustavo</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"Flagging an incident that needs your attention"</strong> — abertura urgente sem ser dramática. "Flagging" é vocab corporativo padrão.</li>
+      <li><strong>"Customer impact is significant"</strong> — quantifique sempre. EM precisa entender escala em 1 frase.</li>
+      <li><strong>"What I need:"</strong> — explicite. Sem isso, EM perde tempo perguntando.</li>
+      <li><strong>"Will keep you posted as it evolves"</strong> — sinaliza você tá no controle, ele só precisa ajudar pontualmente.</li>
+    </ul>
+  </div>
+  <div class="warning"><strong>⚠ Armadilha BR:</strong> não escreva "Help! everything is on fire!". Escalation precisa de FATOS + AÇÃO REQUERIDA. Drama destrói credibilidade.</div>
+</div>
+
+<!-- TEMPLATE 3 -->
+<div class="template" id="t3">
+  <div class="template-header"><span class="template-num">03</span><span class="template-title">Push back em deadline irreal</span></div>
+  <div class="template-context"><strong>Situação:</strong> PM pediu feature em 1 sprint, você sabe que precisa de 2. Email pro PM com cópia pro EM.</div>
+  <div class="email-body"><span class="hi">Hi [PM Name], (cc: [EM])</span>
+
+Thanks for sharing the spec. <span class="key">I want to flag a concern with the timeline before we commit.</span>
+
+I've scoped the work and <span class="key">I'm not confident we can deliver quality in 1 sprint</span>. Realistically:
+
+  - Backend changes: 4-5 days (API + migration)
+  - Frontend: 3 days
+  - Testing + edge cases: 2-3 days
+  <strong>= ~10 working days, plus review/buffer</strong>
+
+<span class="key">A few options:</span>
+  1. <strong>2 sprints</strong> — full scope, proper testing, ship confidently
+  2. <strong>Trim scope</strong> — drop X feature, ship MVP in 1 sprint
+  3. <strong>Hot-fix path</strong> — ship a temporary version, refactor next sprint
+
+<span class="key">Happy to chat through the tradeoffs.</span> Which fits your priorities best?
+
+<span class="signature">Thanks,
+Gustavo</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"I want to flag a concern with the timeline"</strong> — não "I think this is impossible". "Flag a concern" é diplomático.</li>
+      <li><strong>"I'm not confident we can deliver quality in 1 sprint"</strong> — foco em QUALIDADE, não em "é difícil". Fica difícil contestar.</li>
+      <li><strong>"A few options"</strong> — sempre dê opções, nunca só "não". Responsabilidade da decisão volta pro PM.</li>
+      <li><strong>"Happy to chat through the tradeoffs"</strong> — abertura ao diálogo sem ceder de antemão.</li>
+    </ul>
+  </div>
+  <div class="warning"><strong>⚠ Armadilha BR:</strong> não diga "It's impossible" nem "We can't do this". Soa derrotista e arrogante ao mesmo tempo. Sempre apresente <em>tradeoffs</em>, não <em>recusas</em>.</div>
+</div>
+
+<!-- TEMPLATE 4 -->
+<div class="template" id="t4">
+  <div class="template-header"><span class="template-num">04</span><span class="template-title">Responder code review hostil</span></div>
+  <div class="template-context"><strong>Situação:</strong> review com tom rude ("this is wrong", "obvious mistake"). Você precisa responder profissionalmente sem azedar.</div>
+  <div class="email-body">Hey [Reviewer], <span class="key">thanks for the review</span>.
+
+<span class="key">A few of these I'd like to push back on / discuss</span>:
+
+> "This is wrong, use a HashMap instead"
+
+<span class="key">I considered HashMap but went with TreeMap because</span> we need ordered iteration for [reason]. <span class="key">Happy to revisit if you have a strong opinion</span>, but this was intentional.
+
+> "Obvious naming issue"
+
+<span class="key">Could you elaborate on what you'd prefer?</span> I'd like to understand the suggested name so I can apply the same convention elsewhere.
+
+<span class="key">For the rest of the comments — addressed in latest commit. Take another look when you have a moment.</span>
+
+<span class="signature">Thanks!</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"thanks for the review"</strong> — ABRA com agradecimento. Mesmo se tá com raiva. Tira a temperatura.</li>
+      <li><strong>"I'd like to push back on / discuss"</strong> — "push back" é vocab tech profissional — discordar com argumento.</li>
+      <li><strong>"I considered X but went with Y because..."</strong> — mostra processo decisório. Difícil contestar sem dado novo.</li>
+      <li><strong>"Could you elaborate on what you'd prefer?"</strong> — devolve a bola. Comentário vago não é seu problema resolver.</li>
+    </ul>
+  </div>
+  <div class="warning"><strong>⚠ Armadilha BR:</strong> não responda com "OK fixed" se você discorda. Pra crescer sênior você precisa <em>defender</em> decisões com dado, não capitular.</div>
+</div>
+
+<!-- TEMPLATE 5 -->
+<div class="template" id="t5">
+  <div class="template-header"><span class="template-num">05</span><span class="template-title">Dizer não a uma feature / negociar escopo</span></div>
+  <div class="template-context"><strong>Situação:</strong> stakeholder pede mais uma feature mid-sprint. Você não vai fazer, mas precisa preservar relação.</div>
+  <div class="email-body"><span class="hi">Hi [Stakeholder],</span>
+
+<span class="key">Thanks for sending this over</span> — I can see why this would be valuable.
+
+<span class="key">Unfortunately, this can't fit into the current sprint</span> without pushing out [other commitment]. <span class="key">A couple of paths forward:</span>
+
+  - <strong>Add to next sprint backlog</strong> — I'll work with [PM] to prioritize
+  - <strong>Quick spike now</strong> — I can spend 4h estimating effort, no implementation
+  - <strong>If urgent</strong> — let's set up a quick call with [EM] to re-prioritize
+
+<span class="key">Which works for you?</span>
+
+<span class="signature">Best,
+Gustavo</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"Thanks for sending this over"</strong> — valida o request mesmo recusando.</li>
+      <li><strong>"Unfortunately, this can't fit"</strong> — sujeito é "this", não "I". Foco no problema técnico, não em você recusar.</li>
+      <li><strong>"A couple of paths forward"</strong> — soft pivot pra alternativas. Nunca recuse sem oferecer caminho.</li>
+      <li><strong>"Which works for you?"</strong> — devolve decisão pro stakeholder. Você tá colaborando, não bloqueando.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TEMPLATE 6 -->
+<div class="template" id="t6">
+  <div class="template-header"><span class="template-num">06</span><span class="template-title">Follow-up em PR sem review há 3 dias</span></div>
+  <div class="template-context"><strong>Situação:</strong> seu PR tá parado. Você precisa cutucar sem soar passivo-agressivo.</div>
+  <div class="email-body"><span class="hi">Hey [Reviewer], <span class="key">friendly nudge</span> on this PR when you have a chance:</span>
+https://github.com/.../pull/1234
+
+<span class="key">No rush, but it's blocking</span> [downstream task]. If you're swamped, no worries — let me know if I should ask someone else.
+
+Thanks!</div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"friendly nudge"</strong> — "nudge" = cutucada gentil. Padrão tech anglo.</li>
+      <li><strong>"when you have a chance"</strong> — abre janela de tempo, não cobra imediato.</li>
+      <li><strong>"No rush, but it's blocking..."</strong> — contradição proposital. Soa cordial mas comunica urgência.</li>
+      <li><strong>"let me know if I should ask someone else"</strong> — oferece saída. Reviewer não fica preso.</li>
+    </ul>
+  </div>
+  <div class="warning"><strong>⚠ Armadilha BR:</strong> não escreva "Pode olhar?" puro. Sem context, soa passivo-agressivo. Inclua o motivo (blocking, deadline) sem ser dramático.</div>
+</div>
+
+<!-- TEMPLATE 7 -->
+<div class="template" id="t7">
+  <div class="template-header"><span class="template-num">07</span><span class="template-title">Pedir aumento / promoção</span></div>
+  <div class="template-context"><strong>Situação:</strong> chegou a hora. Você quer levantar o tema na 1:1 ou async se EM tá em outro fuso.</div>
+  <div class="email-body"><span class="hi">Hi [EM],</span>
+
+<span class="key">I'd like to start a conversation about my compensation/level.</span>
+
+<span class="key">Over the past [X months], I've been operating beyond my current scope:</span>
+  - <strong>Scope:</strong> led [project X] from RFC to production, mentoring 2 juniors
+  - <strong>Impact:</strong> [metric — e.g., reduced p99 latency by 40%, shipped feature with $XK revenue]
+  - <strong>Cross-team:</strong> represented our team in [forum], drove [decision]
+
+<span class="key">Based on this, I think a conversation about [a raise / promotion to Sr.] is warranted.</span>
+
+<span class="key">Happy to talk through it in our next 1:1, or async — whichever works better.</span> If you'd like, I can put together a doc with details.
+
+<span class="signature">Thanks,
+Gustavo</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"start a conversation about my compensation/level"</strong> — não "I want a raise". É um diálogo, não demanda.</li>
+      <li><strong>"operating beyond my current scope"</strong> — vocab anglo padrão. Você JÁ está fazendo o trabalho do próximo nível.</li>
+      <li><strong>"I think a conversation is warranted"</strong> — hedged claim. Você acredita, não exige.</li>
+      <li><strong>"Happy to put together a doc"</strong> — proatividade. Faz sua argumentação ficar memorável e concreta.</li>
+    </ul>
+  </div>
+  <div class="warning"><strong>⚠ Armadilha BR:</strong> não comece com "Eu acho que mereço...". "Mereço" não é argumento — é sentimento. Substitua por dados (impact, scope, comparison).</div>
+</div>
+
+<!-- TEMPLATE 8 -->
+<div class="template" id="t8">
+  <div class="template-header"><span class="template-num">08</span><span class="template-title">Self-eval pra performance review</span></div>
+  <div class="template-context"><strong>Situação:</strong> review semestral. Você precisa documentar suas conquistas sem soar arrogante nem subestimado.</div>
+  <div class="email-body"><span class="key">## Self-Evaluation — H1 2026</span>
+
+<strong>Highlights this period:</strong>
+  - <span class="key">Led the migration to Postgres</span> — 6-month effort, reduced query latency by 35%, zero downtime cutover. Cross-team coordination with SRE and Data.
+  - <span class="key">Mentored 2 juniors</span> — both received "exceeds expectations" in their reviews. Onboarding time reduced from ~6 weeks to ~3.
+  - <span class="key">Drove the new RFC process</span> — adopted by 3 other teams, reduced design ambiguity in retrospectives.
+
+<strong>What I'd improve:</strong>
+  - <span class="key">Async communication on long-running projects</span> — feedback was that updates dropped off mid-migration.
+  - <span class="key">Saying no earlier</span> — took on 2 stretch projects this period that overlapped with main commitments.
+
+<strong>Looking ahead:</strong>
+  - Want to grow into [tech leadership / staff IC track]
+  - Interested in scoping [project Y] in H2
+
+<strong>Open to feedback on:</strong> visibility, scope, growth path.</div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"Led the migration"</strong> — verbos de ownership: led, drove, championed, owned. Não "helped" / "contributed" se você liderou.</li>
+      <li><strong>"What I'd improve"</strong> — sempre inclua self-criticism. Demonstra maturidade. Mas pequena, com plano.</li>
+      <li><strong>"Looking ahead"</strong> — sinaliza ambição. Diferencia bom IC de futuro líder.</li>
+      <li><strong>"Open to feedback on"</strong> — convida diálogo. Não é defensiva.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TEMPLATE 9 -->
+<div class="template" id="t9">
+  <div class="template-header"><span class="template-num">09</span><span class="template-title">Onboarding novo membro</span></div>
+  <div class="template-context"><strong>Situação:</strong> primeiro DM pro novo dev que entrou na sua squad. Caloroso mas profissional.</div>
+  <div class="email-body"><span class="hi">Hey [Name], welcome to the team! 🎉</span>
+
+<span class="key">I'm Gustavo, [your role] on the squad</span>. Looking forward to working with you.
+
+A few things to get you started:
+  - <strong>Onboarding doc:</strong> [link] — start here, work through the checklist
+  - <strong>Repos:</strong> [link to org page]
+  - <strong>Slack channels:</strong> #squad-name (us), #engineering (broader)
+  - <strong>Standups:</strong> daily at 10am, here's the call link
+  - <strong>Your first PR:</strong> we usually pick a small "starter" issue — happy to help you find one
+
+<span class="key">No question is too dumb in your first 30 days.</span> Ping me whenever — DM, channel, whatever's easier.
+
+<span class="key">Want to set up a 30-min intro call this week?</span> Just to chat about what you're excited about / where you'd want to grow.
+
+<span class="signature">Welcome aboard!
+Gustavo</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"Looking forward to working with you"</strong> — Looking forward TO + ING. Frase fixa de cordialidade profissional.</li>
+      <li><strong>"No question is too dumb"</strong> — explicitamente convida vulnerability. Cria psychological safety.</li>
+      <li><strong>"Ping me whenever"</strong> — "Ping" é vocab tech padrão pra "me chama". Casual mas profissional.</li>
+      <li><strong>"Want to set up a 30-min intro call?"</strong> — convite específico, time-boxed.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TEMPLATE 10 -->
+<div class="template" id="t10">
+  <div class="template-header"><span class="template-num">10</span><span class="template-title">Postmortem público (alto impacto)</span></div>
+  <div class="template-context"><strong>Situação:</strong> outage de 2h afetou clientes. Você é o autor do PR que causou. Tom: factual, blameless, action-oriented.</div>
+  <div class="email-body"><span class="key">## Postmortem — Auth Service Outage · 2026-05-07</span>
+
+<strong>Summary:</strong> <span class="key">The auth service experienced a 2h12m outage starting 13:42 UTC, caused by a deploy that introduced a connection pool exhaustion bug. Approximately 30% of active users were affected.</span>
+
+<strong>Timeline:</strong>
+  - 13:42 UTC — Deploy goes out
+  - 13:48 — Latency alarms fire
+  - 13:55 — On-call (me) acknowledges, begins investigation
+  - 14:30 — Root cause identified: pool size hardcoded to 10 in new client lib
+  - 15:54 — Rollback completes, service restored
+
+<strong>Root cause:</strong> <span class="key">A new client library introduced in PR #1234 set the connection pool size to 10 (hardcoded). Under production traffic, this exhausted within minutes.</span>
+
+<strong>What went well:</strong>
+  - Alarms fired within 6 minutes
+  - Rollback procedure worked
+  - Customer comms went out in 25 min
+
+<strong>What didn't:</strong>
+  - <span class="key">Code review missed the hardcoded value</span> (mea culpa)
+  - <span class="key">Load testing didn't cover the new client</span> — runs against mocks
+  - On-call documentation was outdated
+
+<strong>Action items:</strong>
+  - [ ] Add pool config to env vars (owner: me · 2 days)
+  - [ ] Add load test against real client (owner: SRE · 1 week)
+  - [ ] Update on-call docs (owner: TL · 1 week)
+  - [ ] Add lint rule against hardcoded resource limits (owner: me · 2 weeks)
+
+<span class="key">This was avoidable. We're putting the action items above into the next sprint.</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"Approximately 30% of active users were affected"</strong> — quantifique. Vago = perde credibilidade.</li>
+      <li><strong>"Root cause identified"</strong> — vocabulário SRE padrão. Causa raiz, não "o problema foi".</li>
+      <li><strong>"What went well / What didn't"</strong> — postmortem blameless. Sempre liste os DOIS lados.</li>
+      <li><strong>"This was avoidable"</strong> — assumir. Não diluir. Mas seguido de ação concreta, não desculpas.</li>
+    </ul>
+  </div>
+  <div class="warning"><strong>⚠ Armadilha BR:</strong> não escreva "Eu sinto muito por isso". Em postmortem público, foco é em LIÇÕES e AÇÕES, não em emoção. Apologies vão em DM pra stakeholders, se necessário — não no doc oficial.</div>
+</div>
+
+<!-- TEMPLATE 11 -->
+<div class="template" id="t11">
+  <div class="template-header"><span class="template-num">11</span><span class="template-title">Recusar reunião sem agenda</span></div>
+  <div class="template-context"><strong>Situação:</strong> alguém marcou meeting de 1h sem agenda. Sua agenda tá cheia. Você quer recusar diplomaticamente.</div>
+  <div class="email-body"><span class="hi">Hey [Name],</span>
+
+<span class="key">Got the invite — happy to chat, but I'd want to align on the agenda first.</span>
+
+<strong>Could you share:</strong>
+  - <span class="key">What you're hoping to get out of the meeting</span>
+  - <span class="key">Whether 30 min would work instead of 1h</span>
+  - Any pre-read so I come prepared
+
+If it's just a quick alignment, async in Slack might be faster. <span class="key">Let me know what works best.</span>
+
+<span class="signature">Thanks!</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"happy to chat, but..."</strong> — yes/and pattern. Não recusa frontal, só impõe condição.</li>
+      <li><strong>"What you're hoping to get out of the meeting"</strong> — força clareza de propósito. 50% das meetings caem após essa pergunta.</li>
+      <li><strong>"async in Slack might be faster"</strong> — sugere alternativa. Não é seu problema se eles insistem em meeting.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TEMPLATE 12 -->
+<div class="template" id="t12">
+  <div class="template-header"><span class="template-num">12</span><span class="template-title">PTO / Out of office message</span></div>
+  <div class="template-context"><strong>Situação:</strong> férias. Auto-reply do email + Slack status.</div>
+  <div class="email-body"><strong>Subject:</strong> Out of Office — back [date]
+
+<span class="hi">Hi,</span>
+
+<span class="key">I'm out of office from [start date] to [end date], with limited access to email.</span>
+
+<strong>For urgent matters:</strong>
+  - Eng issues: ping #engineering or [backup person]
+  - Code review: [backup reviewer]
+  - On-call: [on-call rotation handles this]
+
+<span class="key">I'll respond when I'm back on [return date].</span>
+
+<span class="signature">Thanks,
+Gustavo</span></div>
+  <div class="annotations">
+    <h4>★ Vocabulário-chave</h4>
+    <ul>
+      <li><strong>"out of office"</strong> — termo padrão. NÃO "I'm on vacation" no auto-reply (informal demais).</li>
+      <li><strong>"limited access to email"</strong> — não "no access". Se vc realmente vai ignorar, escreva "no access". Limited = vou olhar emergência.</li>
+      <li><strong>"For urgent matters"</strong> — sempre liste backup. Sem isso, gente fica bloqueada.</li>
+    </ul>
+  </div>
+</div>
+
+</main>
+<footer>
+  <p>ENGLISH MASTERY · EMAIL TEMPLATES · <a href="index.html">← Voltar ao índice</a></p>
+</footer>
+<script src="em-enhance.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico — Onde começar a Trilha · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="em-enhance.css">
+<style>
+:root{--bg:#1a1208;--paper:#fefaf3;--ink:#1a1208;--accent:#ff5722;--accent-2:#fbbf24;--green:#15803d;--red:#dc2626;--line:rgba(26,18,8,.13);--shadow:0 8px 24px -4px rgba(26,18,8,.18);}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+.hero{background:var(--bg);color:var(--paper);padding:60px 6vw;border-bottom:6px solid var(--accent)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,80px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent-2)}
+.hero p{max-width:680px;color:rgba(254,250,243,.78);font-size:18px}
+.hero .tag{display:inline-block;background:var(--accent);color:#fff;padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.2em;border-radius:4px;margin-bottom:18px}
+main{max-width:900px;margin:0 auto;padding:50px 6vw}
+.intro{background:#fff;padding:30px;border-radius:10px;border-left:4px solid var(--accent);margin-bottom:30px;box-shadow:var(--shadow)}
+.intro h2{font-family:'Fraunces',serif;font-size:28px;font-weight:600;margin-bottom:12px}
+.q-block{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:24px;margin:18px 0;box-shadow:5px 5px 0 var(--ink)}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:8px}
+.q-text{font-size:17px;font-weight:500;margin-bottom:14px}
+.q-options{display:flex;flex-direction:column;gap:8px}
+.q-options button{background:#fef3c7;border:2px solid var(--ink);padding:12px 16px;font-family:inherit;font-size:14px;text-align:left;cursor:pointer;border-radius:6px;transition:all .15s}
+.q-options button:hover{background:var(--ink);color:#fff}
+.q-options button.correct{background:var(--green);color:#fff;border-color:var(--green);animation:pop .3s}
+.q-options button.wrong{background:var(--red);color:#fff;border-color:var(--red);animation:shake .4s}
+.q-options button.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.cta{display:none;background:linear-gradient(135deg,var(--ink),#3d2f1a);color:#fef3c7;padding:50px 30px;border-radius:14px;text-align:center;margin:40px 0}
+.cta.show{display:block;animation:slideUp .5s}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.cta h2{font-family:'Fraunces',serif;font-size:42px;font-weight:300;margin-bottom:16px}
+.cta h2 em{font-style:italic;color:var(--accent-2)}
+.cta .level-rec{font-family:'Fraunces',serif;font-size:80px;font-weight:300;color:var(--accent-2);margin:20px 0}
+.cta p{max-width:520px;margin:0 auto 24px;color:rgba(254,243,199,.85)}
+.cta .btn-go{display:inline-block;background:var(--accent-2);color:var(--ink);padding:14px 30px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;border-radius:6px;text-decoration:none;transition:transform .2s}
+.cta .btn-go:hover{transform:translateY(-3px)}
+.cta .breakdown{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(254,243,199,.6);margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)}
+.score-bar{position:sticky;top:0;height:6px;background:#e0d8c8;z-index:50}
+.score-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width .3s}
+.back-link{display:inline-block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#ddd;text-decoration:none}
+.back-link:hover{color:var(--accent-2)}
+</style>
+</head>
+<body>
+<div class="score-bar"><div class="score-fill" id="scoreFill"></div></div>
+<header class="hero">
+  <a href="index.html" class="back-link">← Voltar ao índice</a>
+  <span class="tag">Diagnóstico · 12 questões</span>
+  <h1>Onde você deve <em>começar</em>?</h1>
+  <p>12 questões rápidas pra recomendar a trilha certa pro seu nível atual. Não tem certo nem errado — é mapeamento. Demora ~3 min.</p>
+</header>
+<main>
+  <div class="intro">
+    <h2>Como funciona</h2>
+    <p>Cada questão testa um nível CEFR específico (A1 → C2). Você responde clicando em uma opção — sem fill-in, sem chato. No final, recomendamos a trilha onde você vai aprender mais (não a mais fácil — a que <strong>fecha gaps</strong>).</p>
+  </div>
+
+  <!-- 12 questions -->
+  <div class="q-block" data-q="1" data-level="A1" data-correct="am">
+    <div class="q-num">Q01 / 12 · Nível A1</div>
+    <div class="q-text">"Eu tenho 30 anos" em inglês:</div>
+    <div class="q-options"><button data-val="have">I have 30 years</button><button data-val="am">I'm 30</button><button data-val="with">I am with 30</button></div>
+  </div>
+  <div class="q-block" data-q="2" data-level="A1" data-correct="an">
+    <div class="q-num">Q02 / 12 · Nível A1</div>
+    <div class="q-text">"Sou engenheiro" em inglês:</div>
+    <div class="q-options"><button data-val="no-art">I am engineer</button><button data-val="an">I'm an engineer</button><button data-val="the">I'm the engineer</button></div>
+  </div>
+  <div class="q-block" data-q="3" data-level="A2" data-correct="went">
+    <div class="q-num">Q03 / 12 · Nível A2</div>
+    <div class="q-text">Past Simple de "go":</div>
+    <div class="q-options"><button data-val="goed">goed</button><button data-val="gone">gone</button><button data-val="went">went</button></div>
+  </div>
+  <div class="q-block" data-q="4" data-level="A2" data-correct="more">
+    <div class="q-num">Q04 / 12 · Nível A2</div>
+    <div class="q-text">"GraphQL é mais complexo que REST":</div>
+    <div class="q-options"><button data-val="complexer">GraphQL is complexer than REST</button><button data-val="more">GraphQL is more complex than REST</button><button data-val="most">GraphQL is most complex than REST</button></div>
+  </div>
+  <div class="q-block" data-q="5" data-level="B1" data-correct="have">
+    <div class="q-num">Q05 / 12 · Nível B1</div>
+    <div class="q-text">"Trabalho aqui há 5 anos":</div>
+    <div class="q-options"><button data-val="work">I work here for 5 years</button><button data-val="have">I have worked here for 5 years</button><button data-val="worked">I worked here for 5 years</button></div>
+  </div>
+  <div class="q-block" data-q="6" data-level="B1" data-correct="seen">
+    <div class="q-num">Q06 / 12 · Nível B1</div>
+    <div class="q-text">"Eu já vi esse erro antes":</div>
+    <div class="q-options"><button data-val="saw">I've saw this error before</button><button data-val="seen">I've seen this error before</button><button data-val="see">I've see this error before</button></div>
+  </div>
+  <div class="q-block" data-q="7" data-level="B2" data-correct="had">
+    <div class="q-num">Q07 / 12 · Nível B2</div>
+    <div class="q-text">"Quando o alarme tocou, já tínhamos revertido":</div>
+    <div class="q-options"><button data-val="have">When the alarm went off, we have already rolled back</button><button data-val="had">When the alarm went off, we had already rolled back</button><button data-val="rolled">When the alarm went off, we already rolled back</button></div>
+  </div>
+  <div class="q-block" data-q="8" data-level="B2" data-correct="should">
+    <div class="q-num">Q08 / 12 · Nível B2</div>
+    <div class="q-text">"A gente devia ter pego isso no review":</div>
+    <div class="q-options"><button data-val="should">We should have caught this in review</button><button data-val="must">We must have caught this in review</button><button data-val="had">We had to catch this in review</button></div>
+  </div>
+  <div class="q-block" data-q="9" data-level="C1" data-correct="had">
+    <div class="q-num">Q09 / 12 · Nível C1</div>
+    <div class="q-text">"Se a gente tivesse sabido, teria revertido" (forma elegante c/ inversion):</div>
+    <div class="q-options"><button data-val="if">If we had known, we would have rolled back</button><button data-val="had">Had we known, we would have rolled back</button><button data-val="would">Would we have known, we'd have rolled back</button></div>
+  </div>
+  <div class="q-block" data-q="10" data-level="C1" data-correct="might">
+    <div class="q-num">Q10 / 12 · Nível C1</div>
+    <div class="q-text">Hedging em PR (suavizar discordância):</div>
+    <div class="q-options"><button data-val="this">This is wrong, fix it</button><button data-val="might">It might be worth reconsidering this approach</button><button data-val="must">You must change this</button></div>
+  </div>
+  <div class="q-block" data-q="11" data-level="C2" data-correct="boils">
+    <div class="q-num">Q11 / 12 · Nível C2</div>
+    <div class="q-text">"No fim das contas, se resume a confiança":</div>
+    <div class="q-options"><button data-val="resume">In the end, it summarizes to trust</button><button data-val="finishes">In the end, it finishes at trust</button><button data-val="boils">At the end of the day, it boils down to trust</button></div>
+  </div>
+  <div class="q-block" data-q="12" data-level="C2" data-correct="conway">
+    <div class="q-num">Q12 / 12 · Nível C2</div>
+    <div class="q-text">"Orgs ship their org chart" — a qual lei tech faz referência?</div>
+    <div class="q-options"><button data-val="conway">Conway's law</button><button data-val="goodhart">Goodhart's law</button><button data-val="hyrum">Hyrum's law</button></div>
+  </div>
+
+  <!-- CTA recommendation -->
+  <div class="cta" id="cta">
+    <h2>Sua trilha recomendada:</h2>
+    <div class="level-rec" id="recLevel">—</div>
+    <p id="recText">—</p>
+    <a class="btn-go" id="recLink" href="#">Começar essa trilha →</a>
+    <div class="breakdown" id="breakdown">—</div>
+  </div>
+</main>
+<script src="em-enhance.js"></script>
+<script>
+const TOTAL = 12;
+let answered = 0;
+const results = { A1:0, A2:0, B1:0, B2:0, C1:0, C2:0 };
+const counts =  { A1:0, A2:0, B1:0, B2:0, C1:0, C2:0 };
+
+document.querySelectorAll('.q-block').forEach(q => {
+  const level = q.dataset.level;
+  const correct = q.dataset.correct;
+  counts[level]++;
+  q.querySelectorAll('.q-options button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (q.dataset.answered) return;
+      q.dataset.answered = 'true';
+      q.querySelectorAll('button').forEach(b => b.classList.add('disabled'));
+      if (btn.dataset.val === correct) {
+        btn.classList.add('correct');
+        results[level]++;
+      } else {
+        btn.classList.add('wrong');
+        q.querySelectorAll('button').forEach(b => {
+          if (b.dataset.val === correct) b.classList.add('correct');
+        });
+      }
+      answered++;
+      document.getElementById('scoreFill').style.width = (answered/TOTAL*100) + '%';
+      if (answered === TOTAL) showResult();
+    });
+  });
+});
+
+function showResult() {
+  // Find highest level where user got at least 50% right
+  const order = ['A1','A2','B1','B2','C1','C2'];
+  let highestPassed = null;
+  for (const l of order) {
+    const pct = counts[l] ? results[l] / counts[l] : 0;
+    if (pct >= 0.5) highestPassed = l;
+  }
+  // Recommendation = level AFTER the highest passed (so they grow)
+  // If they passed C2, recommend C2 anyway
+  let rec = 'A1';
+  if (highestPassed === 'C2') rec = 'C2';
+  else if (highestPassed) {
+    const idx = order.indexOf(highestPassed);
+    rec = order[idx + 1] || 'C2';
+  }
+
+  const recDescriptions = {
+    A1: 'Foundations: TO BE, pronouns, articles, plurals, present simple. Tech vocab básico (dev, deploy, PR, retro). Onde nasce o vício de tradução literal.',
+    A2: 'Past, future, comparison: status updates, retros, sprint planning, comparing solutions. Domínio do tempo verbal.',
+    B1: 'Present Perfect (terror brasileiro!), career storytelling, FOR/SINCE, First Conditional, 25 phrasal verbs essenciais.',
+    B2: 'Conditionals avançados, Past Perfect, modal perfects, postmortem language, arch hypotheticals.',
+    C1: 'Style & register: inversions, cleft sentences, hedging, discourse markers, executive comms.',
+    C2: 'Mastery: register switching, tech metaphors, pragmatic competence, tech canon, keynote/op-ed style.'
+  };
+
+  const filenames = {
+    A1: '01_A1_Trilha.html',
+    A2: '02_A2_Trilha.html',
+    B1: '03_B1_Trilha.html',
+    B2: '04_B2_Trilha.html',
+    C1: '05_C1_Trilha.html',
+    C2: '06_C2_Trilha.html'
+  };
+
+  document.getElementById('recLevel').textContent = rec;
+  document.getElementById('recText').textContent = recDescriptions[rec];
+  document.getElementById('recLink').href = filenames[rec];
+
+  let breakdown = 'Acertos por nível: ';
+  breakdown += order.map(l => `${l}=${results[l]}/${counts[l]}`).join(' · ');
+  document.getElementById('breakdown').textContent = breakdown;
+
+  document.getElementById('cta').classList.add('show');
+  document.getElementById('cta').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

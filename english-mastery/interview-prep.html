@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Prep — Tech English · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="em-enhance.css">
+<style>
+:root{--bg:#0c0a09;--paper:#fafaf9;--ink:#0c0a09;--accent:#fbbf24;--accent-2:#d4af37;--green:#15803d;--red:#dc2626;--line:rgba(12,10,9,.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+.hero{background:var(--bg);color:var(--paper);padding:60px 6vw;border-bottom:6px solid var(--accent)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,80px);font-weight:300;line-height:.95;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{max-width:680px;color:rgba(250,250,249,.78);font-size:18px}
+.hero .tag{display:inline-block;background:var(--accent);color:var(--ink);padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.2em;border-radius:4px;margin-bottom:18px}
+.hero .back-link{display:inline-block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(250,250,249,.6);text-decoration:none}
+.hero .back-link:hover{color:var(--accent)}
+main{max-width:1100px;margin:0 auto;padding:50px 6vw}
+section{margin-bottom:80px}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--accent-2);letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.section-num::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--accent-2),transparent)}
+h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.05;margin-bottom:20px}
+h2 em{font-style:italic;color:var(--accent-2)}
+h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:24px 0 12px}
+.lead{font-size:17px;color:#374151;max-width:780px;margin-bottom:24px}
+.framework{background:#fff;border-left:4px solid var(--accent);padding:24px 28px;margin:20px 0;border-radius:0 8px 8px 0;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.framework h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-2);margin-bottom:8px}
+.framework .star{display:grid;grid-template-columns:80px 1fr;gap:14px;margin:10px 0;align-items:start}
+.framework .star-letter{font-family:'Fraunces',serif;font-size:36px;font-weight:600;color:var(--accent-2);line-height:1}
+.framework .star-text strong{color:var(--ink);display:block;font-size:14px;margin-bottom:4px}
+.framework .star-text p{font-size:14px;color:#374151;margin:0}
+.q-grid{display:grid;gap:18px}
+.q-card{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:22px;box-shadow:5px 5px 0 var(--ink)}
+.q-card .label{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-2);margin-bottom:8px}
+.q-card .question{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+.q-card .opener{background:#fef3c7;padding:14px;border-radius:6px;font-size:14px;margin:10px 0;font-family:'JetBrains Mono',monospace;line-height:1.6}
+.q-card .opener strong{color:var(--accent-2)}
+.q-card .pt{font-size:13px;color:#666;font-style:italic;margin-top:6px}
+.phrase-bank{background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:30px;border-radius:10px;margin:24px 0;color:var(--ink)}
+.phrase-bank h3{margin-top:0;color:var(--ink)}
+.phrase-bank ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:6px}
+.phrase-bank li{padding:10px 14px;background:rgba(255,255,255,.4);border-radius:6px;font-size:14px}
+.phrase-bank li strong{font-family:'Fraunces',serif;display:block;font-weight:700;color:#7c2d12}
+.tip{background:rgba(220,38,38,.06);border-left:4px solid var(--red);padding:18px 22px;border-radius:0 6px 6px 0;margin:18px 0;font-size:14px;color:#7f1d1d}
+.tip strong{color:var(--red)}
+footer{background:var(--ink);color:var(--paper);padding:40px 6vw;text-align:center}
+footer p{color:rgba(250,250,249,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a href="index.html" class="back-link">← Voltar ao índice</a>
+  <span class="tag">Reference · Interview prep</span>
+  <h1>Tech interviews <em>em inglês</em>.</h1>
+  <p>O que falar no behavioral, system design, technical screen, e cultural fit. Frameworks (STAR), phrase banks, openers profissionais e armadilhas brasileiras. Pra preparar pra interviews em FAANG, scale-ups, e remotas internacionais.</p>
+</header>
+<main>
+
+<!-- STAR METHOD -->
+<section>
+  <div class="section-num">01 / Framework</div>
+  <h2>STAR — estrutura para <em>behavioral</em>.</h2>
+  <p class="lead">Toda pergunta behavioral ("tell me about a time when...") espera uma narrativa estruturada. <strong>STAR</strong> é o método universal: <strong>Situation · Task · Action · Result</strong>. Brasileiros tendem a contar histórias longas e enroladas — STAR força concisão.</p>
+  <div class="framework">
+    <h4>STAR Method</h4>
+    <div class="star"><div class="star-letter">S</div><div class="star-text"><strong>Situation</strong><p>Set the context. 1-2 sentences. "I was working on a payment service migration when..."</p></div></div>
+    <div class="star"><div class="star-letter">T</div><div class="star-text"><strong>Task</strong><p>What was your responsibility? "My role was to design the rollout strategy..."</p></div></div>
+    <div class="star"><div class="star-letter">A</div><div class="star-text"><strong>Action</strong><p>What did YOU specifically do? Use "I", not "we". "I proposed a phased rollout starting with 1% canary..."</p></div></div>
+    <div class="star"><div class="star-letter">R</div><div class="star-text"><strong>Result</strong><p>Quantify impact. "We migrated 100% of traffic with zero downtime, reducing latency by 35%."</p></div></div>
+  </div>
+  <div class="tip"><strong>⚠ Armadilha BR nº 1:</strong> dizer "we did X" em vez de "I did X". Em behavioral, INTERVIEWERS QUEREM SABER O QUE VOCÊ FEZ ESPECIFICAMENTE. Use "I" mesmo se foi trabalho de time — "I led", "I proposed", "I drove".</div>
+</section>
+
+<!-- BEHAVIORAL QUESTIONS -->
+<section>
+  <div class="section-num">02 / Behavioral</div>
+  <h2>10 perguntas behavioral comuns.</h2>
+  <p class="lead">Essas 10 cobrem ~80% do que aparece. Cada uma tem opener com phrasing certinha pra você não travar.</p>
+  <div class="q-grid">
+
+    <div class="q-card">
+      <div class="label">Q01 · Conflict</div>
+      <div class="question">Tell me about a time you disagreed with a teammate.</div>
+      <div class="opener"><strong>Opener:</strong> "I'd like to share a case from <em>last year</em>. We were debating <em>whether to use REST or GraphQL</em>. I disagreed with my tech lead because..."</div>
+      <div class="pt">PT: Conte sobre uma vez que você discordou de alguém. <strong>Foco:</strong> conflict resolution, não vencer.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q02 · Failure</div>
+      <div class="question">Tell me about a time you failed.</div>
+      <div class="opener"><strong>Opener:</strong> "Sure. <em>About a year ago, I shipped a deploy on a Friday that broke production for 2 hours.</em> Looking back, the failure was..."</div>
+      <div class="pt">PT: Conte uma falha. <strong>Foco:</strong> ownership + lições. Nunca culpe time/sistema.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q03 · Leadership</div>
+      <div class="question">Tell me about a project you led.</div>
+      <div class="opener"><strong>Opener:</strong> "I led <em>the migration to Postgres</em> last quarter. The challenge was [X]. I drove [Y] by..."</div>
+      <div class="pt">PT: Conte sobre projeto que você liderou. <strong>Foco:</strong> verbos de ownership: led, drove, owned, championed.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q04 · Ambiguity</div>
+      <div class="question">Tell me about a time you faced ambiguity.</div>
+      <div class="opener"><strong>Opener:</strong> "We had a vague spec for [feature]. <em>I started by aligning with stakeholders</em> on what success looked like..."</div>
+      <div class="pt">PT: Como você lida com ambiguidade. <strong>Foco:</strong> mostrar você não trava — você define escopo.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q05 · Mentorship</div>
+      <div class="question">How do you mentor others?</div>
+      <div class="opener"><strong>Opener:</strong> "I've mentored <em>2 juniors over the past year</em>. My approach is <em>question-first, not answer-first</em>..."</div>
+      <div class="pt">PT: Como mentora. <strong>Foco:</strong> processo + resultados (eles cresceram, foram promovidos, etc).</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q06 · Pushing back</div>
+      <div class="question">Tell me about pushing back on a stakeholder.</div>
+      <div class="opener"><strong>Opener:</strong> "<em>The PM wanted us to ship without tests for the demo</em>. I disagreed because... I proposed an alternative path..."</div>
+      <div class="pt">PT: Conte sobre push back. <strong>Foco:</strong> mostrar você defende qualidade SEM brigar.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q07 · Decision</div>
+      <div class="question">Tell me about a tough technical decision.</div>
+      <div class="opener"><strong>Opener:</strong> "<em>We had to choose between rebuilding or refactoring</em> the auth service. I proposed [X] because..."</div>
+      <div class="pt">PT: Decisão técnica difícil. <strong>Foco:</strong> tradeoffs explícitos, dados, e racional.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q08 · Cross-team</div>
+      <div class="question">Describe working with a difficult team.</div>
+      <div class="opener"><strong>Opener:</strong> "I worked with <em>the platform team during a major migration</em>. The challenge was alignment on..."</div>
+      <div class="pt">PT: Trabalhar com time difícil. <strong>Foco:</strong> empatia + resultados, não reclamação.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q09 · Growth</div>
+      <div class="question">Tell me about feedback that changed how you work.</div>
+      <div class="opener"><strong>Opener:</strong> "<em>My EM gave me feedback in my last review</em> that I needed to communicate more async. I changed by..."</div>
+      <div class="pt">PT: Feedback que mudou seu jeito. <strong>Foco:</strong> mostrar que você é coachable.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="label">Q10 · "Why us?"</div>
+      <div class="question">Why do you want to work here?</div>
+      <div class="opener"><strong>Opener:</strong> "Three reasons: <em>your engineering culture, the scale of problems, and the team I'd be joining</em>. Specifically, I read [Y] and that resonated because..."</div>
+      <div class="pt">PT: Por que essa empresa. <strong>Foco:</strong> específico — não respostas genéricas.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SYSTEM DESIGN -->
+<section>
+  <div class="section-num">02 / System Design</div>
+  <h2>System design — <em>phrasing</em>.</h2>
+  <p class="lead">Em system design, o que você fala é tão importante quanto o que você desenha. Tem 5 fases — cada uma tem language pattern específico.</p>
+  <div class="framework">
+    <h4>5 fases do system design</h4>
+    <div class="star"><div class="star-letter">1</div><div class="star-text"><strong>Clarify requirements</strong><p>"Before I dive in, let me clarify a few things..." · "What's the scale we're targeting?" · "Are we optimizing for read or write?"</p></div></div>
+    <div class="star"><div class="star-letter">2</div><div class="star-text"><strong>Estimate scale</strong><p>"Let's do some napkin math..." · "Assuming 1M DAU and 10 reqs/user/day, that's roughly 100 RPS average."</p></div></div>
+    <div class="star"><div class="star-letter">3</div><div class="star-text"><strong>High-level design</strong><p>"At a high level, I'd start with [X]. Let me walk through the main components." · "I'll start simple and we can iterate."</p></div></div>
+    <div class="star"><div class="star-letter">4</div><div class="star-text"><strong>Deep dive</strong><p>"Let me drill into [X]." · "There are a few tradeoffs here..." · "The reason I'd go with [Y] is..."</p></div></div>
+    <div class="star"><div class="star-letter">5</div><div class="star-text"><strong>Bottlenecks & scaling</strong><p>"The bottleneck would likely be [X]. To address it..." · "If we needed to 10x, I'd consider..."</p></div></div>
+  </div>
+
+  <h3>Phrase bank — system design</h3>
+  <div class="phrase-bank">
+    <h3 style="color:var(--ink)">Frases prontas</h3>
+    <ul>
+      <li><strong>"Let me think out loud"</strong> sinaliza que você vai compartilhar processo</li>
+      <li><strong>"Let me start simple and we can iterate"</strong> evita over-design upfront</li>
+      <li><strong>"There are tradeoffs here"</strong> mostra maturidade</li>
+      <li><strong>"I'd lean towards X because Y"</strong> hedged claim com argumento</li>
+      <li><strong>"Let me drill into [component]"</strong> sinaliza profundidade</li>
+      <li><strong>"To handle that at scale"</strong> conecta solução à escala</li>
+      <li><strong>"What I'd want to validate is..."</strong> assumption-checking</li>
+      <li><strong>"That's an interesting edge case"</strong> reconhece sem se desestruturar</li>
+      <li><strong>"I'm going to make an assumption that..."</strong> se você não tem dado</li>
+      <li><strong>"If I had more time, I'd also consider..."</strong> sinaliza você sabe que é tradeoff</li>
+      <li><strong>"Let me sketch this out"</strong> ao desenhar no whiteboard</li>
+      <li><strong>"To answer your question..."</strong> ao retomar do hook</li>
+    </ul>
+  </div>
+
+  <div class="tip"><strong>⚠ Armadilha BR nº 2:</strong> não fique em silêncio pensando. Em interview anglo, silêncio = trava. Use "let me think out loud", "let me work through this", "let me draw this out" — verbalize o processo.</div>
+</section>
+
+<!-- TECHNICAL SCREEN -->
+<section>
+  <div class="section-num">03 / Technical screen</div>
+  <h2>Technical / coding interview.</h2>
+  <p class="lead">Pair programming sessions, Leetcode-style, coding screens. O que falar enquanto você codifica.</p>
+  <div class="phrase-bank">
+    <h3 style="color:var(--ink)">Phrases pra cada momento do coding interview</h3>
+    <ul>
+      <li><strong>"Let me make sure I understand the problem"</strong> sempre comece assim</li>
+      <li><strong>"What's the input format?"</strong> clarification</li>
+      <li><strong>"Are there any constraints I should know?"</strong> tamanho da entrada, edge cases</li>
+      <li><strong>"Can I assume the input is sorted?"</strong> confirmar antes de assumir</li>
+      <li><strong>"Let me walk through an example first"</strong> trace antes de codar</li>
+      <li><strong>"My initial thought is brute force, then we can optimize"</strong> framework clássico</li>
+      <li><strong>"The time complexity would be O(n²)"</strong> fala em Big-O sempre</li>
+      <li><strong>"I'd improve this by..."</strong> proativo, não esperar interviewer pedir</li>
+      <li><strong>"Let me trace through with this example"</strong> ao testar</li>
+      <li><strong>"There's an edge case here — empty input"</strong> antecipa</li>
+      <li><strong>"If I had more time, I'd also handle..."</strong> reconhece limitação</li>
+      <li><strong>"Does that make sense?"</strong> check-in periódico</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CULTURAL FIT -->
+<section>
+  <div class="section-num">04 / Cultural fit / Final round</div>
+  <h2>Final round — cultural fit.</h2>
+  <p class="lead">Geralmente CTO/VP Eng. Foco: motivação, alinhamento com valores da empresa, fit de longo prazo. Aqui você precisa SABER vocabular o que te move.</p>
+
+  <h3>Perguntas frequentes + opener</h3>
+  <div class="q-grid">
+    <div class="q-card"><div class="label">Q · Motivation</div><div class="question">What energizes you in your work?</div><div class="opener"><strong>Opener:</strong> "Two things, primarily: <em>tackling ambiguous problems</em> and <em>seeing engineers I've mentored grow</em>. For example..."</div></div>
+    <div class="q-card"><div class="label">Q · Career</div><div class="question">Where do you see yourself in 3 years?</div><div class="opener"><strong>Opener:</strong> "<em>I want to grow into [staff IC / engineering management]</em>. Specifically, I'd want to be [doing X]. The path here would help because..."</div></div>
+    <div class="q-card"><div class="label">Q · Values</div><div class="question">What kind of culture do you thrive in?</div><div class="opener"><strong>Opener:</strong> "<em>I do my best work in cultures with [X], [Y], and [Z]</em>. From what I've read about your team..."</div></div>
+    <div class="q-card"><div class="label">Q · Questions</div><div class="question">Do you have any questions for us?</div><div class="opener"><strong>Opener:</strong> "<em>Yes, three.</em> First, [X]. Second, [Y]. Third, [Z]." (sempre tenha 3+ perguntas SUBSTANTIVAS — não "what's the company culture")</div></div>
+  </div>
+
+  <h3>Boas perguntas pra fazer (impressionar)</h3>
+  <div class="phrase-bank">
+    <ul>
+      <li><strong>"What does success look like in 90 days?"</strong> mostra orientação a resultado</li>
+      <li><strong>"What's the biggest engineering challenge ahead?"</strong> diagnostica honestidade</li>
+      <li><strong>"How does the team make technical decisions?"</strong> revela cultura real</li>
+      <li><strong>"What do high performers here have in common?"</strong> calibrate yourself</li>
+      <li><strong>"How is feedback given here?"</strong> testa psychological safety</li>
+      <li><strong>"What's the on-call rotation like?"</strong> realista</li>
+      <li><strong>"What surprised you when you joined?"</strong> humaniza</li>
+    </ul>
+  </div>
+
+  <div class="tip"><strong>⚠ Armadilha BR nº 3:</strong> não pergunte sobre salário/benefícios na primeira entrevista. Isso fica pra recruiter ou negotiation phase. Se interviewer trouxer, ok, responda — mas você não inicia.</div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section>
+  <div class="section-num">05 / Top brazilian mistakes</div>
+  <h2>5 erros brasileiros em <em>interviews</em>.</h2>
+  <div class="q-grid">
+    <div class="q-card"><div class="label">Erro · Modesty trap</div><div class="question">"I just helped..." / "We did..."</div><div class="opener">✗ Brasileiro suaviza demais. ✓ Use <em>"I led"</em>, <em>"I drove"</em>, <em>"I owned"</em>. Em interview anglo, FALSA modéstia = parecer junior.</div></div>
+    <div class="q-card"><div class="label">Erro · Sem números</div><div class="question">"I improved the system"</div><div class="opener">✗ Vago. ✓ <em>"I reduced p99 latency by 35%"</em>. Quantifique TUDO. Métricas convencem mais que adjetivos.</div></div>
+    <div class="q-card"><div class="label">Erro · Negative phrasing</div><div class="question">"It wasn't bad..." / "It didn't fail..."</div><div class="opener">✗ Litotes em interview soa hesitante. ✓ <em>"It worked well"</em> / <em>"It succeeded"</em>. Diga positivo direto.</div></div>
+    <div class="q-card"><div class="label">Erro · Long tangents</div><div class="question">"Let me give you all the context..."</div><div class="opener">✗ História de 5 min sem ponto. ✓ STAR estrito. <em>2 frases por seção</em>. Interviewer pergunta detalhe se quiser.</div></div>
+    <div class="q-card"><div class="label">Erro · "I'm not sure"</div><div class="question">"I'm not sure, maybe..."</div><div class="opener">✗ Mostra insegurança. ✓ <em>"My current thinking is..."</em> / <em>"I'd lean towards..."</em>. Hedged sim, inseguro não.</div></div>
+  </div>
+</section>
+
+<!-- OFFER NEGOTIATION -->
+<section>
+  <div class="section-num">06 / Offer negotiation</div>
+  <h2>Negociação — <em>phrase bank</em>.</h2>
+  <p class="lead">Você passou. Veio a oferta. Como negociar em inglês sem soar arrogante nem servil.</p>
+  <div class="phrase-bank">
+    <h3 style="color:var(--ink)">Frases pra negociação salarial</h3>
+    <ul>
+      <li><strong>"I'm excited about the offer. Before I commit..."</strong> abre cordialmente</li>
+      <li><strong>"Based on my experience and the market..."</strong> ancora em dado</li>
+      <li><strong>"I was hoping for something closer to [X]"</strong> hedge sem demanda direta</li>
+      <li><strong>"Is there flexibility on the base / equity / signing?"</strong> abre múltiplas portas</li>
+      <li><strong>"What does the path to [next level] look like?"</strong> conecta a longo prazo</li>
+      <li><strong>"I have another offer in the same range"</strong> alavanca SE for verdade</li>
+      <li><strong>"Can we revisit the equity component?"</strong> pivot pra outras dimensões</li>
+      <li><strong>"I'd like a few days to think it over"</strong> sempre peça tempo</li>
+      <li><strong>"What I value most is [growth / impact / scope] — that fits"</strong> conecta a non-monetary</li>
+      <li><strong>"This is exciting. What are next steps?"</strong> close cordial mesmo se não fechou tudo</li>
+    </ul>
+  </div>
+  <div class="tip"><strong>⚠ Armadilha BR nº 4:</strong> não aceite a primeira oferta. <em>SEMPRE</em> negocie, mesmo que peça só 5%. Cultura anglo espera negociação — não negociar = pareceu fraco.</div>
+</section>
+
+</main>
+<footer>
+  <p>ENGLISH MASTERY · INTERVIEW PREP · <a href="index.html">← Voltar ao índice</a></p>
+</footer>
+<script src="em-enhance.js"></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domain Vocabulary — ML, Security, Frontend, DevOps, Data · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="em-enhance.css">
+<style>
+:root{--bg:#0a1521;--paper:#f4f0e6;--ink:#0a1521;--accent:#06b6d4;--accent-2:#fbbf24;--green:#15803d;--red:#dc2626;--line:rgba(10,21,33,.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+.hero{background:var(--bg);color:var(--paper);padding:60px 6vw;border-bottom:6px solid var(--accent)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,80px);font-weight:300;line-height:.95;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent-2)}
+.hero p{max-width:680px;color:rgba(244,240,230,.78);font-size:18px}
+.hero .tag{display:inline-block;background:var(--accent);color:#fff;padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.2em;border-radius:4px;margin-bottom:18px}
+.hero .back-link{display:inline-block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(244,240,230,.6);text-decoration:none}
+.hero .back-link:hover{color:var(--accent-2)}
+.tabs{position:sticky;top:0;background:var(--bg);padding:14px 6vw;border-bottom:1px solid #2a3a4a;z-index:50;display:flex;gap:8px;overflow-x:auto;flex-wrap:nowrap}
+.tabs button{background:transparent;color:rgba(244,240,230,.65);border:1px solid #2a3a4a;padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em;border-radius:4px;cursor:pointer;font-weight:600;white-space:nowrap;transition:all .15s}
+.tabs button:hover{color:var(--accent-2);border-color:var(--accent-2)}
+.tabs button.active{background:var(--accent-2);color:var(--ink);border-color:var(--accent-2)}
+main{max-width:1200px;margin:0 auto;padding:50px 6vw}
+.domain{display:none}
+.domain.active{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.domain-header{margin-bottom:30px}
+.domain-header h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,56px);font-weight:400;line-height:1.05;margin-bottom:14px}
+.domain-header h2 em{font-style:italic;color:var(--accent)}
+.domain-header p{font-size:17px;color:#374151;max-width:780px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:24px 0}
+.vocab-card{background:#fff;padding:18px;border-radius:8px;border-left:4px solid var(--accent);box-shadow:0 4px 12px rgba(0,0,0,.06);transition:transform .15s}
+.vocab-card:hover{transform:translateY(-2px)}
+.vocab-card .term{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:17px;margin-bottom:4px}
+.vocab-card .pt{color:var(--accent);font-size:13px;font-style:italic;margin-bottom:8px}
+.vocab-card .ex{font-size:13px;color:#374151;border-top:1px dashed var(--line);padding-top:8px;margin-top:8px;line-height:1.4}
+.vocab-card .ex strong{color:var(--ink)}
+.section{margin:40px 0}
+.section h3{font-family:'Fraunces',serif;font-size:24px;margin-bottom:16px;color:var(--ink)}
+.section h3 .tag-mini{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;background:var(--accent-2);color:var(--ink);padding:2px 8px;border-radius:3px;margin-left:10px;font-weight:700}
+footer{background:var(--ink);color:var(--paper);padding:40px 6vw;text-align:center}
+footer p{color:rgba(244,240,230,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer a{color:var(--accent-2);text-decoration:none}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a href="index.html" class="back-link">← Voltar ao índice</a>
+  <span class="tag">Reference · 5 domains · 250+ termos</span>
+  <h1>Domain <em>vocabulary</em>.</h1>
+  <p>Vocabulário tech-específico organizado por domínio. ML/AI, Security, Frontend, DevOps/SRE, Data. Cada domínio tem 50+ termos com tradução, exemplo de uso e contexto profissional.</p>
+</header>
+<nav class="tabs">
+  <button data-domain="ml" class="active">ML / AI</button>
+  <button data-domain="security">Security</button>
+  <button data-domain="frontend">Frontend</button>
+  <button data-domain="devops">DevOps / SRE</button>
+  <button data-domain="data">Data Engineering</button>
+</nav>
+<main>
+
+<!-- ML / AI -->
+<div class="domain active" data-domain="ml">
+  <div class="domain-header">
+    <h2>ML / AI <em>vocabulary</em>.</h2>
+    <p>Os termos que aparecem em papers, ML interviews, MLOps discussions, e research blogs. Inclui training, deployment, evaluation, ethics.</p>
+  </div>
+
+  <div class="section">
+    <h3>Modeling & Training <span class="tag-mini">Core</span></h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">to train a model</div><div class="pt">treinar um modelo</div><div class="ex">We trained the model on 10M samples.</div></div>
+      <div class="vocab-card"><div class="term">to fine-tune</div><div class="pt">refinar / fine-tunar</div><div class="ex">We fine-tuned a base LLM on our domain.</div></div>
+      <div class="vocab-card"><div class="term">to overfit</div><div class="pt">sobreajustar</div><div class="ex">The model is overfitting to training data.</div></div>
+      <div class="vocab-card"><div class="term">to underfit</div><div class="pt">sub-ajustar</div><div class="ex">Underfitting suggests the model is too simple.</div></div>
+      <div class="vocab-card"><div class="term">loss function</div><div class="pt">função de perda</div><div class="ex">We use cross-entropy as the loss function.</div></div>
+      <div class="vocab-card"><div class="term">gradient descent</div><div class="pt">descida de gradiente</div><div class="ex">Gradient descent converges within 50 epochs.</div></div>
+      <div class="vocab-card"><div class="term">epoch</div><div class="pt">época (de treino)</div><div class="ex">We trained for 100 epochs.</div></div>
+      <div class="vocab-card"><div class="term">batch size</div><div class="pt">tamanho de batch</div><div class="ex">Increase batch size for faster training.</div></div>
+      <div class="vocab-card"><div class="term">learning rate</div><div class="pt">taxa de aprendizado</div><div class="ex">A high learning rate causes instability.</div></div>
+      <div class="vocab-card"><div class="term">hyperparameters</div><div class="pt">hiperparâmetros</div><div class="ex">We swept hyperparameters via Bayesian search.</div></div>
+      <div class="vocab-card"><div class="term">to backpropagate</div><div class="pt">retropropagar</div><div class="ex">Gradients are backpropagated through the network.</div></div>
+      <div class="vocab-card"><div class="term">regularization</div><div class="pt">regularização</div><div class="ex">L2 regularization prevents overfitting.</div></div>
+      <div class="vocab-card"><div class="term">to converge</div><div class="pt">convergir</div><div class="ex">The training loss converged after 20 epochs.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Evaluation & Metrics <span class="tag-mini">Important</span></h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">accuracy</div><div class="pt">acurácia</div><div class="ex">Accuracy on the test set was 94%.</div></div>
+      <div class="vocab-card"><div class="term">precision / recall</div><div class="pt">precisão / recall</div><div class="ex">High precision but low recall.</div></div>
+      <div class="vocab-card"><div class="term">F1 score</div><div class="pt">F1 score</div><div class="ex">F1 of 0.85 indicates balanced performance.</div></div>
+      <div class="vocab-card"><div class="term">false positive / negative</div><div class="pt">falso positivo / negativo</div><div class="ex">High false positive rate hurts user trust.</div></div>
+      <div class="vocab-card"><div class="term">confusion matrix</div><div class="pt">matriz de confusão</div><div class="ex">The confusion matrix shows class imbalance.</div></div>
+      <div class="vocab-card"><div class="term">AUC / ROC curve</div><div class="pt">AUC / curva ROC</div><div class="ex">AUC of 0.92 is strong for this task.</div></div>
+      <div class="vocab-card"><div class="term">baseline</div><div class="pt">baseline</div><div class="ex">Our model beats the baseline by 12%.</div></div>
+      <div class="vocab-card"><div class="term">cross-validation</div><div class="pt">validação cruzada</div><div class="ex">5-fold cross-validation reduces variance.</div></div>
+      <div class="vocab-card"><div class="term">holdout set</div><div class="pt">conjunto de holdout</div><div class="ex">Never train on the holdout set.</div></div>
+      <div class="vocab-card"><div class="term">data leakage</div><div class="pt">vazamento de dados</div><div class="ex">Data leakage inflates test scores.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Deployment / MLOps <span class="tag-mini">Production</span></h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">inference</div><div class="pt">inferência</div><div class="ex">Inference latency is the new bottleneck.</div></div>
+      <div class="vocab-card"><div class="term">to serve a model</div><div class="pt">servir um modelo</div><div class="ex">We serve the model via gRPC.</div></div>
+      <div class="vocab-card"><div class="term">model drift</div><div class="pt">drift / desvio do modelo</div><div class="ex">We detected drift in input distribution.</div></div>
+      <div class="vocab-card"><div class="term">data drift</div><div class="pt">drift de dados</div><div class="ex">Data drift triggers retraining.</div></div>
+      <div class="vocab-card"><div class="term">retraining pipeline</div><div class="pt">pipeline de retreino</div><div class="ex">The retraining pipeline runs nightly.</div></div>
+      <div class="vocab-card"><div class="term">feature store</div><div class="pt">feature store</div><div class="ex">Features are served from a feature store.</div></div>
+      <div class="vocab-card"><div class="term">embedding</div><div class="pt">embedding</div><div class="ex">We index embeddings in Pinecone.</div></div>
+      <div class="vocab-card"><div class="term">prompt engineering</div><div class="pt">engenharia de prompt</div><div class="ex">Prompt engineering reduced hallucinations.</div></div>
+      <div class="vocab-card"><div class="term">RAG (retrieval-augmented gen.)</div><div class="pt">RAG</div><div class="ex">RAG grounds answers in our docs.</div></div>
+      <div class="vocab-card"><div class="term">LLM hallucination</div><div class="pt">alucinação de LLM</div><div class="ex">Hallucinations are our top quality issue.</div></div>
+      <div class="vocab-card"><div class="term">to quantize</div><div class="pt">quantizar</div><div class="ex">We quantized the model to int8 for edge.</div></div>
+      <div class="vocab-card"><div class="term">to distill (a model)</div><div class="pt">destilar</div><div class="ex">Distilled student model is 10x faster.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Ethics & Safety <span class="tag-mini">Critical</span></h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">bias</div><div class="pt">viés</div><div class="ex">We audit for demographic bias.</div></div>
+      <div class="vocab-card"><div class="term">fairness</div><div class="pt">justiça/equidade</div><div class="ex">Fairness metrics are part of our review.</div></div>
+      <div class="vocab-card"><div class="term">explainability</div><div class="pt">explicabilidade</div><div class="ex">Explainability matters for credit decisions.</div></div>
+      <div class="vocab-card"><div class="term">interpretability</div><div class="pt">interpretabilidade</div><div class="ex">SHAP values help with interpretability.</div></div>
+      <div class="vocab-card"><div class="term">to mitigate</div><div class="pt">mitigar</div><div class="ex">We mitigate bias via reweighting.</div></div>
+      <div class="vocab-card"><div class="term">edge case</div><div class="pt">caso extremo</div><div class="ex">Edge cases reveal blind spots.</div></div>
+      <div class="vocab-card"><div class="term">guardrails</div><div class="pt">salvaguardas</div><div class="ex">We added guardrails for sensitive topics.</div></div>
+      <div class="vocab-card"><div class="term">red-teaming</div><div class="pt">red-teaming</div><div class="ex">Red-teaming surfaced 30 failure modes.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECURITY -->
+<div class="domain" data-domain="security">
+  <div class="domain-header">
+    <h2>Security <em>vocabulary</em>.</h2>
+    <p>Vocabulário de AppSec, infra security, threat modeling, incident response. Pra quem trabalha com auth, encryption, compliance, ou security review.</p>
+  </div>
+
+  <div class="section">
+    <h3>Auth & Identity <span class="tag-mini">Foundational</span></h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">authentication / authn</div><div class="pt">autenticação</div><div class="ex">SSO handles authentication.</div></div>
+      <div class="vocab-card"><div class="term">authorization / authz</div><div class="pt">autorização</div><div class="ex">RBAC manages authorization.</div></div>
+      <div class="vocab-card"><div class="term">to grant access</div><div class="pt">conceder acesso</div><div class="ex">Grant access on a need-to-know basis.</div></div>
+      <div class="vocab-card"><div class="term">to revoke</div><div class="pt">revogar</div><div class="ex">We revoked the token immediately.</div></div>
+      <div class="vocab-card"><div class="term">least privilege</div><div class="pt">menor privilégio</div><div class="ex">Apply least privilege to all roles.</div></div>
+      <div class="vocab-card"><div class="term">MFA / 2FA</div><div class="pt">MFA</div><div class="ex">MFA is required for admin access.</div></div>
+      <div class="vocab-card"><div class="term">session token</div><div class="pt">token de sessão</div><div class="ex">Session tokens expire after 1h.</div></div>
+      <div class="vocab-card"><div class="term">to refresh a token</div><div class="pt">renovar token</div><div class="ex">We refresh tokens silently.</div></div>
+      <div class="vocab-card"><div class="term">credentials</div><div class="pt">credenciais</div><div class="ex">Never log credentials.</div></div>
+      <div class="vocab-card"><div class="term">to provision</div><div class="pt">provisionar</div><div class="ex">Auto-provision via SSO.</div></div>
+      <div class="vocab-card"><div class="term">to deprovision</div><div class="pt">desprovisionar</div><div class="ex">Deprovision on offboarding.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Threats & Vulnerabilities</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">vulnerability / vuln</div><div class="pt">vulnerabilidade</div><div class="ex">A critical vuln was disclosed yesterday.</div></div>
+      <div class="vocab-card"><div class="term">to exploit</div><div class="pt">explorar (vuln)</div><div class="ex">The exploit chain bypasses our WAF.</div></div>
+      <div class="vocab-card"><div class="term">CVE</div><div class="pt">CVE</div><div class="ex">CVE-2026-1234 affects our auth lib.</div></div>
+      <div class="vocab-card"><div class="term">attack surface</div><div class="pt">superfície de ataque</div><div class="ex">Reduce attack surface by removing endpoints.</div></div>
+      <div class="vocab-card"><div class="term">attack vector</div><div class="pt">vetor de ataque</div><div class="ex">Email is the most common attack vector.</div></div>
+      <div class="vocab-card"><div class="term">to harden</div><div class="pt">hardenizar</div><div class="ex">We hardened the bastion host.</div></div>
+      <div class="vocab-card"><div class="term">to patch</div><div class="pt">patchear / corrigir</div><div class="ex">We patched the vuln within 24h.</div></div>
+      <div class="vocab-card"><div class="term">SQL injection</div><div class="pt">SQL injection</div><div class="ex">Parameterized queries prevent SQL injection.</div></div>
+      <div class="vocab-card"><div class="term">XSS / cross-site scripting</div><div class="pt">XSS</div><div class="ex">CSP headers mitigate XSS.</div></div>
+      <div class="vocab-card"><div class="term">CSRF</div><div class="pt">CSRF</div><div class="ex">CSRF tokens protect state-changing requests.</div></div>
+      <div class="vocab-card"><div class="term">phishing</div><div class="pt">phishing</div><div class="ex">Quarterly phishing drills.</div></div>
+      <div class="vocab-card"><div class="term">social engineering</div><div class="pt">engenharia social</div><div class="ex">Social engineering bypasses tech controls.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Defense & Response</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">to encrypt / decrypt</div><div class="pt">encriptar / desencriptar</div><div class="ex">All data is encrypted at rest.</div></div>
+      <div class="vocab-card"><div class="term">at rest / in transit</div><div class="pt">em repouso / em trânsito</div><div class="ex">Encryption at rest and in transit.</div></div>
+      <div class="vocab-card"><div class="term">to hash</div><div class="pt">hashear</div><div class="ex">Passwords are hashed with bcrypt.</div></div>
+      <div class="vocab-card"><div class="term">salt / pepper</div><div class="pt">salt / pepper</div><div class="ex">Salt prevents rainbow table attacks.</div></div>
+      <div class="vocab-card"><div class="term">key rotation</div><div class="pt">rotação de chave</div><div class="ex">Quarterly key rotation policy.</div></div>
+      <div class="vocab-card"><div class="term">audit log</div><div class="pt">log de auditoria</div><div class="ex">Audit logs are immutable.</div></div>
+      <div class="vocab-card"><div class="term">to flag</div><div class="pt">marcar / sinalizar</div><div class="ex">Anomaly detection flagged the request.</div></div>
+      <div class="vocab-card"><div class="term">incident response</div><div class="pt">resposta a incidentes</div><div class="ex">Incident response time was 12 minutes.</div></div>
+      <div class="vocab-card"><div class="term">forensics</div><div class="pt">forensics</div><div class="ex">Forensics revealed lateral movement.</div></div>
+      <div class="vocab-card"><div class="term">post-incident review</div><div class="pt">revisão pós-incidente</div><div class="ex">Post-incident review next Monday.</div></div>
+      <div class="vocab-card"><div class="term">compliance</div><div class="pt">compliance</div><div class="ex">SOC 2 compliance is non-negotiable.</div></div>
+      <div class="vocab-card"><div class="term">PII / PHI</div><div class="pt">PII / PHI</div><div class="ex">PII never leaves our VPC.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FRONTEND -->
+<div class="domain" data-domain="frontend">
+  <div class="domain-header">
+    <h2>Frontend <em>vocabulary</em>.</h2>
+    <p>Vocabulário de UI/UX engineering, performance, acessibilidade, design systems. Pra devs frontend que trabalham com React, Vue, Angular, ou nativos.</p>
+  </div>
+
+  <div class="section">
+    <h3>Components & State</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">to render / re-render</div><div class="pt">renderizar / re-renderizar</div><div class="ex">The component re-renders on prop change.</div></div>
+      <div class="vocab-card"><div class="term">to mount / unmount</div><div class="pt">montar / desmontar</div><div class="ex">Cleanup on unmount.</div></div>
+      <div class="vocab-card"><div class="term">to hydrate</div><div class="pt">hidratar (SSR)</div><div class="ex">Hydration mismatch on initial load.</div></div>
+      <div class="vocab-card"><div class="term">stateful / stateless</div><div class="pt">com estado / sem estado</div><div class="ex">Prefer stateless components.</div></div>
+      <div class="vocab-card"><div class="term">to lift state up</div><div class="pt">elevar o estado</div><div class="ex">Lift state up to the parent.</div></div>
+      <div class="vocab-card"><div class="term">controlled / uncontrolled</div><div class="pt">controlado / não controlado</div><div class="ex">Use controlled inputs for forms.</div></div>
+      <div class="vocab-card"><div class="term">to memoize</div><div class="pt">memoizar</div><div class="ex">Memoize expensive computations.</div></div>
+      <div class="vocab-card"><div class="term">prop drilling</div><div class="pt">prop drilling</div><div class="ex">Prop drilling is a code smell.</div></div>
+      <div class="vocab-card"><div class="term">side effects</div><div class="pt">efeitos colaterais</div><div class="ex">Side effects belong in useEffect.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Performance</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">bundle size</div><div class="pt">tamanho do bundle</div><div class="ex">Bundle size grew 30% — investigating.</div></div>
+      <div class="vocab-card"><div class="term">to tree-shake</div><div class="pt">tree-shake</div><div class="ex">Tree-shaking removes unused code.</div></div>
+      <div class="vocab-card"><div class="term">code splitting</div><div class="pt">code splitting</div><div class="ex">Code splitting reduces initial load.</div></div>
+      <div class="vocab-card"><div class="term">lazy loading</div><div class="pt">lazy loading</div><div class="ex">Lazy load below-the-fold images.</div></div>
+      <div class="vocab-card"><div class="term">to debounce / throttle</div><div class="pt">debounce / throttle</div><div class="ex">Debounce search input.</div></div>
+      <div class="vocab-card"><div class="term">jank</div><div class="pt">travada / jank</div><div class="ex">The animation has noticeable jank.</div></div>
+      <div class="vocab-card"><div class="term">FPS / frames per second</div><div class="pt">FPS</div><div class="ex">Target 60 FPS for animations.</div></div>
+      <div class="vocab-card"><div class="term">paint / repaint</div><div class="pt">paint / repaint</div><div class="ex">Avoid layout thrashing on repaint.</div></div>
+      <div class="vocab-card"><div class="term">Time to Interactive (TTI)</div><div class="pt">TTI</div><div class="ex">TTI improved by 1.2 seconds.</div></div>
+      <div class="vocab-card"><div class="term">Core Web Vitals</div><div class="pt">Core Web Vitals</div><div class="ex">Core Web Vitals affect SEO ranking.</div></div>
+      <div class="vocab-card"><div class="term">First Contentful Paint (FCP)</div><div class="pt">FCP</div><div class="ex">Our FCP is under 1.8s — passing.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>UX & Accessibility</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">accessibility / a11y</div><div class="pt">acessibilidade</div><div class="ex">a11y is a P0, not a nice-to-have.</div></div>
+      <div class="vocab-card"><div class="term">screen reader</div><div class="pt">leitor de tela</div><div class="ex">Test with VoiceOver / NVDA.</div></div>
+      <div class="vocab-card"><div class="term">ARIA labels</div><div class="pt">labels ARIA</div><div class="ex">Missing ARIA labels on icon buttons.</div></div>
+      <div class="vocab-card"><div class="term">keyboard navigation</div><div class="pt">navegação por teclado</div><div class="ex">All interactions need keyboard support.</div></div>
+      <div class="vocab-card"><div class="term">focus trap</div><div class="pt">focus trap</div><div class="ex">Modals need focus traps.</div></div>
+      <div class="vocab-card"><div class="term">color contrast</div><div class="pt">contraste de cor</div><div class="ex">Contrast ratio fails WCAG AA.</div></div>
+      <div class="vocab-card"><div class="term">responsive design</div><div class="pt">design responsivo</div><div class="ex">Mobile-first responsive.</div></div>
+      <div class="vocab-card"><div class="term">progressive enhancement</div><div class="pt">aprimoramento progressivo</div><div class="ex">Build with progressive enhancement.</div></div>
+      <div class="vocab-card"><div class="term">graceful degradation</div><div class="pt">degradação graciosa</div><div class="ex">Graceful degradation for older browsers.</div></div>
+      <div class="vocab-card"><div class="term">design system</div><div class="pt">design system</div><div class="ex">Design system tokens drive theming.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DEVOPS / SRE -->
+<div class="domain" data-domain="devops">
+  <div class="domain-header">
+    <h2>DevOps / SRE <em>vocabulary</em>.</h2>
+    <p>Infrastructure, observability, on-call, scaling. Para devops, SREs, platform engineers e quem trabalha com k8s, terraform, monitoring.</p>
+  </div>
+
+  <div class="section">
+    <h3>Infrastructure & Deploy</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">to spin up / spin down</div><div class="pt">subir / desligar (instância)</div><div class="ex">Spin up a new staging environment.</div></div>
+      <div class="vocab-card"><div class="term">to provision</div><div class="pt">provisionar</div><div class="ex">Terraform provisions our infrastructure.</div></div>
+      <div class="vocab-card"><div class="term">infrastructure as code (IaC)</div><div class="pt">IaC</div><div class="ex">Everything is IaC — no manual changes.</div></div>
+      <div class="vocab-card"><div class="term">blue-green deployment</div><div class="pt">deploy blue-green</div><div class="ex">Blue-green for zero-downtime deploys.</div></div>
+      <div class="vocab-card"><div class="term">canary deployment</div><div class="pt">deploy canary</div><div class="ex">Canary 1% before full rollout.</div></div>
+      <div class="vocab-card"><div class="term">to roll out / roll back</div><div class="pt">lançar / reverter</div><div class="ex">Rolled back at 14:30.</div></div>
+      <div class="vocab-card"><div class="term">feature flag</div><div class="pt">feature flag</div><div class="ex">Hidden behind a feature flag.</div></div>
+      <div class="vocab-card"><div class="term">CI/CD pipeline</div><div class="pt">pipeline CI/CD</div><div class="ex">Our CI/CD runs ~50 deploys/day.</div></div>
+      <div class="vocab-card"><div class="term">build artifact</div><div class="pt">artefato de build</div><div class="ex">Build artifacts are versioned and immutable.</div></div>
+      <div class="vocab-card"><div class="term">to containerize</div><div class="pt">conteinerizar</div><div class="ex">We containerized everything in 2023.</div></div>
+      <div class="vocab-card"><div class="term">orchestration</div><div class="pt">orquestração</div><div class="ex">Kubernetes handles orchestration.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Reliability & Observability</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">SLO / SLI / SLA</div><div class="pt">SLO/SLI/SLA</div><div class="ex">Our SLO is 99.95% availability.</div></div>
+      <div class="vocab-card"><div class="term">error budget</div><div class="pt">orçamento de erro</div><div class="ex">We've burned 80% of our error budget.</div></div>
+      <div class="vocab-card"><div class="term">to instrument</div><div class="pt">instrumentar</div><div class="ex">All endpoints are instrumented.</div></div>
+      <div class="vocab-card"><div class="term">observability</div><div class="pt">observabilidade</div><div class="ex">Observability is investment, not cost.</div></div>
+      <div class="vocab-card"><div class="term">tracing / distributed tracing</div><div class="pt">tracing distribuído</div><div class="ex">Distributed tracing across services.</div></div>
+      <div class="vocab-card"><div class="term">metric / log / trace</div><div class="pt">métricas / logs / traces</div><div class="ex">Three pillars: metrics, logs, traces.</div></div>
+      <div class="vocab-card"><div class="term">to alert / paged</div><div class="pt">alertar / ser paged</div><div class="ex">PagerDuty paged me at 3am.</div></div>
+      <div class="vocab-card"><div class="term">on-call rotation</div><div class="pt">rotação on-call</div><div class="ex">Weekly on-call rotation.</div></div>
+      <div class="vocab-card"><div class="term">runbook</div><div class="pt">runbook</div><div class="ex">Runbooks reduce MTTR.</div></div>
+      <div class="vocab-card"><div class="term">MTTR / MTTD</div><div class="pt">MTTR / MTTD</div><div class="ex">Our MTTR is under 15 minutes.</div></div>
+      <div class="vocab-card"><div class="term">root cause analysis (RCA)</div><div class="pt">RCA</div><div class="ex">RCA pointed to a config drift.</div></div>
+      <div class="vocab-card"><div class="term">blameless postmortem</div><div class="pt">postmortem sem culpa</div><div class="ex">Blameless culture is our foundation.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Scaling & Performance</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">to scale up / out</div><div class="pt">escalar verticalmente / horizontalmente</div><div class="ex">Scale out before scaling up.</div></div>
+      <div class="vocab-card"><div class="term">autoscaling</div><div class="pt">autoscaling</div><div class="ex">HPA handles autoscaling.</div></div>
+      <div class="vocab-card"><div class="term">throughput</div><div class="pt">throughput</div><div class="ex">Throughput peaked at 10K RPS.</div></div>
+      <div class="vocab-card"><div class="term">latency / tail latency</div><div class="pt">latência / latência de cauda</div><div class="ex">Tail latency (p99) matters more than avg.</div></div>
+      <div class="vocab-card"><div class="term">backpressure</div><div class="pt">backpressure</div><div class="ex">Backpressure prevents cascading failures.</div></div>
+      <div class="vocab-card"><div class="term">circuit breaker</div><div class="pt">circuit breaker</div><div class="ex">Circuit breaker tripped at 14:42.</div></div>
+      <div class="vocab-card"><div class="term">retry with backoff</div><div class="pt">retry com backoff</div><div class="ex">Exponential backoff prevents thundering herd.</div></div>
+      <div class="vocab-card"><div class="term">load balancing</div><div class="pt">balanceamento de carga</div><div class="ex">Load balancer terminates TLS.</div></div>
+      <div class="vocab-card"><div class="term">caching layer</div><div class="pt">camada de cache</div><div class="ex">Redis is our caching layer.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DATA -->
+<div class="domain" data-domain="data">
+  <div class="domain-header">
+    <h2>Data Engineering <em>vocabulary</em>.</h2>
+    <p>ETL/ELT, data lakes/warehouses, streaming, data quality. Pra data engineers, analytics engineers e quem trabalha com Spark, Airflow, dbt, Snowflake.</p>
+  </div>
+
+  <div class="section">
+    <h3>Pipelines & Storage</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">data pipeline</div><div class="pt">pipeline de dados</div><div class="ex">The pipeline runs hourly.</div></div>
+      <div class="vocab-card"><div class="term">ETL / ELT</div><div class="pt">ETL / ELT</div><div class="ex">We migrated from ETL to ELT.</div></div>
+      <div class="vocab-card"><div class="term">to ingest</div><div class="pt">ingerir (dados)</div><div class="ex">Kafka ingests events at 50K/s.</div></div>
+      <div class="vocab-card"><div class="term">data lake / warehouse</div><div class="pt">data lake / warehouse</div><div class="ex">Raw data in lake, modeled in warehouse.</div></div>
+      <div class="vocab-card"><div class="term">data lakehouse</div><div class="pt">lakehouse</div><div class="ex">Lakehouse architecture (Delta/Iceberg).</div></div>
+      <div class="vocab-card"><div class="term">to backfill</div><div class="pt">fazer backfill</div><div class="ex">Backfill 90 days of historical data.</div></div>
+      <div class="vocab-card"><div class="term">batch / streaming</div><div class="pt">batch / streaming</div><div class="ex">Hybrid batch + streaming architecture.</div></div>
+      <div class="vocab-card"><div class="term">change data capture (CDC)</div><div class="pt">CDC</div><div class="ex">CDC streams from Postgres via Debezium.</div></div>
+      <div class="vocab-card"><div class="term">to materialize</div><div class="pt">materializar</div><div class="ex">Materialize this view for performance.</div></div>
+      <div class="vocab-card"><div class="term">DAG (directed acyclic graph)</div><div class="pt">DAG</div><div class="ex">Airflow DAG defines the workflow.</div></div>
+      <div class="vocab-card"><div class="term">idempotent</div><div class="pt">idempotente</div><div class="ex">Pipelines must be idempotent.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Modeling & Quality</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">data model</div><div class="pt">modelo de dados</div><div class="ex">Star schema for the data model.</div></div>
+      <div class="vocab-card"><div class="term">fact / dimension table</div><div class="pt">tabela fato / dimensão</div><div class="ex">Fact tables hold metrics.</div></div>
+      <div class="vocab-card"><div class="term">schema evolution</div><div class="pt">evolução de schema</div><div class="ex">Avro handles schema evolution.</div></div>
+      <div class="vocab-card"><div class="term">data contract</div><div class="pt">contrato de dados</div><div class="ex">Data contracts between producer and consumer.</div></div>
+      <div class="vocab-card"><div class="term">data quality</div><div class="pt">qualidade dos dados</div><div class="ex">Data quality checks in CI.</div></div>
+      <div class="vocab-card"><div class="term">to dedupe</div><div class="pt">deduplicar</div><div class="ex">We dedupe by user_id.</div></div>
+      <div class="vocab-card"><div class="term">to upsert</div><div class="pt">upsert</div><div class="ex">Upsert on conflict.</div></div>
+      <div class="vocab-card"><div class="term">slowly changing dimension</div><div class="pt">SCD</div><div class="ex">SCD Type 2 for historical accuracy.</div></div>
+      <div class="vocab-card"><div class="term">data lineage</div><div class="pt">lineage de dados</div><div class="ex">Lineage helps with debugging.</div></div>
+      <div class="vocab-card"><div class="term">to validate</div><div class="pt">validar</div><div class="ex">Validate before loading downstream.</div></div>
+      <div class="vocab-card"><div class="term">data freshness</div><div class="pt">frescor dos dados</div><div class="ex">Freshness SLA: under 1h delay.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Analytics & Stakeholders</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="term">single source of truth</div><div class="pt">fonte única da verdade</div><div class="ex">The warehouse is our SSoT.</div></div>
+      <div class="vocab-card"><div class="term">self-serve analytics</div><div class="pt">self-serve</div><div class="ex">Enable self-serve for PMs.</div></div>
+      <div class="vocab-card"><div class="term">KPI / metric</div><div class="pt">KPI / métrica</div><div class="ex">Top KPI is weekly active users.</div></div>
+      <div class="vocab-card"><div class="term">funnel / cohort</div><div class="pt">funil / coorte</div><div class="ex">Cohort retention dropped 5%.</div></div>
+      <div class="vocab-card"><div class="term">A/B test / experiment</div><div class="pt">A/B test</div><div class="ex">A/B test ran for 2 weeks.</div></div>
+      <div class="vocab-card"><div class="term">statistical significance</div><div class="pt">significância estatística</div><div class="ex">Result is statistically significant (p&lt;0.05).</div></div>
+      <div class="vocab-card"><div class="term">attribution</div><div class="pt">atribuição</div><div class="ex">Multi-touch attribution model.</div></div>
+      <div class="vocab-card"><div class="term">to denormalize</div><div class="pt">desnormalizar</div><div class="ex">Denormalize for read performance.</div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <p>ENGLISH MASTERY · DOMAIN VOCABULARY · <a href="index.html">← Voltar ao índice</a></p>
+</footer>
+<script>
+document.querySelectorAll('.tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dom = btn.dataset.domain;
+    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.domain').forEach(d => d.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.domain[data-domain="${dom}"]`).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+});
+// Allow deep-linking via hash
+const hash = location.hash.replace('#', '');
+if (hash && document.querySelector(`.tabs button[data-domain="${hash}"]`)) {
+  document.querySelector(`.tabs button[data-domain="${hash}"]`).click();
+}
+</script>
+<script src="em-enhance.js"></script>
+</body>
+</html>
