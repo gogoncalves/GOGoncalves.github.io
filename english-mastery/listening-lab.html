@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listening Lab — Tech Talks · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="em-enhance.css">
+<style>
+:root{--bg:#0f0f23;--paper:#fdf2f8;--ink:#0a0a14;--accent:#ec4899;--accent-2:#fbbf24;--green:#15803d;--red:#dc2626;--line:rgba(15,15,35,.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+.hero{background:var(--bg);color:var(--paper);padding:60px 6vw;border-bottom:6px solid var(--accent)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,80px);font-weight:300;line-height:.95;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent-2)}
+.hero p{max-width:680px;color:rgba(253,242,248,.78);font-size:18px}
+.hero .tag{display:inline-block;background:var(--accent);color:#fff;padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.2em;border-radius:4px;margin-bottom:18px}
+.hero .back-link{display:inline-block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(253,242,248,.6);text-decoration:none}
+.hero .back-link:hover{color:var(--accent-2)}
+main{max-width:1100px;margin:0 auto;padding:50px 6vw}
+.intro{background:#fff;padding:30px;border-radius:10px;border-left:4px solid var(--accent);margin-bottom:30px;box-shadow:0 8px 24px -4px rgba(15,15,35,.1)}
+.intro h2{font-family:'Fraunces',serif;font-size:22px;margin-bottom:10px}
+.intro ol{margin-left:18px;margin-top:8px;font-size:14px}
+.intro li{padding:3px 0}
+.session{background:#fff;border:2px solid var(--ink);border-radius:10px;margin:30px 0;overflow:hidden;box-shadow:5px 5px 0 var(--ink)}
+.session-header{background:var(--ink);color:var(--paper);padding:18px 24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.s-num{background:var(--accent);color:#fff;padding:4px 12px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.s-level{background:var(--accent-2);color:var(--ink);padding:4px 10px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.s-title{font-family:'Fraunces',serif;font-size:20px;font-weight:600;flex:1;color:var(--accent-2)}
+.s-context{padding:18px 24px;background:#fce7f3;color:#831843;font-size:14px;border-bottom:1px dashed var(--line)}
+.s-context strong{color:var(--ink)}
+.video-frame{position:relative;padding-bottom:56.25%;height:0;background:#000}
+.video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.s-vocab{padding:20px 24px;background:#fef3c7}
+.s-vocab h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#92400e;margin-bottom:10px}
+.s-vocab .v-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.s-vocab .v-cell{background:#fff;padding:10px 12px;border-radius:5px;font-size:13px}
+.s-vocab .v-cell .term{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:14px}
+.s-vocab .v-cell .pt{color:var(--accent);font-size:12px;font-style:italic}
+.s-questions{padding:24px;background:#fff}
+.s-questions h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:14px}
+.q-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.q-item:last-child{border:none}
+.q-item .question{font-weight:600;margin-bottom:8px}
+.q-item .options button{background:#fdf2f8;border:1px solid var(--ink);padding:8px 14px;font-family:inherit;font-size:14px;cursor:pointer;border-radius:5px;margin:3px 5px 3px 0;transition:all .15s}
+.q-item .options button:hover{background:var(--ink);color:var(--paper)}
+.q-item .options button.correct{background:var(--green);color:#fff;border-color:var(--green);animation:pop .3s}
+.q-item .options button.wrong{background:var(--red);color:#fff;border-color:var(--red);animation:shake .4s}
+.q-item .options button.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.tip{padding:18px 24px;background:rgba(15,128,61,.08);border-top:1px solid rgba(15,128,61,.2);font-size:13px;color:#0a4a23}
+.tip strong{color:var(--green)}
+.method{background:linear-gradient(135deg,var(--ink),#1e1b4b);color:var(--paper);padding:30px;border-radius:10px;margin-bottom:30px}
+.method h3{color:var(--accent-2);font-family:'Fraunces',serif;font-size:24px;margin-bottom:12px}
+.method ul{margin-left:18px}
+.method li{padding:5px 0;font-size:14px}
+footer{background:var(--ink);color:var(--paper);padding:40px 6vw;text-align:center}
+footer p{color:rgba(253,242,248,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer a{color:var(--accent-2);text-decoration:none}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a href="index.html" class="back-link">← Voltar ao índice</a>
+  <span class="tag">Practice · 8 talks · all levels</span>
+  <h1>Listening <em>Lab</em>.</h1>
+  <p>8 tech talks reais (Kubernetes, GPT, Git, JavaScript, code review, meetings) com vocabulário-chave pra escutar e questões de comprehension. Treino de listening focado em <strong>tech speech</strong> — não diálogos genéricos.</p>
+</header>
+<main>
+
+<div class="method">
+  <h3>Método para listening sério</h3>
+  <ul>
+    <li><strong>1ª passada:</strong> sem legendas, em velocidade normal. Capture a essência (~50% comprehension OK).</li>
+    <li><strong>2ª passada:</strong> com legendas em EN. Pause em pontos confusos. Anote vocabulário novo.</li>
+    <li><strong>3ª passada:</strong> sem legendas, velocidade normal. Compare comprehension com a 1ª.</li>
+    <li><strong>Bonus shadowing:</strong> escolha 30 segundos. Repita em voz alta acompanhando o falante. Treina prosódia + pronúncia.</li>
+  </ul>
+</div>
+
+<!-- SESSION 1 - A2 - Standup phrases -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L01</span><span class="s-level">A2 · 8 min</span><span class="s-title">40 English Phrases for Online Meetings</span></div>
+  <div class="s-context"><strong>Cenário:</strong> Maria Sheeran ensina expressões padrão pra reuniões online: opening, requesting clarification, fechando. Listening "denso" mas claro. Comece por aqui se você nunca ouviu meeting em EN.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/PLhAzAymMsY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário pra escutar</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">Can everyone hear me?</span><span class="pt">tá ouvindo?</span></div>
+      <div class="v-cell"><span class="term">You're on mute</span><span class="pt">vc tá no mudo</span></div>
+      <div class="v-cell"><span class="term">Sorry, can you repeat?</span><span class="pt">desculpa, repete?</span></div>
+      <div class="v-cell"><span class="term">Let's wrap up</span><span class="pt">vamos encerrar</span></div>
+      <div class="v-cell"><span class="term">Action items</span><span class="pt">action items</span></div>
+      <div class="v-cell"><span class="term">Circle back</span><span class="pt">voltar ao tema</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="1-1" data-correct="mute"><div class="question">1. Quando alguém fala mas ninguém ouve, você diz:</div><div class="options"><button data-val="mute">You're on mute</button><button data-val="loud">Speak louder</button><button data-val="back">Get back</button></div></div>
+    <div class="q-item" data-q="1-2" data-correct="repeat"><div class="question">2. Pra pedir alguém repetir educadamente:</div><div class="options"><button data-val="say">Say again?</button><button data-val="repeat">Sorry, can you repeat that?</button><button data-val="what">What?</button></div></div>
+    <div class="q-item" data-q="1-3" data-correct="action"><div class="question">3. Lista de tarefas saindo da meeting:</div><div class="options"><button data-val="todos">to-dos</button><button data-val="action">action items</button><button data-val="tasks">tasks list</button></div></div>
+  </div>
+  <div class="tip"><strong>★ Dica:</strong> tente acompanhar com legenda PRIMEIRO em EN, depois sem. Maria fala devagar, ideal pra treino.</div>
+</div>
+
+<!-- SESSION 2 - B1 - Code Review -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L02</span><span class="s-level">B1 · 12 min</span><span class="s-title">Code Review Best Practices</span></div>
+  <div class="s-context"><strong>Cenário:</strong> 618 Developer explica como fazer code review profissional. Vocabulário tech aplicado: PR, review, comments, merge. Tom natural, falante claro.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/j1Kn1jDmm3w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">pull request / PR</span><span class="pt">PR</span></div>
+      <div class="v-cell"><span class="term">to leave comments</span><span class="pt">deixar comentários</span></div>
+      <div class="v-cell"><span class="term">to flag concerns</span><span class="pt">sinalizar preocupações</span></div>
+      <div class="v-cell"><span class="term">merge conflicts</span><span class="pt">conflitos de merge</span></div>
+      <div class="v-cell"><span class="term">to nitpick</span><span class="pt">pegar no detalhe</span></div>
+      <div class="v-cell"><span class="term">approval / approve</span><span class="pt">aprovação</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="2-1" data-correct="comments"><div class="question">1. Code review = sair deixando ___:</div><div class="options"><button data-val="emojis">emojis</button><button data-val="comments">comments</button><button data-val="bugs">bugs</button></div></div>
+    <div class="q-item" data-q="2-2" data-correct="nit"><div class="question">2. "Nit" em code review significa:</div><div class="options"><button data-val="bug">bug crítico</button><button data-val="nit">crítica menor / nitpick</button><button data-val="block">blocker</button></div></div>
+    <div class="q-item" data-q="2-3" data-correct="block"><div class="question">3. "Blocking comment" significa:</div><div class="options"><button data-val="block">precisa resolver antes de merge</button><button data-val="opt">opcional</button><button data-val="ignore">ignorar</button></div></div>
+  </div>
+</div>
+
+<!-- SESSION 3 - B1 - Frontend tutorial -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L03</span><span class="s-level">B1 · 14 min</span><span class="s-title">Wes Bos — Vanilla JS Drum Kit</span></div>
+  <div class="s-context"><strong>Cenário:</strong> Wes Bos é referência de tutoriais frontend. Listening enquanto ele código ao vivo — vocabulário JavaScript em context real.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/VuN8qwZoego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">event listener</span><span class="pt">event listener</span></div>
+      <div class="v-cell"><span class="term">to fire / triggered</span><span class="pt">disparar</span></div>
+      <div class="v-cell"><span class="term">data attribute</span><span class="pt">data attribute</span></div>
+      <div class="v-cell"><span class="term">to query / select</span><span class="pt">selecionar (DOM)</span></div>
+      <div class="v-cell"><span class="term">audio element</span><span class="pt">elemento audio</span></div>
+      <div class="v-cell"><span class="term">to bind</span><span class="pt">vincular</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="3-1" data-correct="keydown"><div class="question">1. Wes usa qual evento pra captar tecla pressionada?</div><div class="options"><button data-val="click">click</button><button data-val="keydown">keydown</button><button data-val="hover">hover</button></div></div>
+    <div class="q-item" data-q="3-2" data-correct="dataset"><div class="question">2. Pra pegar data-key do HTML usa:</div><div class="options"><button data-val="getAttr">getAttribute</button><button data-val="dataset">dataset</button><button data-val="props">props</button></div></div>
+  </div>
+</div>
+
+<!-- SESSION 4 - B2 - Kelsey Hightower -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L04</span><span class="s-level">B2 · 30 min</span><span class="s-title">Kelsey Hightower — Kubernetes for SysAdmins</span></div>
+  <div class="s-context"><strong>Cenário:</strong> Kelsey Hightower é uma das vozes mais respeitadas em DevOps/cloud. Listening de palestrante carismático, vocabulário denso de infra.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/HlAXp0-M6SY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">orchestration</span><span class="pt">orquestração</span></div>
+      <div class="v-cell"><span class="term">pod / container</span><span class="pt">pod / container</span></div>
+      <div class="v-cell"><span class="term">declarative config</span><span class="pt">config declarativa</span></div>
+      <div class="v-cell"><span class="term">scheduler</span><span class="pt">scheduler</span></div>
+      <div class="v-cell"><span class="term">to bin-pack</span><span class="pt">empacotar (recursos)</span></div>
+      <div class="v-cell"><span class="term">desired state</span><span class="pt">estado desejado</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="4-1" data-correct="declarative"><div class="question">1. Kubernetes usa configuração:</div><div class="options"><button data-val="imperative">imperativa</button><button data-val="declarative">declarativa</button></div></div>
+    <div class="q-item" data-q="4-2" data-correct="state"><div class="question">2. "Desired state" vs "current state" é o coração de:</div><div class="options"><button data-val="state">reconciliation loop</button><button data-val="api">REST API</button></div></div>
+  </div>
+</div>
+
+<!-- SESSION 5 - B2 - Linus Git -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L05</span><span class="s-level">B2 · 8 min</span><span class="s-title">Linus Torvalds explains Git (Google talk)</span></div>
+  <div class="s-context"><strong>Cenário:</strong> Linus apresenta Git pra engenheiros do Google. Sotaque finlandês, ritmo rápido, técnico denso. Desafio de listening real.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/idLyobOhtO4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">distributed VCS</span><span class="pt">VCS distribuído</span></div>
+      <div class="v-cell"><span class="term">commit / checkout</span><span class="pt">commit / checkout</span></div>
+      <div class="v-cell"><span class="term">branch / branching model</span><span class="pt">modelo de branches</span></div>
+      <div class="v-cell"><span class="term">SHA / hash</span><span class="pt">SHA / hash</span></div>
+      <div class="v-cell"><span class="term">to merge / merging</span><span class="pt">merge / mergear</span></div>
+      <div class="v-cell"><span class="term">repository / repo</span><span class="pt">repositório</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="5-1" data-correct="dist"><div class="question">1. Git é fundamentally:</div><div class="options"><button data-val="cent">centralized</button><button data-val="dist">distributed</button></div></div>
+    <div class="q-item" data-q="5-2" data-correct="trust"><div class="question">2. Linus enfatiza que Git's design assume:</div><div class="options"><button data-val="trust">distrust de tudo (cryptographic verification)</button><button data-val="speed">apenas velocidade</button></div></div>
+  </div>
+</div>
+
+<!-- SESSION 6 - C1 - Rich Hickey -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L06</span><span class="s-level">C1 · 60 min</span><span class="s-title">Rich Hickey — Simple Made Easy</span></div>
+  <div class="s-context"><strong>Cenário:</strong> Rich Hickey (criador de Clojure) — a palestra mais influente sobre design de software das últimas décadas. Vocabulário filosófico-técnico denso. Para quem já é fluent.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/SxdOUGdseq4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">simple vs easy</span><span class="pt">simples vs fácil</span></div>
+      <div class="v-cell"><span class="term">to interleave / interweave</span><span class="pt">entrelaçar</span></div>
+      <div class="v-cell"><span class="term">complecting</span><span class="pt">complectar</span></div>
+      <div class="v-cell"><span class="term">incidental complexity</span><span class="pt">complexidade incidental</span></div>
+      <div class="v-cell"><span class="term">side-effects</span><span class="pt">efeitos colaterais</span></div>
+      <div class="v-cell"><span class="term">composability</span><span class="pt">composabilidade</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="6-1" data-correct="objective"><div class="question">1. Rich diferencia "simple" e "easy" como:</div><div class="options"><button data-val="objective">simple = objetivo, easy = subjetivo</button><button data-val="speed">simple = lento, easy = rápido</button></div></div>
+    <div class="q-item" data-q="6-2" data-correct="braid"><div class="question">2. "Complecting" significa:</div><div class="options"><button data-val="braid">trançar / entrelaçar componentes que deveriam ser separados</button><button data-val="complete">completar/finalizar</button></div></div>
+  </div>
+</div>
+
+<!-- SESSION 7 - C1 - Bret Victor -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L07</span><span class="s-level">C1 · 54 min</span><span class="s-title">Bret Victor — Inventing on Principle</span></div>
+  <div class="s-context"><strong>Cenário:</strong> Visionário do design de ferramentas criativas. Listening de retórica refinada, vocabulário acadêmico-poético. Treina escuta de cadência expositiva.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/PUv66718DII" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">to advocate / advocacy</span><span class="pt">defender / advocacy</span></div>
+      <div class="v-cell"><span class="term">guiding principle</span><span class="pt">princípio orientador</span></div>
+      <div class="v-cell"><span class="term">creative tools</span><span class="pt">ferramentas criativas</span></div>
+      <div class="v-cell"><span class="term">to manipulate / manipulation</span><span class="pt">manipular</span></div>
+      <div class="v-cell"><span class="term">live feedback</span><span class="pt">feedback em tempo real</span></div>
+      <div class="v-cell"><span class="term">to inhabit (an idea)</span><span class="pt">habitar (uma ideia)</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="7-1" data-correct="immediate"><div class="question">1. Bret defende que creative tools devem dar:</div><div class="options"><button data-val="immediate">immediate feedback</button><button data-val="delayed">delayed feedback</button></div></div>
+    <div class="q-item" data-q="7-2" data-correct="principle"><div class="question">2. O título "Inventing on Principle" sugere:</div><div class="options"><button data-val="principle">criar guiado por princípio moral, não só por mercado</button><button data-val="theory">apenas teoria</button></div></div>
+  </div>
+</div>
+
+<!-- SESSION 8 - C2 - Karpathy -->
+<div class="session">
+  <div class="session-header"><span class="s-num">L08</span><span class="s-level">C2 · 42 min</span><span class="s-title">Andrej Karpathy — State of GPT</span></div>
+  <div class="s-context"><strong>Cenário:</strong> Andrej Karpathy (ex-Tesla, OpenAI) explica state-of-the-art de LLMs. Listening de pesquisador de elite — vocabulário técnico ML em alto registro. Final boss.</div>
+  <div class="video-frame"><iframe src="https://www.youtube.com/embed/bZQun8Y4L2A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></div>
+  <div class="s-vocab">
+    <h4>★ Vocabulário</h4>
+    <div class="v-grid">
+      <div class="v-cell"><span class="term">pretraining</span><span class="pt">pré-treinamento</span></div>
+      <div class="v-cell"><span class="term">supervised fine-tuning (SFT)</span><span class="pt">SFT</span></div>
+      <div class="v-cell"><span class="term">reinforcement learning from human feedback (RLHF)</span><span class="pt">RLHF</span></div>
+      <div class="v-cell"><span class="term">tokenizer / tokens</span><span class="pt">tokenizer / tokens</span></div>
+      <div class="v-cell"><span class="term">attention mechanism</span><span class="pt">mecanismo de atenção</span></div>
+      <div class="v-cell"><span class="term">to hallucinate</span><span class="pt">alucinar (modelo)</span></div>
+      <div class="v-cell"><span class="term">prompt engineering</span><span class="pt">prompt engineering</span></div>
+      <div class="v-cell"><span class="term">few-shot / zero-shot</span><span class="pt">few-shot / zero-shot</span></div>
+    </div>
+  </div>
+  <div class="s-questions">
+    <h4>★ Comprehension</h4>
+    <div class="q-item" data-q="8-1" data-correct="3"><div class="question">1. As 3 fases que Karpathy descreve no pipeline GPT:</div><div class="options"><button data-val="3">Pretraining → SFT → RLHF</button><button data-val="2">Train → Test</button><button data-val="raw">Just raw text</button></div></div>
+    <div class="q-item" data-q="8-2" data-correct="hallucinate"><div class="question">2. "Hallucinate" no context LLM significa:</div><div class="options"><button data-val="hallucinate">gerar info plausível mas falsa</button><button data-val="dream">sonhar</button><button data-val="creative">ser criativo</button></div></div>
+    <div class="q-item" data-q="8-3" data-correct="bigger"><div class="question">3. Scaling law sugere:</div><div class="options"><button data-val="bigger">modelos maiores + mais dados = melhores resultados (até certo ponto)</button><button data-val="smaller">modelos menores são sempre melhores</button></div></div>
+  </div>
+</div>
+
+</main>
+<footer>
+  <p>ENGLISH MASTERY · LISTENING LAB · <a href="index.html">← Voltar ao índice</a></p>
+</footer>
+<script>
+document.querySelectorAll('.q-item').forEach(q => {
+  const correct = q.dataset.correct;
+  q.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (q.dataset.answered) return;
+      q.dataset.answered = 'true';
+      q.querySelectorAll('button').forEach(b => b.classList.add('disabled'));
+      if (btn.dataset.val === correct) btn.classList.add('correct');
+      else {
+        btn.classList.add('wrong');
+        q.querySelectorAll('button').forEach(b => { if (b.dataset.val === correct) b.classList.add('correct'); });
+      }
+    });
+  });
+});
+</script>
+<script src="em-enhance.js"></script>
+</body>
+</html>

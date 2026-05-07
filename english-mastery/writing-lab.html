@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Lab — Tech English Practice · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="em-enhance.css">
+<style>
+:root{--bg:#0a4e3b;--paper:#f0fdf4;--ink:#022c22;--accent:#fb7185;--accent-2:#fbbf24;--green:#15803d;--red:#dc2626;--line:rgba(2,44,34,.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+.hero{background:var(--bg);color:var(--paper);padding:60px 6vw;border-bottom:6px solid var(--accent)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,80px);font-weight:300;line-height:.95;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent-2)}
+.hero p{max-width:680px;color:rgba(240,253,244,.78);font-size:18px}
+.hero .tag{display:inline-block;background:var(--accent);color:#fff;padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.2em;border-radius:4px;margin-bottom:18px}
+.hero .back-link{display:inline-block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(240,253,244,.6);text-decoration:none}
+.hero .back-link:hover{color:var(--accent-2)}
+main{max-width:1100px;margin:0 auto;padding:50px 6vw}
+.intro{background:#fff;padding:30px;border-radius:10px;border-left:4px solid var(--accent);margin-bottom:30px;box-shadow:0 8px 24px -4px rgba(2,44,34,.1)}
+.intro h2{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin-bottom:12px}
+.intro p{font-size:15px;color:#374151}
+.prompt{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:0;margin:30px 0;overflow:hidden;box-shadow:5px 5px 0 var(--ink)}
+.prompt-header{background:var(--ink);color:var(--paper);padding:18px 24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.prompt-num{background:var(--accent);color:#fff;padding:4px 12px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.prompt-level{background:var(--accent-2);color:var(--ink);padding:4px 10px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.prompt-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600;flex:1}
+.prompt-scenario{padding:20px 24px;background:#fef3c7;border-bottom:1px dashed var(--line);color:#5b3210;font-size:15px}
+.prompt-scenario strong{color:var(--ink)}
+.prompt-task{padding:24px;font-size:16px;background:#fff}
+.prompt-task strong{color:var(--accent)}
+.prompt-task ul{margin-left:20px;margin-top:10px}
+.prompt-task li{padding:4px 0}
+.write-area{padding:24px;background:var(--paper);border-top:1px dashed var(--line)}
+.write-area textarea{width:100%;min-height:200px;padding:16px;border:2px solid var(--line);border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;resize:vertical;background:#fff;color:var(--ink)}
+.write-area textarea:focus{outline:none;border-color:var(--accent)}
+.write-meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#666}
+.btn{background:var(--ink);color:var(--paper);border:none;padding:10px 18px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:5px;transition:all .15s}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+.rubric{padding:24px;background:#dcfce7;border-top:1px dashed var(--line)}
+.rubric h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--green);margin-bottom:14px}
+.rubric ul{list-style:none}
+.rubric li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px;display:grid;grid-template-columns:auto 1fr;gap:10px}
+.rubric li:last-child{border:none}
+.rubric .check{color:var(--green);font-weight:700}
+.rubric strong{font-family:'JetBrains Mono',monospace;background:#fff;padding:1px 5px;border-radius:2px;font-size:13px}
+.example{padding:24px;background:#0a1521;color:#e5e5e5;border-top:1px dashed var(--line)}
+.example h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-2);margin-bottom:12px}
+.example pre{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:#d5d5d5;white-space:pre-wrap;margin:0}
+.example .key{background:rgba(251,191,36,.15);padding:1px 4px;border-radius:2px;color:#fbbf24}
+footer{background:var(--ink);color:var(--paper);padding:40px 6vw;text-align:center}
+footer p{color:rgba(240,253,244,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer a{color:var(--accent-2);text-decoration:none}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a href="index.html" class="back-link">← Voltar ao índice</a>
+  <span class="tag">Practice · 8 prompts · all levels</span>
+  <h1>Writing <em>Lab</em>.</h1>
+  <p>Pratique writing real do dia-a-dia tech: standup update, code review comment, postmortem, RFC, performance review. Cada prompt tem cenário, tarefa, rubrica de auto-avaliação e exemplo de boa resposta. Por nível CEFR.</p>
+</header>
+<main>
+<div class="intro">
+  <h2>Como usar</h2>
+  <p>Cada prompt: leia o cenário → escreva sua resposta na textarea → confira contra a rubrica → compare com o exemplo. <strong>Não copie o exemplo</strong>. Escreva primeiro, compare depois. O ganho está no esforço de produzir, não em ler resposta pronta.</p>
+</div>
+
+<!-- PROMPT 1 - A1 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P01</span><span class="prompt-level">Nível A1</span><span class="prompt-title">Self-introduction em DM Slack</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> Você acabou de entrar num time novo. Manda DM no Slack pro tech lead se apresentando. 3-4 linhas.</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong> escreva o DM. Inclua:
+    <ul>
+      <li>Saudação apropriada</li>
+      <li>Seu nome, role, anos de experiência</li>
+      <li>Tech stack que você conhece</li>
+      <li>Convite cordial pra conversar</li>
+    </ul>
+  </div>
+  <div class="write-area"><textarea placeholder="Hi [nome],..." data-prompt="1"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(1)">Salvar rascunho</button></div></div>
+  <div class="rubric"><h4>★ Rubrica de auto-avaliação</h4><ul>
+    <li><span class="check">✓</span><div><strong>"Hi [name]"</strong> ou <strong>"Hey [name]"</strong> — saudação casual de Slack (não "Dear")</div></li>
+    <li><span class="check">✓</span><div>Identidade com <strong>"I'm + role + at"</strong> não <strong>"I am engineer"</strong> (artigo obrigatório!)</div></li>
+    <li><span class="check">✓</span><div>Tempo de experiência com <strong>"I've been working with X for Y years"</strong> (Present Perfect)</div></li>
+    <li><span class="check">✓</span><div>Convite cordial: <strong>"Looking forward to working with you"</strong> ou <strong>"Happy to chat anytime"</strong></div></li>
+    <li><span class="check">✓</span><div>SEM "Dear", "I am writing to" — formal demais pra Slack</div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo de boa resposta</h4><pre><span class="key">Hey Maria,</span>
+
+I'm Gustavo — just joined the squad as a <span class="key">senior backend engineer</span>. <span class="key">I've been working with Go and Postgres for 6 years</span>, mostly in fintech. Excited to collaborate on the auth migration!
+
+<span class="key">Happy to chat anytime</span> — DM me or grab time on my calendar.
+
+Cheers,
+Gustavo</pre></div>
+</div>
+
+<!-- PROMPT 2 - A2 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P02</span><span class="prompt-level">Nível A2</span><span class="prompt-title">Daily standup update (async)</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> Time async, standup escrito no Slack às 10h. Inclua: o que fez ontem, o que vai fazer hoje, blockers.</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong> 3-5 linhas curtas.
+    <ul>
+      <li>Ontem: 1-2 conquistas (Past Simple)</li>
+      <li>Hoje: 1-2 planos (going to / will)</li>
+      <li>Blockers: explicite ou diga "no blockers"</li>
+    </ul>
+  </div>
+  <div class="write-area"><textarea placeholder="**Yesterday:**..." data-prompt="2"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(2)">Salvar</button></div></div>
+  <div class="rubric"><h4>★ Rubrica</h4><ul>
+    <li><span class="check">✓</span><div>Past Simple correto: <strong>"shipped"</strong>, <strong>"deployed"</strong>, <strong>"fixed"</strong> — não "shipping" pro passado</div></li>
+    <li><span class="check">✓</span><div><strong>"Going to"</strong> pra plano definido: <em>"Going to start the migration"</em></div></li>
+    <li><span class="check">✓</span><div><strong>"Will"</strong> pra commitments: <em>"I'll review your PR"</em></div></li>
+    <li><span class="check">✓</span><div>Blockers explícitos ou <strong>"No blockers"</strong> — não fingir que tudo tá bem</div></li>
+    <li><span class="check">✓</span><div>Bullet points / formato escaneável (não parágrafos densos)</div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo</h4><pre><span class="key">**Yesterday:**</span>
+- <span class="key">Shipped</span> the new dashboard to staging
+- <span class="key">Fixed</span> the flaky test in CI
+
+<span class="key">**Today:**</span>
+- <span class="key">Going to</span> kick off the auth refactor
+- <span class="key">Will</span> review @maria's PR
+
+<span class="key">**Blockers:**</span> none</pre></div>
+</div>
+
+<!-- PROMPT 3 - B1 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P03</span><span class="prompt-level">Nível B1</span><span class="prompt-title">Code review comment construtivo</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> Você revisa um PR de um colega júnior. O código funciona mas tem um bug sutil de race condition. Comentário: cordial + assertivo + educacional.</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong> 3-5 frases.
+    <ul>
+      <li>Reconheça algo positivo do PR (1 linha)</li>
+      <li>Aponte o problema específico</li>
+      <li>Sugira a correção (não imponha)</li>
+      <li>Ofereça ajuda ou recurso</li>
+    </ul>
+  </div>
+  <div class="write-area"><textarea placeholder="Nice work on..." data-prompt="3"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(3)">Salvar</button></div></div>
+  <div class="rubric"><h4>★ Rubrica</h4><ul>
+    <li><span class="check">✓</span><div>Abre com positivo: <strong>"Nice work on..."</strong> ou <strong>"Solid approach overall"</strong></div></li>
+    <li><span class="check">✓</span><div>Aponta problema com hedging: <strong>"I think we might have"</strong> ou <strong>"There might be"</strong> — não <strong>"This is wrong"</strong></div></li>
+    <li><span class="check">✓</span><div>Sugere alternativa: <strong>"Have you considered..."</strong> ou <strong>"Would it work to..."</strong></div></li>
+    <li><span class="check">✓</span><div>Oferece ajuda: <strong>"Happy to pair on this"</strong> ou <strong>"Let me know if you want to chat"</strong></div></li>
+    <li><span class="check">✓</span><div>NÃO usa "obviously", "wrong", "you should know" — soa hostil</div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo</h4><pre><span class="key">Nice work on this!</span> The structure is clean.
+
+One thing I noticed: <span class="key">I think we might have a race condition</span> here when two requests hit the cache simultaneously. The current logic reads then writes without a lock.
+
+<span class="key">Have you considered</span> using a mutex or a CAS operation? Something like sync.Map could simplify this.
+
+<span class="key">Happy to pair on this</span> if you want to walk through the options.</pre></div>
+</div>
+
+<!-- PROMPT 4 - B1 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P04</span><span class="prompt-level">Nível B1</span><span class="prompt-title">Retrospective contribution</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> Sprint retro. Você precisa contribuir num doc compartilhado pro template "What went well / What didn't / Action items". Foco no time, não em pessoas.</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong> 3 itens em cada coluna. Linguagem de retro madura (blameless).</div>
+  <div class="write-area"><textarea placeholder="**What went well:**..." data-prompt="4"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(4)">Salvar</button></div></div>
+  <div class="rubric"><h4>★ Rubrica</h4><ul>
+    <li><span class="check">✓</span><div>Use Past Simple ou Present Perfect — não Continuous: <strong>"We shipped"</strong>, <strong>"We've improved"</strong></div></li>
+    <li><span class="check">✓</span><div>Foco no SISTEMA, não na PESSOA: <strong>"The deploy process broke"</strong>, não <strong>"João broke the deploy"</strong></div></li>
+    <li><span class="check">✓</span><div>Action items começam com verbo: <strong>"Improve test coverage"</strong>, não <strong>"Better tests needed"</strong></div></li>
+    <li><span class="check">✓</span><div>Cada action tem owner + ETA: <strong>"(@gustavo, by next sprint)"</strong></div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo</h4><pre><span class="key">**What went well:**</span>
+- We shipped 4 features and hit our SLO
+- Cross-team coordination with platform improved
+- Onboarding the new junior went smoothly
+
+<span class="key">**What didn't:**</span>
+- The deploy broke twice — flaky CI exposed in prod
+- Standup running long (avg 25 min vs 15 target)
+- Stakeholder requests came mid-sprint, derailed planning
+
+<span class="key">**Action items:**</span>
+- Stabilize CI pipeline (@platform, by next sprint)
+- Move standup to async on Tue/Thu (@gustavo, this week)
+- Define mid-sprint scope-change protocol (@PM, next retro)</pre></div>
+</div>
+
+<!-- PROMPT 5 - B2 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P05</span><span class="prompt-level">Nível B2</span><span class="prompt-title">Postmortem summary (3 parágrafos)</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> Outage de 1h afetou 15% dos usuários. Você precisa escrever 3 parágrafos pro topo do postmortem público. Tom: factual, blameless, action-oriented.</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong>
+    <ul>
+      <li>P1: Resumo factual (o que, quando, impacto)</li>
+      <li>P2: Causa raiz (técnica, sem culpar pessoa)</li>
+      <li>P3: O que aprendemos + ações</li>
+    </ul>
+  </div>
+  <div class="write-area"><textarea placeholder="On [date], between..." data-prompt="5"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(5)">Salvar</button></div></div>
+  <div class="rubric"><h4>★ Rubrica</h4><ul>
+    <li><span class="check">✓</span><div>Voz passiva pra factualidade: <strong>"The service was unavailable"</strong>, não <strong>"João broke the service"</strong></div></li>
+    <li><span class="check">✓</span><div>Past Perfect pra timeline: <strong>"By the time alerts fired, the queue had backed up for 12 minutes"</strong></div></li>
+    <li><span class="check">✓</span><div>Modal perfects pra arrependimento técnico: <strong>"We should have caught this in load testing"</strong></div></li>
+    <li><span class="check">✓</span><div>Action items concretos com owner</div></li>
+    <li><span class="check">✓</span><div>NÃO usa "fault", "blame", "negligence" — vocab de blame culture</div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo</h4><pre><span class="key">On 2026-04-15, between 14:00 and 15:08 UTC, the auth service experienced degraded performance, affecting approximately 15% of active users.</span> Users encountered intermittent 503 errors when attempting to log in. The incident lasted 1h08m and was resolved by rolling back to the previous deploy.
+
+<span class="key">The root cause was a connection pool misconfiguration introduced in PR #2341.</span> The new client library defaulted the max connections to 10 — sufficient for staging but exhausted within minutes under production load. <span class="key">Had the change been load-tested against realistic traffic, the issue would have surfaced earlier.</span>
+
+<span class="key">In retrospect, three improvements stand out:</span> first, our load testing harness should mirror production traffic patterns; second, configuration values affecting capacity should be reviewed by SRE before merge; third, our connection pool metrics need tighter alerting thresholds. Action items have been filed in Linear, with owners and timelines.</pre></div>
+</div>
+
+<!-- PROMPT 6 - C1 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P06</span><span class="prompt-level">Nível C1</span><span class="prompt-title">RFC summary (executive-friendly)</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> RFC pra migrar pra event-driven architecture. Você escreve a "Executive Summary" de 1-2 parágrafos pra topo do doc. Audiência: VP Eng, leadership team.</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong> 1-2 parágrafos densos. Inclua: problema, proposta, tradeoffs, recomendação.</div>
+  <div class="write-area"><textarea placeholder="**Executive Summary**..." data-prompt="6"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(6)">Salvar</button></div></div>
+  <div class="rubric"><h4>★ Rubrica</h4><ul>
+    <li><span class="check">✓</span><div>Hedged authority: <strong>"This RFC proposes"</strong> + <strong>"We recommend"</strong> ao final</div></li>
+    <li><span class="check">✓</span><div>Discourse markers pra coesão: <strong>"That said"</strong>, <strong>"On balance"</strong>, <strong>"Furthermore"</strong></div></li>
+    <li><span class="check">✓</span><div>Quantificação: <strong>"reducing latency by ~40%"</strong>, <strong>"with a 6-month migration window"</strong></div></li>
+    <li><span class="check">✓</span><div>Tradeoffs explícitos — não venda só vantagens</div></li>
+    <li><span class="check">✓</span><div>NÃO usa contractions ("we've" → "we have"), NÃO usa phrasal verbs casuais ("look into" → "investigate")</div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo</h4><pre><span class="key">**Executive Summary**</span>
+
+This RFC proposes migrating our notification pipeline from a synchronous request-response model to an event-driven architecture using Apache Kafka. <span class="key">Our current system processes ~50K notifications per minute, with p99 latency exceeding our 500ms SLO during peak load.</span> The proposed architecture would decouple producers from consumers, reducing tail latency by an estimated 40% and improving our ability to handle traffic spikes without scaling the entire stack.
+
+<span class="key">That said, the migration carries non-trivial risk and cost.</span> A 6-month implementation window, combined with operational complexity (managing Kafka clusters, schema evolution, consumer offset semantics), means this is a meaningful investment. <span class="key">On balance, we recommend proceeding</span>, with a phased rollout starting with the lowest-criticality notification types in Q3 and full migration by end of Q1 2027. Detailed architecture, alternatives considered, and migration plan follow.</pre></div>
+</div>
+
+<!-- PROMPT 7 - C1 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P07</span><span class="prompt-level">Nível C1</span><span class="prompt-title">Performance review self-evaluation</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> Review semestral. Você precisa documentar conquistas + áreas de crescimento + roadmap pessoal. Audiência: seu EM + skip-level (VP).</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong> 3 seções (achievements, growth areas, looking ahead). Mostre maturidade — não só sucesso, também self-criticism construtivo.</div>
+  <div class="write-area"><textarea placeholder="**H1 2026 Self-Evaluation**..." data-prompt="7"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(7)">Salvar</button></div></div>
+  <div class="rubric"><h4>★ Rubrica</h4><ul>
+    <li><span class="check">✓</span><div>Verbos de ownership: <strong>"led"</strong>, <strong>"drove"</strong>, <strong>"championed"</strong>, <strong>"owned"</strong> — não <strong>"helped"</strong></div></li>
+    <li><span class="check">✓</span><div>Métricas concretas em cada conquista (ex: <strong>"reduced p99 by 35%"</strong>)</div></li>
+    <li><span class="check">✓</span><div>Self-criticism construtivo: cite áreas + plano. Não "I'm bad at X" mas "X is an area I'm developing through Y"</div></li>
+    <li><span class="check">✓</span><div>Looking ahead: ambição + plano. Demonstra trajetória.</div></li>
+    <li><span class="check">✓</span><div>NÃO comece com "I think I did well" — vago. Use evidência.</div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo</h4><pre><span class="key">**H1 2026 Self-Evaluation**</span>
+
+<span class="key">**Highlights this period:**</span>
+- Led the migration to Postgres (6 months, $0 customer impact, 35% latency reduction)
+- Drove the new RFC process — adopted by 3 other teams, reduced design ambiguity
+- Mentored 2 juniors; both received "exceeds" in their reviews
+
+<span class="key">**Areas I'm developing:**</span>
+- Async communication on long-running projects — feedback indicated my updates dropped off mid-migration. I've since adopted a weekly written status as standard practice.
+- Saying no earlier — I overcommitted to two stretch projects this period. I'm working on scoping conversations earlier with my EM.
+
+<span class="key">**Looking ahead (H2):**</span>
+I'd like to grow into a tech leadership role. Concretely, I'd like to scope and lead the new platform team's rollout, working closely with [SRE lead]. I'm open to feedback on whether this aligns with the team's broader priorities.</pre></div>
+</div>
+
+<!-- PROMPT 8 - C2 -->
+<div class="prompt">
+  <div class="prompt-header"><span class="prompt-num">P08</span><span class="prompt-level">Nível C2</span><span class="prompt-title">Op-ed / engineering blog post</span></div>
+  <div class="prompt-scenario"><strong>Cenário:</strong> Você quer publicar no engineering blog da empresa um post de opinião sobre "by-default async cultures". Audiência: tech community, recruiting reach.</div>
+  <div class="prompt-task"><strong>Sua tarefa:</strong> 3-4 parágrafos. Use rhetorical questions, parallelism, calls to action. Tom autoritativo mas hedged.</div>
+  <div class="write-area"><textarea placeholder="**Why we went async-first** — and what we'd do differently next time" data-prompt="8"></textarea><div class="write-meta"><span class="word-count">0 palavras</span><button class="btn" onclick="saveDraft(8)">Salvar</button></div></div>
+  <div class="rubric"><h4>★ Rubrica</h4><ul>
+    <li><span class="check">✓</span><div>Abre com hook: rhetorical question, contrastive statement, ou narrative</div></li>
+    <li><span class="check">✓</span><div>Estrutura paralela: <strong>"We tried X. We tried Y. We tried Z."</strong></div></li>
+    <li><span class="check">✓</span><div>Hedged authority: <strong>"What we've learned"</strong> em vez de <strong>"You should"</strong></div></li>
+    <li><span class="check">✓</span><div>Métricas + narrative: <strong>"Six months in, our standup time dropped from 25 to 8 minutes"</strong></div></li>
+    <li><span class="check">✓</span><div>Closing: takeaway concreto + convite à discussão</div></li>
+  </ul></div>
+  <div class="example"><h4>★ Exemplo</h4><pre><span class="key">**Why we went async-first — and what we'd do differently**</span>
+
+<span class="key">What if standup is the most expensive meeting we have?</span> That was the question we asked ourselves a year ago, looking at calendars filled with daily 15-minute syncs that, multiplied across 8 engineers, consumed the equivalent of a full headcount per week.
+
+<span class="key">We tried killing standup. We tried shortening it. We tried written-only.</span> What worked, ultimately, was a hybrid: async written updates by 10am, with a 15-minute "office hours" block twice a week for genuinely synchronous problems. <span class="key">Six months in, our average standup time dropped from 25 minutes to 8.</span> More importantly, our engineers reported reclaiming 4-6 hours of focused time per week.
+
+<span class="key">That said, the transition wasn't without cost.</span> New hires struggled to ramp without daily face time. Senior engineers who valued informal syncs felt isolated. We learned, painfully, that <span class="key">"async-first" is not "async-only"</span> — and that the strongest async cultures are deliberate about when sync still matters.
+
+<span class="key">If you're considering a similar shift, three questions worth asking:</span> What problems is your sync-by-default solving that async wouldn't? Where does informal context live? And how will you onboard the next generation? <span class="key">We'd love to hear how others have navigated this — drop your story in the comments.</span></pre></div>
+</div>
+
+</main>
+<footer>
+  <p>ENGLISH MASTERY · WRITING LAB · <a href="index.html">← Voltar ao índice</a></p>
+</footer>
+<script>
+document.querySelectorAll('textarea').forEach(t => {
+  // Restore from localStorage
+  const id = t.dataset.prompt;
+  const saved = localStorage.getItem('em_writing_' + id);
+  if (saved) t.value = saved;
+
+  t.addEventListener('input', () => {
+    const words = t.value.trim().split(/\s+/).filter(w=>w).length;
+    t.parentElement.querySelector('.word-count').textContent = words + ' palavras';
+    // Auto-save
+    localStorage.setItem('em_writing_' + id, t.value);
+  });
+  // initial count
+  const words = t.value.trim().split(/\s+/).filter(w=>w).length;
+  t.parentElement.querySelector('.word-count').textContent = words + ' palavras';
+});
+function saveDraft(id) {
+  const t = document.querySelector('textarea[data-prompt="' + id + '"]');
+  if (!t) return;
+  localStorage.setItem('em_writing_' + id, t.value);
+  alert('Rascunho salvo (no seu browser)');
+}
+</script>
+<script src="em-enhance.js"></script>
+</body>
+</html>
