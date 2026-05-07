@@ -1419,12 +1419,1050 @@ footer em{font-family:'Fraunces',serif;font-style:italic;color:var(--accent-2);f
   </div>
 </section>
 
-<!-- Sentinel: continued in next turn (Units 5-8 + final test) -->
-<section class="unit" style="background:var(--paper-warm);border-radius:10px;padding:40px;text-align:center;margin-top:60px">
-  <div class="unit-num" style="justify-content:center">★ Continua em breve</div>
-  <h2 class="unit-title" style="font-size:32px">Units 5–8 + final test em breve.</h2>
-  <p class="lead" style="margin:20px auto 0">Esta é a primeira parte da Trilha A1 v2. Units restantes: <strong>Present Simple</strong> (rotina dev), <strong>Wh-questions</strong> (em meetings), <strong>Prepositions IN/ON/AT</strong> (lugar e tempo), <strong>Word Order</strong> (estruturando emails e PRs). Plus teste final consolidando tudo.</p>
-  <p style="margin-top:20px;font-size:14px;color:var(--muted)">Total final previsto: ~150 exercícios + 100 termos tech.</p>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 5: PRESENT SIMPLE                                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u5">
+  <div class="unit-num"><span class="pre">Unit 05 / 08</span> · Daily Routines</div>
+  <h2 class="unit-title">Present Simple — <em>rotina dev</em>.</h2>
+  <p class="lead">Use Present Simple para <strong>hábitos, rotinas, fatos, regras</strong>. "I deploy on Fridays" (toda sexta), "She reviews PRs" (rotina dela), "The CI runs tests" (fato). Brasileiro confunde com Present Continuous porque PT usa "estou trabalhando" tanto pra agora quanto pra rotina.</p>
+
+  <h3>Estrutura</h3>
+  <table class="gram-table">
+    <thead><tr><th>Forma</th><th>Estrutura</th><th>Exemplo tech</th></tr></thead>
+    <tbody>
+      <tr><td>Afirmativa</td><td class="em-cell">subject + verb (3ª pessoa: + S)</td><td>I deploy. She deploys.</td></tr>
+      <tr><td>Negativa</td><td class="em-cell">don't / doesn't + verb (sem -s)</td><td>I don't deploy. She doesn't deploy.</td></tr>
+      <tr><td>Pergunta</td><td class="em-cell">Do / Does + sujeito + verb (sem -s)</td><td>Do you deploy? Does she deploy?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>⚠ Os 3 erros brasileiros clássicos</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Erros típicos</span>
+        <div class="en">She deploy every Friday<br>Does he writes tests?<br>I am working with Python (rotina)</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Forma correta</span>
+        <div class="en">She <strong>deploys</strong> (3ª pessoa = + S)<br>Does he <strong>write</strong>? (depois de does, sem -s)<br>I <strong>work</strong> with Python (hábito → simple, NÃO continuous)</div>
+        <div class="why">Regra do -S: SÓ na 3ª pessoa singular afirmativa. "He deploys" ✓ mas "He doesn't deploy" ✗ (sem -s depois de doesn't).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Daily Verbs</h4>
+    <div class="vocab-intro">Os 12 verbos que você usa toda semana no trabalho. Pratique conjugação em 3ª pessoa.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">deploy / ship / release</span><span class="pt-tr">deployar / lançar</span><span class="ex">She deploys every Friday.</span></div>
+      <div class="vocab-cell"><span class="term">push / pull</span><span class="pt-tr">enviar / puxar (git)</span><span class="ex">He pushes to main weekly.</span></div>
+      <div class="vocab-cell"><span class="term">merge / commit</span><span class="pt-tr">mergear / commitar</span><span class="ex">She merges after review.</span></div>
+      <div class="vocab-cell"><span class="term">review</span><span class="pt-tr">revisar</span><span class="ex">He reviews 10 PRs/week.</span></div>
+      <div class="vocab-cell"><span class="term">sync / sync up</span><span class="pt-tr">sincronizar/alinhar</span><span class="ex">We sync every Monday.</span></div>
+      <div class="vocab-cell"><span class="term">work on / build</span><span class="pt-tr">trabalhar em / construir</span><span class="ex">I work on the API.</span></div>
+      <div class="vocab-cell"><span class="term">fix / debug</span><span class="pt-tr">consertar / debugar</span><span class="ex">She fixes bugs daily.</span></div>
+      <div class="vocab-cell"><span class="term">test / write tests</span><span class="pt-tr">testar / escrever testes</span><span class="ex">We write tests for everything.</span></div>
+      <div class="vocab-cell"><span class="term">attend / join (meeting)</span><span class="pt-tr">participar (reunião)</span><span class="ex">He attends every standup.</span></div>
+      <div class="vocab-cell"><span class="term">refine / groom</span><span class="pt-tr">refinar (backlog)</span><span class="ex">We refine on Wednesdays.</span></div>
+      <div class="vocab-cell"><span class="term">plan / kickoff</span><span class="pt-tr">planejar / iniciar</span><span class="ex">She plans the next sprint.</span></div>
+      <div class="vocab-cell"><span class="term">document / write docs</span><span class="pt-tr">documentar</span><span class="ex">He documents everything.</span></div>
+    </div>
+  </div>
+
+  <!-- E1: MCQ -s 3rd person -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 5.1 — A regra do -S</div><div class="exercise-sub">Cuidado com a 3ª pessoa singular.</div></div><span class="exercise-type">Multiple Choice</span></div>
+
+    <div class="q mcq" data-q="5-1" data-correct="deploys">
+      <div class="q-text">1. She ___ every Friday afternoon.</div>
+      <div class="options"><button class="opt" data-val="deploy">deploy</button><button class="opt" data-val="deploys">deploys</button><button class="opt" data-val="is deploy">is deploy</button><button class="opt" data-val="deploying">deploying</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="5-2" data-correct="reviews">
+      <div class="q-text">2. He ___ all my PRs.</div>
+      <div class="options"><button class="opt" data-val="review">review</button><button class="opt" data-val="reviews">reviews</button><button class="opt" data-val="is reviewing">is reviewing</button><button class="opt" data-val="reviewing">reviewing</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="5-3" data-correct="ship">
+      <div class="q-text">3. We ___ features every sprint.</div>
+      <div class="options"><button class="opt" data-val="ships">ships</button><button class="opt" data-val="ship">ship</button><button class="opt" data-val="are shipping">are shipping</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="5-4" data-correct="runs">
+      <div class="q-text">4. The CI ___ tests on every push.</div>
+      <div class="options"><button class="opt" data-val="run">run</button><button class="opt" data-val="runs">runs</button><button class="opt" data-val="is running">is running</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="5-5" data-correct="merge">
+      <div class="q-text">5. They ___ without code review (their bad habit).</div>
+      <div class="options"><button class="opt" data-val="merges">merges</button><button class="opt" data-val="merge">merge</button><button class="opt" data-val="is merging">is merging</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="5-6" data-correct="works">
+      <div class="q-text">6. My EM ___ from a different timezone.</div>
+      <div class="options"><button class="opt" data-val="work">work</button><button class="opt" data-val="works">works</button><button class="opt" data-val="working">working</button></div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E2: FILL-IN don't/doesn't + Do/Does -->
+  <div class="exercise" data-ex="u5-fill">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 5.2 — Negative & Question</div><div class="exercise-sub">Use don't, doesn't, Do ou Does.</div></div><span class="exercise-type">Fill-in</span></div>
+
+    <div class="q fill" data-q="5-7">
+      <div class="q-text">1. I ___ work on weekends. <span class="pt-hint">(Eu não trabalho nos fins de semana.)</span></div>
+      <input type="text" class="fill-input" data-answer="don't">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="5-8">
+      <div class="q-text">2. She ___ use Vue, she uses React. <span class="pt-hint">(Ela não usa Vue, usa React.)</span></div>
+      <input type="text" class="fill-input" data-answer="doesn't">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="5-9">
+      <div class="q-text">3. ___ you deploy to production on Fridays? <span class="pt-hint">(Vocês fazem deploy pra prod nas sextas?)</span></div>
+      <input type="text" class="fill-input" data-answer="Do">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="5-10">
+      <div class="q-text">4. ___ he attend every standup? <span class="pt-hint">(Ele participa de todo standup?)</span></div>
+      <input type="text" class="fill-input" data-answer="Does">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="5-11">
+      <div class="q-text">5. The team ___ have retros (sometimes they skip). <span class="pt-hint">(O time não faz retro às vezes pula.)</span></div>
+      <input type="text" class="fill-input" data-answer="doesn't">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u5-fill')">Verificar</button>
+  </div>
+
+  <!-- E3: REORDER -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 5.3 — Monte a frase</div></div><span class="exercise-type">Sentence Reorder</span></div>
+
+    <div class="q reorder" data-q="5-12" data-correct="I deploy code every Friday">
+      <div class="q-text">1. <em>"Eu faço deploy de código toda sexta."</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">code</button><button class="word">deploy</button><button class="word">Friday</button><button class="word">I</button><button class="word">every</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('5-12')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="5-13" data-correct="She doesn't write tests">
+      <div class="q-text">2. <em>"Ela não escreve testes."</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">tests</button><button class="word">write</button><button class="word">She</button><button class="word">doesn't</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('5-13')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="5-14" data-correct="Do you work remotely">
+      <div class="q-text">3. <em>"Você trabalha remoto?"</em> (sem ?)</div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">remotely</button><button class="word">you</button><button class="word">Do</button><button class="word">work</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('5-14')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E4: ERROR FIND -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 5.4 — Ache o erro</div></div><span class="exercise-type">Error Correction</span></div>
+
+    <div class="q error-find" data-q="5-15" data-wrong="deploy" data-correct="deploys">
+      <div class="q-text">1. <em>"Ela faz deploy toda sexta."</em></div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="She">She</span>
+        <span class="word-clickable" data-val="deploy">deploy</span>
+        <span class="word-clickable" data-val="every">every</span>
+        <span class="word-clickable" data-val="Friday">Friday</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="5-16" data-wrong="writes" data-correct="write">
+      <div class="q-text">2. <em>"Ele escreve testes?"</em></div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="Does">Does</span>
+        <span class="word-clickable" data-val="he">he</span>
+        <span class="word-clickable" data-val="writes">writes</span>
+        <span class="word-clickable" data-val="tests">tests</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="5-17" data-wrong="am working" data-correct="work">
+      <div class="q-text">3. <em>"Eu trabalho com Python (rotina)."</em> — qual está errado pra rotina?</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="I">I</span>
+        <span class="word-clickable" data-val="am working">am working</span>
+        <span class="word-clickable" data-val="with">with</span>
+        <span class="word-clickable" data-val="Python">Python</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E5: TRANSLATION -->
+  <div class="exercise" data-ex="u5-trans">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 5.5 — Traduza</div></div><span class="exercise-type">Translation</span></div>
+
+    <div class="q fill" data-q="5-18">
+      <div class="q-text">1. <em>"Eu trabalho com Python."</em></div>
+      <input type="text" class="fill-input long" data-answer="I work with Python">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="5-19">
+      <div class="q-text">2. <em>"Ela revisa meus PRs."</em></div>
+      <input type="text" class="fill-input long" data-answer="She reviews my PRs">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="5-20">
+      <div class="q-text">3. <em>"A gente faz deploy às sextas."</em></div>
+      <input type="text" class="fill-input long" data-answer="We deploy on Fridays">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u5-trans')">Verificar</button>
+  </div>
+
+  <!-- CHECKPOINT 5 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 05</div>
+    <h3>Você dominou Present Simple? 3 questões.</h3>
+
+    <div class="q mcq" data-q="5-cp1" data-correct="ships">
+      <div class="q-text">1. Our team ___ a feature every sprint.</div>
+      <div class="options"><button class="opt" data-val="ship">ship</button><button class="opt" data-val="ships">ships</button><button class="opt" data-val="is shipping">is shipping</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="5-cp2" data-correct="doesn't deploy">
+      <div class="q-text">2. He ___ on Fridays — too risky.</div>
+      <div class="options"><button class="opt" data-val="don't deploy">don't deploy</button><button class="opt" data-val="doesn't deploys">doesn't deploys</button><button class="opt" data-val="doesn't deploy">doesn't deploy</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="5-cp3">
+      <div class="q-text">3. Traduza: <em>"O CI roda os testes a cada push."</em></div>
+      <input type="text" class="fill-input long" data-answer="The CI runs tests on every push" data-ex="u5-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u5-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 6: WH-QUESTIONS                                              -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u6">
+  <div class="unit-num"><span class="pre">Unit 06 / 08</span> · In Meetings</div>
+  <h2 class="unit-title">Wh-questions — perguntas em <em>meetings</em>.</h2>
+  <p class="lead">Em meetings você precisa <strong>perguntar com clareza</strong>: "When's the deploy?", "What's the status?", "Who's on call?", "Why is it broken?". O brasileiro tropeça num único ponto — esquece o <strong>do/does/did</strong> nas perguntas.</p>
+
+  <h3>Os 7 Wh-words + estrutura</h3>
+  <table class="gram-table">
+    <thead><tr><th>Wh-word</th><th>Pergunta</th><th>Exemplo tech</th></tr></thead>
+    <tbody>
+      <tr><td class="em-cell">What</td><td>O quê</td><td>What's the status?</td></tr>
+      <tr><td class="em-cell">When</td><td>Quando</td><td>When's the deploy?</td></tr>
+      <tr><td class="em-cell">Where</td><td>Onde</td><td>Where's the repo?</td></tr>
+      <tr><td class="em-cell">Who</td><td>Quem</td><td>Who's on call?</td></tr>
+      <tr><td class="em-cell">Why</td><td>Por que</td><td>Why is it failing?</td></tr>
+      <tr><td class="em-cell">How</td><td>Como</td><td>How does it work?</td></tr>
+      <tr><td class="em-cell">Which</td><td>Qual (entre opções)</td><td>Which environment is broken?</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Estrutura: Wh + auxiliar + sujeito + verbo</h3>
+  <p style="margin-bottom:14px">A regra de ouro: depois do Wh-word, você precisa de um <strong>auxiliar</strong> (do, does, did, is, are, was, were, can, will, would).</p>
+
+  <div class="warning-box">
+    <h3>⚠ Brasileiro esquece o do/does</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Tradução literal sem auxiliar</span>
+        <div class="pt">"Onde você mora?" / "Que horas ela começa?"</div>
+        <div class="en">Where you live? / What time she starts?</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Com do/does</span>
+        <div class="en">Where <strong>do you</strong> live? / What time <strong>does she</strong> start?</div>
+        <div class="why">Sem do/does, a pergunta soa quebrada. NUNCA pule. Exceção: subject questions ("Who deployed this?" — quando "who" é o próprio sujeito).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Meeting Questions</h4>
+    <div class="vocab-intro">As 12 perguntas que você ouve e usa em todo standup, planning ou retrospective.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">What's the status?</span><span class="pt-tr">Como está?</span><span class="ex">Quick check on the migration.</span></div>
+      <div class="vocab-cell"><span class="term">What's the ETA?</span><span class="pt-tr">Qual a previsão?</span><span class="ex">For the bug fix.</span></div>
+      <div class="vocab-cell"><span class="term">Who's on call?</span><span class="pt-tr">Quem está de plantão?</span><span class="ex">This week.</span></div>
+      <div class="vocab-cell"><span class="term">Who owns this?</span><span class="pt-tr">Quem é dono disso?</span><span class="ex">Need an owner for this ticket.</span></div>
+      <div class="vocab-cell"><span class="term">Where do we deploy?</span><span class="pt-tr">Onde fazemos deploy?</span><span class="ex">Staging or prod?</span></div>
+      <div class="vocab-cell"><span class="term">When's the kickoff?</span><span class="pt-tr">Quando é o kickoff?</span><span class="ex">For Project X.</span></div>
+      <div class="vocab-cell"><span class="term">Why is it broken?</span><span class="pt-tr">Por que tá quebrado?</span><span class="ex">Need root cause.</span></div>
+      <div class="vocab-cell"><span class="term">How long until fixed?</span><span class="pt-tr">Quanto tempo até corrigir?</span><span class="ex">Need ETA.</span></div>
+      <div class="vocab-cell"><span class="term">How often do we deploy?</span><span class="pt-tr">Com que frequência?</span><span class="ex">Daily? Weekly?</span></div>
+      <div class="vocab-cell"><span class="term">Which env?</span><span class="pt-tr">Qual ambiente?</span><span class="ex">Staging or prod?</span></div>
+      <div class="vocab-cell"><span class="term">What blockers?</span><span class="pt-tr">Algum bloqueio?</span><span class="ex">For the sprint.</span></div>
+      <div class="vocab-cell"><span class="term">Any updates?</span><span class="pt-tr">Alguma novidade?</span><span class="ex">Standup classic.</span></div>
+    </div>
+  </div>
+
+  <!-- E1: MCQ Wh-word -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 6.1 — Qual Wh-word?</div></div><span class="exercise-type">Multiple Choice</span></div>
+
+    <div class="q mcq" data-q="6-1" data-correct="When">
+      <div class="q-text">1. ___ is the standup? 10am, right?</div>
+      <div class="options"><button class="opt" data-val="What">What</button><button class="opt" data-val="When">When</button><button class="opt" data-val="Where">Where</button><button class="opt" data-val="How">How</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="6-2" data-correct="Who">
+      <div class="q-text">2. ___ wrote this code? It's beautiful.</div>
+      <div class="options"><button class="opt" data-val="What">What</button><button class="opt" data-val="Who">Who</button><button class="opt" data-val="Why">Why</button><button class="opt" data-val="Which">Which</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="6-3" data-correct="How long">
+      <div class="q-text">3. ___ does the build take?</div>
+      <div class="options"><button class="opt" data-val="How long">How long</button><button class="opt" data-val="How much">How much</button><button class="opt" data-val="How often">How often</button><button class="opt" data-val="When">When</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="6-4" data-correct="Which">
+      <div class="q-text">4. ___ environment is broken — staging or prod?</div>
+      <div class="options"><button class="opt" data-val="What">What</button><button class="opt" data-val="Which">Which</button><button class="opt" data-val="Where">Where</button><button class="opt" data-val="Why">Why</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="6-5" data-correct="Why">
+      <div class="q-text">5. ___ are you stuck? Maybe I can help.</div>
+      <div class="options"><button class="opt" data-val="What">What</button><button class="opt" data-val="When">When</button><button class="opt" data-val="Why">Why</button><button class="opt" data-val="Who">Who</button></div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E2: FILL-IN do/does -->
+  <div class="exercise" data-ex="u6-fill">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 6.2 — Auxiliar correto (do/does)</div></div><span class="exercise-type">Fill-in</span></div>
+
+    <div class="q fill" data-q="6-6">
+      <div class="q-text">1. Where ___ you push your code? <span class="pt-hint">(GitHub? GitLab?)</span></div>
+      <input type="text" class="fill-input" data-answer="do">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="6-7">
+      <div class="q-text">2. What time ___ she start her day?</div>
+      <input type="text" class="fill-input" data-answer="does">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="6-8">
+      <div class="q-text">3. How often ___ we deploy to prod?</div>
+      <input type="text" class="fill-input" data-answer="do">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="6-9">
+      <div class="q-text">4. Why ___ it keep breaking?</div>
+      <input type="text" class="fill-input" data-answer="does">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u6-fill')">Verificar</button>
+  </div>
+
+  <!-- E3: ERROR FIND -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 6.3 — Ache o erro (auxiliar faltando)</div></div><span class="exercise-type">Error Correction</span></div>
+
+    <div class="q error-find" data-q="6-10" data-wrong="(missing_do)" data-correct="do">
+      <div class="q-text">1. <em>"Onde você mora?"</em> — clique no espaço onde falta um auxiliar:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="Where">Where</span>
+        <span class="word-clickable" data-val="(missing_do)">[___]</span>
+        <span class="word-clickable" data-val="you">you</span>
+        <span class="word-clickable" data-val="live">live</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="6-11" data-wrong="leaves" data-correct="leave">
+      <div class="q-text">2. <em>"Que horas ele sai?"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="What">What</span>
+        <span class="word-clickable" data-val="time">time</span>
+        <span class="word-clickable" data-val="does">does</span>
+        <span class="word-clickable" data-val="he">he</span>
+        <span class="word-clickable" data-val="leaves">leaves</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="6-12" data-wrong="there are" data-correct="are there">
+      <div class="q-text">3. <em>"Quantos bugs tem?"</em> (ordem invertida):</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="How">How</span>
+        <span class="word-clickable" data-val="many">many</span>
+        <span class="word-clickable" data-val="bugs">bugs</span>
+        <span class="word-clickable" data-val="there are">there are</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E4: REORDER -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 6.4 — Monte a pergunta</div></div><span class="exercise-type">Sentence Reorder</span></div>
+
+    <div class="q reorder" data-q="6-13" data-correct="What time does the standup start">
+      <div class="q-text">1. <em>"Que horas começa o standup?"</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">start</button><button class="word">does</button><button class="word">time</button><button class="word">the</button><button class="word">standup</button><button class="word">What</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('6-13')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="6-14" data-correct="Where do you push your code">
+      <div class="q-text">2. <em>"Onde você dá push do código?"</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">code</button><button class="word">your</button><button class="word">do</button><button class="word">push</button><button class="word">you</button><button class="word">Where</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('6-14')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E5: TRANSLATION -->
+  <div class="exercise" data-ex="u6-trans">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 6.5 — Traduza as perguntas</div></div><span class="exercise-type">Translation</span></div>
+
+    <div class="q fill" data-q="6-15">
+      <div class="q-text">1. <em>"Onde fica o repositório?"</em></div>
+      <input type="text" class="fill-input long" data-answer="Where is the repo">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="6-16">
+      <div class="q-text">2. <em>"Que horas é o standup?"</em></div>
+      <input type="text" class="fill-input long" data-answer="What time is the standup">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="6-17">
+      <div class="q-text">3. <em>"Quem está de plantão essa semana?"</em></div>
+      <input type="text" class="fill-input long" data-answer="Who's on call this week">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u6-trans')">Verificar</button>
+  </div>
+
+  <!-- CHECKPOINT 6 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 06</div>
+    <h3>Você sabe perguntar em meeting? 3 questões.</h3>
+
+    <div class="q mcq" data-q="6-cp1" data-correct="does">
+      <div class="q-text">1. What time ___ the deploy happen?</div>
+      <div class="options"><button class="opt" data-val="do">do</button><button class="opt" data-val="does">does</button><button class="opt" data-val="is">is</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="6-cp2" data-correct="Who's">
+      <div class="q-text">2. ___ on call this weekend?</div>
+      <div class="options"><button class="opt" data-val="Who's">Who's</button><button class="opt" data-val="Who is who">Who is who</button><button class="opt" data-val="Who do">Who do</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="6-cp3">
+      <div class="q-text">3. Traduza: <em>"Por que o build tá lento?"</em></div>
+      <input type="text" class="fill-input long" data-answer="Why is the build slow" data-ex="u6-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u6-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 7: PREPOSITIONS IN/ON/AT                                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u7">
+  <div class="unit-num"><span class="pre">Unit 07 / 08</span> · Prepositions</div>
+  <h2 class="unit-title">IN / ON / AT — <em>tempo</em> e <em>lugar</em>.</h2>
+  <p class="lead">Preposições NUNCA traduzem 1:1 do PT. "No" é IN, ON ou AT? Depende. Decora por <strong>categoria</strong>, não por tradução. Em tech: "at the office", "in the channel", "on Slack", "on the call", "at 10am", "on Monday", "in March".</p>
+
+  <h3>Tempo: AT · ON · IN</h3>
+  <table class="gram-table">
+    <thead><tr><th>Preposição</th><th>Quando usar</th><th>Exemplos tech</th></tr></thead>
+    <tbody>
+      <tr><td class="em-cell">AT</td><td>hora exata, momentos do dia, refeições</td><td>at 10am · at noon · at midnight · at lunch · at the kickoff</td></tr>
+      <tr><td class="em-cell">ON</td><td>dias da semana, datas, dias específicos</td><td>on Monday · on July 4th · on weekends (US) · on my birthday</td></tr>
+      <tr><td class="em-cell">IN</td><td>meses, anos, séculos, partes do dia, períodos longos</td><td>in March · in 2024 · in the morning · in Q3 · in the next sprint</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Lugar: AT · ON · IN</h3>
+  <table class="gram-table">
+    <thead><tr><th>Preposição</th><th>Quando usar</th><th>Exemplos tech</th></tr></thead>
+    <tbody>
+      <tr><td class="em-cell">AT</td><td>ponto específico, endereço, evento</td><td>at the office · at home · at the kickoff · at github.com/...</td></tr>
+      <tr><td class="em-cell">ON</td><td>superfície, plataforma, canal de mídia</td><td>on the screen · on GitHub · on Slack · on the call · on the agenda</td></tr>
+      <tr><td class="em-cell">IN</td><td>dentro de algo (físico ou abstrato), cidades/países</td><td>in the channel · in production · in the codebase · in São Paulo · in Brazil</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>⚠ Os 5 erros mortais brasileiros</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Tradução literal "em/no"</span>
+        <div class="en">in 5pm · in Monday · on the office · at the channel · on July (mês)</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Categoria decide</span>
+        <div class="en"><strong>at</strong> 5pm · <strong>on</strong> Monday · <strong>at</strong> the office · <strong>in</strong> the channel · <strong>in</strong> July</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Place & Time Phrases</h4>
+    <div class="vocab-intro">As 12 expressões prontas com IN/ON/AT que você usa toda semana.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">at the office</span><span class="pt-tr">no escritório</span><span class="ex">I'm at the office today.</span></div>
+      <div class="vocab-cell"><span class="term">at home / WFH</span><span class="pt-tr">em casa / home office</span><span class="ex">I work at home Mondays.</span></div>
+      <div class="vocab-cell"><span class="term">on Slack / on Teams</span><span class="pt-tr">no Slack / Teams</span><span class="ex">DM me on Slack.</span></div>
+      <div class="vocab-cell"><span class="term">in the channel</span><span class="pt-tr">no canal (Slack)</span><span class="ex">Posted it in #engineering.</span></div>
+      <div class="vocab-cell"><span class="term">on the call</span><span class="pt-tr">na call</span><span class="ex">Are you on the call?</span></div>
+      <div class="vocab-cell"><span class="term">on GitHub / in the repo</span><span class="pt-tr">no GitHub / no repo</span><span class="ex">Linked it on GitHub.</span></div>
+      <div class="vocab-cell"><span class="term">in production / staging</span><span class="pt-tr">em produção/staging</span><span class="ex">Bug is in production.</span></div>
+      <div class="vocab-cell"><span class="term">at 10am / at noon</span><span class="pt-tr">às 10 / meio-dia</span><span class="ex">Standup at 10am.</span></div>
+      <div class="vocab-cell"><span class="term">on Monday / on Friday</span><span class="pt-tr">na segunda / sexta</span><span class="ex">Demo on Friday.</span></div>
+      <div class="vocab-cell"><span class="term">in the morning / afternoon</span><span class="pt-tr">de manhã / à tarde</span><span class="ex">Deep work in the morning.</span></div>
+      <div class="vocab-cell"><span class="term">in March / in Q3</span><span class="pt-tr">em março / em Q3</span><span class="ex">Launch is in March.</span></div>
+      <div class="vocab-cell"><span class="term">on the agenda</span><span class="pt-tr">na pauta</span><span class="ex">It's on the agenda.</span></div>
+    </div>
+  </div>
+
+  <!-- E1: MCQ tempo -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 7.1 — IN/ON/AT pra TEMPO</div></div><span class="exercise-type">Multiple Choice</span></div>
+
+    <div class="q mcq" data-q="7-1" data-correct="at">
+      <div class="q-text">1. The standup is ___ 10am.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-2" data-correct="on">
+      <div class="q-text">2. We deploy ___ Friday afternoons.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-3" data-correct="in">
+      <div class="q-text">3. The launch is ___ March.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-4" data-correct="in">
+      <div class="q-text">4. I do deep work ___ the morning.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-5" data-correct="at">
+      <div class="q-text">5. Late deploys happen ___ midnight.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E2: MCQ lugar -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 7.2 — IN/ON/AT pra LUGAR</div></div><span class="exercise-type">Multiple Choice</span></div>
+
+    <div class="q mcq" data-q="7-6" data-correct="on">
+      <div class="q-text">1. The code is ___ GitHub.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-7" data-correct="at">
+      <div class="q-text">2. I'm ___ the office today.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-8" data-correct="on">
+      <div class="q-text">3. She's ___ the call right now.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-9" data-correct="in">
+      <div class="q-text">4. The bug is ___ production.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-10" data-correct="in">
+      <div class="q-text">5. Post it ___ the channel.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E3: MATCH PAIRS -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 7.3 — Combine contexto ↔ preposição</div></div><span class="exercise-type">Match Pairs</span></div>
+
+    <div class="q match" data-q="7-match">
+      <div class="match-cols">
+        <div class="match-col">
+          <h5>Contexto</h5>
+          <button class="pair" data-pair="A">10am</button>
+          <button class="pair" data-pair="B">Friday</button>
+          <button class="pair" data-pair="C">2024</button>
+          <button class="pair" data-pair="D">the office</button>
+          <button class="pair" data-pair="E">Slack</button>
+          <button class="pair" data-pair="F">the channel</button>
+        </div>
+        <div class="match-col">
+          <h5>Preposição</h5>
+          <button class="pair" data-pair="C">in</button>
+          <button class="pair" data-pair="A">at</button>
+          <button class="pair" data-pair="F">in</button>
+          <button class="pair" data-pair="B">on</button>
+          <button class="pair" data-pair="D">at</button>
+          <button class="pair" data-pair="E">on</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- E4: ERROR FIND -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 7.4 — Ache a preposição errada</div></div><span class="exercise-type">Error Correction</span></div>
+
+    <div class="q error-find" data-q="7-11" data-wrong="in" data-correct="at">
+      <div class="q-text">1. <em>"Te vejo às 5"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="See">See</span>
+        <span class="word-clickable" data-val="you">you</span>
+        <span class="word-clickable" data-val="in">in</span>
+        <span class="word-clickable" data-val="5pm">5pm</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="7-12" data-wrong="in" data-correct="on">
+      <div class="q-text">2. <em>"Reunião na segunda"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="Meeting">Meeting</span>
+        <span class="word-clickable" data-val="in">in</span>
+        <span class="word-clickable" data-val="Monday">Monday</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="7-13" data-wrong="on" data-correct="at">
+      <div class="q-text">3. <em>"Ele tá no escritório"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="He's">He's</span>
+        <span class="word-clickable" data-val="on">on</span>
+        <span class="word-clickable" data-val="the">the</span>
+        <span class="word-clickable" data-val="office">office</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E5: TRANSLATION -->
+  <div class="exercise" data-ex="u7-trans">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 7.5 — Traduza</div></div><span class="exercise-type">Translation</span></div>
+
+    <div class="q fill" data-q="7-14">
+      <div class="q-text">1. <em>"Te vejo na segunda às 10."</em></div>
+      <input type="text" class="fill-input long" data-answer="See you on Monday at 10">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="7-15">
+      <div class="q-text">2. <em>"Ela tá no escritório hoje."</em></div>
+      <input type="text" class="fill-input long" data-answer="She's at the office today">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="7-16">
+      <div class="q-text">3. <em>"O bug tá em produção."</em></div>
+      <input type="text" class="fill-input long" data-answer="The bug is in production">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u7-trans')">Verificar</button>
+  </div>
+
+  <!-- CHECKPOINT 7 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 07</div>
+    <h3>IN/ON/AT travados? 3 questões.</h3>
+
+    <div class="q mcq" data-q="7-cp1" data-correct="on">
+      <div class="q-text">1. Demo ___ Friday at 3pm.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="7-cp2" data-correct="in">
+      <div class="q-text">2. The team is ___ the meeting room.</div>
+      <div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="7-cp3">
+      <div class="q-text">3. Traduza: <em>"Reunião às 2 da tarde no canal."</em></div>
+      <input type="text" class="fill-input long" data-answer="Meeting at 2pm in the channel" data-ex="u7-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u7-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 8: WORD ORDER                                                -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u8">
+  <div class="unit-num"><span class="pre">Unit 08 / 08</span> · Final Foundation</div>
+  <h2 class="unit-title">Word Order — emails, PRs <em>e Slack</em>.</h2>
+  <p class="lead">Inglês é rígido na ordem das palavras. <strong>Sujeito-Verbo-Objeto</strong> é a regra. Adverbs de frequência (always, never, often) têm posição fixa. Adjetivos têm ordem específica. Nesse último Unit você aprende a estruturar frases que soam naturais em emails, PRs e mensagens.</p>
+
+  <h3>Regra 1: Subject + Verb + Object (SVO)</h3>
+  <p>Em PT a ordem é flexível: "Eu ajudei o time" / "O time eu ajudei" — ambos OK. Em EN é rígido: <strong>I helped the team</strong>. Sujeito sempre antes do verbo.</p>
+
+  <h3>Regra 2: Adverbs de frequência</h3>
+  <table class="gram-table">
+    <thead><tr><th>Posição</th><th>Quando</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td class="em-cell">ANTES do verbo principal</td><td>com verbos comuns (work, deploy, ship)</td><td>I <strong>always</strong> deploy on Fridays.</td></tr>
+      <tr><td class="em-cell">DEPOIS do verbo TO BE</td><td>com is/am/are/was/were</td><td>She is <strong>always</strong> late.</td></tr>
+      <tr><td class="em-cell">ENTRE auxiliar e verbo</td><td>com have, will, can</td><td>I have <strong>recently</strong> joined the team.</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:14px"><strong>Adverbs de frequência:</strong> always, usually, often, sometimes, rarely, never.</p>
+
+  <h3>Regra 3: Time adverbs no final</h3>
+  <p>Não bote o tempo no meio da frase. Vai pro final.</p>
+  <div class="compare-grid">
+    <div class="compare-cell compare-wrong">
+      <span class="label">❌</span>
+      <div class="en">I on Fridays deploy.<br>She at 10am does standup.</div>
+    </div>
+    <div class="compare-cell compare-right">
+      <span class="label">✅ Tempo no final</span>
+      <div class="en">I deploy <strong>on Fridays</strong>.<br>She does standup <strong>at 10am</strong>.</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ Os 3 erros de ordem mais comuns</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌</span>
+        <div class="en">Always I work from home.<br>She late is never.<br>I write in JavaScript code very nice.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅</span>
+        <div class="en">I <strong>always</strong> work from home.<br>She is <strong>never</strong> late.<br>I write very nice JavaScript code. (ou: I write beautiful JS code)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Email & Slack Phrases</h4>
+    <div class="vocab-intro">As 12 frases prontas que você usa todo dia em comunicação assíncrona.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">Hi team, / Hi all,</span><span class="pt-tr">Oi time/galera</span><span class="ex">Hi team, just an FYI...</span></div>
+      <div class="vocab-cell"><span class="term">Just a quick FYI</span><span class="pt-tr">Só pra dar um toque</span><span class="ex">Just a quick FYI on the migration.</span></div>
+      <div class="vocab-cell"><span class="term">Could you please review</span><span class="pt-tr">Você poderia revisar</span><span class="ex">Could you please review my PR?</span></div>
+      <div class="vocab-cell"><span class="term">Let me know</span><span class="pt-tr">Me avisa</span><span class="ex">Let me know if anything's off.</span></div>
+      <div class="vocab-cell"><span class="term">Tagging X for visibility</span><span class="pt-tr">Marcando X pra ficar ciente</span><span class="ex">Tagging @maria for visibility.</span></div>
+      <div class="vocab-cell"><span class="term">WIP / draft</span><span class="pt-tr">em progresso / rascunho</span><span class="ex">PR is WIP, don't merge yet.</span></div>
+      <div class="vocab-cell"><span class="term">Ready for review</span><span class="pt-tr">Pronto pra review</span><span class="ex">PR is ready for review.</span></div>
+      <div class="vocab-cell"><span class="term">LGTM</span><span class="pt-tr">tá ótimo (Looks Good To Me)</span><span class="ex">LGTM, approved!</span></div>
+      <div class="vocab-cell"><span class="term">Heads up</span><span class="pt-tr">Aviso prévio</span><span class="ex">Heads up: deploying at 5.</span></div>
+      <div class="vocab-cell"><span class="term">Quick sync?</span><span class="pt-tr">Sync rápido?</span><span class="ex">Quick sync to align?</span></div>
+      <div class="vocab-cell"><span class="term">Thanks! / Cheers!</span><span class="pt-tr">Valeu!</span><span class="ex">Thanks for the review!</span></div>
+      <div class="vocab-cell"><span class="term">Best, / Cheers,</span><span class="pt-tr">Abs, (assinatura)</span><span class="ex">Best,<br>Gustavo</span></div>
+    </div>
+  </div>
+
+  <!-- E1: REORDER (main type for word order) -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 8.1 — Monte (foco em ordem)</div></div><span class="exercise-type">Sentence Reorder</span></div>
+
+    <div class="q reorder" data-q="8-1" data-correct="I always work from home">
+      <div class="q-text">1. <em>"Eu sempre trabalho de casa."</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">home</button><button class="word">always</button><button class="word">I</button><button class="word">from</button><button class="word">work</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('8-1')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="8-2" data-correct="She is rarely late">
+      <div class="q-text">2. <em>"Ela raramente se atrasa."</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">rarely</button><button class="word">She</button><button class="word">late</button><button class="word">is</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('8-2')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="8-3" data-correct="We ship features every sprint">
+      <div class="q-text">3. <em>"A gente entrega features toda sprint."</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">sprint</button><button class="word">features</button><button class="word">every</button><button class="word">We</button><button class="word">ship</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('8-3')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="8-4" data-correct="Could you please review my PR">
+      <div class="q-text">4. <em>"Você poderia por favor revisar meu PR?"</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">PR</button><button class="word">my</button><button class="word">Could</button><button class="word">please</button><button class="word">you</button><button class="word">review</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('8-4')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="8-5" data-correct="Let me know if you have questions">
+      <div class="q-text">5. <em>"Me avisa se você tiver dúvidas."</em></div>
+      <div class="reorder-zone"><div class="word-built"></div><div class="word-pool">
+        <button class="word">questions</button><button class="word">if</button><button class="word">have</button><button class="word">Let</button><button class="word">know</button><button class="word">you</button><button class="word">me</button>
+      </div></div>
+      <button class="btn small" onclick="checkReorder('8-5')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E2: MCQ adverb placement -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 8.2 — Onde vai o adverb?</div></div><span class="exercise-type">Multiple Choice</span></div>
+
+    <div class="q mcq" data-q="8-6" data-correct="I always deploy on Fridays">
+      <div class="q-text">1. Onde "always" vai?</div>
+      <div class="options"><button class="opt" data-val="Always I deploy on Fridays">Always I deploy on Fridays</button><button class="opt" data-val="I always deploy on Fridays">I always deploy on Fridays</button><button class="opt" data-val="I deploy on Fridays always">I deploy on Fridays always</button><button class="opt" data-val="I deploy always on Fridays">I deploy always on Fridays</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="8-7" data-correct="She is never late">
+      <div class="q-text">2. Onde "never" vai?</div>
+      <div class="options"><button class="opt" data-val="Never she is late">Never she is late</button><button class="opt" data-val="She never is late">She never is late</button><button class="opt" data-val="She is never late">She is never late</button><button class="opt" data-val="She is late never">She is late never</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="8-8" data-correct="We usually have standups every day">
+      <div class="q-text">3. Onde "usually" vai?</div>
+      <div class="options"><button class="opt" data-val="Usually we have standups every day">Usually we have standups every day</button><button class="opt" data-val="We usually have standups every day">We usually have standups every day</button><button class="opt" data-val="We have usually standups every day">We have usually standups every day</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="8-9" data-correct="He has recently joined the team">
+      <div class="q-text">4. Onde "recently" vai?</div>
+      <div class="options"><button class="opt" data-val="Recently he has joined the team">Recently he has joined the team</button><button class="opt" data-val="He recently has joined the team">He recently has joined the team</button><button class="opt" data-val="He has recently joined the team">He has recently joined the team</button></div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E3: ERROR FIND -->
+  <div class="exercise">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 8.3 — Ache o erro de ordem</div></div><span class="exercise-type">Error Correction</span></div>
+
+    <div class="q error-find" data-q="8-10" data-wrong="Always" data-correct="I always (correto)">
+      <div class="q-text">1. <em>"Sempre trabalho de casa"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="Always">Always</span>
+        <span class="word-clickable" data-val="I">I</span>
+        <span class="word-clickable" data-val="work">work</span>
+        <span class="word-clickable" data-val="from">from</span>
+        <span class="word-clickable" data-val="home">home</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="8-11" data-wrong="late is never" data-correct="is never late">
+      <div class="q-text">2. <em>"Ela nunca se atrasa"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="She">She</span>
+        <span class="word-clickable" data-val="late is never">late is never</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- E4: TRANSLATION -->
+  <div class="exercise" data-ex="u8-trans">
+    <div class="exercise-header"><div><div class="exercise-title">Drill 8.4 — Traduza emails / Slack</div></div><span class="exercise-type">Translation</span></div>
+
+    <div class="q fill" data-q="8-12">
+      <div class="q-text">1. <em>"Eu sempre trabalho de casa."</em></div>
+      <input type="text" class="fill-input long" data-answer="I always work from home">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="8-13">
+      <div class="q-text">2. <em>"Eu nunca chego atrasado."</em></div>
+      <input type="text" class="fill-input long" data-answer="I'm never late">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="8-14">
+      <div class="q-text">3. <em>"Pode revisar meu PR?"</em> (cordial)</div>
+      <input type="text" class="fill-input long" data-answer="Could you review my PR">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="8-15">
+      <div class="q-text">4. <em>"Me avisa se você tiver dúvidas."</em></div>
+      <input type="text" class="fill-input long" data-answer="Let me know if you have questions">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u8-trans')">Verificar</button>
+  </div>
+
+  <!-- CHECKPOINT 8 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 08</div>
+    <h3>Word order travado? 3 questões.</h3>
+
+    <div class="q mcq" data-q="8-cp1" data-correct="I usually push at the end of the day">
+      <div class="q-text">1. Ordem certa:</div>
+      <div class="options"><button class="opt" data-val="Usually I push at the end of the day">Usually I push at the end of the day</button><button class="opt" data-val="I usually push at the end of the day">I usually push at the end of the day</button><button class="opt" data-val="I push usually at the end of the day">I push usually at the end of the day</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="8-cp2" data-correct="The build is often slow">
+      <div class="q-text">2. Ordem certa:</div>
+      <div class="options"><button class="opt" data-val="Often the build is slow">Often the build is slow</button><button class="opt" data-val="The build is often slow">The build is often slow</button><button class="opt" data-val="The build often is slow">The build often is slow</button></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="8-cp3">
+      <div class="q-text">3. Traduza: <em>"Eu sempre faço deploy nas sextas."</em></div>
+      <input type="text" class="fill-input long" data-answer="I always deploy on Fridays" data-ex="u8-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u8-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- FINAL TEST — A1 TRILHA                                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="final-test" style="background:linear-gradient(135deg,var(--ink),#3d2f1a);color:var(--bg);padding:48px 36px;border-radius:14px;margin-top:80px">
+  <div class="unit-num" style="color:var(--accent-2)"><span class="pre" style="background:var(--accent-2);color:var(--ink)">★ Final Test</span> · A1 Trilha</div>
+  <h2 class="unit-title" style="color:var(--bg)">Teste final — você dominou o <em>A1</em>?</h2>
+  <p class="lead" style="color:rgba(254,250,243,.78)">25 questões cobrindo TUDO. Mínimo pra avançar pro A2: 18/25. Especialmente cuidado com TO BE (idade/fome), artigos com profissão, IN/ON/AT, e ordem de adverbs.</p>
+
+  <!-- Final test questions -->
+  <div class="exercise" style="background:rgba(255,255,255,.05);border-color:var(--accent-2);box-shadow:5px 5px 0 var(--accent-2)">
+    <div class="exercise-header" style="border-bottom-color:rgba(255,255,255,.2)">
+      <div><div class="exercise-title" style="color:var(--bg)">Final A1 Test</div><div class="exercise-sub" style="color:rgba(255,255,255,.6)">25 questões mistas. Sem consultar.</div></div>
+      <span class="exercise-type" style="background:var(--accent-2);color:var(--ink)">All types</span>
+    </div>
+
+    <div class="q mcq" data-q="f-1" data-correct="am" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">1. I ___ a backend engineer.</div><div class="options"><button class="opt" data-val="am">am</button><button class="opt" data-val="is">is</button><button class="opt" data-val="are">are</button><button class="opt" data-val="have">have</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-2" data-correct="I'm 32" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">2. "Tenho 32 anos":</div><div class="options"><button class="opt" data-val="I have 32 years">I have 32 years</button><button class="opt" data-val="I'm 32">I'm 32</button><button class="opt" data-val="I am with 32">I am with 32</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-3" data-correct="I'm in a hurry" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">3. "Estou com pressa":</div><div class="options"><button class="opt" data-val="I have hurry">I have hurry</button><button class="opt" data-val="I am with hurry">I am with hurry</button><button class="opt" data-val="I'm in a hurry">I'm in a hurry</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-4" data-correct="me" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">4. Can you help ___ with this?</div><div class="options"><button class="opt" data-val="I">I</button><button class="opt" data-val="me">me</button><button class="opt" data-val="my">my</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-5" data-correct="his" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">5. João merged ___ feature branch.</div><div class="options"><button class="opt" data-val="her">her</button><button class="opt" data-val="his">his</button><button class="opt" data-val="him">him</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-6" data-correct="its" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">6. The library and ___ docs.</div><div class="options"><button class="opt" data-val="it's">it's</button><button class="opt" data-val="its">its</button><button class="opt" data-val="his">his</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-7" data-correct="an" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">7. I'm ___ engineer.</div><div class="options"><button class="opt" data-val="a">a</button><button class="opt" data-val="an">an</button><button class="opt" data-val="the">the</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-8" data-correct="an" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">8. We had ___ outage yesterday.</div><div class="options"><button class="opt" data-val="a">a</button><button class="opt" data-val="an">an</button><button class="opt" data-val="the">the</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-9" data-correct="people" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">9. Five ___ joined our team.</div><div class="options"><button class="opt" data-val="persons">persons</button><button class="opt" data-val="peoples">peoples</button><button class="opt" data-val="people">people</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-10" data-correct="information" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">10. I need more ___.</div><div class="options"><button class="opt" data-val="informations">informations</button><button class="opt" data-val="information">information</button><button class="opt" data-val="an information">an information</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-11" data-correct="are" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">11. People ___ nice on this team.</div><div class="options"><button class="opt" data-val="is">is</button><button class="opt" data-val="are">are</button><button class="opt" data-val="be">be</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-12" data-correct="deploys" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">12. She ___ every Friday.</div><div class="options"><button class="opt" data-val="deploy">deploy</button><button class="opt" data-val="deploys">deploys</button><button class="opt" data-val="is deploy">is deploy</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-13" data-correct="doesn't deploy" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">13. He ___ on Fridays.</div><div class="options"><button class="opt" data-val="don't deploy">don't deploy</button><button class="opt" data-val="doesn't deploys">doesn't deploys</button><button class="opt" data-val="doesn't deploy">doesn't deploy</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-14" data-correct="Do" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">14. ___ you work remotely?</div><div class="options"><button class="opt" data-val="Do">Do</button><button class="opt" data-val="Does">Does</button><button class="opt" data-val="Are">Are</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-15" data-correct="When" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">15. ___ is the deploy?</div><div class="options"><button class="opt" data-val="What">What</button><button class="opt" data-val="When">When</button><button class="opt" data-val="Where">Where</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-16" data-correct="does" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">16. What time ___ she start?</div><div class="options"><button class="opt" data-val="do">do</button><button class="opt" data-val="does">does</button><button class="opt" data-val="is">is</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-17" data-correct="at" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">17. Standup ___ 10am.</div><div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-18" data-correct="on" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">18. Demo ___ Friday.</div><div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-19" data-correct="in" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">19. Launch ___ March.</div><div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-20" data-correct="at" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">20. I'm ___ the office today.</div><div class="options"><button class="opt" data-val="in">in</button><button class="opt" data-val="on">on</button><button class="opt" data-val="at">at</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-21" data-correct="I always work from home" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">21. Ordem correta:</div><div class="options"><button class="opt" data-val="Always I work from home">Always I work from home</button><button class="opt" data-val="I always work from home">I always work from home</button><button class="opt" data-val="I work from home always">I work from home always</button></div><div class="feedback"></div></div>
+
+    <div class="q mcq" data-q="f-22" data-correct="She is never late" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">22. Ordem correta:</div><div class="options"><button class="opt" data-val="Never she is late">Never she is late</button><button class="opt" data-val="She never is late">She never is late</button><button class="opt" data-val="She is never late">She is never late</button></div><div class="feedback"></div></div>
+
+    <div class="q fill" data-q="f-23" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">23. Traduza: <em style="color:rgba(255,255,255,.8)">"Sou um dev sênior."</em></div><input type="text" class="fill-input long" data-answer="I'm a senior dev" data-ex="final"><div class="feedback"></div></div>
+
+    <div class="q fill" data-q="f-24" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">24. Traduza: <em style="color:rgba(255,255,255,.8)">"O bug está em produção."</em></div><input type="text" class="fill-input long" data-answer="The bug is in production" data-ex="final"><div class="feedback"></div></div>
+
+    <div class="q fill" data-q="f-25" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--bg)">25. Traduza: <em style="color:rgba(255,255,255,.8)">"Eu sempre faço deploy às sextas."</em></div><input type="text" class="fill-input long" data-answer="I always deploy on Fridays" data-ex="final"><div class="feedback"></div></div>
+
+    <button class="btn small" onclick="checkFillIns('final')" style="background:var(--accent-2);color:var(--ink);margin-top:14px">Verificar fill-ins</button>
+  </div>
+
+  <div style="margin-top:36px;padding:20px;background:rgba(255,255,255,.06);border-radius:8px;border-left:4px solid var(--accent-2)">
+    <h4 style="color:var(--accent-2);margin-bottom:8px">★ Score guide</h4>
+    <p style="color:var(--bg);font-size:14px">22+/25: pode passar pro A2.<br>18-21: passa, mas revise as 8 units.<br>&lt;18: refaça os mini-checkpoints com mais atenção.</p>
+  </div>
 </section>
 
 </main>
@@ -1713,7 +2751,122 @@ const EXPLANATIONS = {
   '4-9': 'The bugs ARE (plural) in the backlog.',
   '4-cp1': 'advice = uncountable. NUNCA "advices".',
   '4-cp2': 'data → are (US neutro). UK pode usar "is" também.',
-  '4-cp3': 'People ARE nice (plural concordância).'
+  '4-cp3': 'People ARE nice (plural concordância).',
+
+  // Unit 5 — Present Simple
+  '5-1': '3ª pessoa singular (she) → verbo + S = deploys.',
+  '5-2': '3ª pessoa (he) → reviews. Sempre adicionar -s.',
+  '5-3': 'We (plural/nós) → verbo SEM -s = ship.',
+  '5-4': 'The CI = it (3ª pessoa) → runs.',
+  '5-5': 'They (plural) → merge (sem -s).',
+  '5-6': 'My EM = he/she (3ª pessoa) → works.',
+  '5-7': 'I + don\'t (1ª pessoa). NÃO doesn\'t.',
+  '5-8': 'She + DOESN\'T (3ª pessoa). Note: depois de doesn\'t, verbo SEM -s.',
+  '5-9': 'Pergunta com you → DO. Sem -s no verbo.',
+  '5-10': 'Pergunta com he → DOES. Verbo "attend" sem -s depois de "does".',
+  '5-11': 'The team = it (3ª pessoa) → DOESN\'T.',
+  '5-12': 'I deploy code every Friday. Tempo (every Friday) no FINAL.',
+  '5-13': 'She doesn\'t write tests. doesn\'t + verbo na forma base (write).',
+  '5-14': 'Do you work remotely? Estrutura: Do + sujeito + verbo.',
+  '5-15': '"deploy" errado — 3ª pessoa singular pede DEPLOYS (com -s).',
+  '5-16': '"writes" errado — depois de "Does", verbo SEM -s = write.',
+  '5-17': '"am working" errado pra rotina. Use Present Simple: I WORK with Python.',
+  '5-18': 'I work with Python. Hábito → Present Simple.',
+  '5-19': 'She reviews my PRs. she = 3ª pessoa → reviews.',
+  '5-20': 'We deploy on Fridays. Plural sem -s. ON antes de dia da semana.',
+  '5-cp1': 'Our team = it (singular) → ships (com -s).',
+  '5-cp2': 'doesn\'t + verbo SEM -s = doesn\'t deploy (NÃO "doesn\'t deploys").',
+  '5-cp3': 'The CI runs tests on every push. CI = singular → runs. ON every push.',
+
+  // Unit 6 — Wh-questions
+  '6-1': 'When = quando. "When is the standup?"',
+  '6-2': 'Who wrote (subject question — quem fez algo). Sem auxiliar.',
+  '6-3': 'How long = quanto tempo (duração).',
+  '6-4': 'Which = qual (entre opções limitadas: staging ou prod).',
+  '6-5': 'Why = por quê (motivo).',
+  '6-6': 'Where + DO + you + verbo. NÃO "Where you live".',
+  '6-7': 'What time + DOES + she. 3ª pessoa singular.',
+  '6-8': 'How often + DO + we (plural).',
+  '6-9': 'Why + DOES + it (3ª pessoa).',
+  '6-10': 'Falta DO antes de you. "Where DO you live?".',
+  '6-11': '"writes" errado — depois de "does", verbo na forma base (write).',
+  '6-12': '"there are" invertido. Em pergunta vira "are there". Estrutura: How many + plural + ARE + THERE.',
+  '6-13': 'What time DOES the standup start. Tempo no início, auxiliar (does), sujeito, verbo.',
+  '6-14': 'Where DO you push your code? Auxiliar do, sujeito (you), verbo + objeto.',
+  '6-15': 'Where IS the repo. Pra "ser/estar" + lugar, IS é o auxiliar.',
+  '6-16': 'What time IS the standup. (sem do/does — usa só "is").',
+  '6-17': 'Who\'s on call this week. ON CALL é collocation pronta.',
+  '6-cp1': '3ª pessoa (the deploy = it) → DOES.',
+  '6-cp2': 'Who\'s = Who is (forma natural). "Who is on call?" também aceito.',
+  '6-cp3': 'Why + IS (verbo to be) + sujeito + adjetivo.',
+
+  // Unit 7 — Prepositions
+  '7-1': 'AT + hora exata (10am). Decora: AT pra horário.',
+  '7-2': 'ON + dia da semana (Friday). Decora: ON pra dia.',
+  '7-3': 'IN + mês (March). Decora: IN pra mês/ano/período longo.',
+  '7-4': 'IN the morning / afternoon / evening. EXCEÇÃO: AT night.',
+  '7-5': 'AT midnight (e at noon). Pontos exatos.',
+  '7-6': 'ON GitHub (plataforma online). Mesma lógica: on Slack, on Twitter.',
+  '7-7': 'AT the office (ponto específico, lugar de trabalho).',
+  '7-8': 'ON the call (na ligação/reunião remota).',
+  '7-9': 'IN production / staging (dentro do ambiente).',
+  '7-10': 'IN the channel (dentro do canal Slack).',
+  '7-11': '"in 5pm" errado. AT + hora exata = AT 5pm.',
+  '7-12': '"in Monday" errado. ON + dia da semana = ON Monday.',
+  '7-13': '"on the office" errado. AT + lugar específico = AT the office.',
+  '7-14': 'See you ON Monday AT 10. ON pra dia, AT pra hora.',
+  '7-15': 'She\'s AT the office today. AT + lugar específico.',
+  '7-16': 'The bug is IN production. IN + ambiente.',
+  '7-cp1': 'ON Friday (dia da semana).',
+  '7-cp2': 'IN the meeting room (dentro de uma sala).',
+  '7-cp3': 'Meeting AT 2pm (hora) IN the channel (dentro do canal).',
+
+  // Unit 8 — Word Order
+  '8-1': 'I always work from home. Adverb (always) ANTES do verbo principal (work).',
+  '8-2': 'She is rarely late. Adverb (rarely) DEPOIS de TO BE (is).',
+  '8-3': 'We ship features every sprint. Tempo (every sprint) no FINAL.',
+  '8-4': 'Could you please review my PR? Padrão de pedido educado: Could + sujeito + please + verbo + objeto.',
+  '8-5': 'Let me know if you have questions. Estrutura imperativa fixa.',
+  '8-6': 'I always deploy. Adverb ANTES do verbo principal.',
+  '8-7': 'She is never late. Adverb DEPOIS de TO BE.',
+  '8-8': 'We usually have... Adverb antes do verbo principal.',
+  '8-9': 'He has recently joined. Adverb ENTRE auxiliar (has) e particípio (joined).',
+  '8-10': '"Always" no início errado — vai entre sujeito e verbo: "I always...".',
+  '8-11': '"late is never" ordem errada. Correto: "is never late" (TO BE + adverb + adjetivo).',
+  '8-12': 'I always work from home. Adverb antes de "work".',
+  '8-13': 'I\'m never late. Adverb DEPOIS de "am" (TO BE).',
+  '8-14': 'Could you review my PR? Forma educada com COULD.',
+  '8-15': 'Let me know if you have questions. Frase fixa de email/Slack.',
+  '8-cp1': 'I usually push... Adverb antes do verbo principal.',
+  '8-cp2': 'The build is often slow. Adverb DEPOIS de "is" (TO BE).',
+  '8-cp3': 'I always deploy ON Fridays. Adverb + verbo + tempo (ON pra dia).',
+
+  // Final test
+  'f-1': 'I + AM (1ª pessoa).',
+  'f-2': 'I\'m 32 (estado, não posse). Idade é TO BE.',
+  'f-3': 'I\'m IN A HURRY (frase fixa). Não "have hurry" nem "with hurry".',
+  'f-4': 'help + ME (objeto). I é sujeito apenas.',
+  'f-5': 'João = he → HIS feature.',
+  'f-6': 'ITS docs (sem apóstrofo) = posse.',
+  'f-7': 'AN engineer (som de vogal). Artigo OBRIGATÓRIO antes de profissão.',
+  'f-8': 'AN outage (som de vogal "ou").',
+  'f-9': 'people = plural irregular. NUNCA "persons" (raro/formal).',
+  'f-10': 'information = uncountable. Sempre singular.',
+  'f-11': 'people = plural → ARE.',
+  'f-12': 'she = 3ª pessoa → deploys (com -s).',
+  'f-13': 'doesn\'t + verbo SEM -s = doesn\'t deploy.',
+  'f-14': 'Do + you + verbo (you = plural na regra).',
+  'f-15': 'When + IS (TO BE) + sujeito.',
+  'f-16': 'What time + DOES + she (3ª pessoa).',
+  'f-17': 'AT 10am (hora exata).',
+  'f-18': 'ON Friday (dia da semana).',
+  'f-19': 'IN March (mês).',
+  'f-20': 'AT the office (ponto específico).',
+  'f-21': 'I always work from home. Adverb antes do verbo.',
+  'f-22': 'She is never late. Adverb depois de TO BE.',
+  'f-23': 'I\'m a senior dev. (artigo "a" + adjetivo + substantivo).',
+  'f-24': 'The bug is IN production. IN + ambiente.',
+  'f-25': 'I always deploy ON Fridays. Adverb antes de "deploy", ON antes de "Fridays".'
 };
 </script>
 </body>
