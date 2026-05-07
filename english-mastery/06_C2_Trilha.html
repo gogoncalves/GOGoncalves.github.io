@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C2 Trilha — Mastery, Thought Leadership & Native-like · English Mastery for Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0f23;--paper:#fdf2f8;--paper-warm:#fce7f3;--ink:#0a0a14;--ink-soft:#1e1b4b;--muted:#7c3a5e;--accent:#ec4899;--accent-2:#f9a8d4;--accent-soft:#fbcfe8;--gold:#fbbf24;--green:#15803d;--green-soft:#bbf7d0;--red:#dc2626;--red-soft:#fee2e2;--line:rgba(15,15,35,.13);--shadow:0 1px 0 rgba(0,0,0,.05),0 8px 24px -4px rgba(15,15,35,.18);}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(15,15,35,.05) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.5}
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));width:0%;transition:width .2s}
+.hero{position:relative;background:var(--bg);color:var(--paper);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(236,72,153,.32),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(251,191,36,.1),transparent 50%)}
+.hero::after{content:'C2';position:absolute;right:-30px;bottom:-80px;font-family:'Fraunces',serif;font-size:380px;font-weight:300;color:rgba(253,242,248,.05);line-height:.8;letter-spacing:-.05em;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:#fff;padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:#fff;font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,110px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px;color:var(--paper)}
+h1.title em{font-style:italic;color:var(--accent-2);font-weight:400}h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,21px);max-width:680px;color:rgba(253,242,248,.78);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(253,242,248,.18)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent-2);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(253,242,248,.65);margin-top:8px}
+main{max-width:1200px;margin:0 auto;padding:60px 6vw;position:relative;z-index:1}
+.toc{background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent-2);margin-bottom:6px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
+.toc .toc-sub{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:rgba(253,242,248,.7);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:7px 0;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:flex-start;gap:10px}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent-2);font-weight:700;font-size:11px;flex-shrink:0;padding-top:2px}
+.toc a{color:var(--paper);text-decoration:none;transition:color .2s;line-height:1.4}.toc a:hover{color:var(--accent-2)}
+section.unit{margin-bottom:100px;scroll-margin-top:20px;padding-top:20px}
+.unit-num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#9d174d;letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.unit-num::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,#9d174d,transparent)}
+.unit-num .pre{background:var(--accent-soft);color:#9d174d;padding:3px 10px;border-radius:3px;font-size:10px}
+h2.unit-title{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,56px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+h2.unit-title em{font-style:italic;color:var(--accent)}
+.lead{font-size:18px;color:#1e1b4b;max-width:780px;margin-bottom:32px}
+h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:32px 0 14px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:10px}
+p{margin-bottom:14px;font-size:16px}
+.gram-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--accent-2);padding:12px 16px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}.gram-table tr:hover{background:#fdf2f8}
+.gram-table .em-cell{color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+.warning-box{background:linear-gradient(135deg,#1e1b4b,#0f0f23);color:var(--paper);padding:36px;border-radius:8px;margin:28px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent-2);margin-top:0;font-size:22px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:20px;font-size:15px}
+.compare-wrong{background:rgba(220,38,38,.16);border-left:4px solid var(--red)}
+.compare-right{background:rgba(21,128,61,.16);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}.compare-right .label{color:#86efac}
+.compare-cell .pt{font-style:italic;opacity:.7;font-size:14px;margin-bottom:6px}
+.compare-cell .en{font-weight:600;font-size:17px}
+.compare-cell .why{font-size:13px;margin-top:10px;opacity:.78;line-height:1.5}
+.tech-vocab{background:linear-gradient(135deg,var(--accent-soft),#fbcfe8);padding:28px;border-radius:8px;margin:32px 0;border-left:4px solid var(--accent)}
+.tech-vocab h4{color:#9d174d;margin-bottom:14px;font-size:13px}
+.tech-vocab .vocab-intro{font-size:14px;color:#831843;margin-bottom:14px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.vocab-cell{background:#fff;padding:12px 14px;border-radius:6px;font-size:13px;border:1px solid var(--line)}
+.vocab-cell .term{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:15px;display:block}
+.vocab-cell .pt-tr{color:var(--accent);font-size:12px;display:block;margin-top:2px;font-style:italic}
+.vocab-cell .ex{color:var(--muted);font-size:12px;display:block;margin-top:6px;border-top:1px dashed var(--line);padding-top:6px;line-height:1.4}
+.exercise{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:26px;margin:30px 0;box-shadow:5px 5px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:10px}
+.exercise-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+.exercise-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;background:var(--accent);color:#fff;padding:5px 10px;border-radius:3px}
+.q{margin:16px 0;padding:18px;background:#fdf2f8;border-radius:6px;border-left:3px solid var(--accent)}
+.q-text{font-size:16px;margin-bottom:12px;font-weight:500;line-height:1.5}
+.q .pt-hint{display:block;font-style:italic;color:var(--muted);font-size:13px;margin-top:6px}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:9px 16px;font-size:14px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--accent-2)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;padding:4px 8px;width:140px;text-align:center;color:var(--accent);outline:none}
+.fill-input:focus{border-color:var(--accent);background:var(--paper-warm)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+.fill-input.long{width:100%;text-align:left;font-size:15px;border-bottom:2px solid var(--ink);font-family:'Inter',sans-serif;font-weight:500}
+.feedback{margin-top:12px;padding:11px 14px;border-radius:5px;font-size:13.5px;display:none;line-height:1.5}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:var(--green-soft);color:#0a4a23;border-left:3px solid var(--green)}
+.feedback.wrong{background:var(--red-soft);color:#7f1d1d;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:3px}
+.btn{background:var(--ink);color:var(--paper);border:none;padding:11px 22px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:5px;transition:all .2s;margin-top:8px}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+.btn.small{padding:8px 16px;font-size:11px;margin-top:4px}
+.checkpoint{background:linear-gradient(135deg,var(--ink),#1e1b4b);color:var(--paper);padding:30px;border-radius:10px;margin:36px 0}
+.checkpoint .cp-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent-2);margin-bottom:8px}
+.checkpoint h3{color:var(--paper);margin-top:0;font-size:24px}
+.checkpoint .q{background:rgba(255,255,255,.06);border-left-color:var(--accent-2)}
+.checkpoint .q-text{color:var(--paper)}
+.checkpoint .opt{background:transparent;color:var(--paper);border-color:var(--paper)}
+.checkpoint .opt:hover{background:var(--accent-2);color:var(--ink);border-color:var(--accent-2)}
+.checkpoint .fill-input{color:var(--accent-2);border-color:var(--accent-2)}
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:14px 22px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(15,15,35,.45);z-index:50;display:flex;align-items:center;gap:10px}
+.score-display .pt-pts{color:var(--accent-2);font-size:20px}
+.level-nav{padding:50px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line);margin-top:60px}
+.level-nav a{background:var(--paper);padding:26px;text-decoration:none;color:var(--ink);transition:background .2s}
+.level-nav a:hover{background:#fff}.level-nav a.next{text-align:right}
+.level-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#1e1b4b;margin-bottom:8px}
+.level-nav .ttl{font-family:'Fraunces',serif;font-style:italic;font-size:26px;font-weight:300}
+footer{background:var(--ink);color:var(--paper);padding:50px 6vw;text-align:center}
+footer p{color:rgba(253,242,248,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer em{font-family:'Fraunces',serif;font-style:italic;color:var(--accent-2);font-size:15px}
+@media(min-width:1024px){
+  main{display:grid;grid-template-columns:260px 1fr;gap:60px;align-items:start;padding:60px 6vw}
+  main > .toc{grid-column:1;grid-row:1/-1;position:sticky;top:24px;max-height:calc(100vh - 60px);overflow-y:auto;margin-bottom:0;padding:20px;align-self:start}
+  main > .toc h4{font-size:11px}main > .toc li{padding:6px 0;font-size:13px;line-height:1.4}
+  main > section.unit{grid-column:2;min-width:0}
+}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr}.hero{padding:60px 6vw 80px}.score-display{bottom:12px;right:12px;padding:10px 14px;font-size:12px}.score-display .pt-pts{font-size:16px}.exercise{padding:18px;box-shadow:3px 3px 0 var(--ink)}}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<header class="hero"><div class="hero-content">
+<span class="tag">Trilha C2 — Mastery & Thought Leadership</span>
+<h1 class="title"><em>Indistinguishable</em><br>from a native.</h1>
+<p class="subtitle">A última fronteira. Aqui você fala em conferências, escreve op-eds, modera painéis. Domínio de registers (formal/casual/slang), figures of speech, pragmatic competence, cultural references tech, tweet threads, keynote prep. <em>Native-like in tech specifically.</em></p>
+<div class="hero-stats"><div><div class="stat-num">8</div><div class="stat-label">Units</div></div><div><div class="stat-num">100+</div><div class="stat-label">Exercícios</div></div><div><div class="stat-num">100+</div><div class="stat-label">Termos avançados</div></div><div><div class="stat-num">∞</div><div class="stat-label">Nuance</div></div></div>
+</div></header>
+<main>
+<nav class="toc">
+<h4>Trilha C2</h4><div class="toc-sub">Mastery — thought leadership in tech.</div>
+<ol>
+<li><a href="#u1">Registers — formal/business/casual/slang</a></li>
+<li><a href="#u2">Figures of speech — metaphors em tech</a></li>
+<li><a href="#u3">Pragmatic competence — implicature</a></li>
+<li><a href="#u4">Tech canon — 10x dev, mythical man-month</a></li>
+<li><a href="#u5">Complex syntax — long-form writing</a></li>
+<li><a href="#u6">Advanced phrasal/idioms</a></li>
+<li><a href="#u7">Academic English — papers & RFCs formais</a></li>
+<li><a href="#u8">Keynote & op-ed — speaking authority</a></li>
+</ol>
+</nav>
+
+<!-- UNIT 1: REGISTERS -->
+<section class="unit" id="u1">
+<div class="unit-num"><span class="pre">Unit 01 / 08</span> · Registers</div>
+<h2 class="unit-title">Registers — <em>switching</em> tones.</h2>
+<p class="lead">A mesma ideia, 4 formas. Em board meeting você fala academic. Em standup você fala casual. Em Slack DM você fala slang. C2 = trocar registers sem fricção, escolhendo o tom certo pro contexto.</p>
+<table class="gram-table"><thead><tr><th>Idea</th><th>Register</th><th>Phrasing tech</th></tr></thead><tbody>
+<tr><td rowspan="4">"O deploy quebrou prod"</td><td class="em-cell">Academic</td><td>The deployment introduced a regression in the production environment.</td></tr>
+<tr><td class="em-cell">Business</td><td>The deploy caused an incident in production.</td></tr>
+<tr><td class="em-cell">Casual</td><td>The deploy broke prod.</td></tr>
+<tr><td class="em-cell">Slang</td><td>Deploy nuked prod. Lol.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Casual ↔ Formal</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">get → obtain / acquire</span><span class="pt-tr">conseguir → obter</span><span class="ex">casual: get the data / formal: obtain the data.</span></div>
+<div class="vocab-cell"><span class="term">tell → inform / notify</span><span class="pt-tr">dizer → informar</span><span class="ex">casual: tell the team / formal: notify the team.</span></div>
+<div class="vocab-cell"><span class="term">show → demonstrate</span><span class="pt-tr">mostrar → demonstrar</span><span class="ex">show / demonstrate.</span></div>
+<div class="vocab-cell"><span class="term">need → require</span><span class="pt-tr">precisar → requerer</span><span class="ex">need / require.</span></div>
+<div class="vocab-cell"><span class="term">help → assist / facilitate</span><span class="pt-tr">ajudar → assistir</span><span class="ex">help / assist.</span></div>
+<div class="vocab-cell"><span class="term">about → regarding / pertaining to</span><span class="pt-tr">sobre → referente a</span><span class="ex">about / regarding.</span></div>
+<div class="vocab-cell"><span class="term">my bad (slang)</span><span class="pt-tr">minha culpa</span><span class="ex">slang only.</span></div>
+<div class="vocab-cell"><span class="term">no worries (casual)</span><span class="pt-tr">tranquilo</span><span class="ex">casual.</span></div>
+<div class="vocab-cell"><span class="term">apologies (formal)</span><span class="pt-tr">desculpas</span><span class="ex">formal.</span></div>
+<div class="vocab-cell"><span class="term">LGTM (slang/PR)</span><span class="pt-tr">tá bom pra mim</span><span class="ex">code review.</span></div>
+<div class="vocab-cell"><span class="term">approved (formal)</span><span class="pt-tr">aprovado</span><span class="ex">formal PR.</span></div>
+<div class="vocab-cell"><span class="term">looks fine to me (neutral)</span><span class="pt-tr">parece OK pra mim</span><span class="ex">neutral PR.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 1.1 — Registers</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="1-1" data-correct="obtain"><div class="q-text">1. Formal de "get the data":</div><div class="options"><button class="opt" data-val="grab">grab</button><button class="opt" data-val="obtain">obtain</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-2" data-correct="my bad"><div class="q-text">2. Slang de "minha culpa":</div><div class="options"><button class="opt" data-val="my apologies">my apologies</button><button class="opt" data-val="my bad">my bad</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-3" data-correct="LGTM"><div class="q-text">3. Slang de aprovação em PR:</div><div class="options"><button class="opt" data-val="LGTM">LGTM</button><button class="opt" data-val="Approved">Approved</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-4" data-correct="apologies"><div class="q-text">4. Formal de "sorry":</div><div class="options"><button class="opt" data-val="my bad">my bad</button><button class="opt" data-val="apologies">apologies</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-5" data-correct="regarding"><div class="q-text">5. Formal de "about":</div><div class="options"><button class="opt" data-val="regarding">regarding</button><button class="opt" data-val="kinda about">kinda about</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u1-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 1.2 — Switch register</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="1-6"><div class="q-text">1. Reescreva formal: "Hey, can you get the data?"</div><input type="text" class="fill-input long" data-answer="Could you obtain the data"><div class="feedback"></div></div>
+<div class="q fill" data-q="1-7"><div class="q-text">2. Reescreva casual: "I would like to inform the team."</div><input type="text" class="fill-input long" data-answer="I want to tell the team"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u1-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 01</div>
+<div class="q mcq" data-q="1-cp1" data-correct="commence"><div class="q-text">1. Formal de "start":</div><div class="options"><button class="opt" data-val="kick off">kick off</button><button class="opt" data-val="commence">commence</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="1-cp2"><div class="q-text">2. Reescreva como slang: "The deploy caused an incident."</div><input type="text" class="fill-input long" data-answer="The deploy nuked prod" data-ex="u1-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u1-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 2: FIGURES OF SPEECH -->
+<section class="unit" id="u2">
+<div class="unit-num"><span class="pre">Unit 02 / 08</span> · Figures of speech</div>
+<h2 class="unit-title">Figures of speech — <em>tech metaphors</em>.</h2>
+<p class="lead">"Technical debt", "garbage in, garbage out", "moving fast and breaking things", "the iceberg". Tech English é cheia de metáforas — entender e usar te coloca no nível de quem escreve em tech blogs e dá talks.</p>
+<table class="gram-table"><thead><tr><th>Figura</th><th>Tech example</th></tr></thead><tbody>
+<tr><td class="em-cell">Metaphor</td><td>"Technical debt" (debt = financial → applied to code)</td></tr>
+<tr><td class="em-cell">Simile</td><td>"Microservices are like Lego — flexible but fragile"</td></tr>
+<tr><td class="em-cell">Hyperbole</td><td>"This codebase is a thousand-year-old fossil"</td></tr>
+<tr><td class="em-cell">Understatement</td><td>"It's a slight performance issue" (when prod is down)</td></tr>
+<tr><td class="em-cell">Irony</td><td>"Great, another deploy on Friday"</td></tr>
+<tr><td class="em-cell">Personification</td><td>"The CI is angry today"</td></tr>
+<tr><td class="em-cell">Metonymy</td><td>"Silicon Valley said no" (the industry, not the place)</td></tr>
+<tr><td class="em-cell">Litotes</td><td>"It's not bad" = it's actually good</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Common Tech Metaphors</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">technical debt</span><span class="pt-tr">dívida técnica</span><span class="ex">debt accumulated by shortcuts.</span></div>
+<div class="vocab-cell"><span class="term">code smell</span><span class="pt-tr">cheiro de código ruim</span><span class="ex">indicates deeper problem.</span></div>
+<div class="vocab-cell"><span class="term">spaghetti code</span><span class="pt-tr">código espaguete</span><span class="ex">tangled, hard to follow.</span></div>
+<div class="vocab-cell"><span class="term">garbage in, garbage out</span><span class="pt-tr">lixo entra, lixo sai</span><span class="ex">data quality.</span></div>
+<div class="vocab-cell"><span class="term">move fast and break things</span><span class="pt-tr">FB philosophy</span><span class="ex">trade speed for quality.</span></div>
+<div class="vocab-cell"><span class="term">tip of the iceberg</span><span class="pt-tr">ponta do iceberg</span><span class="ex">visible part of bigger problem.</span></div>
+<div class="vocab-cell"><span class="term">eating our own dog food</span><span class="pt-tr">comer da nossa comida de cachorro</span><span class="ex">use own product.</span></div>
+<div class="vocab-cell"><span class="term">dogfooding</span><span class="pt-tr">testar internamente</span><span class="ex">we're dogfooding the new feature.</span></div>
+<div class="vocab-cell"><span class="term">turtles all the way down</span><span class="pt-tr">tartarugas até o fim</span><span class="ex">infinite recursion of abstractions.</span></div>
+<div class="vocab-cell"><span class="term">yak shaving</span><span class="pt-tr">tarefa que leva a outra</span><span class="ex">stuck doing prerequisite work.</span></div>
+<div class="vocab-cell"><span class="term">bus factor</span><span class="pt-tr">fator ônibus</span><span class="ex">how many people can be hit by bus before project dies.</span></div>
+<div class="vocab-cell"><span class="term">it's turtles / turtles all the way</span><span class="pt-tr">só recursão</span><span class="ex">deep nesting joke.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 2.1 — Tech metaphors</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="2-1" data-correct="technical debt"><div class="q-text">1. Metáfora pra atalhos arquiteturais que custam depois:</div><div class="options"><button class="opt" data-val="technical debt">technical debt</button><button class="opt" data-val="code smell">code smell</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-2" data-correct="dogfooding"><div class="q-text">2. Usar próprio produto:</div><div class="options"><button class="opt" data-val="dogfooding">dogfooding</button><button class="opt" data-val="yak shaving">yak shaving</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-3" data-correct="bus factor"><div class="q-text">3. Quantas pessoas podem sumir antes do projeto morrer:</div><div class="options"><button class="opt" data-val="bus factor">bus factor</button><button class="opt" data-val="dogfood">dogfood</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-4" data-correct="yak shaving"><div class="q-text">4. Tarefa que leva a outra que leva a outra:</div><div class="options"><button class="opt" data-val="yak shaving">yak shaving</button><button class="opt" data-val="dogfood">dogfood</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-5" data-correct="tip of the iceberg"><div class="q-text">5. Esse bug é só a ___ — tem mais por baixo.</div><div class="options"><button class="opt" data-val="tip of the iceberg">tip of the iceberg</button><button class="opt" data-val="silver bullet">silver bullet</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u2-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 2.2 — Traduza com metáfora</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="2-6"><div class="q-text">1. <em>"Acumulamos muita dívida técnica."</em></div><input type="text" class="fill-input long" data-answer="We've accumulated a lot of technical debt"><div class="feedback"></div></div>
+<div class="q fill" data-q="2-7"><div class="q-text">2. <em>"Nosso bus factor é baixo."</em></div><input type="text" class="fill-input long" data-answer="Our bus factor is low"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u2-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 02</div>
+<div class="q mcq" data-q="2-cp1" data-correct="spaghetti code"><div class="q-text">1. Código emaranhado:</div><div class="options"><button class="opt" data-val="spaghetti code">spaghetti code</button><button class="opt" data-val="silver bullet">silver bullet</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="2-cp2"><div class="q-text">2. Traduza: <em>"A gente come da própria comida de cachorro."</em></div><input type="text" class="fill-input long" data-answer="We eat our own dog food" data-ex="u2-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u2-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 3: PRAGMATIC -->
+<section class="unit" id="u3">
+<div class="unit-num"><span class="pre">Unit 03 / 08</span> · Pragmatic</div>
+<h2 class="unit-title">Pragmatic competence — <em>implicature</em>.</h2>
+<p class="lead">"Interesting choice" não significa "interessante" — significa "discordo educadamente". "I'll think about it" significa "não". Em tech leadership, ler implicature é essencial.</p>
+<table class="gram-table"><thead><tr><th>Surface</th><th>Real meaning</th></tr></thead><tbody>
+<tr><td class="em-cell">"That's an interesting take"</td><td>I disagree but I'm being polite.</td></tr>
+<tr><td class="em-cell">"I'll think about it"</td><td>It's a soft no.</td></tr>
+<tr><td class="em-cell">"With all due respect"</td><td>I'm about to disagree strongly.</td></tr>
+<tr><td class="em-cell">"As you may know..."</td><td>You should already know this.</td></tr>
+<tr><td class="em-cell">"That's a brave decision"</td><td>I think it's a bad idea.</td></tr>
+<tr><td class="em-cell">"Per my last email..."</td><td>I already told you this.</td></tr>
+<tr><td class="em-cell">"Going forward..."</td><td>Don't do that again.</td></tr>
+<tr><td class="em-cell">"Let's circle back"</td><td>I don't want to talk about this now (or ever).</td></tr>
+<tr><td class="em-cell">"Friendly reminder"</td><td>You're late, do it now.</td></tr>
+<tr><td class="em-cell">"As discussed"</td><td>Even if we never discussed it, I'm framing it as agreed.</td></tr>
+</tbody></table>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 3.1 — Decode implicature</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="3-1" data-correct="They disagree politely"><div class="q-text">1. PM diz "Interesting take" sobre sua proposta:</div><div class="options"><button class="opt" data-val="They love it">They love it</button><button class="opt" data-val="They disagree politely">They disagree politely</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-2" data-correct="Polite refusal"><div class="q-text">2. CTO: "I'll think about it" sobre sua RFC:</div><div class="options"><button class="opt" data-val="They want details">They want details</button><button class="opt" data-val="Polite refusal">Polite refusal</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-3" data-correct="Don't do that again"><div class="q-text">3. EM: "Going forward, please document RFCs":</div><div class="options"><button class="opt" data-val="Just an FYI">Just an FYI</button><button class="opt" data-val="Don't do that again">Don't do that again</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-4" data-correct="They think it's a bad idea"><div class="q-text">4. "That's a brave decision" sobre sua proposta:</div><div class="options"><button class="opt" data-val="Compliment">Compliment</button><button class="opt" data-val="They think it's a bad idea">They think it's a bad idea</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-5" data-correct="You're late"><div class="q-text">5. PM: "Friendly reminder about the doc":</div><div class="options"><button class="opt" data-val="Just a reminder">Just a reminder</button><button class="opt" data-val="You're late">You're late</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 03</div>
+<div class="q mcq" data-q="3-cp1" data-correct="They've already told you"><div class="q-text">1. "Per my last email" significa:</div><div class="options"><button class="opt" data-val="New information">New information</button><button class="opt" data-val="They've already told you">They've already told you</button></div><div class="feedback"></div></div>
+</div>
+</section>
+
+<!-- UNIT 4: TECH CANON -->
+<section class="unit" id="u4">
+<div class="unit-num"><span class="pre">Unit 04 / 08</span> · Tech canon</div>
+<h2 class="unit-title">Tech canon — <em>cultural references</em>.</h2>
+<p class="lead">"10x engineer", "mythical man-month", "two pizza team", "second-system effect", "Conway's law". Em tech blogs, podcasts e conferências, esses references são vocabulário compartilhado. Não saber = você não está no jogo.</p>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Tech Canon (24 references)</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">10x engineer</span><span class="pt-tr">eng 10x mais produtivo</span><span class="ex">controversial trope.</span></div>
+<div class="vocab-cell"><span class="term">mythical man-month</span><span class="pt-tr">o homem-mês mítico (Brooks)</span><span class="ex">adding people to late project makes it later.</span></div>
+<div class="vocab-cell"><span class="term">two-pizza team</span><span class="pt-tr">time que cabe em 2 pizzas</span><span class="ex">Bezos rule, ~6-8 people.</span></div>
+<div class="vocab-cell"><span class="term">Conway's law</span><span class="pt-tr">lei de Conway</span><span class="ex">orgs ship their org chart.</span></div>
+<div class="vocab-cell"><span class="term">Goodhart's law</span><span class="pt-tr">lei de Goodhart</span><span class="ex">when a measure becomes a target, it ceases to be a good measure.</span></div>
+<div class="vocab-cell"><span class="term">second-system effect</span><span class="pt-tr">efeito do segundo sistema</span><span class="ex">overengineering after success.</span></div>
+<div class="vocab-cell"><span class="term">build, measure, learn</span><span class="pt-tr">construir, medir, aprender</span><span class="ex">Lean Startup loop.</span></div>
+<div class="vocab-cell"><span class="term">premature optimization</span><span class="pt-tr">otimização prematura (Knuth)</span><span class="ex">root of all evil.</span></div>
+<div class="vocab-cell"><span class="term">fail fast</span><span class="pt-tr">falhar rápido</span><span class="ex">fail early to learn.</span></div>
+<div class="vocab-cell"><span class="term">rubber duck debugging</span><span class="pt-tr">debug com pato de borracha</span><span class="ex">explain to inanimate object.</span></div>
+<div class="vocab-cell"><span class="term">YAGNI (you ain't gonna need it)</span><span class="pt-tr">você não vai precisar</span><span class="ex">don't build it preemptively.</span></div>
+<div class="vocab-cell"><span class="term">DRY (don't repeat yourself)</span><span class="pt-tr">não se repita</span><span class="ex">SE principle.</span></div>
+<div class="vocab-cell"><span class="term">KISS (keep it simple)</span><span class="pt-tr">mantenha simples</span><span class="ex">simplicity over complexity.</span></div>
+<div class="vocab-cell"><span class="term">SOLID principles</span><span class="pt-tr">princípios SOLID</span><span class="ex">OOP design.</span></div>
+<div class="vocab-cell"><span class="term">CAP theorem</span><span class="pt-tr">teorema CAP</span><span class="ex">consistency, availability, partition tolerance.</span></div>
+<div class="vocab-cell"><span class="term">it's always DNS</span><span class="pt-tr">é sempre DNS</span><span class="ex">classic infra meme.</span></div>
+<div class="vocab-cell"><span class="term">there are 2 hard things</span><span class="pt-tr">há 2 coisas difíceis (cache invalidation, naming)</span><span class="ex">Phil Karlton.</span></div>
+<div class="vocab-cell"><span class="term">the 12-factor app</span><span class="pt-tr">12-factor app</span><span class="ex">Heroku methodology.</span></div>
+<div class="vocab-cell"><span class="term">Hyrum's law</span><span class="pt-tr">lei de Hyrum</span><span class="ex">all observable behaviors become depended on.</span></div>
+<div class="vocab-cell"><span class="term">cargo cult</span><span class="pt-tr">culto cargo</span><span class="ex">imitating practices without understanding.</span></div>
+<div class="vocab-cell"><span class="term">bike-shedding</span><span class="pt-tr">discussão sobre coisa trivial</span><span class="ex">arguing over color of bike shed.</span></div>
+<div class="vocab-cell"><span class="term">XY problem</span><span class="pt-tr">problema XY</span><span class="ex">asking about wrong question.</span></div>
+<div class="vocab-cell"><span class="term">Hanlon's razor</span><span class="pt-tr">navalha de Hanlon</span><span class="ex">never attribute to malice what stupidity explains.</span></div>
+<div class="vocab-cell"><span class="term">Chesterton's fence</span><span class="pt-tr">cerca de Chesterton</span><span class="ex">don't remove a fence until you know why it's there.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 4.1 — Tech canon</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="4-1" data-correct="Conway's law"><div class="q-text">1. "Orgs ship their org chart" =</div><div class="options"><button class="opt" data-val="Conway's law">Conway's law</button><button class="opt" data-val="Goodhart's law">Goodhart's law</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-2" data-correct="bike-shedding"><div class="q-text">2. Discutir sobre cor de botão por 1h em meeting:</div><div class="options"><button class="opt" data-val="bike-shedding">bike-shedding</button><button class="opt" data-val="cargo cult">cargo cult</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-3" data-correct="rubber duck debugging"><div class="q-text">3. Explicar bug pra um pato de borracha pra entender:</div><div class="options"><button class="opt" data-val="rubber duck debugging">rubber duck debugging</button><button class="opt" data-val="cargo cult">cargo cult</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-4" data-correct="YAGNI"><div class="q-text">4. Não construa antes de precisar:</div><div class="options"><button class="opt" data-val="DRY">DRY</button><button class="opt" data-val="YAGNI">YAGNI</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-5" data-correct="Chesterton's fence"><div class="q-text">5. Não remova código sem saber por que está lá:</div><div class="options"><button class="opt" data-val="Hanlon's razor">Hanlon's razor</button><button class="opt" data-val="Chesterton's fence">Chesterton's fence</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-6" data-correct="Hyrum's law"><div class="q-text">6. Todo comportamento observável vira dependência:</div><div class="options"><button class="opt" data-val="Hyrum's law">Hyrum's law</button><button class="opt" data-val="Goodhart's law">Goodhart's law</button></div><div class="feedback"></div></div>
+</div>
+</section>
+
+<!-- UNIT 5: COMPLEX SYNTAX -->
+<section class="unit" id="u5">
+<div class="unit-num"><span class="pre">Unit 05 / 08</span> · Complex syntax</div>
+<h2 class="unit-title">Complex syntax — long-form <em>writing</em>.</h2>
+<p class="lead">RFCs, op-eds, design docs longos exigem sintaxe complexa: relative + participle, embedded clauses, parallelism, anticipatory "it". Sem isso, sua escrita fica truncada.</p>
+<table class="gram-table"><thead><tr><th>Recurso</th><th>Exemplo</th></tr></thead><tbody>
+<tr><td class="em-cell">Participle clauses</td><td>Walking through the codebase, I noticed several anti-patterns.</td></tr>
+<tr><td class="em-cell">Reduced relatives</td><td>The bug found in production was unrelated to the deploy.</td></tr>
+<tr><td class="em-cell">Anticipatory "it"</td><td>It is widely understood that microservices add complexity.</td></tr>
+<tr><td class="em-cell">Parallelism</td><td>Build, measure, learn.</td></tr>
+<tr><td class="em-cell">Nominalization</td><td>The decision to migrate was driven by scale concerns.</td></tr>
+<tr><td class="em-cell">Embedded clauses</td><td>The proposal, which was drafted by SRE and approved by the EMs, will ship next quarter.</td></tr>
+</tbody></table>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 5.1 — Sintaxe avançada</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="5-1" data-correct="Walking through"><div class="q-text">1. Reduza: "While I was walking through the codebase":</div><div class="options"><button class="opt" data-val="When walking the codebase">When walking the codebase</button><button class="opt" data-val="Walking through">Walking through</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-2" data-correct="It is widely understood that"><div class="q-text">2. Forma impessoal academic:</div><div class="options"><button class="opt" data-val="Many think">Many think</button><button class="opt" data-val="It is widely understood that">It is widely understood that</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-3" data-correct="found in production"><div class="q-text">3. Reduza: "The bug that was found in production":</div><div class="options"><button class="opt" data-val="found in production">found in production</button><button class="opt" data-val="finding in production">finding in production</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u5-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 5.2 — Reescreva formal</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="5-4"><div class="q-text">1. <em>"Muitas pessoas acreditam que microservices adicionam complexidade."</em> (forma acadêmica)</div><input type="text" class="fill-input long" data-answer="It is widely believed that microservices add complexity"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u5-trans')">Verificar</button></div>
+</section>
+
+<!-- UNIT 6: ADVANCED PHRASAL/IDIOMS -->
+<section class="unit" id="u6">
+<div class="unit-num"><span class="pre">Unit 06 / 08</span> · Native-feel</div>
+<h2 class="unit-title">Advanced phrasal & idioms — <em>native-feel</em>.</h2>
+<p class="lead">"Hash out", "iron out", "take a stab at", "pencil it in", "throw together", "bake in" — são phrasal verbs que aparecem em meetings tech adultas. Sem eles, você soa um livro de gramática.</p>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Advanced phrasal/idioms</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">hash out (the details)</span><span class="pt-tr">discutir / acertar detalhes</span><span class="ex">Let's hash out the spec.</span></div>
+<div class="vocab-cell"><span class="term">iron out (issues)</span><span class="pt-tr">resolver problemas</span><span class="ex">We need to iron out the bugs.</span></div>
+<div class="vocab-cell"><span class="term">take a stab at</span><span class="pt-tr">tentar / dar uma palhada</span><span class="ex">I'll take a stab at the design.</span></div>
+<div class="vocab-cell"><span class="term">pencil it in</span><span class="pt-tr">marcar tentativamente</span><span class="ex">Let's pencil in Friday.</span></div>
+<div class="vocab-cell"><span class="term">throw together</span><span class="pt-tr">improvisar rapidamente</span><span class="ex">I threw together a prototype.</span></div>
+<div class="vocab-cell"><span class="term">bake into the design</span><span class="pt-tr">incorporar no design</span><span class="ex">Bake security in.</span></div>
+<div class="vocab-cell"><span class="term">flesh out</span><span class="pt-tr">desenvolver / detalhar</span><span class="ex">Need to flesh out the proposal.</span></div>
+<div class="vocab-cell"><span class="term">stand up (a service)</span><span class="pt-tr">subir um serviço</span><span class="ex">Stand up a new env.</span></div>
+<div class="vocab-cell"><span class="term">spin (some)thing up</span><span class="pt-tr">subir rapidamente</span><span class="ex">Spin up a test instance.</span></div>
+<div class="vocab-cell"><span class="term">tear down</span><span class="pt-tr">derrubar / desmontar</span><span class="ex">Tear down the staging env.</span></div>
+<div class="vocab-cell"><span class="term">walk through (something)</span><span class="pt-tr">explicar passo a passo</span><span class="ex">Walk me through the design.</span></div>
+<div class="vocab-cell"><span class="term">push through</span><span class="pt-tr">levar adiante / forçar</span><span class="ex">Pushed it through despite resistance.</span></div>
+<div class="vocab-cell"><span class="term">double-click on (slang)</span><span class="pt-tr">aprofundar (corp)</span><span class="ex">Let's double-click on the budget.</span></div>
+<div class="vocab-cell"><span class="term">unblock (someone)</span><span class="pt-tr">desbloquear alguém</span><span class="ex">What can I do to unblock you?</span></div>
+<div class="vocab-cell"><span class="term">drill down into</span><span class="pt-tr">aprofundar em</span><span class="ex">Drill down into the metrics.</span></div>
+<div class="vocab-cell"><span class="term">pull together</span><span class="pt-tr">organizar / agregar</span><span class="ex">Pulled together a quick deck.</span></div>
+<div class="vocab-cell"><span class="term">level set</span><span class="pt-tr">nivelar entendimento</span><span class="ex">Quick level set on goals.</span></div>
+<div class="vocab-cell"><span class="term">align on (corp)</span><span class="pt-tr">alinhar sobre</span><span class="ex">Let's align on priorities.</span></div>
+<div class="vocab-cell"><span class="term">at face value</span><span class="pt-tr">pelo valor de face</span><span class="ex">Don't take it at face value.</span></div>
+<div class="vocab-cell"><span class="term">in the trenches</span><span class="pt-tr">na linha de frente</span><span class="ex">She's in the trenches with us.</span></div>
+<div class="vocab-cell"><span class="term">a known quantity</span><span class="pt-tr">algo conhecido / confiável</span><span class="ex">React is a known quantity.</span></div>
+<div class="vocab-cell"><span class="term">read the room</span><span class="pt-tr">ler o ambiente</span><span class="ex">Read the room before pushing.</span></div>
+<div class="vocab-cell"><span class="term">connect the dots</span><span class="pt-tr">ligar os pontos</span><span class="ex">Help me connect the dots.</span></div>
+<div class="vocab-cell"><span class="term">at the 11th hour</span><span class="pt-tr">no último minuto</span><span class="ex">Approved at the 11th hour.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 6.1 — Native phrasal/idioms</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="6-1" data-correct="hash out"><div class="q-text">1. Let's ___ the API spec.</div><div class="options"><button class="opt" data-val="hash out">hash out</button><button class="opt" data-val="hash up">hash up</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-2" data-correct="take a stab at"><div class="q-text">2. I'll ___ the migration plan.</div><div class="options"><button class="opt" data-val="take a stab at">take a stab at</button><button class="opt" data-val="take a shot to">take a shot to</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-3" data-correct="walk me through"><div class="q-text">3. Can you ___ the architecture?</div><div class="options"><button class="opt" data-val="walk me through">walk me through</button><button class="opt" data-val="walk through me">walk through me</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-4" data-correct="unblock"><div class="q-text">4. What can I do to ___ you?</div><div class="options"><button class="opt" data-val="unblock">unblock</button><button class="opt" data-val="unblock to">unblock to</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-5" data-correct="iron out"><div class="q-text">5. Need to ___ the rollout issues.</div><div class="options"><button class="opt" data-val="iron out">iron out</button><button class="opt" data-val="iron over">iron over</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-6" data-correct="level set"><div class="q-text">6. Quick ___ on Q3 goals.</div><div class="options"><button class="opt" data-val="level up">level up</button><button class="opt" data-val="level set">level set</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u6-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 6.2 — Traduza native</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="6-7"><div class="q-text">1. <em>"Vamos discutir os detalhes."</em> (use hash out)</div><input type="text" class="fill-input long" data-answer="Let's hash out the details"><div class="feedback"></div></div>
+<div class="q fill" data-q="6-8"><div class="q-text">2. <em>"Aprovado no último minuto."</em></div><input type="text" class="fill-input long" data-answer="Approved at the 11th hour"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u6-trans')">Verificar</button></div>
+</section>
+
+<!-- UNIT 7: ACADEMIC -->
+<section class="unit" id="u7">
+<div class="unit-num"><span class="pre">Unit 07 / 08</span> · Academic</div>
+<h2 class="unit-title">Academic English — papers & <em>RFCs formais</em>.</h2>
+<p class="lead">Em RFCs sêniors, white-papers, design docs de altíssimo padrão você usa academic English: voz passiva, hedged claims, formal connectors, sem contractions, sem phrasal verbs casuais.</p>
+<table class="gram-table"><thead><tr><th>Casual → Academic</th><th>Exemplo</th></tr></thead><tbody>
+<tr><td>look into → investigate</td><td>We will investigate the cause.</td></tr>
+<tr><td>find out → ascertain</td><td>We must ascertain the impact.</td></tr>
+<tr><td>show → demonstrate / illustrate</td><td>The data demonstrates a clear pattern.</td></tr>
+<tr><td>think → posit / hypothesize</td><td>We posit that latency is the bottleneck.</td></tr>
+<tr><td>can't / don't (contractions)</td><td>cannot / do not</td></tr>
+<tr><td>I think → It is argued that</td><td>It is argued that this approach is optimal.</td></tr>
+</tbody></table>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 7.1 — Academic conversion</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="7-1" data-correct="investigate"><div class="q-text">1. Academic de "look into":</div><div class="options"><button class="opt" data-val="check out">check out</button><button class="opt" data-val="investigate">investigate</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-2" data-correct="demonstrates"><div class="q-text">2. Academic de "shows":</div><div class="options"><button class="opt" data-val="demonstrates">demonstrates</button><button class="opt" data-val="proves">proves</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-3" data-correct="cannot"><div class="q-text">3. Academic de "can't":</div><div class="options"><button class="opt" data-val="cannot">cannot</button><button class="opt" data-val="can not">can not</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-4" data-correct="It is argued that"><div class="q-text">4. Academic de "I think that":</div><div class="options"><button class="opt" data-val="It is argued that">It is argued that</button><button class="opt" data-val="In my opinion">In my opinion</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u7-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 7.2 — Academic rewrite</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="7-5"><div class="q-text">1. Academic de: "We need to find out the cause."</div><input type="text" class="fill-input long" data-answer="We need to ascertain the cause"><div class="feedback"></div></div>
+<div class="q fill" data-q="7-6"><div class="q-text">2. Academic de: "I think latency is the issue."</div><input type="text" class="fill-input long" data-answer="It is argued that latency is the issue"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u7-trans')">Verificar</button></div>
+</section>
+
+<!-- UNIT 8: KEYNOTE/OP-ED -->
+<section class="unit" id="u8">
+<div class="unit-num"><span class="pre">Unit 08 / 08</span> · Speaking authority</div>
+<h2 class="unit-title">Keynote & op-ed — <em>speaking authority</em>.</h2>
+<p class="lead">Em conferences, podcasts, technical articles, você combina: rhetorical questions, parallelism, calls to action, cultural references, hedged authority. É uma camada acima — onde tech leaders são identificados.</p>
+<table class="gram-table"><thead><tr><th>Recurso</th><th>Exemplo (keynote)</th></tr></thead><tbody>
+<tr><td class="em-cell">Rhetorical question</td><td>"What if we built it differently?"</td></tr>
+<tr><td class="em-cell">Triplets / Parallelism</td><td>"Build, measure, learn."</td></tr>
+<tr><td class="em-cell">Call to action</td><td>"Let's redefine what's possible."</td></tr>
+<tr><td class="em-cell">Anaphora (repetition)</td><td>"We dare. We ship. We learn."</td></tr>
+<tr><td class="em-cell">Concession + pivot</td><td>"Yes, it's hard. But hard is not impossible."</td></tr>
+<tr><td class="em-cell">Personal anecdote</td><td>"5 years ago, I was a junior. Today, I'm here."</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Keynote/Op-ed Phrases</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">imagine for a moment</span><span class="pt-tr">imagine por um momento</span><span class="ex">opens a vision.</span></div>
+<div class="vocab-cell"><span class="term">what if</span><span class="pt-tr">e se</span><span class="ex">rhetorical hook.</span></div>
+<div class="vocab-cell"><span class="term">at its core</span><span class="pt-tr">na essência</span><span class="ex">at its core, this is about trust.</span></div>
+<div class="vocab-cell"><span class="term">let me tell you a story</span><span class="pt-tr">deixa eu contar</span><span class="ex">narrative hook.</span></div>
+<div class="vocab-cell"><span class="term">it boils down to</span><span class="pt-tr">se resume a</span><span class="ex">it boils down to clarity.</span></div>
+<div class="vocab-cell"><span class="term">there's no silver bullet, but</span><span class="pt-tr">não há solução mágica, mas</span><span class="ex">hedged claim.</span></div>
+<div class="vocab-cell"><span class="term">the truth is</span><span class="pt-tr">a verdade é</span><span class="ex">authoritative pivot.</span></div>
+<div class="vocab-cell"><span class="term">here's the thing</span><span class="pt-tr">a parada é</span><span class="ex">attention grabber.</span></div>
+<div class="vocab-cell"><span class="term">the question is not X but Y</span><span class="pt-tr">a questão não é X, mas Y</span><span class="ex">reframe.</span></div>
+<div class="vocab-cell"><span class="term">we owe it to ourselves</span><span class="pt-tr">devemos a nós mesmos</span><span class="ex">moral imperative.</span></div>
+<div class="vocab-cell"><span class="term">the bottom line is</span><span class="pt-tr">a linha de fundo é</span><span class="ex">summary.</span></div>
+<div class="vocab-cell"><span class="term">if there's one thing to take away</span><span class="pt-tr">se há uma coisa pra levar</span><span class="ex">closing punch.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 8.1 — Keynote phrases</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="8-1" data-correct="At its core"><div class="q-text">1. ___, this is about trust.</div><div class="options"><button class="opt" data-val="At its core">At its core</button><button class="opt" data-val="At its center">At its center</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-2" data-correct="boils down to"><div class="q-text">2. It ___ shipping value.</div><div class="options"><button class="opt" data-val="boils down to">boils down to</button><button class="opt" data-val="goes down to">goes down to</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-3" data-correct="What if"><div class="q-text">3. ___ we built it differently? (rhetorical)</div><div class="options"><button class="opt" data-val="What if">What if</button><button class="opt" data-val="If what">If what</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-4" data-correct="The bottom line is"><div class="q-text">4. ___ we need clarity.</div><div class="options"><button class="opt" data-val="The bottom line is">The bottom line is</button><button class="opt" data-val="The line down is">The line down is</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u8-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 8.2 — Traduza keynote-style</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="8-5"><div class="q-text">1. <em>"Imagina por um momento um mundo sem bugs."</em></div><input type="text" class="fill-input long" data-answer="Imagine for a moment a world without bugs"><div class="feedback"></div></div>
+<div class="q fill" data-q="8-6"><div class="q-text">2. <em>"Se há uma coisa pra levar, é essa."</em></div><input type="text" class="fill-input long" data-answer="If there's one thing to take away, it's this"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u8-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 08</div>
+<div class="q fill" data-q="8-cp1"><div class="q-text">1. Traduza: <em>"A verdade é: não há solução mágica."</em></div><input type="text" class="fill-input long" data-answer="The truth is: there's no silver bullet" data-ex="u8-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u8-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- FINAL TEST -->
+<section class="unit" id="final-test" style="background:linear-gradient(135deg,var(--ink),#1e1b4b);color:var(--paper);padding:48px 36px;border-radius:14px;margin-top:80px">
+<div class="unit-num" style="color:var(--accent-2)"><span class="pre" style="background:var(--accent-2);color:var(--ink)">★ Final Test</span> · C2 Trilha</div>
+<h2 class="unit-title" style="color:var(--paper)">Teste final — <em>Mastery</em>.</h2>
+<p class="lead" style="color:rgba(253,242,248,.78)">15 questões finais. Mínimo: 11/15.</p>
+
+<div class="exercise" style="background:rgba(255,255,255,.05);border-color:var(--accent-2);box-shadow:5px 5px 0 var(--accent-2)">
+<div class="exercise-header" style="border-bottom-color:rgba(255,255,255,.2)"><div><div class="exercise-title" style="color:var(--paper)">Final C2 Test</div></div><span class="exercise-type" style="background:var(--accent-2);color:var(--ink)">All types</span></div>
+
+<div class="q mcq" data-q="f-1" data-correct="obtain" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">1. Formal de "get":</div><div class="options"><button class="opt" data-val="grab">grab</button><button class="opt" data-val="obtain">obtain</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-2" data-correct="technical debt" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">2. Atalhos arquiteturais que custam:</div><div class="options"><button class="opt" data-val="technical debt">technical debt</button><button class="opt" data-val="code smell">code smell</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-3" data-correct="They disagree politely" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">3. "Interesting take" significa:</div><div class="options"><button class="opt" data-val="They love it">They love it</button><button class="opt" data-val="They disagree politely">They disagree politely</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-4" data-correct="Conway's law" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">4. "Orgs ship their org chart":</div><div class="options"><button class="opt" data-val="Conway's law">Conway's law</button><button class="opt" data-val="Goodhart's law">Goodhart's law</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-5" data-correct="bike-shedding" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">5. Discutir trivialidades 1h em meeting:</div><div class="options"><button class="opt" data-val="bike-shedding">bike-shedding</button><button class="opt" data-val="cargo cult">cargo cult</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-6" data-correct="Walking through" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">6. Reduza: "While I was walking through":</div><div class="options"><button class="opt" data-val="When walking through">When walking through</button><button class="opt" data-val="Walking through">Walking through</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-7" data-correct="hash out" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">7. Let's ___ the spec.</div><div class="options"><button class="opt" data-val="hash out">hash out</button><button class="opt" data-val="hash up">hash up</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-8" data-correct="ascertain" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">8. Academic de "find out":</div><div class="options"><button class="opt" data-val="ascertain">ascertain</button><button class="opt" data-val="check">check</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-9" data-correct="At its core" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">9. ___, this is about trust.</div><div class="options"><button class="opt" data-val="At its core">At its core</button><button class="opt" data-val="In its center">In its center</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-10" data-correct="Hyrum's law" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">10. Todo comportamento observável vira dependência:</div><div class="options"><button class="opt" data-val="Hyrum's law">Hyrum's law</button><button class="opt" data-val="Goodhart's law">Goodhart's law</button></div><div class="feedback"></div></div>
+
+<div class="q fill" data-q="f-11" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">11. Reescreva academic: "We need to find out the cause."</div><input type="text" class="fill-input long" data-answer="We need to ascertain the cause" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-12" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">12. Traduza: <em style="color:rgba(255,255,255,.8)">"Acumulamos muita dívida técnica."</em></div><input type="text" class="fill-input long" data-answer="We've accumulated a lot of technical debt" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-13" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">13. Traduza: <em style="color:rgba(255,255,255,.8)">"Vamos discutir os detalhes."</em> (use hash out)</div><input type="text" class="fill-input long" data-answer="Let's hash out the details" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-14" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">14. Reescreva academic: "I think latency is the issue."</div><input type="text" class="fill-input long" data-answer="It is argued that latency is the issue" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-15" style="background:rgba(255,255,255,.06);border-left-color:var(--accent-2)"><div class="q-text" style="color:var(--paper)">15. Traduza: <em style="color:rgba(255,255,255,.8)">"A verdade é: não há solução mágica."</em></div><input type="text" class="fill-input long" data-answer="The truth is: there's no silver bullet" data-ex="final"><div class="feedback"></div></div>
+
+<button class="btn small" onclick="checkFillIns('final')" style="background:var(--accent-2);color:var(--ink);margin-top:14px">Verificar fill-ins</button>
+</div>
+
+<div style="margin-top:36px;padding:20px;background:rgba(255,255,255,.06);border-radius:8px;border-left:4px solid var(--accent-2)">
+<h4 style="color:var(--accent-2);margin-bottom:8px">★ Score guide</h4>
+<p style="color:var(--paper);font-size:14px">14+/15: você atingiu C2.<br>11-13: revisar units mais fracos.<br>&lt;11: refazer mini-checkpoints.</p>
+</div>
+</section>
+</main>
+<div class="score-display"><span>SCORE</span><span class="pt-pts" id="scoreNum">0</span><span>/ <span id="scoreTotal">—</span></span></div>
+<nav class="level-nav"><a href="05_C1_Trilha.html"><div class="lbl">← Anterior</div><div class="ttl">C1 · Trilha</div></a><a href="index.html" class="next"><div class="lbl">Trilha completa →</div><div class="ttl">Voltar ao Índice</div></a></nav>
+<footer><p>ENGLISH MASTERY · TRILHA C2 · <em>"You don't learn a language. You become someone who speaks it."</em></p><p style="margin-top:14px">Built for Brazilian tech professionals · v2.0 · Mastery</p></footer>
+<script>
+let score=0;let totalQuestions=0;
+function updateScore(){document.getElementById('scoreNum').textContent=score;document.getElementById('scoreTotal').textContent=totalQuestions;}
+function showFeedback(fb,correct,qId,hint){if(!fb)return;fb.classList.add('show',correct?'correct':'wrong');const explain=getExplanation(qId);if(correct){fb.innerHTML='<strong>✓ Correto!</strong> '+explain;}else{let msg='<strong>✗ Errado.</strong>';if(hint)msg+=' Resposta: <em>'+hint+'</em>.';msg+=' '+explain;fb.innerHTML=msg;}}
+document.querySelectorAll('.q.mcq').forEach(q=>{totalQuestions++;const opts=q.querySelectorAll('.opt');const correct=q.dataset.correct;const fb=q.querySelector('.feedback');opts.forEach(opt=>{opt.addEventListener('click',()=>{if(q.dataset.answered)return;opts.forEach(o=>o.classList.add('disabled'));if(opt.dataset.val===correct){opt.classList.add('correct');score++;showFeedback(fb,true,q.dataset.q);}else{opt.classList.add('wrong');opts.forEach(o=>{if(o.dataset.val===correct)o.classList.add('correct');});showFeedback(fb,false,q.dataset.q);}q.dataset.answered='true';updateScore();});});});
+document.querySelectorAll('.q.fill').forEach(q=>{totalQuestions++;});
+function checkFillIns(exId){const ex=document.querySelector('[data-ex="'+exId+'"]');if(!ex)return;const inputs=ex.querySelectorAll('.fill-input');inputs.forEach(input=>{if(input.dataset.checked)return;const expected=(input.dataset.answer||'').toLowerCase().trim().replace(/[.,!?;:'"]/g,'');const got=(input.value||'').toLowerCase().trim().replace(/[.,!?;:'"]/g,'');const q=input.closest('.q');const fb=q?q.querySelector('.feedback'):null;if(got===expected){input.classList.add('correct');score++;if(fb)showFeedback(fb,true,q.dataset.q);}else{input.classList.add('wrong');if(fb)showFeedback(fb,false,q.dataset.q,input.dataset.answer);}input.dataset.checked='true';});updateScore();}
+updateScore();
+window.addEventListener('scroll',()=>{const h=document.documentElement;const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressFill').style.width=pct+'%';});
+function getExplanation(qId){return EXPLANATIONS[qId]||'';}
+const EXPLANATIONS={
+'1-1':'obtain = formal de get.','1-2':'my bad = slang, casual apenas.','1-3':'LGTM = Looks Good To Me, slang de PR.','1-4':'apologies = formal de sorry.','1-5':'regarding = formal de about.',
+'1-6':'Could you obtain the data (formal).','1-7':'I want to tell the team (casual).',
+'1-cp1':'commence = formal de start. Kick off é casual.','1-cp2':'The deploy nuked prod (slang).',
+'2-1':'technical debt = metáfora financeira aplicada a código.','2-2':'dogfooding = usar próprio produto.','2-3':'bus factor = quantos podem sumir antes do projeto colapsar.','2-4':'yak shaving = perdido em prerequisites.','2-5':'tip of the iceberg = parte visível de problema maior.',
+'2-6':'We\'ve accumulated a lot of technical debt.','2-7':'Our bus factor is low.',
+'2-cp1':'spaghetti code = código emaranhado.','2-cp2':'We eat our own dog food.',
+'3-1':'Polite disagreement encoded in "interesting".','3-2':'I\'ll think about it = soft no.','3-3':'Going forward = code para "stop doing X".','3-4':'Brave decision = sarcastically negative.','3-5':'Friendly reminder = "you\'re late".',
+'3-cp1':'Per my last email = "I already told you".',
+'4-1':'Conway\'s law = orgs ship their org chart.','4-2':'bike-shedding = arguing over trivial details.','4-3':'rubber duck debugging = explain to inanimate object.','4-4':'YAGNI = You Aren\'t Gonna Need It.','4-5':'Chesterton\'s fence = don\'t remove until you understand why it\'s there.','4-6':'Hyrum\'s law = all observable behaviors become depended on.',
+'5-1':'Walking through = participle clause reduzindo "While I was walking".','5-2':'It is widely understood that = forma impessoal academic.','5-3':'Reduced relative: "found in production" = "that was found".',
+'5-4':'It is widely believed that microservices add complexity.',
+'6-1':'hash out = discutir/acertar (não hash up).','6-2':'take a stab AT (preposição).','6-3':'walk ME through (objeto entre partes do phrasal).','6-4':'unblock alguém.','6-5':'iron out = resolver problemas.','6-6':'level set = nivelar entendimento.',
+'6-7':'Let\'s hash out the details.','6-8':'Approved at the 11th hour.',
+'7-1':'investigate = formal de look into.','7-2':'demonstrates é mais hedged que "proves".','7-3':'cannot (uma palavra) é a forma academic.','7-4':'It is argued that = forma impessoal.',
+'7-5':'We need to ascertain the cause.','7-6':'It is argued that latency is the issue.',
+'8-1':'At its core = na essência.','8-2':'boils down to = se resume a.','8-3':'What if = rhetorical question.','8-4':'The bottom line is = summary.',
+'8-5':'Imagine for a moment a world without bugs.','8-6':'If there\'s one thing to take away, it\'s this.',
+'8-cp1':'The truth is: there\'s no silver bullet.',
+'f-1':'obtain = formal.','f-2':'technical debt.','f-3':'Polite disagreement.','f-4':'Conway\'s law.','f-5':'bike-shedding.','f-6':'Walking through (participle).','f-7':'hash out.','f-8':'ascertain.','f-9':'At its core.','f-10':'Hyrum\'s law.','f-11':'We need to ascertain the cause.','f-12':'We\'ve accumulated a lot of technical debt.','f-13':'Let\'s hash out the details.','f-14':'It is argued that latency is the issue.','f-15':'The truth is: there\'s no silver bullet.'
+};
+</script>
+</body>
+</html>
