@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C1 Trilha — Style, Register & Executive Communication · English Mastery for Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1f2937;--paper:#fafaf9;--paper-warm:#f5f5f4;--ink:#0c0a09;--ink-soft:#1f2937;--muted:#57534e;--accent:#d4af37;--accent-2:#fbbf24;--accent-soft:#fef3c7;--green:#15803d;--green-soft:#bbf7d0;--red:#dc2626;--red-soft:#fee2e2;--line:rgba(12,10,9,.12);--shadow:0 1px 0 rgba(0,0,0,.05),0 8px 24px -4px rgba(12,10,9,.18);}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(12,10,9,.05) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.5}
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--ink),var(--accent));width:0%;transition:width .2s}
+.hero{position:relative;background:var(--bg);color:var(--paper);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(212,175,55,.22),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(251,191,36,.08),transparent 50%)}
+.hero::after{content:'C1';position:absolute;right:-30px;bottom:-80px;font-family:'Fraunces',serif;font-size:380px;font-weight:300;color:rgba(250,250,249,.04);line-height:.8;letter-spacing:-.05em;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:var(--ink);padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:var(--ink);font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,110px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px;color:var(--paper)}
+h1.title em{font-style:italic;color:var(--accent);font-weight:400}h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,21px);max-width:680px;color:rgba(250,250,249,.78);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(250,250,249,.18)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(250,250,249,.65);margin-top:8px}
+main{max-width:1200px;margin:0 auto;padding:60px 6vw;position:relative;z-index:1}
+.toc{background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent);margin-bottom:6px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
+.toc .toc-sub{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:rgba(250,250,249,.7);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:7px 0;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:flex-start;gap:10px}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;font-size:11px;flex-shrink:0;padding-top:2px}
+.toc a{color:var(--paper);text-decoration:none;transition:color .2s;line-height:1.4}.toc a:hover{color:var(--accent)}
+section.unit{margin-bottom:100px;scroll-margin-top:20px;padding-top:20px}
+.unit-num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#92400e;letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.unit-num::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,#92400e,transparent)}
+.unit-num .pre{background:var(--accent-soft);color:#92400e;padding:3px 10px;border-radius:3px;font-size:10px}
+h2.unit-title{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,56px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+h2.unit-title em{font-style:italic;color:#92400e}
+.lead{font-size:18px;color:#374151;max-width:780px;margin-bottom:32px}
+h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:32px 0 14px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#92400e;margin-bottom:10px}
+p{margin-bottom:14px;font-size:16px}
+.gram-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--accent);padding:12px 16px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}.gram-table tr:hover{background:var(--paper-warm)}
+.gram-table .em-cell{color:#92400e;font-weight:700;font-family:'JetBrains Mono',monospace}
+.warning-box{background:linear-gradient(135deg,var(--ink),#1f2937);color:var(--paper);padding:36px;border-radius:8px;margin:28px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent);margin-top:0;font-size:22px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:20px;font-size:15px}
+.compare-wrong{background:rgba(220,38,38,.16);border-left:4px solid var(--red)}
+.compare-right{background:rgba(21,128,61,.16);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}.compare-right .label{color:#86efac}
+.compare-cell .pt{font-style:italic;opacity:.7;font-size:14px;margin-bottom:6px}
+.compare-cell .en{font-weight:600;font-size:17px}
+.compare-cell .why{font-size:13px;margin-top:10px;opacity:.78;line-height:1.5}
+.tech-vocab{background:linear-gradient(135deg,var(--accent-soft),#fde68a);padding:28px;border-radius:8px;margin:32px 0;border-left:4px solid var(--ink)}
+.tech-vocab h4{color:var(--ink);margin-bottom:14px;font-size:13px}
+.tech-vocab .vocab-intro{font-size:14px;color:#374151;margin-bottom:14px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.vocab-cell{background:#fff;padding:12px 14px;border-radius:6px;font-size:13px;border:1px solid var(--line)}
+.vocab-cell .term{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:15px;display:block}
+.vocab-cell .pt-tr{color:#92400e;font-size:12px;display:block;margin-top:2px;font-style:italic}
+.vocab-cell .ex{color:var(--muted);font-size:12px;display:block;margin-top:6px;border-top:1px dashed var(--line);padding-top:6px;line-height:1.4}
+.exercise{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:26px;margin:30px 0;box-shadow:5px 5px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:10px}
+.exercise-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+.exercise-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;background:var(--ink);color:var(--accent);padding:5px 10px;border-radius:3px}
+.q{margin:16px 0;padding:18px;background:var(--paper-warm);border-radius:6px;border-left:3px solid var(--accent)}
+.q-text{font-size:16px;margin-bottom:12px;font-weight:500;line-height:1.5}
+.q .pt-hint{display:block;font-style:italic;color:var(--muted);font-size:13px;margin-top:6px}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:9px 16px;font-size:14px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--accent)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;padding:4px 8px;width:140px;text-align:center;color:#92400e;outline:none}
+.fill-input:focus{border-color:var(--accent);background:var(--accent-soft)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+.fill-input.long{width:100%;text-align:left;font-size:15px;border-bottom:2px solid var(--ink);font-family:'Inter',sans-serif;font-weight:500}
+.reorder-zone{margin-top:10px}
+.word-built{min-height:54px;padding:14px;border:2px dashed var(--accent);border-radius:6px;background:#fff;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
+.word-built:empty::before{content:'Clique nas palavras abaixo →';color:var(--muted);font-style:italic;font-size:13px}
+.word-pool{display:flex;flex-wrap:wrap;gap:8px}
+.word{background:var(--accent-soft);color:var(--ink);border:2px solid var(--accent);padding:7px 14px;font-family:'Fraunces',serif;font-size:16px;cursor:pointer;border-radius:6px;transition:all .15s;font-weight:500}
+.word:hover{background:var(--accent);color:var(--ink);transform:translateY(-2px)}
+.word-built.correct-reorder{border-color:var(--green);background:var(--green-soft)}
+.word-built.correct-reorder .word{background:var(--green);color:#fff;border-color:var(--green)}
+.word-built.wrong-reorder{border-color:var(--red);background:var(--red-soft)}
+.word-built.wrong-reorder .word{background:var(--red);color:#fff;border-color:var(--red)}
+.error-sentence{font-family:'Fraunces',serif;font-size:18px;line-height:2;margin:14px 0;padding:14px;background:#fff;border-radius:6px;border:1px dashed var(--line)}
+.word-clickable{display:inline-block;padding:3px 8px;margin:2px;border-radius:4px;cursor:pointer;border:1px solid transparent;transition:all .15s;font-weight:500}
+.word-clickable:hover{background:var(--accent-soft);border-color:var(--accent)}
+.word-clickable.correct{background:var(--green);color:#fff;border-color:var(--green);animation:pop .3s}
+.word-clickable.wrong{background:var(--red);color:#fff;border-color:var(--red);animation:shake .4s}
+.feedback{margin-top:12px;padding:11px 14px;border-radius:5px;font-size:13.5px;display:none;line-height:1.5}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:var(--green-soft);color:#0a4a23;border-left:3px solid var(--green)}
+.feedback.wrong{background:var(--red-soft);color:#7f1d1d;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:3px}
+.btn{background:var(--ink);color:var(--accent);border:none;padding:11px 22px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:5px;transition:all .2s;margin-top:8px}
+.btn:hover{background:#374151;transform:translateY(-2px)}
+.btn.small{padding:8px 16px;font-size:11px;margin-top:4px}
+.checkpoint{background:linear-gradient(135deg,var(--ink),#374151);color:var(--paper);padding:30px;border-radius:10px;margin:36px 0}
+.checkpoint .cp-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
+.checkpoint h3{color:var(--paper);margin-top:0;font-size:24px}
+.checkpoint .q{background:rgba(255,255,255,.06);border-left-color:var(--accent)}
+.checkpoint .q-text{color:var(--paper)}
+.checkpoint .opt{background:transparent;color:var(--paper);border-color:var(--paper)}
+.checkpoint .opt:hover{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.checkpoint .fill-input{color:var(--accent);border-color:var(--accent)}
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--accent);padding:14px 22px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(12,10,9,.45);z-index:50;display:flex;align-items:center;gap:10px}
+.score-display .pt-pts{color:var(--accent-2);font-size:20px}
+.level-nav{padding:50px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line);margin-top:60px}
+.level-nav a{background:var(--paper);padding:26px;text-decoration:none;color:var(--ink);transition:background .2s}
+.level-nav a:hover{background:#fff}.level-nav a.next{text-align:right}
+.level-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#374151;margin-bottom:8px}
+.level-nav .ttl{font-family:'Fraunces',serif;font-style:italic;font-size:26px;font-weight:300}
+footer{background:var(--ink);color:var(--paper);padding:50px 6vw;text-align:center}
+footer p{color:rgba(250,250,249,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer em{font-family:'Fraunces',serif;font-style:italic;color:var(--accent);font-size:15px}
+@media(min-width:1024px){
+  main{display:grid;grid-template-columns:260px 1fr;gap:60px;align-items:start;padding:60px 6vw}
+  main > .toc{grid-column:1;grid-row:1/-1;position:sticky;top:24px;max-height:calc(100vh - 60px);overflow-y:auto;margin-bottom:0;padding:20px;align-self:start}
+  main > .toc h4{font-size:11px}main > .toc li{padding:6px 0;font-size:13px;line-height:1.4}
+  main > section.unit{grid-column:2;min-width:0}
+}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr}.hero{padding:60px 6vw 80px}.score-display{bottom:12px;right:12px;padding:10px 14px;font-size:12px}.score-display .pt-pts{font-size:16px}.exercise{padding:18px;box-shadow:3px 3px 0 var(--ink)}}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<header class="hero"><div class="hero-content">
+<span class="tag">Trilha C1 — Style & Executive Comms</span>
+<h1 class="title">"<em>I'd argue that</em> we<br>need to reconsider..."</h1>
+<p class="subtitle">C1 é onde tech leaders se diferenciam. Hedging em code reviews, inversions enfáticas em RFCs, cleft sentences em apresentações, advanced conditionals, idioms em conferências. Você já é fluente — agora vai soar <em>refinado</em>.</p>
+<div class="hero-stats"><div><div class="stat-num">8</div><div class="stat-label">Units</div></div><div><div class="stat-num">130+</div><div class="stat-label">Exercícios</div></div><div><div class="stat-num">100+</div><div class="stat-label">Termos tech</div></div><div><div class="stat-num">6</div><div class="stat-label">Tipos drill</div></div></div>
+</div></header>
+<main>
+<nav class="toc">
+<h4>Trilha C1</h4><div class="toc-sub">Style & register pra executive presence.</div>
+<ol>
+<li><a href="#u1">Inversions — emphatic style</a></li>
+<li><a href="#u2">Cleft sentences — focusing</a></li>
+<li><a href="#u3">Advanced conditionals — provided/unless/in case</a></li>
+<li><a href="#u4">Subjunctive — formal recommendations</a></li>
+<li><a href="#u5">Hedging — diplomatic disagreement</a></li>
+<li><a href="#u6">Discourse markers — coherent writing</a></li>
+<li><a href="#u7">Tech collocations — make/do/take</a></li>
+<li><a href="#u8">Tech idioms — low-hanging fruit, kick the can</a></li>
+</ol>
+</nav>
+
+<!-- UNIT 1: INVERSIONS -->
+<section class="unit" id="u1">
+<div class="unit-num"><span class="pre">Unit 01 / 08</span> · Emphasis</div>
+<h2 class="unit-title">Inversions — <em>emphatic</em> style.</h2>
+<p class="lead">"Never have I seen such poor monitoring", "Hardly had we deployed when the alarm went off", "Not only did we miss the deadline, but we also broke prod". Inversions adicionam ênfase dramática — comum em RFCs, postmortems formais, apresentações.</p>
+<table class="gram-table"><thead><tr><th>Trigger</th><th>Estrutura</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">Never / Rarely / Seldom</td><td>+ aux + sujeito</td><td>Never have I seen such poor docs.</td></tr>
+<tr><td class="em-cell">Hardly / Scarcely</td><td>+ had + sujeito + p.p.</td><td>Hardly had we deployed when issues started.</td></tr>
+<tr><td class="em-cell">Not only ... but also</td><td>+ did/have + sujeito</td><td>Not only did we miss SLO, but also lost trust.</td></tr>
+<tr><td class="em-cell">No sooner ... than</td><td>+ had + sujeito</td><td>No sooner had we shipped than the bug appeared.</td></tr>
+<tr><td class="em-cell">Only when / Only after</td><td>+ aux + sujeito</td><td>Only after the postmortem did we understand.</td></tr>
+<tr><td class="em-cell">Conditional inversion</td><td>Had + sujeito + p.p. (= If had)</td><td>Had we monitored, we would have caught it.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Inversion Phrases</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">Never have I seen such X</span><span class="pt-tr">nunca vi tal X</span><span class="ex">Never have I seen such poor architecture.</span></div>
+<div class="vocab-cell"><span class="term">Hardly had we deployed</span><span class="pt-tr">mal tínhamos feito deploy</span><span class="ex">Hardly had we deployed when issues began.</span></div>
+<div class="vocab-cell"><span class="term">Not only did we miss SLO</span><span class="pt-tr">não só perdemos SLO</span><span class="ex">Not only did we miss SLO, but trust eroded.</span></div>
+<div class="vocab-cell"><span class="term">No sooner had we shipped</span><span class="pt-tr">mal entregamos</span><span class="ex">No sooner had we shipped than the bug appeared.</span></div>
+<div class="vocab-cell"><span class="term">Only after the postmortem</span><span class="pt-tr">só após o postmortem</span><span class="ex">Only after the postmortem did we see the pattern.</span></div>
+<div class="vocab-cell"><span class="term">Had we known</span><span class="pt-tr">se tivéssemos sabido</span><span class="ex">Had we known, we'd have rolled back.</span></div>
+<div class="vocab-cell"><span class="term">Were it not for monitoring</span><span class="pt-tr">se não fosse pelo monitoramento</span><span class="ex">Were it not for monitoring, no one would have known.</span></div>
+<div class="vocab-cell"><span class="term">Should you encounter</span><span class="pt-tr">caso você encontre</span><span class="ex">Should you encounter issues, page on-call.</span></div>
+<div class="vocab-cell"><span class="term">Rarely do we ship on Friday</span><span class="pt-tr">raramente entregamos sexta</span><span class="ex">Rarely do we ship on Friday afternoons.</span></div>
+<div class="vocab-cell"><span class="term">Seldom have we encountered</span><span class="pt-tr">raramente encontramos</span><span class="ex">Seldom have we encountered such complexity.</span></div>
+<div class="vocab-cell"><span class="term">Little did we know</span><span class="pt-tr">mal sabíamos</span><span class="ex">Little did we know what was coming.</span></div>
+<div class="vocab-cell"><span class="term">Such was the impact</span><span class="pt-tr">tal foi o impacto</span><span class="ex">Such was the impact that we had to escalate.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 1.1 — Inversions</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="1-1" data-correct="have I seen"><div class="q-text">1. Never ___ such bad architecture.</div><div class="options"><button class="opt" data-val="I have seen">I have seen</button><button class="opt" data-val="have I seen">have I seen</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-2" data-correct="had we deployed"><div class="q-text">2. Hardly ___ when issues started.</div><div class="options"><button class="opt" data-val="we had deployed">we had deployed</button><button class="opt" data-val="had we deployed">had we deployed</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-3" data-correct="did we miss SLO"><div class="q-text">3. Not only ___ but trust eroded.</div><div class="options"><button class="opt" data-val="we missed SLO">we missed SLO</button><button class="opt" data-val="did we miss SLO">did we miss SLO</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-4" data-correct="Had we known"><div class="q-text">4. ___, we'd have rolled back. (sem "if")</div><div class="options"><button class="opt" data-val="If we knew">If we knew</button><button class="opt" data-val="Had we known">Had we known</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-5" data-correct="did we understand"><div class="q-text">5. Only after the postmortem ___.</div><div class="options"><button class="opt" data-val="we understood">we understood</button><button class="opt" data-val="did we understand">did we understand</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-6" data-correct="Should you encounter"><div class="q-text">6. ___ issues, page on-call. (formal)</div><div class="options"><button class="opt" data-val="If you should encounter">If you should encounter</button><button class="opt" data-val="Should you encounter">Should you encounter</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u1-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 1.2 — Traduza com inversion</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="1-7"><div class="q-text">1. <em>"Nunca vi uma arquitetura tão limpa."</em></div><input type="text" class="fill-input long" data-answer="Never have I seen such clean architecture"><div class="feedback"></div></div>
+<div class="q fill" data-q="1-8"><div class="q-text">2. <em>"Se a gente tivesse monitorado, teríamos pego."</em> (use Had)</div><input type="text" class="fill-input long" data-answer="Had we monitored, we would have caught it"><div class="feedback"></div></div>
+<div class="q fill" data-q="1-9"><div class="q-text">3. <em>"Caso encontre problemas, escalem pro on-call."</em> (use Should)</div><input type="text" class="fill-input long" data-answer="Should you encounter issues, escalate to on-call"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u1-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 01</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="1-cp1" data-correct="have we encountered"><div class="q-text">1. Seldom ___ such a tricky bug.</div><div class="options"><button class="opt" data-val="we have encountered">we have encountered</button><button class="opt" data-val="have we encountered">have we encountered</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="1-cp2"><div class="q-text">2. Traduza: <em>"Mal tínhamos entregue, o bug apareceu."</em> (use No sooner)</div><input type="text" class="fill-input long" data-answer="No sooner had we shipped than the bug appeared" data-ex="u1-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u1-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 2: CLEFT SENTENCES -->
+<section class="unit" id="u2">
+<div class="unit-num"><span class="pre">Unit 02 / 08</span> · Cleft</div>
+<h2 class="unit-title">Cleft sentences — <em>focusing</em>.</h2>
+<p class="lead">"<strong>It was the deploy</strong> that broke prod" (não outro componente). "<strong>What we need</strong> is more observability" (foco no objetivo). Cleft sentences destacam um elemento — comum em apresentações e contraposições.</p>
+<table class="gram-table"><thead><tr><th>Tipo</th><th>Estrutura</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">It-cleft</td><td>It + be + elemento + that/who</td><td>It was the migration that caused this.</td></tr>
+<tr><td class="em-cell">Wh-cleft (What)</td><td>What + cláusula + be + elemento</td><td>What we need is observability.</td></tr>
+<tr><td class="em-cell">All-cleft</td><td>All + cláusula + be + elemento</td><td>All we need is more time.</td></tr>
+<tr><td class="em-cell">Reason cleft</td><td>The reason + clause + is/was</td><td>The reason it failed was a config bug.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Cleft for Tech Decisions</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">It was the deploy that</span><span class="pt-tr">foi o deploy que</span><span class="ex">It was the deploy that broke prod.</span></div>
+<div class="vocab-cell"><span class="term">It's the team that owns</span><span class="pt-tr">é o time que owna</span><span class="ex">It's the platform team that owns this.</span></div>
+<div class="vocab-cell"><span class="term">What we need is</span><span class="pt-tr">o que a gente precisa é</span><span class="ex">What we need is more observability.</span></div>
+<div class="vocab-cell"><span class="term">What concerns me is</span><span class="pt-tr">o que me preocupa é</span><span class="ex">What concerns me is the lack of tests.</span></div>
+<div class="vocab-cell"><span class="term">All we need is</span><span class="pt-tr">tudo que precisamos é</span><span class="ex">All we need is two more weeks.</span></div>
+<div class="vocab-cell"><span class="term">The reason it failed</span><span class="pt-tr">o motivo de ter falhado</span><span class="ex">The reason it failed was a config bug.</span></div>
+<div class="vocab-cell"><span class="term">It was in 2023 that we</span><span class="pt-tr">foi em 2023 que nós</span><span class="ex">It was in 2023 that we migrated.</span></div>
+<div class="vocab-cell"><span class="term">What surprises me is</span><span class="pt-tr">o que me surpreende é</span><span class="ex">What surprises me is the silence.</span></div>
+<div class="vocab-cell"><span class="term">The thing about X is</span><span class="pt-tr">a parada com X é</span><span class="ex">The thing about microservices is overhead.</span></div>
+<div class="vocab-cell"><span class="term">It was John who</span><span class="pt-tr">foi o John que</span><span class="ex">It was John who proposed it.</span></div>
+<div class="vocab-cell"><span class="term">What matters is</span><span class="pt-tr">o que importa é</span><span class="ex">What matters is delivering value.</span></div>
+<div class="vocab-cell"><span class="term">Where I disagree is</span><span class="pt-tr">onde eu discordo é</span><span class="ex">Where I disagree is the timeline.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 2.1 — Cleft sentences</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="2-1" data-correct="It was the migration that"><div class="q-text">1. ___ caused this incident.</div><div class="options"><button class="opt" data-val="The migration that">The migration that</button><button class="opt" data-val="It was the migration that">It was the migration that</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-2" data-correct="What we need is"><div class="q-text">2. ___ better observability.</div><div class="options"><button class="opt" data-val="That we need">That we need</button><button class="opt" data-val="What we need is">What we need is</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-3" data-correct="The reason it failed was"><div class="q-text">3. ___ a config bug.</div><div class="options"><button class="opt" data-val="It failed because">It failed because</button><button class="opt" data-val="The reason it failed was">The reason it failed was</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-4" data-correct="It was Maria who"><div class="q-text">4. ___ proposed the architecture.</div><div class="options"><button class="opt" data-val="That was Maria who">That was Maria who</button><button class="opt" data-val="It was Maria who">It was Maria who</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u2-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 2.2 — Traduza cleft</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="2-5"><div class="q-text">1. <em>"O que me preocupa é a falta de testes."</em></div><input type="text" class="fill-input long" data-answer="What concerns me is the lack of tests"><div class="feedback"></div></div>
+<div class="q fill" data-q="2-6"><div class="q-text">2. <em>"Foi o time de plataforma que owna isso."</em></div><input type="text" class="fill-input long" data-answer="It was the platform team that owns this"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u2-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 02</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="2-cp1" data-correct="What matters is"><div class="q-text">1. ___ shipping value, not perfection.</div><div class="options"><button class="opt" data-val="That matters">That matters</button><button class="opt" data-val="What matters is">What matters is</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="2-cp2"><div class="q-text">2. Traduza: <em>"Tudo que a gente precisa é mais 2 semanas."</em></div><input type="text" class="fill-input long" data-answer="All we need is 2 more weeks" data-ex="u2-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u2-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 3: ADVANCED CONDITIONALS -->
+<section class="unit" id="u3">
+<div class="unit-num"><span class="pre">Unit 03 / 08</span> · Advanced if</div>
+<h2 class="unit-title">Advanced conditionals — <em>provided</em>, unless, in case.</h2>
+<p class="lead">No B1 você dominou os 4 conditionals básicos. Aqui as variantes formais que aparecem em RFCs, contracts, technical specs: provided that, supposing, unless, in case, but for, were it not for, otherwise.</p>
+<table class="gram-table"><thead><tr><th>Conector</th><th>Função</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">provided that / providing</td><td>contanto que (formal)</td><td>We'll ship provided that all tests pass.</td></tr>
+<tr><td class="em-cell">on condition that</td><td>com a condição que</td><td>Approved on condition that QA reviews.</td></tr>
+<tr><td class="em-cell">supposing</td><td>e se</td><td>Supposing the migration fails, what's the rollback?</td></tr>
+<tr><td class="em-cell">unless</td><td>a menos que (= if not)</td><td>We won't deploy unless tests pass.</td></tr>
+<tr><td class="em-cell">in case</td><td>caso (preventivo)</td><td>Add monitoring in case it fails.</td></tr>
+<tr><td class="em-cell">as long as</td><td>desde que</td><td>As long as it's documented, it's fine.</td></tr>
+<tr><td class="em-cell">but for + noun</td><td>se não fosse</td><td>But for the rollback, we'd be down.</td></tr>
+<tr><td class="em-cell">otherwise</td><td>caso contrário</td><td>Test thoroughly. Otherwise, we'll regret it.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Conditional Phrases for RFCs</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">provided that all tests pass</span><span class="pt-tr">contanto que tests passem</span><span class="ex">in RFCs/specs.</span></div>
+<div class="vocab-cell"><span class="term">unless we get approval</span><span class="pt-tr">a menos que aprovem</span><span class="ex">in approval flows.</span></div>
+<div class="vocab-cell"><span class="term">in case it fails</span><span class="pt-tr">caso falhe</span><span class="ex">preventive design.</span></div>
+<div class="vocab-cell"><span class="term">as long as it's tested</span><span class="pt-tr">desde que testado</span><span class="ex">approval condition.</span></div>
+<div class="vocab-cell"><span class="term">supposing it scales</span><span class="pt-tr">supondo que escale</span><span class="ex">hypothetical.</span></div>
+<div class="vocab-cell"><span class="term">but for the cache layer</span><span class="pt-tr">se não fosse o cache</span><span class="ex">but for the cache, we'd be slow.</span></div>
+<div class="vocab-cell"><span class="term">otherwise we'll regret it</span><span class="pt-tr">senão vamos nos arrepender</span><span class="ex">warning.</span></div>
+<div class="vocab-cell"><span class="term">on condition that QA approves</span><span class="pt-tr">com a condição QA aprovar</span><span class="ex">conditional approval.</span></div>
+<div class="vocab-cell"><span class="term">were it not for retries</span><span class="pt-tr">se não fosse por retries</span><span class="ex">were it not for retries, cascade.</span></div>
+<div class="vocab-cell"><span class="term">should issues arise</span><span class="pt-tr">caso surjam issues</span><span class="ex">formal preventive.</span></div>
+<div class="vocab-cell"><span class="term">in the event that</span><span class="pt-tr">no caso de</span><span class="ex">in the event of an outage.</span></div>
+<div class="vocab-cell"><span class="term">assuming we have buy-in</span><span class="pt-tr">supondo que temos buy-in</span><span class="ex">assumption.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 3.1 — Advanced conditionals</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="3-1" data-correct="provided that"><div class="q-text">1. We'll merge ___ tests pass.</div><div class="options"><button class="opt" data-val="if not">if not</button><button class="opt" data-val="provided that">provided that</button><button class="opt" data-val="otherwise">otherwise</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-2" data-correct="unless"><div class="q-text">2. We won't deploy ___ tests pass.</div><div class="options"><button class="opt" data-val="if">if</button><button class="opt" data-val="unless">unless</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-3" data-correct="in case"><div class="q-text">3. Add monitoring ___ it fails. (preventivo)</div><div class="options"><button class="opt" data-val="if">if</button><button class="opt" data-val="in case">in case</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-4" data-correct="But for"><div class="q-text">4. ___ the cache, we'd be slow.</div><div class="options"><button class="opt" data-val="If for">If for</button><button class="opt" data-val="But for">But for</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-5" data-correct="Otherwise"><div class="q-text">5. Test thoroughly. ___ we'll regret it.</div><div class="options"><button class="opt" data-val="Otherwise">Otherwise</button><button class="opt" data-val="Unless">Unless</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u3-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 3.2 — Traduza</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="3-6"><div class="q-text">1. <em>"A gente vai entregar contanto que QA aprove."</em></div><input type="text" class="fill-input long" data-answer="We'll ship provided that QA approves"><div class="feedback"></div></div>
+<div class="q fill" data-q="3-7"><div class="q-text">2. <em>"Se não fosse pelos retries, teria caído em cascata."</em></div><input type="text" class="fill-input long" data-answer="Were it not for retries, it would have cascaded"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u3-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 03</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="3-cp1" data-correct="as long as"><div class="q-text">1. Approve ___ it's documented.</div><div class="options"><button class="opt" data-val="unless">unless</button><button class="opt" data-val="as long as">as long as</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="3-cp2"><div class="q-text">2. Traduza: <em>"Caso ocorram problemas, page o on-call."</em></div><input type="text" class="fill-input long" data-answer="Should issues arise, page on-call" data-ex="u3-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u3-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 4: SUBJUNCTIVE -->
+<section class="unit" id="u4">
+<div class="unit-num"><span class="pre">Unit 04 / 08</span> · Subjuntivo</div>
+<h2 class="unit-title">Subjunctive — <em>formal</em> recommendations.</h2>
+<p class="lead">Em PT é o "que ele faça". Em EN existe um subjuntivo sutil: depois de "It is essential that...", "I recommend that...", "We demand that..." use a forma BASE do verbo (sem -s, sem to). Comum em RFCs, propostas formais.</p>
+<table class="gram-table"><thead><tr><th>Trigger</th><th>Estrutura</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">It is essential that</td><td>that + sujeito + base verb</td><td>It is essential that he be on the call.</td></tr>
+<tr><td class="em-cell">I recommend that</td><td>that + sujeito + base verb</td><td>I recommend she escalate immediately.</td></tr>
+<tr><td class="em-cell">We demand that</td><td>that + sujeito + base verb</td><td>We demand that the bug be fixed.</td></tr>
+<tr><td class="em-cell">It is critical that</td><td>that + sujeito + base verb</td><td>It is critical that we monitor closely.</td></tr>
+<tr><td class="em-cell">Wish/If only</td><td>were (subjuntivo)</td><td>I wish I were senior.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Formal Recommendations</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">It is essential that he be</span><span class="pt-tr">é essencial que ele esteja</span><span class="ex">It is essential that the EM be in the call.</span></div>
+<div class="vocab-cell"><span class="term">I recommend she escalate</span><span class="pt-tr">recomendo que ela escale</span><span class="ex">I recommend she escalate immediately.</span></div>
+<div class="vocab-cell"><span class="term">It is critical that we test</span><span class="pt-tr">é crítico que testemos</span><span class="ex">It is critical that we test edge cases.</span></div>
+<div class="vocab-cell"><span class="term">We demand the issue be fixed</span><span class="pt-tr">exigimos que o problema seja corrigido</span><span class="ex">strong tone.</span></div>
+<div class="vocab-cell"><span class="term">It's vital that he attend</span><span class="pt-tr">é vital que ele compareça</span><span class="ex">It's vital that he attend the kickoff.</span></div>
+<div class="vocab-cell"><span class="term">I propose we adopt</span><span class="pt-tr">proponho que adotemos</span><span class="ex">I propose we adopt this convention.</span></div>
+<div class="vocab-cell"><span class="term">It is imperative that we ship</span><span class="pt-tr">é imperativo que entreguemos</span><span class="ex">strong necessity.</span></div>
+<div class="vocab-cell"><span class="term">Should it be that</span><span class="pt-tr">caso seja que (formal)</span><span class="ex">Should it be that we lose data...</span></div>
+<div class="vocab-cell"><span class="term">If I were CTO</span><span class="pt-tr">se eu fosse CTO</span><span class="ex">subjuntivo were.</span></div>
+<div class="vocab-cell"><span class="term">were the bug critical</span><span class="pt-tr">se o bug fosse crítico</span><span class="ex">formal subjuntive inversion.</span></div>
+<div class="vocab-cell"><span class="term">we suggest that the team</span><span class="pt-tr">sugerimos que o time</span><span class="ex">we suggest that the team review.</span></div>
+<div class="vocab-cell"><span class="term">be it ever so</span><span class="pt-tr">por mais que seja (formal)</span><span class="ex">be it ever so urgent...</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 4.1 — Subjunctive</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="4-1" data-correct="be"><div class="q-text">1. It is essential that the EM ___ at the call.</div><div class="options"><button class="opt" data-val="is">is</button><button class="opt" data-val="be">be</button><button class="opt" data-val="being">being</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-2" data-correct="escalate"><div class="q-text">2. I recommend she ___ immediately.</div><div class="options"><button class="opt" data-val="escalates">escalates</button><button class="opt" data-val="escalate">escalate</button><button class="opt" data-val="to escalate">to escalate</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-3" data-correct="were"><div class="q-text">3. If I ___ the CTO, I'd push back.</div><div class="options"><button class="opt" data-val="was">was</button><button class="opt" data-val="were">were</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-4" data-correct="be fixed"><div class="q-text">4. We demand that the bug ___ today.</div><div class="options"><button class="opt" data-val="is fixed">is fixed</button><button class="opt" data-val="be fixed">be fixed</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u4-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 4.2 — Traduza formal</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="4-5"><div class="q-text">1. <em>"É essencial que o time esteja alinhado."</em></div><input type="text" class="fill-input long" data-answer="It is essential that the team be aligned"><div class="feedback"></div></div>
+<div class="q fill" data-q="4-6"><div class="q-text">2. <em>"Recomendo que ele revise."</em></div><input type="text" class="fill-input long" data-answer="I recommend that he review"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u4-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 04</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="4-cp1" data-correct="be"><div class="q-text">1. It is critical that the migration ___ tested.</div><div class="options"><button class="opt" data-val="is">is</button><button class="opt" data-val="be">be</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="4-cp2"><div class="q-text">2. Traduza: <em>"Proponho que a gente adote essa convenção."</em></div><input type="text" class="fill-input long" data-answer="I propose that we adopt this convention" data-ex="u4-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u4-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 5: HEDGING -->
+<section class="unit" id="u5">
+<div class="unit-num"><span class="pre">Unit 05 / 08</span> · Diplomatic</div>
+<h2 class="unit-title">Hedging — diplomatic <em>disagreement</em>.</h2>
+<p class="lead">Brasileiro tende a ser direto demais em code reviews — soa rude. Em EN você suaviza com hedging: "I'm not sure if...", "It might be worth considering...", "I'd argue that...". É a marca do tech leader maduro.</p>
+<table class="gram-table"><thead><tr><th>Função</th><th>Hedge</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td>Suavizar opinião</td><td class="em-cell">I'd argue that... / It seems that...</td><td>I'd argue that this is over-engineered.</td></tr>
+<tr><td>Discordar polidamente</td><td class="em-cell">I see your point, but... / I'm not sure I agree...</td><td>I see your point, but I'm worried about scale.</td></tr>
+<tr><td>Sugerir suavemente</td><td class="em-cell">It might be worth + ING / Have you considered...?</td><td>It might be worth using a queue.</td></tr>
+<tr><td>Atenuar afirmação</td><td class="em-cell">might / could / appears to / tends to</td><td>This could lead to issues at scale.</td></tr>
+<tr><td>Pedir esclarecimento</td><td class="em-cell">Could you help me understand...?</td><td>Could you help me understand the tradeoff?</td></tr>
+</tbody></table>
+<div class="warning-box"><h3>⚠ Direto demais soa rude em EN</h3>
+<div class="compare-grid"><div class="compare-cell compare-wrong"><span class="label">❌ Direto (rude em PR)</span>
+<div class="en">This is wrong.<br>You should change this.<br>This won't scale.</div></div>
+<div class="compare-cell compare-right"><span class="label">✅ Hedged (profissional)</span>
+<div class="en">I'd argue this might not be quite right.<br>You might want to consider changing this.<br>I'm worried this won't scale.</div></div></div></div>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Code Review Hedging</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">I'd argue that</span><span class="pt-tr">eu diria que</span><span class="ex">I'd argue this is over-engineered.</span></div>
+<div class="vocab-cell"><span class="term">it seems to me that</span><span class="pt-tr">me parece que</span><span class="ex">it seems to me we're missing tests.</span></div>
+<div class="vocab-cell"><span class="term">I'm not sure I agree</span><span class="pt-tr">não sei se concordo</span><span class="ex">soft disagreement.</span></div>
+<div class="vocab-cell"><span class="term">it might be worth + ING</span><span class="pt-tr">pode valer a pena + V</span><span class="ex">it might be worth using a queue.</span></div>
+<div class="vocab-cell"><span class="term">have you considered X?</span><span class="pt-tr">você considerou X?</span><span class="ex">have you considered caching?</span></div>
+<div class="vocab-cell"><span class="term">I see your point, but</span><span class="pt-tr">entendo seu ponto, mas</span><span class="ex">acknowledge + redirect.</span></div>
+<div class="vocab-cell"><span class="term">would it make sense to</span><span class="pt-tr">faria sentido</span><span class="ex">would it make sense to add retries?</span></div>
+<div class="vocab-cell"><span class="term">I wonder if</span><span class="pt-tr">me pergunto se</span><span class="ex">I wonder if this scales.</span></div>
+<div class="vocab-cell"><span class="term">that's an interesting take, however</span><span class="pt-tr">interessante, mas</span><span class="ex">soft pivot.</span></div>
+<div class="vocab-cell"><span class="term">could you help me understand</span><span class="pt-tr">pode me ajudar a entender</span><span class="ex">non-confrontational clarification.</span></div>
+<div class="vocab-cell"><span class="term">my hunch is that</span><span class="pt-tr">meu palpite é que</span><span class="ex">soft prediction.</span></div>
+<div class="vocab-cell"><span class="term">just to play devil's advocate</span><span class="pt-tr">só pra fazer o advogado do diabo</span><span class="ex">just to play devil's advocate, what about X?</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 5.1 — Hedging em PR</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="5-1" data-correct="It might be worth"><div class="q-text">1. ___ adding retries here.</div><div class="options"><button class="opt" data-val="You must">You must</button><button class="opt" data-val="It might be worth">It might be worth</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-2" data-correct="I'm not sure I agree"><div class="q-text">2. ___ with this approach.</div><div class="options"><button class="opt" data-val="I disagree completely">I disagree completely</button><button class="opt" data-val="I'm not sure I agree">I'm not sure I agree</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-3" data-correct="Have you considered"><div class="q-text">3. ___ caching the response?</div><div class="options"><button class="opt" data-val="You should cache">You should cache</button><button class="opt" data-val="Have you considered">Have you considered</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-4" data-correct="I'd argue that"><div class="q-text">4. ___ this is over-engineered.</div><div class="options"><button class="opt" data-val="This is wrong">This is wrong</button><button class="opt" data-val="I'd argue that">I'd argue that</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u5-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 5.2 — Suavize comments</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="5-5"><div class="q-text">1. <em>"Não tenho certeza se isso vai escalar."</em></div><input type="text" class="fill-input long" data-answer="I'm not sure this will scale"><div class="feedback"></div></div>
+<div class="q fill" data-q="5-6"><div class="q-text">2. <em>"Pode valer a pena considerar uma fila."</em></div><input type="text" class="fill-input long" data-answer="It might be worth considering a queue"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u5-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 05</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="5-cp1" data-correct="it seems to me"><div class="q-text">1. ___ that we're missing edge cases.</div><div class="options"><button class="opt" data-val="it's clear">it's clear</button><button class="opt" data-val="it seems to me">it seems to me</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="5-cp2"><div class="q-text">2. Traduza: <em>"Entendo seu ponto, mas tô preocupado com escala."</em></div><input type="text" class="fill-input long" data-answer="I see your point, but I'm worried about scale" data-ex="u5-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u5-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 6: DISCOURSE MARKERS -->
+<section class="unit" id="u6">
+<div class="unit-num"><span class="pre">Unit 06 / 08</span> · Coherence</div>
+<h2 class="unit-title">Discourse markers — <em>coherent</em> writing.</h2>
+<p class="lead">Em RFCs e technical specs, você encadeia argumentos com markers: "Furthermore...", "However...", "Nevertheless...", "That said...", "On balance...". Sem eles, suas docs viram bullet points soltos.</p>
+<table class="gram-table"><thead><tr><th>Função</th><th>Marker</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td>Adicionar</td><td class="em-cell">Furthermore · Moreover · In addition</td><td>Furthermore, latency would increase.</td></tr>
+<tr><td>Contrastar</td><td class="em-cell">However · Nevertheless · That said</td><td>That said, microservices add overhead.</td></tr>
+<tr><td>Causa/efeito</td><td class="em-cell">Therefore · Consequently · As a result</td><td>Consequently, we'd need to scale.</td></tr>
+<tr><td>Exemplificar</td><td class="em-cell">For instance · For example · Namely</td><td>For instance, the auth service.</td></tr>
+<tr><td>Concluir</td><td class="em-cell">In conclusion · To sum up · On balance</td><td>On balance, REST is simpler.</td></tr>
+<tr><td>Hedging</td><td class="em-cell">Apparently · Allegedly · Presumably</td><td>Apparently, the issue is intermittent.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Discourse Markers in RFCs</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">Furthermore</span><span class="pt-tr">além disso</span><span class="ex">add reinforcing argument.</span></div>
+<div class="vocab-cell"><span class="term">However</span><span class="pt-tr">no entanto</span><span class="ex">contrast.</span></div>
+<div class="vocab-cell"><span class="term">Nevertheless</span><span class="pt-tr">apesar disso</span><span class="ex">strong contrast.</span></div>
+<div class="vocab-cell"><span class="term">That said</span><span class="pt-tr">dito isso</span><span class="ex">soft pivot after concession.</span></div>
+<div class="vocab-cell"><span class="term">Consequently</span><span class="pt-tr">consequentemente</span><span class="ex">cause/effect.</span></div>
+<div class="vocab-cell"><span class="term">For instance</span><span class="pt-tr">por exemplo</span><span class="ex">specific example.</span></div>
+<div class="vocab-cell"><span class="term">In particular</span><span class="pt-tr">em particular</span><span class="ex">narrowing focus.</span></div>
+<div class="vocab-cell"><span class="term">On balance</span><span class="pt-tr">no geral / pesando tudo</span><span class="ex">conclusion after weighing.</span></div>
+<div class="vocab-cell"><span class="term">In conclusion</span><span class="pt-tr">em conclusão</span><span class="ex">final summary.</span></div>
+<div class="vocab-cell"><span class="term">Notably</span><span class="pt-tr">notavelmente</span><span class="ex">highlighting.</span></div>
+<div class="vocab-cell"><span class="term">Specifically</span><span class="pt-tr">especificamente</span><span class="ex">narrowing.</span></div>
+<div class="vocab-cell"><span class="term">In other words</span><span class="pt-tr">em outras palavras</span><span class="ex">restating.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 6.1 — Discourse markers</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="6-1" data-correct="Furthermore"><div class="q-text">1. The migration is risky. ___, it's expensive.</div><div class="options"><button class="opt" data-val="However">However</button><button class="opt" data-val="Furthermore">Furthermore</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-2" data-correct="That said"><div class="q-text">2. REST is simpler. ___, GraphQL has its place.</div><div class="options"><button class="opt" data-val="That said">That said</button><button class="opt" data-val="Therefore">Therefore</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-3" data-correct="Consequently"><div class="q-text">3. We had no monitoring. ___, we missed the outage.</div><div class="options"><button class="opt" data-val="However">However</button><button class="opt" data-val="Consequently">Consequently</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-4" data-correct="On balance"><div class="q-text">4. ___, monolith is the right choice for our scale.</div><div class="options"><button class="opt" data-val="Apparently">Apparently</button><button class="opt" data-val="On balance">On balance</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u6-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 6.2 — Traduza markers</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="6-5"><div class="q-text">1. <em>"O custo é alto. Além disso, é arriscado."</em></div><input type="text" class="fill-input long" data-answer="The cost is high. Furthermore, it's risky"><div class="feedback"></div></div>
+<div class="q fill" data-q="6-6"><div class="q-text">2. <em>"Dito isso, há trade-offs."</em></div><input type="text" class="fill-input long" data-answer="That said, there are tradeoffs"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u6-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 06</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="6-cp1" data-correct="Notably"><div class="q-text">1. ___, the auth service is the bottleneck.</div><div class="options"><button class="opt" data-val="However">However</button><button class="opt" data-val="Notably">Notably</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="6-cp2"><div class="q-text">2. Traduza: <em>"No geral, REST faz mais sentido pra nós."</em></div><input type="text" class="fill-input long" data-answer="On balance, REST makes more sense for us" data-ex="u6-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u6-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 7: COLLOCATIONS -->
+<section class="unit" id="u7">
+<div class="unit-num"><span class="pre">Unit 07 / 08</span> · Collocations</div>
+<h2 class="unit-title">Tech collocations — <em>make / do / take</em>.</h2>
+<p class="lead">"Make a decision" não "do a decision". "Do a code review" não "make a code review". Cada substantivo combina com verbo específico. Brasileiro tropeça constantemente — saber as collocations te coloca anos-luz à frente.</p>
+<table class="gram-table"><thead><tr><th>Verb</th><th>Collocations</th></tr></thead><tbody>
+<tr><td class="em-cell">make</td><td>make a decision · make progress · make a mistake · make sense · make money · make a difference · make an effort · make a phone call</td></tr>
+<tr><td class="em-cell">do</td><td>do a code review · do a postmortem · do research · do business · do harm · do a favor · do your best · do well</td></tr>
+<tr><td class="em-cell">take</td><td>take action · take a break · take ownership · take the lead · take notes · take a chance · take advantage of</td></tr>
+<tr><td class="em-cell">have</td><td>have a meeting · have a problem · have access · have buy-in · have a discussion</td></tr>
+<tr><td class="em-cell">give</td><td>give feedback · give an example · give a presentation · give consent · give it a try</td></tr>
+<tr><td class="em-cell">get</td><td>get approval · get buy-in · get traction · get aligned · get up to speed</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Tech Collocations</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">make a decision</span><span class="pt-tr">tomar decisão</span><span class="ex">make a decision by EOW.</span></div>
+<div class="vocab-cell"><span class="term">do a code review</span><span class="pt-tr">fazer code review</span><span class="ex">do a thorough review.</span></div>
+<div class="vocab-cell"><span class="term">do a postmortem</span><span class="pt-tr">fazer postmortem</span><span class="ex">do a blameless postmortem.</span></div>
+<div class="vocab-cell"><span class="term">take ownership of</span><span class="pt-tr">assumir responsabilidade</span><span class="ex">take ownership of this service.</span></div>
+<div class="vocab-cell"><span class="term">take the lead</span><span class="pt-tr">liderar</span><span class="ex">she took the lead on the migration.</span></div>
+<div class="vocab-cell"><span class="term">have buy-in</span><span class="pt-tr">ter buy-in</span><span class="ex">we have exec buy-in.</span></div>
+<div class="vocab-cell"><span class="term">give feedback</span><span class="pt-tr">dar feedback</span><span class="ex">give actionable feedback.</span></div>
+<div class="vocab-cell"><span class="term">get up to speed</span><span class="pt-tr">se atualizar</span><span class="ex">need to get up to speed on this.</span></div>
+<div class="vocab-cell"><span class="term">get traction</span><span class="pt-tr">ganhar tração</span><span class="ex">the proposal is getting traction.</span></div>
+<div class="vocab-cell"><span class="term">heavy traffic / heavy load</span><span class="pt-tr">tráfego/carga pesada</span><span class="ex">heavy load on the DB.</span></div>
+<div class="vocab-cell"><span class="term">strong correlation</span><span class="pt-tr">correlação forte</span><span class="ex">there's a strong correlation.</span></div>
+<div class="vocab-cell"><span class="term">deeply concerning</span><span class="pt-tr">profundamente preocupante</span><span class="ex">deeply concerning trend.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 7.1 — Collocations</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="7-1" data-correct="make"><div class="q-text">1. Need to ___ a decision by EOW.</div><div class="options"><button class="opt" data-val="do">do</button><button class="opt" data-val="make">make</button><button class="opt" data-val="take">take</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-2" data-correct="do"><div class="q-text">2. Let's ___ a code review.</div><div class="options"><button class="opt" data-val="do">do</button><button class="opt" data-val="make">make</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-3" data-correct="take"><div class="q-text">3. She'll ___ ownership of the migration.</div><div class="options"><button class="opt" data-val="have">have</button><button class="opt" data-val="take">take</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-4" data-correct="get"><div class="q-text">4. Need to ___ buy-in from leadership.</div><div class="options"><button class="opt" data-val="get">get</button><button class="opt" data-val="make">make</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-5" data-correct="give"><div class="q-text">5. ___ actionable feedback in PRs.</div><div class="options"><button class="opt" data-val="Give">Give</button><button class="opt" data-val="Do">Do</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-6" data-correct="have"><div class="q-text">6. We ___ a meeting at 3.</div><div class="options"><button class="opt" data-val="do">do</button><button class="opt" data-val="have">have</button><button class="opt" data-val="make">make</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u7-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 7.2 — Traduza</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="7-7"><div class="q-text">1. <em>"A gente precisa fazer um postmortem."</em></div><input type="text" class="fill-input long" data-answer="We need to do a postmortem"><div class="feedback"></div></div>
+<div class="q fill" data-q="7-8"><div class="q-text">2. <em>"Ele assumiu a liderança da migração."</em></div><input type="text" class="fill-input long" data-answer="He took the lead on the migration"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u7-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 07</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="7-cp1" data-correct="make"><div class="q-text">1. We need to ___ progress before EOQ.</div><div class="options"><button class="opt" data-val="do">do</button><button class="opt" data-val="make">make</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="7-cp2"><div class="q-text">2. Traduza: <em>"Precisamos nos atualizar nessa stack."</em></div><input type="text" class="fill-input long" data-answer="We need to get up to speed on this stack" data-ex="u7-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u7-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 8: TECH IDIOMS -->
+<section class="unit" id="u8">
+<div class="unit-num"><span class="pre">Unit 08 / 08</span> · Idioms</div>
+<h2 class="unit-title">Tech idioms — <em>low-hanging fruit</em>, kick the can.</h2>
+<p class="lead">Em meetings de produto/eng, idioms aparecem o tempo todo: "low-hanging fruit", "kick the can down the road", "boil the ocean", "move the needle", "rabbit hole". Não são gírias — são vocabulário corporativo padrão.</p>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Essential Tech Idioms (24)</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">low-hanging fruit</span><span class="pt-tr">fruta no pé / fácil de pegar</span><span class="ex">Let's grab the low-hanging fruit first.</span></div>
+<div class="vocab-cell"><span class="term">kick the can down the road</span><span class="pt-tr">empurrar com a barriga</span><span class="ex">We can't kick this can down the road.</span></div>
+<div class="vocab-cell"><span class="term">boil the ocean</span><span class="pt-tr">tentar resolver tudo de uma vez</span><span class="ex">Don't try to boil the ocean.</span></div>
+<div class="vocab-cell"><span class="term">move the needle</span><span class="pt-tr">mover o ponteiro / impactar</span><span class="ex">This change won't move the needle.</span></div>
+<div class="vocab-cell"><span class="term">rabbit hole</span><span class="pt-tr">tocar de coelho / perder-se em detalhes</span><span class="ex">Don't go down that rabbit hole.</span></div>
+<div class="vocab-cell"><span class="term">close to the metal</span><span class="pt-tr">próximo ao hardware</span><span class="ex">Rust is close to the metal.</span></div>
+<div class="vocab-cell"><span class="term">scope creep</span><span class="pt-tr">expansão de escopo</span><span class="ex">Watch out for scope creep.</span></div>
+<div class="vocab-cell"><span class="term">analysis paralysis</span><span class="pt-tr">paralisia por análise</span><span class="ex">We're stuck in analysis paralysis.</span></div>
+<div class="vocab-cell"><span class="term">bake it in</span><span class="pt-tr">incorporar desde o início</span><span class="ex">Bake security into the design.</span></div>
+<div class="vocab-cell"><span class="term">silver bullet</span><span class="pt-tr">solução mágica</span><span class="ex">There's no silver bullet.</span></div>
+<div class="vocab-cell"><span class="term">drinking from a firehose</span><span class="pt-tr">bebendo de mangueira</span><span class="ex">Onboarding feels like drinking from a firehose.</span></div>
+<div class="vocab-cell"><span class="term">ship it</span><span class="pt-tr">manda ver</span><span class="ex">Looks good — ship it!</span></div>
+<div class="vocab-cell"><span class="term">apples to oranges</span><span class="pt-tr">comparação injusta</span><span class="ex">That's apples to oranges.</span></div>
+<div class="vocab-cell"><span class="term">moving target</span><span class="pt-tr">alvo em movimento</span><span class="ex">Requirements are a moving target.</span></div>
+<div class="vocab-cell"><span class="term">bandwidth</span><span class="pt-tr">disponibilidade pessoal</span><span class="ex">I don't have bandwidth this week.</span></div>
+<div class="vocab-cell"><span class="term">circle back</span><span class="pt-tr">voltar a falar depois</span><span class="ex">Let's circle back next week.</span></div>
+<div class="vocab-cell"><span class="term">double down</span><span class="pt-tr">dobrar a aposta</span><span class="ex">We're doubling down on perf.</span></div>
+<div class="vocab-cell"><span class="term">pivot</span><span class="pt-tr">mudar direção</span><span class="ex">Time to pivot strategy.</span></div>
+<div class="vocab-cell"><span class="term">in the weeds</span><span class="pt-tr">no detalhe / soterrado</span><span class="ex">Let's not get in the weeds.</span></div>
+<div class="vocab-cell"><span class="term">on the same page</span><span class="pt-tr">alinhados</span><span class="ex">Are we on the same page?</span></div>
+<div class="vocab-cell"><span class="term">elephant in the room</span><span class="pt-tr">o elefante na sala</span><span class="ex">Let's address the elephant in the room.</span></div>
+<div class="vocab-cell"><span class="term">moonshot</span><span class="pt-tr">aposta arriscada/ambiciosa</span><span class="ex">It's a moonshot project.</span></div>
+<div class="vocab-cell"><span class="term">put a pin in it</span><span class="pt-tr">deixar pra depois</span><span class="ex">Let's put a pin in this for now.</span></div>
+<div class="vocab-cell"><span class="term">deep dive</span><span class="pt-tr">investigação profunda</span><span class="ex">Need a deep dive on this.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 8.1 — Tech Idioms</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="8-1" data-correct="low-hanging fruit"><div class="q-text">1. Let's start with the ___.</div><div class="options"><button class="opt" data-val="silver bullet">silver bullet</button><button class="opt" data-val="low-hanging fruit">low-hanging fruit</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-2" data-correct="boil the ocean"><div class="q-text">2. Don't try to ___ in one sprint.</div><div class="options"><button class="opt" data-val="boil the ocean">boil the ocean</button><button class="opt" data-val="ship it">ship it</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-3" data-correct="kick the can down the road"><div class="q-text">3. We can't ___ on this debt.</div><div class="options"><button class="opt" data-val="kick the can down the road">kick the can down the road</button><button class="opt" data-val="ship it">ship it</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-4" data-correct="move the needle"><div class="q-text">4. This change won't ___.</div><div class="options"><button class="opt" data-val="move the needle">move the needle</button><button class="opt" data-val="boil the ocean">boil the ocean</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-5" data-correct="bandwidth"><div class="q-text">5. I don't have ___ this week.</div><div class="options"><button class="opt" data-val="bandwidth">bandwidth</button><button class="opt" data-val="capacity">capacity</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-6" data-correct="circle back"><div class="q-text">6. Let's ___ next week.</div><div class="options"><button class="opt" data-val="circle back">circle back</button><button class="opt" data-val="put a pin">put a pin</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-7" data-correct="elephant in the room"><div class="q-text">7. Let's address the ___.</div><div class="options"><button class="opt" data-val="elephant in the room">elephant in the room</button><button class="opt" data-val="rabbit hole">rabbit hole</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-8" data-correct="rabbit hole"><div class="q-text">8. Don't go down that ___.</div><div class="options"><button class="opt" data-val="rabbit hole">rabbit hole</button><button class="opt" data-val="firehose">firehose</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u8-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 8.2 — Traduza idioms</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="8-9"><div class="q-text">1. <em>"Vamos pegar a fruta fácil primeiro."</em></div><input type="text" class="fill-input long" data-answer="Let's grab the low-hanging fruit first"><div class="feedback"></div></div>
+<div class="q fill" data-q="8-10"><div class="q-text">2. <em>"Não dá pra empurrar isso com a barriga."</em></div><input type="text" class="fill-input long" data-answer="We can't kick this can down the road"><div class="feedback"></div></div>
+<div class="q fill" data-q="8-11"><div class="q-text">3. <em>"Estamos alinhados?"</em> (idiom)</div><input type="text" class="fill-input long" data-answer="Are we on the same page"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u8-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 08</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="8-cp1" data-correct="scope creep"><div class="q-text">1. Watch out for ___.</div><div class="options"><button class="opt" data-val="scope creep">scope creep</button><button class="opt" data-val="silver bullet">silver bullet</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="8-cp2"><div class="q-text">2. Traduza: <em>"Vamos deixar isso pra depois."</em> (use put a pin)</div><input type="text" class="fill-input long" data-answer="Let's put a pin in this" data-ex="u8-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u8-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- FINAL TEST -->
+<section class="unit" id="final-test" style="background:linear-gradient(135deg,var(--ink),#374151);color:var(--paper);padding:48px 36px;border-radius:14px;margin-top:80px">
+<div class="unit-num" style="color:var(--accent)"><span class="pre" style="background:var(--accent);color:var(--ink)">★ Final Test</span> · C1 Trilha</div>
+<h2 class="unit-title" style="color:var(--paper)">Teste final — pronto pro <em>C2</em>?</h2>
+<p class="lead" style="color:rgba(250,250,249,.78)">15 questões. Mínimo: 11/15.</p>
+
+<div class="exercise" style="background:rgba(255,255,255,.05);border-color:var(--accent);box-shadow:5px 5px 0 var(--accent)">
+<div class="exercise-header" style="border-bottom-color:rgba(255,255,255,.2)"><div><div class="exercise-title" style="color:var(--paper)">Final C1 Test</div></div><span class="exercise-type" style="background:var(--accent);color:var(--ink)">All types</span></div>
+
+<div class="q mcq" data-q="f-1" data-correct="have I seen" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">1. Never ___ such bad code.</div><div class="options"><button class="opt" data-val="I have seen">I have seen</button><button class="opt" data-val="have I seen">have I seen</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-2" data-correct="Had we known" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">2. ___, we'd have rolled back.</div><div class="options"><button class="opt" data-val="If we knew">If we knew</button><button class="opt" data-val="Had we known">Had we known</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-3" data-correct="It was the migration that" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">3. ___ caused this.</div><div class="options"><button class="opt" data-val="The migration that">The migration that</button><button class="opt" data-val="It was the migration that">It was the migration that</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-4" data-correct="What we need is" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">4. ___ better observability.</div><div class="options"><button class="opt" data-val="What we need is">What we need is</button><button class="opt" data-val="That we need">That we need</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-5" data-correct="provided that" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">5. We'll merge ___ tests pass.</div><div class="options"><button class="opt" data-val="if not">if not</button><button class="opt" data-val="provided that">provided that</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-6" data-correct="be" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">6. It is essential that he ___ in the call.</div><div class="options"><button class="opt" data-val="is">is</button><button class="opt" data-val="be">be</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-7" data-correct="It might be worth" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">7. ___ adding retries.</div><div class="options"><button class="opt" data-val="You must">You must</button><button class="opt" data-val="It might be worth">It might be worth</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-8" data-correct="That said" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">8. REST is simpler. ___, GraphQL has uses.</div><div class="options"><button class="opt" data-val="That said">That said</button><button class="opt" data-val="Therefore">Therefore</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-9" data-correct="make" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">9. We need to ___ a decision.</div><div class="options"><button class="opt" data-val="do">do</button><button class="opt" data-val="make">make</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-10" data-correct="take" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">10. She'll ___ ownership.</div><div class="options"><button class="opt" data-val="have">have</button><button class="opt" data-val="take">take</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-11" data-correct="low-hanging fruit" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">11. Start with the ___.</div><div class="options"><button class="opt" data-val="silver bullet">silver bullet</button><button class="opt" data-val="low-hanging fruit">low-hanging fruit</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-12" data-correct="kick the can down the road" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">12. Can't ___ on this debt.</div><div class="options"><button class="opt" data-val="kick the can down the road">kick the can down the road</button><button class="opt" data-val="boil the ocean">boil the ocean</button></div><div class="feedback"></div></div>
+
+<div class="q fill" data-q="f-13" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">13. Traduza: <em style="color:rgba(255,255,255,.8)">"Nunca vi tal arquitetura."</em></div><input type="text" class="fill-input long" data-answer="Never have I seen such architecture" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-14" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">14. Traduza: <em style="color:rgba(255,255,255,.8)">"Eu diria que isso está over-engineered."</em></div><input type="text" class="fill-input long" data-answer="I'd argue that this is over-engineered" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-15" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">15. Traduza: <em style="color:rgba(255,255,255,.8)">"Vamos deixar isso de lado por agora."</em> (idiom)</div><input type="text" class="fill-input long" data-answer="Let's put a pin in this for now" data-ex="final"><div class="feedback"></div></div>
+
+<button class="btn small" onclick="checkFillIns('final')" style="background:var(--accent);color:var(--ink);margin-top:14px">Verificar fill-ins</button>
+</div>
+</section>
+</main>
+<div class="score-display"><span>SCORE</span><span class="pt-pts" id="scoreNum">0</span><span>/ <span id="scoreTotal">—</span></span></div>
+<nav class="level-nav"><a href="04_B2_Trilha.html"><div class="lbl">← Anterior</div><div class="ttl">B2 · Trilha</div></a><a href="06_C2_Trilha.html" class="next"><div class="lbl">Próximo →</div><div class="ttl">C2 · Trilha</div></a></nav>
+<footer><p>ENGLISH MASTERY · TRILHA C1 · <em>"Stop translating. Start thinking."</em></p><p style="margin-top:14px">Built for Brazilian tech professionals · v2.0</p></footer>
+<script>
+let score=0;let totalQuestions=0;
+function updateScore(){document.getElementById('scoreNum').textContent=score;document.getElementById('scoreTotal').textContent=totalQuestions;}
+function showFeedback(fb,correct,qId,hint){if(!fb)return;fb.classList.add('show',correct?'correct':'wrong');const explain=getExplanation(qId);if(correct){fb.innerHTML='<strong>✓ Correto!</strong> '+explain;}else{let msg='<strong>✗ Errado.</strong>';if(hint)msg+=' Resposta: <em>'+hint+'</em>.';msg+=' '+explain;fb.innerHTML=msg;}}
+document.querySelectorAll('.q.mcq').forEach(q=>{totalQuestions++;const opts=q.querySelectorAll('.opt');const correct=q.dataset.correct;const fb=q.querySelector('.feedback');opts.forEach(opt=>{opt.addEventListener('click',()=>{if(q.dataset.answered)return;opts.forEach(o=>o.classList.add('disabled'));if(opt.dataset.val===correct){opt.classList.add('correct');score++;showFeedback(fb,true,q.dataset.q);}else{opt.classList.add('wrong');opts.forEach(o=>{if(o.dataset.val===correct)o.classList.add('correct');});showFeedback(fb,false,q.dataset.q);}q.dataset.answered='true';updateScore();});});});
+document.querySelectorAll('.q.fill').forEach(q=>{totalQuestions++;});
+function checkFillIns(exId){const ex=document.querySelector('[data-ex="'+exId+'"]');if(!ex)return;const inputs=ex.querySelectorAll('.fill-input');inputs.forEach(input=>{if(input.dataset.checked)return;const expected=(input.dataset.answer||'').toLowerCase().trim().replace(/[.,!?;:'"]/g,'');const got=(input.value||'').toLowerCase().trim().replace(/[.,!?;:'"]/g,'');const q=input.closest('.q');const fb=q?q.querySelector('.feedback'):null;if(got===expected){input.classList.add('correct');score++;if(fb)showFeedback(fb,true,q.dataset.q);}else{input.classList.add('wrong');if(fb)showFeedback(fb,false,q.dataset.q,input.dataset.answer);}input.dataset.checked='true';});updateScore();}
+document.querySelectorAll('.q.reorder').forEach(q=>{totalQuestions++;const pool=q.querySelector('.word-pool');const built=q.querySelector('.word-built');pool.querySelectorAll('.word').forEach(w=>{w.addEventListener('click',()=>{if(q.dataset.answered)return;built.appendChild(w);});});built.addEventListener('click',e=>{if(e.target.classList.contains('word')&&!q.dataset.answered)pool.appendChild(e.target);});});
+function checkReorder(qId){const q=document.querySelector('.q.reorder[data-q="'+qId+'"]');if(!q||q.dataset.answered)return;const built=q.querySelector('.word-built');const fb=q.querySelector('.feedback');const wordsArr=Array.from(built.querySelectorAll('.word')).map(w=>w.textContent.trim());const built_str=wordsArr.join(' ').toLowerCase().replace(/[.,!?;:'"]/g,'');const expected=q.dataset.correct.toLowerCase().replace(/[.,!?;:'"]/g,'');if(built_str===expected){built.classList.add('correct-reorder');score++;showFeedback(fb,true,qId);}else{built.classList.add('wrong-reorder');showFeedback(fb,false,qId,q.dataset.correct);}q.dataset.answered='true';updateScore();}
+document.querySelectorAll('.q.error-find').forEach(q=>{totalQuestions++;const words=q.querySelectorAll('.word-clickable');const wrongVal=q.dataset.wrong;const fb=q.querySelector('.feedback');words.forEach(w=>{w.addEventListener('click',()=>{if(q.dataset.answered)return;if(w.dataset.val===wrongVal||w.textContent.trim()===wrongVal){w.classList.add('correct');score++;showFeedback(fb,true,q.dataset.q,q.dataset.correct);}else{w.classList.add('wrong');words.forEach(x=>{if(x.dataset.val===wrongVal)x.classList.add('correct');});showFeedback(fb,false,q.dataset.q,wrongVal+' → '+q.dataset.correct);}q.dataset.answered='true';updateScore();});});});
+updateScore();
+window.addEventListener('scroll',()=>{const h=document.documentElement;const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressFill').style.width=pct+'%';});
+function getExplanation(qId){return EXPLANATIONS[qId]||'';}
+const EXPLANATIONS={
+'1-1':'Never + inversion: have + sujeito + p.p.','1-2':'Hardly + inversion: had + sujeito + p.p.','1-3':'Not only + did + sujeito + verbo base.','1-4':'Conditional inversion: Had + sujeito + p.p. (= If had).','1-5':'Only after + inversion: did + sujeito + verbo.','1-6':'Should + inversion (formal de "If should").',
+'1-7':'Never have I seen such clean architecture.','1-8':'Had we monitored, we would have caught it.','1-9':'Should you encounter issues, escalate to on-call.',
+'1-cp1':'Seldom + inversion (have + we).','1-cp2':'No sooner had we shipped than the bug appeared.',
+'2-1':'It-cleft: It + was + elemento + that.','2-2':'Wh-cleft: What + clause + is + elemento.','2-3':'The reason + clause + is/was.','2-4':'It-cleft com pessoa: It was X who.',
+'2-5':'What concerns me is the lack of tests.','2-6':'It was the platform team that owns this.',
+'2-cp1':'What matters is...','2-cp2':'All we need is 2 more weeks.',
+'3-1':'provided that = formal "se / contanto que".','3-2':'unless = if not.','3-3':'in case = preventivo.','3-4':'But for + noun = se não fosse.','3-5':'Otherwise = caso contrário.',
+'3-6':'We\'ll ship provided that QA approves.','3-7':'Were it not for retries, it would have cascaded.',
+'3-cp1':'as long as = condição.','3-cp2':'Should issues arise, page on-call.',
+'4-1':'subjuntivo: be (forma base).','4-2':'recommend + that + base form (escalate).','4-3':'were (subjuntivo de be em hypotheticals).','4-4':'demand + that + be + p.p.',
+'4-5':'It is essential that the team be aligned.','4-6':'I recommend that he review.',
+'4-cp1':'critical + that + be (forma base).','4-cp2':'I propose that we adopt this convention.',
+'5-1':'It might be worth + ING (suggestion suave).','5-2':'I\'m not sure I agree (soft disagreement).','5-3':'Have you considered (non-confrontational).','5-4':'I\'d argue that (opinion hedge).',
+'5-5':'I\'m not sure this will scale.','5-6':'It might be worth considering a queue.',
+'5-cp1':'it seems to me (hedged observation).','5-cp2':'I see your point, but I\'m worried about scale.',
+'6-1':'Furthermore = adicionar argumento.','6-2':'That said = soft pivot após concessão.','6-3':'Consequently = causa/efeito.','6-4':'On balance = conclusão pesando tudo.',
+'6-5':'Furthermore (additional point).','6-6':'That said, there are tradeoffs.',
+'6-cp1':'Notably = highlighting specific.','6-cp2':'On balance, REST makes more sense for us.',
+'7-1':'make a decision (NÃO do/take).','7-2':'do a code review (NÃO make).','7-3':'take ownership.','7-4':'get buy-in.','7-5':'give feedback.','7-6':'have a meeting.',
+'7-7':'We need to do a postmortem.','7-8':'He took the lead on the migration.',
+'7-cp1':'make progress (NÃO do progress).','7-cp2':'We need to get up to speed on this stack.',
+'8-1':'low-hanging fruit = fácil/rápido.','8-2':'boil the ocean = tentar resolver tudo.','8-3':'kick the can = empurrar com a barriga.','8-4':'move the needle = impactar significativamente.','8-5':'bandwidth = disponibilidade pessoal.','8-6':'circle back = voltar a falar.','8-7':'elephant in the room = assunto óbvio evitado.','8-8':'rabbit hole = perder-se em detalhes.',
+'8-9':'Let\'s grab the low-hanging fruit first.','8-10':'We can\'t kick this can down the road.','8-11':'Are we on the same page.',
+'8-cp1':'scope creep = expansão de escopo.','8-cp2':'Let\'s put a pin in this.',
+'f-1':'Never + inversion.','f-2':'Conditional inversion (Had + p.p.).','f-3':'It-cleft.','f-4':'Wh-cleft.','f-5':'provided that.','f-6':'subjuntivo: be.','f-7':'It might be worth (hedge).','f-8':'That said.','f-9':'make a decision.','f-10':'take ownership.','f-11':'low-hanging fruit.','f-12':'kick the can down the road.','f-13':'Never have I seen such architecture.','f-14':'I\'d argue that this is over-engineered.','f-15':'Let\'s put a pin in this for now.'
+};
+</script>
+</body>
+</html>
