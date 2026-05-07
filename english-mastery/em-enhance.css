@@ -1,0 +1,301 @@
+/* ═══════════════════════════════════════════════════════════════
+ * English Mastery — Enhancement Layer (Styles)
+ * ═══════════════════════════════════════════════════════════════ */
+
+/* ─── BEST-SCORE BANNER (top of trilhas) ──────────────────── */
+.em-best-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, rgba(251,191,36,.15), rgba(251,113,133,.15));
+  border: 1px solid rgba(0,0,0,.08);
+  border-left: 4px solid #fbbf24;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #1a1208;
+}
+.em-best-icon { color: #fbbf24; font-size: 18px; }
+.em-best-text { flex: 1; }
+.em-best-text strong { color: #15803d; font-size: 16px; }
+.em-best-reset {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  color: inherit;
+  transition: all .15s;
+}
+.em-best-reset:hover { background: rgba(0,0,0,.08); }
+
+/* ─── DARK MODE TOGGLE BUTTON ──────────────────────────────── */
+.em-theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 200;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,.15);
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  transition: transform .2s, box-shadow .2s;
+}
+.em-theme-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+.em-theme-toggle .em-icon-sun { display: inline; }
+.em-theme-toggle .em-icon-moon { display: none; }
+[data-em-theme="dark"] .em-theme-toggle { background: #1a1a1a; border-color: rgba(255,255,255,.2); color: #fbbf24; }
+[data-em-theme="dark"] .em-theme-toggle .em-icon-sun { display: none; }
+[data-em-theme="dark"] .em-theme-toggle .em-icon-moon { display: inline; }
+
+/* ─── REVIEW BUTTON (on score widget) ─────────────────────── */
+.em-review-btn {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.3);
+  color: inherit;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  transition: all .15s;
+  margin-left: 8px;
+}
+.em-review-btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+
+/* ─── CROSS-TRILHA DASHBOARD (landing) ────────────────────── */
+.em-dashboard {
+  background: linear-gradient(135deg, #1a1208, #0a0a0a);
+  color: #f5f1e8;
+  padding: 80px 8vw;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+.em-dash-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: #fbbf24;
+  margin-bottom: 16px;
+}
+.em-dash-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -.03em;
+  margin-bottom: 16px;
+}
+.em-dash-title em { font-style: italic; color: #fbbf24; }
+.em-dash-intro {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+.em-dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.em-dash-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid #333;
+  border-left: 4px solid var(--em-c, #fbbf24);
+  padding: 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s, background .2s;
+}
+.em-dash-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.07); }
+.em-dash-code {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--em-c);
+  line-height: 1;
+}
+.em-dash-name {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  margin: 8px 0 14px;
+  color: #f5f1e8;
+}
+.em-dash-bar {
+  height: 6px;
+  background: rgba(255,255,255,.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.em-dash-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--em-c), #fbbf24);
+  transition: width .4s;
+}
+.em-dash-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #888;
+  letter-spacing: .05em;
+}
+.em-dash-reset {
+  background: transparent;
+  border: 1px solid #444;
+  color: #999;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  transition: all .15s;
+}
+.em-dash-reset:hover { color: #ef4444; border-color: #ef4444; }
+
+/* ─── DARK MODE OVERRIDES (generic, works across palettes) ─── */
+[data-em-theme="dark"] {
+  /* Force-flip the warm-paper backgrounds to dark equivalents */
+}
+[data-em-theme="dark"] body {
+  background: #0a0a0a !important;
+  color: #e5e5e5 !important;
+}
+[data-em-theme="dark"] body::before { opacity: .3 !important; filter: invert(1) !important; }
+[data-em-theme="dark"] main { background: transparent !important; color: #e5e5e5; }
+[data-em-theme="dark"] .lead { color: #b8b8b8 !important; }
+[data-em-theme="dark"] p { color: #d0d0d0; }
+[data-em-theme="dark"] h2.unit-title,
+[data-em-theme="dark"] h3,
+[data-em-theme="dark"] .unit-title { color: #f5f5f5 !important; }
+[data-em-theme="dark"] .gram-table {
+  background: #1a1a1a !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 8px 24px -4px rgba(0,0,0,.5) !important;
+}
+[data-em-theme="dark"] .gram-table th { background: #050505 !important; color: #fbbf24 !important; }
+[data-em-theme="dark"] .gram-table td { color: #d5d5d5 !important; border-bottom-color: #2a2a2a !important; }
+[data-em-theme="dark"] .gram-table tr:hover { background: #222 !important; }
+[data-em-theme="dark"] .gram-table .em-cell { color: #fbbf24 !important; }
+[data-em-theme="dark"] .exercise {
+  background: #161616 !important;
+  border-color: #444 !important;
+  box-shadow: 5px 5px 0 #0a0a0a !important;
+}
+[data-em-theme="dark"] .exercise-title { color: #f5f5f5 !important; }
+[data-em-theme="dark"] .exercise-sub { color: #999 !important; }
+[data-em-theme="dark"] .exercise-header { border-bottom-color: #333 !important; }
+[data-em-theme="dark"] .q {
+  background: #1f1f1f !important;
+  border-left-color: #fbbf24 !important;
+}
+[data-em-theme="dark"] .q-text { color: #e5e5e5 !important; }
+[data-em-theme="dark"] .q-text em { color: #fbbf24 !important; }
+[data-em-theme="dark"] .pt-hint { color: #888 !important; }
+[data-em-theme="dark"] .opt {
+  background: #2a2a2a !important;
+  color: #e5e5e5 !important;
+  border-color: #555 !important;
+}
+[data-em-theme="dark"] .opt:hover { background: #3a3a3a !important; }
+[data-em-theme="dark"] .opt.correct { background: #15803d !important; border-color: #15803d !important; color: #fff !important; }
+[data-em-theme="dark"] .opt.wrong { background: #b91c1c !important; border-color: #b91c1c !important; color: #fff !important; }
+[data-em-theme="dark"] .word-built {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+}
+[data-em-theme="dark"] .word {
+  background: #2a2a2a !important;
+  color: #fbbf24 !important;
+  border-color: #555 !important;
+}
+[data-em-theme="dark"] .word:hover { background: #3a3a3a !important; }
+[data-em-theme="dark"] .error-sentence {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+  color: #e5e5e5 !important;
+}
+[data-em-theme="dark"] .word-clickable { color: #e5e5e5 !important; }
+[data-em-theme="dark"] .word-clickable:hover { background: #2a2a2a !important; }
+[data-em-theme="dark"] .vocab-cell {
+  background: #1a1a1a !important;
+  color: #d5d5d5 !important;
+  border-color: #2a2a2a !important;
+}
+[data-em-theme="dark"] .vocab-cell .term { color: #f5f5f5 !important; }
+[data-em-theme="dark"] .vocab-cell .pt-tr { color: #fbbf24 !important; }
+[data-em-theme="dark"] .vocab-cell .ex { color: #999 !important; border-top-color: #2a2a2a !important; }
+[data-em-theme="dark"] .tech-vocab {
+  background: linear-gradient(135deg, #1a1a1a, #0a0a0a) !important;
+  border-left-color: #fbbf24 !important;
+}
+[data-em-theme="dark"] .tech-vocab h4 { color: #fbbf24 !important; }
+[data-em-theme="dark"] .tech-vocab .vocab-intro { color: #b8b8b8 !important; }
+[data-em-theme="dark"] .fill-input {
+  background: #1a1a1a !important;
+  color: #fbbf24 !important;
+  border-bottom-color: #555 !important;
+}
+[data-em-theme="dark"] .fill-input.correct { color: #4ade80 !important; border-bottom-color: #15803d !important; }
+[data-em-theme="dark"] .fill-input.wrong { color: #f87171 !important; border-bottom-color: #b91c1c !important; }
+[data-em-theme="dark"] .feedback.correct { background: rgba(21,128,61,.2) !important; color: #4ade80 !important; }
+[data-em-theme="dark"] .feedback.wrong { background: rgba(185,28,28,.2) !important; color: #f87171 !important; }
+[data-em-theme="dark"] .compare-cell.compare-wrong { background: rgba(185,28,28,.18) !important; }
+[data-em-theme="dark"] .compare-cell.compare-right { background: rgba(21,128,61,.18) !important; }
+[data-em-theme="dark"] .compare-cell .en { color: #f5f5f5 !important; }
+[data-em-theme="dark"] .compare-cell .pt { color: #aaa !important; }
+[data-em-theme="dark"] .compare-cell .why { color: #b8b8b8 !important; }
+[data-em-theme="dark"] .pair {
+  background: #2a2a2a !important;
+  color: #e5e5e5 !important;
+  border-color: #555 !important;
+}
+[data-em-theme="dark"] .pair:hover { background: #3a3a3a !important; }
+[data-em-theme="dark"] .pair.matched { background: #15803d !important; border-color: #15803d !important; color: #fff !important; }
+[data-em-theme="dark"] .pair.wrong { background: #b91c1c !important; border-color: #b91c1c !important; color: #fff !important; }
+[data-em-theme="dark"] .toc { background: #050505 !important; border: 1px solid #2a2a2a !important; }
+[data-em-theme="dark"] .level-nav a { background: #161616 !important; color: #e5e5e5 !important; }
+[data-em-theme="dark"] .level-nav a:hover { background: #1f1f1f !important; }
+[data-em-theme="dark"] footer { background: #050505 !important; }
+[data-em-theme="dark"] .em-best-banner {
+  background: linear-gradient(90deg, rgba(251,191,36,.1), rgba(251,113,133,.1)) !important;
+  color: #d5d5d5 !important;
+  border-color: rgba(255,255,255,.08) !important;
+}
+[data-em-theme="dark"] .em-best-text strong { color: #4ade80 !important; }
+
+/* hero/checkpoint already dark in most palettes — leave alone */
+
+/* ─── PRINT styles (for offline study) ─────────────────────── */
+@media print {
+  .em-theme-toggle, .em-review-btn, .score-display, .progress-bar, nav.toc, .level-nav {
+    display: none !important;
+  }
+  body { background: white !important; color: black !important; }
+  .exercise, .gram-table, .tech-vocab, .vocab-cell { break-inside: avoid; }
+  .hero { padding: 30px 6vw !important; }
+  .hero::after { display: none !important; }
+  section.unit { margin-bottom: 40px !important; }
+  .feedback { display: block !important; }
+}
+
+/* ─── REVIEWED marker (subtle) ────────────────────────────── */
+.em-reviewed { outline: 2px dashed #fbbf24; outline-offset: 2px; }
