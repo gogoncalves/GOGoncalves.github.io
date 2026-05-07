@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2 Trilha — Conditionals, Nuance & Architecture · English Mastery for Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#7f1d1d;--paper:#fef3c7;--paper-warm:#fde68a;--ink:#450a0a;--ink-soft:#7f1d1d;--muted:#7c3a3a;--accent:#fbbf24;--accent-2:#fef3c7;--accent-soft:#fde68a;--green:#15803d;--green-soft:#bbf7d0;--red:#dc2626;--red-soft:#fee2e2;--line:rgba(69,10,10,.13);--shadow:0 1px 0 rgba(0,0,0,.05),0 8px 24px -4px rgba(69,10,10,.18);}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(69,10,10,.05) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.5}
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,#7f1d1d,var(--accent));width:0%;transition:width .2s}
+.hero{position:relative;background:var(--bg);color:var(--paper);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(251,191,36,.22),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(254,243,199,.1),transparent 50%)}
+.hero::after{content:'B2';position:absolute;right:-30px;bottom:-80px;font-family:'Fraunces',serif;font-size:380px;font-weight:300;color:rgba(254,243,199,.04);line-height:.8;letter-spacing:-.05em;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:var(--ink);padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:var(--ink);font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,110px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px;color:var(--paper)}
+h1.title em{font-style:italic;color:var(--accent);font-weight:400}h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,21px);max-width:680px;color:rgba(254,243,199,.82);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(254,243,199,.18)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(254,243,199,.7);margin-top:8px}
+main{max-width:1200px;margin:0 auto;padding:60px 6vw;position:relative;z-index:1}
+.toc{background:var(--ink);color:var(--paper);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent);margin-bottom:6px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
+.toc .toc-sub{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:rgba(254,243,199,.7);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:7px 0;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:flex-start;gap:10px}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;font-size:11px;flex-shrink:0;padding-top:2px}
+.toc a{color:var(--paper);text-decoration:none;transition:color .2s;line-height:1.4}.toc a:hover{color:var(--accent)}
+section.unit{margin-bottom:100px;scroll-margin-top:20px;padding-top:20px}
+.unit-num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#7f1d1d;letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.unit-num::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,#7f1d1d,transparent)}
+.unit-num .pre{background:var(--accent-soft);color:#7f1d1d;padding:3px 10px;border-radius:3px;font-size:10px}
+h2.unit-title{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,56px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+h2.unit-title em{font-style:italic;color:#7f1d1d}
+.lead{font-size:18px;color:#5b1717;max-width:780px;margin-bottom:32px}
+h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:32px 0 14px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#7f1d1d;margin-bottom:10px}
+p{margin-bottom:14px;font-size:16px}
+.gram-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--paper);padding:12px 16px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}.gram-table tr:hover{background:#fffbeb}
+.gram-table .em-cell{color:#7f1d1d;font-weight:700;font-family:'JetBrains Mono',monospace}
+.warning-box{background:linear-gradient(135deg,#7f1d1d,#5e0e0e);color:var(--paper);padding:36px;border-radius:8px;margin:28px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent);margin-top:0;font-size:22px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:20px;font-size:15px}
+.compare-wrong{background:rgba(220,38,38,.18);border-left:4px solid var(--red)}
+.compare-right{background:rgba(21,128,61,.18);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}.compare-right .label{color:#86efac}
+.compare-cell .pt{font-style:italic;opacity:.7;font-size:14px;margin-bottom:6px}
+.compare-cell .en{font-weight:600;font-size:17px}
+.compare-cell .why{font-size:13px;margin-top:10px;opacity:.78;line-height:1.5}
+.tech-vocab{background:linear-gradient(135deg,var(--accent-soft),#fde68a);padding:28px;border-radius:8px;margin:32px 0;border-left:4px solid #7f1d1d}
+.tech-vocab h4{color:#7f1d1d;margin-bottom:14px;font-size:13px}
+.tech-vocab .vocab-intro{font-size:14px;color:#5b1717;margin-bottom:14px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.vocab-cell{background:#fff;padding:12px 14px;border-radius:6px;font-size:13px;border:1px solid var(--line)}
+.vocab-cell .term{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:15px;display:block}
+.vocab-cell .pt-tr{color:#7f1d1d;font-size:12px;display:block;margin-top:2px;font-style:italic}
+.vocab-cell .ex{color:var(--muted);font-size:12px;display:block;margin-top:6px;border-top:1px dashed var(--line);padding-top:6px;line-height:1.4}
+.exercise{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:26px;margin:30px 0;box-shadow:5px 5px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:10px}
+.exercise-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+.exercise-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;background:#7f1d1d;color:var(--paper);padding:5px 10px;border-radius:3px}
+.q{margin:16px 0;padding:18px;background:#fffbeb;border-radius:6px;border-left:3px solid #7f1d1d}
+.q-text{font-size:16px;margin-bottom:12px;font-weight:500;line-height:1.5}
+.q .pt-hint{display:block;font-style:italic;color:var(--muted);font-size:13px;margin-top:6px}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:9px 16px;font-size:14px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--paper)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;padding:4px 8px;width:140px;text-align:center;color:#7f1d1d;outline:none}
+.fill-input:focus{border-color:var(--accent);background:var(--paper-warm)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+.fill-input.long{width:100%;text-align:left;font-size:15px;border-bottom:2px solid var(--ink);font-family:'Inter',sans-serif;font-weight:500}
+.reorder-zone{margin-top:10px}
+.word-built{min-height:54px;padding:14px;border:2px dashed #7f1d1d;border-radius:6px;background:#fff;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
+.word-built:empty::before{content:'Clique nas palavras abaixo →';color:var(--muted);font-style:italic;font-size:13px}
+.word-pool{display:flex;flex-wrap:wrap;gap:8px}
+.word{background:var(--accent-soft);color:var(--ink);border:2px solid #7f1d1d;padding:7px 14px;font-family:'Fraunces',serif;font-size:16px;cursor:pointer;border-radius:6px;transition:all .15s;font-weight:500}
+.word:hover{background:#7f1d1d;color:#fff;transform:translateY(-2px)}
+.word-built.correct-reorder{border-color:var(--green);background:var(--green-soft)}
+.word-built.correct-reorder .word{background:var(--green);color:#fff;border-color:var(--green)}
+.word-built.wrong-reorder{border-color:var(--red);background:var(--red-soft)}
+.word-built.wrong-reorder .word{background:var(--red);color:#fff;border-color:var(--red)}
+.error-sentence{font-family:'Fraunces',serif;font-size:18px;line-height:2;margin:14px 0;padding:14px;background:#fff;border-radius:6px;border:1px dashed var(--line)}
+.word-clickable{display:inline-block;padding:3px 8px;margin:2px;border-radius:4px;cursor:pointer;border:1px solid transparent;transition:all .15s;font-weight:500}
+.word-clickable:hover{background:var(--accent-soft);border-color:#7f1d1d}
+.word-clickable.correct{background:var(--green);color:#fff;border-color:var(--green);animation:pop .3s}
+.word-clickable.wrong{background:var(--red);color:#fff;border-color:var(--red);animation:shake .4s}
+.match-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.match-col{display:flex;flex-direction:column;gap:8px}
+.match-col h5{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:4px}
+.pair{background:#fff;border:2px solid var(--ink);padding:10px 14px;font-size:14px;font-family:inherit;cursor:pointer;border-radius:6px;text-align:left;transition:all .15s}
+.pair:hover{background:var(--accent-soft)}
+.pair.selected{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pair.matched{background:var(--green);color:#fff;border-color:var(--green);pointer-events:none;animation:pop .3s}
+.pair.wrong{background:var(--red);color:#fff;border-color:var(--red);animation:shake .4s}
+.feedback{margin-top:12px;padding:11px 14px;border-radius:5px;font-size:13.5px;display:none;line-height:1.5}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:var(--green-soft);color:#0a4a23;border-left:3px solid var(--green)}
+.feedback.wrong{background:var(--red-soft);color:#7f1d1d;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:3px}
+.btn{background:var(--ink);color:var(--paper);border:none;padding:11px 22px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:5px;transition:all .2s;margin-top:8px}
+.btn:hover{background:#7f1d1d;transform:translateY(-2px)}
+.btn.small{padding:8px 16px;font-size:11px;margin-top:4px}
+.checkpoint{background:linear-gradient(135deg,var(--ink),#7f1d1d);color:var(--paper);padding:30px;border-radius:10px;margin:36px 0}
+.checkpoint .cp-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
+.checkpoint h3{color:var(--paper);margin-top:0;font-size:24px}
+.checkpoint .q{background:rgba(255,255,255,.06);border-left-color:var(--accent)}
+.checkpoint .q-text{color:var(--paper)}
+.checkpoint .opt{background:transparent;color:var(--paper);border-color:var(--paper)}
+.checkpoint .opt:hover{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.checkpoint .fill-input{color:var(--accent);border-color:var(--accent)}
+.checkpoint .pt-hint{color:rgba(255,255,255,.55)}
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:14px 22px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(69,10,10,.45);z-index:50;display:flex;align-items:center;gap:10px}
+.score-display .pt-pts{color:var(--accent);font-size:20px}
+.level-nav{padding:50px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line);margin-top:60px}
+.level-nav a{background:var(--paper);padding:26px;text-decoration:none;color:var(--ink);transition:background .2s}
+.level-nav a:hover{background:#fffbeb}
+.level-nav a.next{text-align:right}
+.level-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#5b1717;margin-bottom:8px}
+.level-nav .ttl{font-family:'Fraunces',serif;font-style:italic;font-size:26px;font-weight:300}
+footer{background:var(--ink);color:var(--paper);padding:50px 6vw;text-align:center}
+footer p{color:rgba(254,243,199,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer em{font-family:'Fraunces',serif;font-style:italic;color:var(--accent);font-size:15px}
+@media(min-width:1024px){
+  main{display:grid;grid-template-columns:260px 1fr;gap:60px;align-items:start;padding:60px 6vw}
+  main > .toc{grid-column:1;grid-row:1/-1;position:sticky;top:24px;max-height:calc(100vh - 60px);overflow-y:auto;margin-bottom:0;padding:20px;align-self:start}
+  main > .toc h4{font-size:11px}main > .toc li{padding:6px 0;font-size:13px;line-height:1.4}
+  main > section.unit{grid-column:2;min-width:0}
+}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr}.hero{padding:60px 6vw 80px}.score-display{bottom:12px;right:12px;padding:10px 14px;font-size:12px}.score-display .pt-pts{font-size:16px}.exercise{padding:18px;box-shadow:3px 3px 0 var(--ink)}}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<header class="hero"><div class="hero-content">
+<span class="tag">Trilha B2 — Conditionals & Architecture</span>
+<h1 class="title">"If we <em>had caught</em> this earlier..."</h1>
+<p class="subtitle">B2 é o nível da <strong>nuance</strong>. Postmortems sofisticados, hypothetical decisions, "should have done", causative ("we have it deployed by SRE"). Aqui você sai de "fluente correto" pra "fluente <em>com profundidade</em>".</p>
+<div class="hero-stats"><div><div class="stat-num">8</div><div class="stat-label">Units</div></div><div><div class="stat-num">150+</div><div class="stat-label">Exercícios</div></div><div><div class="stat-num">100+</div><div class="stat-label">Termos tech</div></div><div><div class="stat-num">6</div><div class="stat-label">Tipos drill</div></div></div>
+</div></header>
+<main>
+<nav class="toc">
+<h4>Trilha B2</h4><div class="toc-sub">Conditionals & nuance pra arch reviews e postmortems.</div>
+<ol>
+<li><a href="#u1">Past Perfect — sequence in incidents</a></li>
+<li><a href="#u2">2nd Conditional — hypothetical decisions</a></li>
+<li><a href="#u3">3rd Conditional — postmortem regrets</a></li>
+<li><a href="#u4">Mixed Conditionals — past affecting now</a></li>
+<li><a href="#u5">Wish / If only — retro regrets</a></li>
+<li><a href="#u6">Modal Perfects — must/should/might have done</a></li>
+<li><a href="#u7">Relative Clauses — describing systems</a></li>
+<li><a href="#u8">Causative — having work done</a></li>
+</ol>
+</nav>
+
+<!-- UNIT 1: PAST PERFECT -->
+<section class="unit" id="u1">
+<div class="unit-num"><span class="pre">Unit 01 / 08</span> · Sequence</div>
+<h2 class="unit-title">Past Perfect — <em>sequence</em> in incidents.</h2>
+<p class="lead">"By the time the alarm went off, we <strong>had already deployed</strong>". Duas ações no passado, uma anterior à outra. Em postmortems você narra timeline o tempo todo — Past Perfect é a ferramenta.</p>
+<table class="gram-table"><thead><tr><th>Forma</th><th>Estrutura</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td>Afirmativa</td><td class="em-cell">had + past participle</td><td>We had deployed before the alarm.</td></tr>
+<tr><td>Negativa</td><td class="em-cell">hadn't + p.p.</td><td>The team hadn't tested the edge case.</td></tr>
+<tr><td>Pergunta</td><td class="em-cell">Had + sujeito + p.p.</td><td>Had you reviewed the PR?</td></tr>
+<tr><td>Continuous</td><td class="em-cell">had been + V-ing</td><td>We had been monitoring for hours.</td></tr>
+</tbody></table>
+<div class="warning-box"><h3>⚠ Sequência: ação A antes de ação B (ambas passado)</h3>
+<div class="compare-grid"><div class="compare-cell compare-right"><span class="label">Pattern típico</span>
+<div class="en"><strong>By the time</strong> the user noticed, we <strong>had already rolled back</strong>.<br>(1) rolled back (Past Perfect = mais antigo) → (2) noticed (Past Simple = mais recente)</div></div>
+<div class="compare-cell compare-right"><span class="label">Marker words</span>
+<div class="en">before · after · by the time · when · already · just · never (before)</div></div></div></div>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Postmortem Timeline</h4>
+<div class="vocab-intro">12 frases típicas de incident report timeline.</div>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">had deployed</span><span class="pt-tr">tinha feito deploy</span><span class="ex">We had deployed at 2pm.</span></div>
+<div class="vocab-cell"><span class="term">had already rolled back</span><span class="pt-tr">já tinha revertido</span><span class="ex">By 3pm we had already rolled back.</span></div>
+<div class="vocab-cell"><span class="term">hadn't tested</span><span class="pt-tr">não tinha testado</span><span class="ex">The edge case hadn't been tested.</span></div>
+<div class="vocab-cell"><span class="term">had been monitoring</span><span class="pt-tr">estávamos monitorando</span><span class="ex">We had been monitoring for hours.</span></div>
+<div class="vocab-cell"><span class="term">by the time</span><span class="pt-tr">quando</span><span class="ex">By the time alerts fired...</span></div>
+<div class="vocab-cell"><span class="term">had identified</span><span class="pt-tr">tinha identificado</span><span class="ex">We had identified the bug.</span></div>
+<div class="vocab-cell"><span class="term">had escalated</span><span class="pt-tr">tinha escalado</span><span class="ex">PagerDuty had escalated to management.</span></div>
+<div class="vocab-cell"><span class="term">had triggered</span><span class="pt-tr">tinha disparado</span><span class="ex">The alarm had triggered earlier.</span></div>
+<div class="vocab-cell"><span class="term">had reviewed</span><span class="pt-tr">tinha revisado</span><span class="ex">Had you reviewed it?</span></div>
+<div class="vocab-cell"><span class="term">prior to that</span><span class="pt-tr">antes disso</span><span class="ex">Prior to that, we had no issues.</span></div>
+<div class="vocab-cell"><span class="term">it turned out</span><span class="pt-tr">acabou que</span><span class="ex">It turned out we had missed a step.</span></div>
+<div class="vocab-cell"><span class="term">in retrospect</span><span class="pt-tr">em retrospecto</span><span class="ex">In retrospect, we had ignored signals.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 1.1 — Past Perfect</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="1-1" data-correct="had deployed"><div class="q-text">1. By 3pm, we ___ to staging.</div><div class="options"><button class="opt" data-val="deployed">deployed</button><button class="opt" data-val="had deployed">had deployed</button><button class="opt" data-val="have deployed">have deployed</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-2" data-correct="had already rolled back"><div class="q-text">2. When users complained, we ___ the change.</div><div class="options"><button class="opt" data-val="already rolled back">already rolled back</button><button class="opt" data-val="had already rolled back">had already rolled back</button><button class="opt" data-val="have already rolled back">have already rolled back</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-3" data-correct="hadn't tested"><div class="q-text">3. We realized we ___ the edge case.</div><div class="options"><button class="opt" data-val="haven't tested">haven't tested</button><button class="opt" data-val="hadn't tested">hadn't tested</button><button class="opt" data-val="didn't test">didn't test</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-4" data-correct="had been monitoring"><div class="q-text">4. Before the alarm, we ___ for 2 hours.</div><div class="options"><button class="opt" data-val="were monitoring">were monitoring</button><button class="opt" data-val="had been monitoring">had been monitoring</button><button class="opt" data-val="had monitor">had monitor</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-5" data-correct="Had you reviewed"><div class="q-text">5. ___ the PR before merging?</div><div class="options"><button class="opt" data-val="Did you review">Did you review</button><button class="opt" data-val="Have you reviewed">Have you reviewed</button><button class="opt" data-val="Had you reviewed">Had you reviewed</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u1-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 1.2 — Traduza incident timeline</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="1-6"><div class="q-text">1. <em>"Quando o alarme tocou, a gente já tinha revertido."</em></div><input type="text" class="fill-input long" data-answer="By the time the alarm went off, we had already rolled back"><div class="feedback"></div></div>
+<div class="q fill" data-q="1-7"><div class="q-text">2. <em>"O time não tinha testado o edge case."</em></div><input type="text" class="fill-input long" data-answer="The team hadn't tested the edge case"><div class="feedback"></div></div>
+<div class="q fill" data-q="1-8"><div class="q-text">3. <em>"A gente estava monitorando há 3 horas."</em></div><input type="text" class="fill-input long" data-answer="We had been monitoring for 3 hours"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u1-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 01</div><h3>3 questões.</h3>
+<div class="q mcq" data-q="1-cp1" data-correct="had identified"><div class="q-text">1. We ___ the root cause before the executives joined.</div><div class="options"><button class="opt" data-val="identified">identified</button><button class="opt" data-val="had identified">had identified</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="1-cp2" data-correct="had been"><div class="q-text">2. The bug ___ in production for weeks.</div><div class="options"><button class="opt" data-val="was">was</button><button class="opt" data-val="had been">had been</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="1-cp3"><div class="q-text">3. Traduza: <em>"Quando você chegou, eu já tinha mergeado."</em></div><input type="text" class="fill-input long" data-answer="By the time you arrived, I had already merged" data-ex="u1-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u1-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 2: 2ND CONDITIONAL -->
+<section class="unit" id="u2">
+<div class="unit-num"><span class="pre">Unit 02 / 08</span> · Hypothetical present</div>
+<h2 class="unit-title">2nd Conditional — <em>hypothetical</em> decisions.</h2>
+<p class="lead">"If we had more engineers, we would refactor". Situação irreal/improvável no presente. Em arch reviews você usa o tempo todo: "If our scale were 10x, what would we change?".</p>
+<table class="gram-table"><thead><tr><th>Cláusula IF</th><th>Resultado</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">If + past simple</td><td class="em-cell">would + V (base)</td><td>If we had more engineers, we'd refactor.</td></tr>
+<tr><td>If + WERE (irreal)</td><td>would + V</td><td>If I were CTO, I'd change the stack.</td></tr>
+<tr><td>If + past simple</td><td>could / might + V</td><td>If we used Postgres, we could scale better.</td></tr>
+</tbody></table>
+<div class="warning-box"><h3>⚠ "If I were" — subjuntivo nativo</h3>
+<p style="color:rgba(254,243,199,.85)">Em hypotheticals, use "were" (não "was") com I/he/she/it.</p>
+<p style="margin-top:10px"><em>If I <strong>were</strong> the EM, I'd ship faster.</em> ✓ (subjuntivo)<br><em>If I <strong>was</strong> the EM, I'd ship faster.</em> (aceito mas menos formal)</p></div>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Hypothetical Arch Discussions</h4>
+<div class="vocab-intro">12 frases pra arch reviews / RFCs.</div>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">if we had unlimited budget</span><span class="pt-tr">se tivéssemos orçamento</span><span class="ex">we'd rebuild from scratch.</span></div>
+<div class="vocab-cell"><span class="term">if I were CTO</span><span class="pt-tr">se eu fosse CTO</span><span class="ex">I'd invest in observability.</span></div>
+<div class="vocab-cell"><span class="term">if we used Postgres</span><span class="pt-tr">se a gente usasse Postgres</span><span class="ex">we could scale better.</span></div>
+<div class="vocab-cell"><span class="term">if our scale were 10x</span><span class="pt-tr">se nossa escala fosse 10x</span><span class="ex">we'd shard the DB.</span></div>
+<div class="vocab-cell"><span class="term">would migrate / would refactor</span><span class="pt-tr">migraria / refatoraria</span><span class="ex">we'd refactor if we had time.</span></div>
+<div class="vocab-cell"><span class="term">could scale / could optimize</span><span class="pt-tr">poderia escalar / otimizar</span><span class="ex">could optimize if we had resources.</span></div>
+<div class="vocab-cell"><span class="term">might consider</span><span class="pt-tr">consideraria</span><span class="ex">we might consider Kafka.</span></div>
+<div class="vocab-cell"><span class="term">it'd be ideal if</span><span class="pt-tr">seria ideal se</span><span class="ex">it'd be ideal if we had CI on every push.</span></div>
+<div class="vocab-cell"><span class="term">if I were in your shoes</span><span class="pt-tr">se eu estivesse no seu lugar</span><span class="ex">if I were in your shoes, I'd push back.</span></div>
+<div class="vocab-cell"><span class="term">what if we tried</span><span class="pt-tr">e se tentássemos</span><span class="ex">what if we tried Redis?</span></div>
+<div class="vocab-cell"><span class="term">supposing we deployed daily</span><span class="pt-tr">supondo deploy diário</span><span class="ex">supposing we deployed daily, would we catch bugs faster?</span></div>
+<div class="vocab-cell"><span class="term">if it weren't for X</span><span class="pt-tr">se não fosse por X</span><span class="ex">if it weren't for caching, this would crash.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 2.1 — 2nd Conditional</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="2-1" data-correct="had / would refactor"><div class="q-text">1. If we ___ more time, we ___ this module.</div><div class="options"><button class="opt" data-val="have / would refactor">have / would refactor</button><button class="opt" data-val="had / would refactor">had / would refactor</button><button class="opt" data-val="had / will refactor">had / will refactor</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-2" data-correct="were"><div class="q-text">2. If I ___ CTO, I'd invest in tooling.</div><div class="options"><button class="opt" data-val="was">was</button><button class="opt" data-val="were">were</button><button class="opt" data-val="am">am</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-3" data-correct="would do"><div class="q-text">3. What ___ you ___ if we lost the database?</div><div class="options"><button class="opt" data-val="will / do">will / do</button><button class="opt" data-val="would / do">would / do</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-4" data-correct="used / could"><div class="q-text">4. If we ___ Postgres, we ___ scale better.</div><div class="options"><button class="opt" data-val="use / could">use / could</button><button class="opt" data-val="used / could">used / could</button><button class="opt" data-val="would use / could">would use / could</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-5" data-correct="wouldn't ship"><div class="q-text">5. If I were you, I ___ this on Friday.</div><div class="options"><button class="opt" data-val="don't ship">don't ship</button><button class="opt" data-val="wouldn't ship">wouldn't ship</button><button class="opt" data-val="won't ship">won't ship</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u2-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 2.2 — Traduza arch hypotheticals</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="2-6"><div class="q-text">1. <em>"Se a gente tivesse mais engenheiros, refatoraria isso."</em></div><input type="text" class="fill-input long" data-answer="If we had more engineers, we'd refactor this"><div class="feedback"></div></div>
+<div class="q fill" data-q="2-7"><div class="q-text">2. <em>"Se eu fosse CTO, investiria em observability."</em></div><input type="text" class="fill-input long" data-answer="If I were CTO, I'd invest in observability"><div class="feedback"></div></div>
+<div class="q fill" data-q="2-8"><div class="q-text">3. <em>"E se a gente tentasse Redis?"</em></div><input type="text" class="fill-input long" data-answer="What if we tried Redis"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u2-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 02</div><h3>3 questões.</h3>
+<div class="q mcq" data-q="2-cp1" data-correct="were"><div class="q-text">1. If she ___ in your role, she'd push back.</div><div class="options"><button class="opt" data-val="was">was</button><button class="opt" data-val="were">were</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="2-cp2" data-correct="had / could"><div class="q-text">2. If we ___ better tests, we ___ ship faster.</div><div class="options"><button class="opt" data-val="had / could">had / could</button><button class="opt" data-val="have / could">have / could</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="2-cp3"><div class="q-text">3. Traduza: <em>"Se nossa escala fosse 10x, a gente shardaria o DB."</em></div><input type="text" class="fill-input long" data-answer="If our scale were 10x, we'd shard the DB" data-ex="u2-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u2-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 3: 3RD CONDITIONAL -->
+<section class="unit" id="u3">
+<div class="unit-num"><span class="pre">Unit 03 / 08</span> · Postmortem regrets</div>
+<h2 class="unit-title">3rd Conditional — postmortem <em>regrets</em>.</h2>
+<p class="lead">"If we had caught it earlier, we wouldn't have lost data". Hipótese sobre o passado — algo que NÃO aconteceu. Em postmortems é onipresente: "If we had monitored X, this wouldn't have happened".</p>
+<table class="gram-table"><thead><tr><th>Cláusula IF</th><th>Resultado</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">If + past perfect</td><td class="em-cell">would have + p.p.</td><td>If we had tested, we wouldn't have shipped the bug.</td></tr>
+<tr><td>If + past perfect</td><td>could/might have + p.p.</td><td>If we had monitored, we could have caught it earlier.</td></tr>
+</tbody></table>
+<div class="warning-box"><h3>⚠ NUNCA "would have" antes da vírgula</h3>
+<div class="compare-grid"><div class="compare-cell compare-wrong"><span class="label">❌</span>
+<div class="en">If we <span style="text-decoration:line-through">would have known</span>, we would have rolled back.</div></div>
+<div class="compare-cell compare-right"><span class="label">✅</span>
+<div class="en">If we <strong>had known</strong>, we <strong>would have rolled back</strong>.</div></div></div></div>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Postmortem Regrets</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">if we had monitored X</span><span class="pt-tr">se tivéssemos monitorado X</span><span class="ex">we would have caught it.</span></div>
+<div class="vocab-cell"><span class="term">if we had tested edge cases</span><span class="pt-tr">se tivéssemos testado edge cases</span><span class="ex">the bug wouldn't have shipped.</span></div>
+<div class="vocab-cell"><span class="term">if we had added retries</span><span class="pt-tr">se tivéssemos retry</span><span class="ex">the cascade wouldn't have happened.</span></div>
+<div class="vocab-cell"><span class="term">if we had reviewed</span><span class="pt-tr">se tivéssemos revisado</span><span class="ex">we'd have spotted the leak.</span></div>
+<div class="vocab-cell"><span class="term">we wouldn't have lost data</span><span class="pt-tr">não teríamos perdido dados</span><span class="ex">we wouldn't have lost data.</span></div>
+<div class="vocab-cell"><span class="term">we could have prevented</span><span class="pt-tr">poderíamos ter evitado</span><span class="ex">we could have prevented this.</span></div>
+<div class="vocab-cell"><span class="term">we might have noticed</span><span class="pt-tr">poderíamos ter notado</span><span class="ex">we might have noticed sooner.</span></div>
+<div class="vocab-cell"><span class="term">if it hadn't been for X</span><span class="pt-tr">se não fosse por X</span><span class="ex">if it hadn't been for monitoring, no one would've known.</span></div>
+<div class="vocab-cell"><span class="term">had we known</span><span class="pt-tr">se soubéssemos (formal)</span><span class="ex">had we known, we'd have acted.</span></div>
+<div class="vocab-cell"><span class="term">if we had pushed back</span><span class="pt-tr">se tivéssemos discordado</span><span class="ex">if we had pushed back on the deadline...</span></div>
+<div class="vocab-cell"><span class="term">we should have caught</span><span class="pt-tr">a gente devia ter pego</span><span class="ex">we should have caught this in review.</span></div>
+<div class="vocab-cell"><span class="term">in hindsight</span><span class="pt-tr">em retrospecto</span><span class="ex">in hindsight, we missed signals.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 3.1 — 3rd Conditional</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="3-1" data-correct="had tested / wouldn't have shipped"><div class="q-text">1. If we ___ this, we ___ the bug.</div><div class="options"><button class="opt" data-val="tested / wouldn't ship">tested / wouldn't ship</button><button class="opt" data-val="had tested / wouldn't have shipped">had tested / wouldn't have shipped</button><button class="opt" data-val="had tested / wouldn't ship">had tested / wouldn't ship</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-2" data-correct="had monitored"><div class="q-text">2. We could have caught it if we ___ the queue.</div><div class="options"><button class="opt" data-val="monitored">monitored</button><button class="opt" data-val="had monitored">had monitored</button><button class="opt" data-val="have monitored">have monitored</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-3" data-correct="would have prevented"><div class="q-text">3. Better tests ___ this incident.</div><div class="options"><button class="opt" data-val="would prevent">would prevent</button><button class="opt" data-val="would have prevented">would have prevented</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-4" data-correct="hadn't pushed"><div class="q-text">4. If we ___ to prod on Friday, this wouldn't have happened.</div><div class="options"><button class="opt" data-val="didn't push">didn't push</button><button class="opt" data-val="hadn't pushed">hadn't pushed</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-5" data-correct="might have caught"><div class="q-text">5. With more reviewers, we ___ the regression.</div><div class="options"><button class="opt" data-val="might have caught">might have caught</button><button class="opt" data-val="might catch">might catch</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u3-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 3.2 — Traduza postmortem regrets</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="3-6"><div class="q-text">1. <em>"Se a gente tivesse monitorado a fila, teria pegado antes."</em></div><input type="text" class="fill-input long" data-answer="If we had monitored the queue, we would have caught it earlier"><div class="feedback"></div></div>
+<div class="q fill" data-q="3-7"><div class="q-text">2. <em>"Se tivesse passado pelo review, não teria quebrado."</em></div><input type="text" class="fill-input long" data-answer="If it had gone through review, it wouldn't have broken"><div class="feedback"></div></div>
+<div class="q fill" data-q="3-8"><div class="q-text">3. <em>"A gente devia ter pego isso no code review."</em></div><input type="text" class="fill-input long" data-answer="We should have caught this in code review"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u3-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 03</div><h3>3 questões.</h3>
+<div class="q mcq" data-q="3-cp1" data-correct="had had"><div class="q-text">1. If we ___ better tests, this wouldn't have happened.</div><div class="options"><button class="opt" data-val="had">had</button><button class="opt" data-val="had had">had had</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="3-cp2" data-correct="would have lost"><div class="q-text">2. Without backups, we ___ the data.</div><div class="options"><button class="opt" data-val="would lose">would lose</button><button class="opt" data-val="would have lost">would have lost</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="3-cp3"><div class="q-text">3. Traduza: <em>"Se a gente tivesse feito retry, não teria caído em cascata."</em></div><input type="text" class="fill-input long" data-answer="If we had added retries, the cascade wouldn't have happened" data-ex="u3-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u3-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 4: MIXED CONDITIONALS -->
+<section class="unit" id="u4">
+<div class="unit-num"><span class="pre">Unit 04 / 08</span> · Mixed</div>
+<h2 class="unit-title">Mixed Conditionals — past <em>affecting</em> now.</h2>
+<p class="lead">"If we had migrated last year, we wouldn't be paying high cloud bills now". Mistura past condition + present result. Comum em retros estratégicas e decisões long-term.</p>
+<table class="gram-table"><thead><tr><th>Tipo</th><th>Estrutura</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">Past condition → Present result</td><td>If + past perfect, would + V</td><td>If we had hired more, we would be done by now.</td></tr>
+<tr><td class="em-cell">Present condition → Past result</td><td>If + past simple, would have + p.p.</td><td>If she were a better leader, the project wouldn't have failed.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Strategic Retro Phrases</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">if we had migrated earlier</span><span class="pt-tr">se tivéssemos migrado antes</span><span class="ex">we wouldn't be paying high bills.</span></div>
+<div class="vocab-cell"><span class="term">if we had hired more</span><span class="pt-tr">se tivéssemos contratado mais</span><span class="ex">we'd be ahead now.</span></div>
+<div class="vocab-cell"><span class="term">if we had invested in tests</span><span class="pt-tr">se tivéssemos investido em testes</span><span class="ex">we'd have fewer bugs now.</span></div>
+<div class="vocab-cell"><span class="term">if we hadn't outsourced</span><span class="pt-tr">se a gente não tivesse terceirizado</span><span class="ex">we'd own the codebase now.</span></div>
+<div class="vocab-cell"><span class="term">if she were more senior</span><span class="pt-tr">se ela fosse mais sênior</span><span class="ex">she would have made better decisions.</span></div>
+<div class="vocab-cell"><span class="term">we wouldn't be in this mess</span><span class="pt-tr">não estaríamos nessa</span><span class="ex">if we'd planned better.</span></div>
+<div class="vocab-cell"><span class="term">we'd be ahead of schedule</span><span class="pt-tr">estaríamos adiantados</span><span class="ex">if the migration had finished.</span></div>
+<div class="vocab-cell"><span class="term">we'd have less tech debt</span><span class="pt-tr">teríamos menos dívida técnica</span><span class="ex">if we'd refactored quarterly.</span></div>
+<div class="vocab-cell"><span class="term">we'd have shipped already</span><span class="pt-tr">já teríamos entregue</span><span class="ex">if requirements were stable.</span></div>
+<div class="vocab-cell"><span class="term">if I had taken that offer</span><span class="pt-tr">se tivesse aceitado aquela oferta</span><span class="ex">I'd be a manager now.</span></div>
+<div class="vocab-cell"><span class="term">if we had documented</span><span class="pt-tr">se tivéssemos documentado</span><span class="ex">onboarding would be easier now.</span></div>
+<div class="vocab-cell"><span class="term">strategically speaking</span><span class="pt-tr">estrategicamente falando</span><span class="ex">strategically speaking, we'd be better off.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 4.1 — Mixed Conditionals</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="4-1" data-correct="had migrated / wouldn't be paying"><div class="q-text">1. If we ___ last year, we ___ high bills now.</div><div class="options"><button class="opt" data-val="migrated / wouldn't pay">migrated / wouldn't pay</button><button class="opt" data-val="had migrated / wouldn't be paying">had migrated / wouldn't be paying</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-2" data-correct="had hired / would be done"><div class="q-text">2. If we ___ more engineers, we ___ by now.</div><div class="options"><button class="opt" data-val="hired / would be done">hired / would be done</button><button class="opt" data-val="had hired / would be done">had hired / would be done</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="4-3" data-correct="were / wouldn't have failed"><div class="q-text">3. If she ___ more careful, the project ___.</div><div class="options"><button class="opt" data-val="had been / wouldn't fail">had been / wouldn't fail</button><button class="opt" data-val="were / wouldn't have failed">were / wouldn't have failed</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u4-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 4.2 — Traduza</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="4-4"><div class="q-text">1. <em>"Se a gente tivesse documentado, onboarding seria mais fácil agora."</em></div><input type="text" class="fill-input long" data-answer="If we had documented, onboarding would be easier now"><div class="feedback"></div></div>
+<div class="q fill" data-q="4-5"><div class="q-text">2. <em>"Se eu tivesse aceitado aquela oferta, seria gerente agora."</em></div><input type="text" class="fill-input long" data-answer="If I had taken that offer, I'd be a manager now"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u4-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 04</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="4-cp1" data-correct="had refactored / wouldn't have"><div class="q-text">1. If we ___ last quarter, we ___ this debt now.</div><div class="options"><button class="opt" data-val="had refactored / wouldn't have">had refactored / wouldn't have</button><button class="opt" data-val="refactored / wouldn't have">refactored / wouldn't have</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="4-cp2"><div class="q-text">2. Traduza: <em>"Se a gente tivesse contratado mais, estaríamos adiantados."</em></div><input type="text" class="fill-input long" data-answer="If we had hired more, we'd be ahead" data-ex="u4-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u4-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 5: WISH / IF ONLY -->
+<section class="unit" id="u5">
+<div class="unit-num"><span class="pre">Unit 05 / 08</span> · Regrets</div>
+<h2 class="unit-title">Wish / If only — retro <em>regrets</em>.</h2>
+<p class="lead">"I wish we had better monitoring", "If only we'd caught it earlier". Em retrospectives você expressa desejos e arrependimentos — wish + tempo verbal específico.</p>
+<table class="gram-table"><thead><tr><th>Estrutura</th><th>Significado</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">wish + past simple</td><td>desejo presente (não tem)</td><td>I wish we had more engineers.</td></tr>
+<tr><td class="em-cell">wish + past perfect</td><td>arrependimento passado</td><td>I wish we had tested earlier.</td></tr>
+<tr><td class="em-cell">wish + would + V</td><td>reclamação / mudança comportamento</td><td>I wish the CI would stop being flaky.</td></tr>
+<tr><td class="em-cell">wish + could + V</td><td>habilidade que não tem</td><td>I wish I could write Rust.</td></tr>
+</tbody></table>
+<div class="warning-box"><h3>⚠ Wish ≠ Want</h3>
+<p style="color:rgba(254,243,199,.85)"><strong>want</strong> = quero (real). <strong>wish</strong> = queria (irreal/lamento).</p></div>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Retro Wishes</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">I wish we had better monitoring</span><span class="pt-tr">queria que tivéssemos melhor monitoramento</span><span class="ex">present wish.</span></div>
+<div class="vocab-cell"><span class="term">I wish we had tested earlier</span><span class="pt-tr">queria que tivéssemos testado antes</span><span class="ex">past regret.</span></div>
+<div class="vocab-cell"><span class="term">I wish the CI would stop</span><span class="pt-tr">queria que o CI parasse</span><span class="ex">behavioral complaint.</span></div>
+<div class="vocab-cell"><span class="term">I wish I could speak Rust</span><span class="pt-tr">queria saber Rust</span><span class="ex">ability lacking.</span></div>
+<div class="vocab-cell"><span class="term">if only we had caught</span><span class="pt-tr">se ao menos tivéssemos pego</span><span class="ex">strong regret.</span></div>
+<div class="vocab-cell"><span class="term">if only we had more time</span><span class="pt-tr">se ao menos tivéssemos tempo</span><span class="ex">present.</span></div>
+<div class="vocab-cell"><span class="term">I wish I were senior</span><span class="pt-tr">queria ser sênior</span><span class="ex">subjuntivo (were).</span></div>
+<div class="vocab-cell"><span class="term">we wish we'd documented</span><span class="pt-tr">queríamos ter documentado</span><span class="ex">past regret.</span></div>
+<div class="vocab-cell"><span class="term">I wish I knew Kubernetes</span><span class="pt-tr">queria saber Kubernetes</span><span class="ex">knowledge gap.</span></div>
+<div class="vocab-cell"><span class="term">if only the build were faster</span><span class="pt-tr">se ao menos o build fosse rápido</span><span class="ex">present.</span></div>
+<div class="vocab-cell"><span class="term">we wish stakeholders would listen</span><span class="pt-tr">queríamos que stakeholders escutassem</span><span class="ex">would + V.</span></div>
+<div class="vocab-cell"><span class="term">I wish things were different</span><span class="pt-tr">queria que as coisas fossem diferentes</span><span class="ex">general regret.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 5.1 — Wish forms</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="5-1" data-correct="had"><div class="q-text">1. I wish we ___ better monitoring (presente).</div><div class="options"><button class="opt" data-val="have">have</button><button class="opt" data-val="had">had</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-2" data-correct="had tested"><div class="q-text">2. I wish we ___ this earlier (passado).</div><div class="options"><button class="opt" data-val="tested">tested</button><button class="opt" data-val="had tested">had tested</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-3" data-correct="would stop"><div class="q-text">3. I wish the CI ___ being flaky.</div><div class="options"><button class="opt" data-val="stops">stops</button><button class="opt" data-val="would stop">would stop</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-4" data-correct="could"><div class="q-text">4. I wish I ___ write Rust.</div><div class="options"><button class="opt" data-val="can">can</button><button class="opt" data-val="could">could</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="5-5" data-correct="were"><div class="q-text">5. If only I ___ in your role.</div><div class="options"><button class="opt" data-val="was">was</button><button class="opt" data-val="were">were</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u5-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 5.2 — Traduza retros</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="5-6"><div class="q-text">1. <em>"Queria que a gente tivesse documentado mais."</em></div><input type="text" class="fill-input long" data-answer="I wish we had documented more"><div class="feedback"></div></div>
+<div class="q fill" data-q="5-7"><div class="q-text">2. <em>"Se ao menos tivéssemos pego isso no review."</em></div><input type="text" class="fill-input long" data-answer="If only we had caught this in review"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u5-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 05</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="5-cp1" data-correct="had had"><div class="q-text">1. I wish we ___ more time on this.</div><div class="options"><button class="opt" data-val="have had">have had</button><button class="opt" data-val="had had">had had</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="5-cp2"><div class="q-text">2. Traduza: <em>"Queria que stakeholders ouvissem."</em></div><input type="text" class="fill-input long" data-answer="I wish stakeholders would listen" data-ex="u5-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u5-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 6: MODAL PERFECTS -->
+<section class="unit" id="u6">
+<div class="unit-num"><span class="pre">Unit 06 / 08</span> · Modal perfects</div>
+<h2 class="unit-title">Must / should / might / could <em>have done</em>.</h2>
+<p class="lead">Em postmortems: "We <strong>should have caught</strong> it" (deveríamos), "It <strong>must have been</strong> the deploy" (deve ter sido), "It <strong>might have been</strong> a config issue" (talvez tenha sido), "We <strong>could have prevented</strong> it" (poderíamos).</p>
+<table class="gram-table"><thead><tr><th>Modal</th><th>Significado</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">must have + p.p.</td><td>certeza positiva sobre o passado</td><td>It must have been the deploy.</td></tr>
+<tr><td class="em-cell">can't have + p.p.</td><td>certeza negativa</td><td>It can't have been the network — that's stable.</td></tr>
+<tr><td class="em-cell">might/may have + p.p.</td><td>possibilidade</td><td>It might have been a race condition.</td></tr>
+<tr><td class="em-cell">could have + p.p.</td><td>possibilidade / capacidade não usada</td><td>We could have added retries.</td></tr>
+<tr><td class="em-cell">should have + p.p.</td><td>conselho retroativo / arrependimento</td><td>We should have caught it.</td></tr>
+<tr><td class="em-cell">shouldn't have + p.p.</td><td>arrependimento (do que foi feito)</td><td>We shouldn't have shipped on Friday.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Postmortem Modal Phrases</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">must have been the deploy</span><span class="pt-tr">deve ter sido o deploy</span><span class="ex">strong inference.</span></div>
+<div class="vocab-cell"><span class="term">might have been a race</span><span class="pt-tr">talvez tenha sido race condition</span><span class="ex">possibility.</span></div>
+<div class="vocab-cell"><span class="term">should have caught it</span><span class="pt-tr">deveríamos ter pego</span><span class="ex">retro feedback.</span></div>
+<div class="vocab-cell"><span class="term">shouldn't have shipped on Friday</span><span class="pt-tr">não deveríamos ter entregue na sexta</span><span class="ex">regret.</span></div>
+<div class="vocab-cell"><span class="term">could have added retries</span><span class="pt-tr">poderíamos ter adicionado retry</span><span class="ex">missed opportunity.</span></div>
+<div class="vocab-cell"><span class="term">can't have been the network</span><span class="pt-tr">não pode ter sido a rede</span><span class="ex">strong negative.</span></div>
+<div class="vocab-cell"><span class="term">may have caused</span><span class="pt-tr">pode ter causado</span><span class="ex">tentative attribution.</span></div>
+<div class="vocab-cell"><span class="term">would have noticed</span><span class="pt-tr">teríamos notado</span><span class="ex">if we'd had alerts.</span></div>
+<div class="vocab-cell"><span class="term">should have tested</span><span class="pt-tr">deveria ter testado</span><span class="ex">we should have tested edge cases.</span></div>
+<div class="vocab-cell"><span class="term">must have missed it</span><span class="pt-tr">deve ter passado batido</span><span class="ex">in review.</span></div>
+<div class="vocab-cell"><span class="term">could have rolled back sooner</span><span class="pt-tr">poderíamos ter revertido antes</span><span class="ex">15 min faster MTTR.</span></div>
+<div class="vocab-cell"><span class="term">might have been DNS</span><span class="pt-tr">pode ter sido DNS (it's always DNS)</span><span class="ex">classic theory.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 6.1 — Modal Perfects</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="6-1" data-correct="must have been"><div class="q-text">1. The latency spiked at 3am — it ___ the cron job.</div><div class="options"><button class="opt" data-val="must be">must be</button><button class="opt" data-val="must have been">must have been</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-2" data-correct="should have caught"><div class="q-text">2. We ___ this in code review.</div><div class="options"><button class="opt" data-val="should catch">should catch</button><button class="opt" data-val="should have caught">should have caught</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-3" data-correct="could have prevented"><div class="q-text">3. Better tests ___ this incident.</div><div class="options"><button class="opt" data-val="could prevent">could prevent</button><button class="opt" data-val="could have prevented">could have prevented</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-4" data-correct="might have been"><div class="q-text">4. It ___ a config issue (não temos certeza).</div><div class="options"><button class="opt" data-val="might be">might be</button><button class="opt" data-val="might have been">might have been</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-5" data-correct="shouldn't have deployed"><div class="q-text">5. We ___ on Friday afternoon.</div><div class="options"><button class="opt" data-val="shouldn't deploy">shouldn't deploy</button><button class="opt" data-val="shouldn't have deployed">shouldn't have deployed</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-6" data-correct="can't have been"><div class="q-text">6. It ___ the database — it was healthy throughout.</div><div class="options"><button class="opt" data-val="can't be">can't be</button><button class="opt" data-val="can't have been">can't have been</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u6-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 6.2 — Traduza speculation</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="6-7"><div class="q-text">1. <em>"Deve ter sido o deploy."</em></div><input type="text" class="fill-input long" data-answer="It must have been the deploy"><div class="feedback"></div></div>
+<div class="q fill" data-q="6-8"><div class="q-text">2. <em>"Não deveríamos ter feito deploy na sexta."</em></div><input type="text" class="fill-input long" data-answer="We shouldn't have deployed on Friday"><div class="feedback"></div></div>
+<div class="q fill" data-q="6-9"><div class="q-text">3. <em>"Poderíamos ter adicionado retry."</em></div><input type="text" class="fill-input long" data-answer="We could have added retries"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u6-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 06</div><h3>3 questões.</h3>
+<div class="q mcq" data-q="6-cp1" data-correct="should have"><div class="q-text">1. We ___ added monitoring earlier.</div><div class="options"><button class="opt" data-val="should">should</button><button class="opt" data-val="should have">should have</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="6-cp2" data-correct="must have been"><div class="q-text">2. It ___ the new release — nothing else changed.</div><div class="options"><button class="opt" data-val="must be">must be</button><button class="opt" data-val="must have been">must have been</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="6-cp3"><div class="q-text">3. Traduza: <em>"Talvez tenha sido DNS."</em></div><input type="text" class="fill-input long" data-answer="It might have been DNS" data-ex="u6-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u6-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 7: RELATIVE CLAUSES -->
+<section class="unit" id="u7">
+<div class="unit-num"><span class="pre">Unit 07 / 08</span> · Relative</div>
+<h2 class="unit-title">Relative Clauses — describing <em>systems</em>.</h2>
+<p class="lead">"The service <strong>that</strong> handles auth", "The bug <strong>which</strong> broke prod", "The PM <strong>whose</strong> idea this was". Em docs técnicos você descreve componentes, pessoas, eventos o tempo todo.</p>
+<table class="gram-table"><thead><tr><th>Pronome</th><th>Refere-se a</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">who</td><td>pessoas (sujeito)</td><td>The dev who shipped this.</td></tr>
+<tr><td class="em-cell">whom</td><td>pessoas (objeto, formal)</td><td>The PM whom we briefed.</td></tr>
+<tr><td class="em-cell">which</td><td>coisas / sistemas</td><td>The service which broke.</td></tr>
+<tr><td class="em-cell">that</td><td>pessoas OU coisas (informal)</td><td>The bug that crashed prod.</td></tr>
+<tr><td class="em-cell">whose</td><td>posse</td><td>The team whose service is down.</td></tr>
+<tr><td class="em-cell">where</td><td>lugares</td><td>The repo where the auth lives.</td></tr>
+<tr><td class="em-cell">when</td><td>tempo</td><td>The day when the outage happened.</td></tr>
+</tbody></table>
+<div class="warning-box"><h3>⚠ Defining vs Non-defining (vírgulas)</h3>
+<p style="color:rgba(254,243,199,.85)"><strong>Defining</strong> (sem vírgulas): info essencial. <strong>Non-defining</strong> (com vírgulas): info extra. Em non-defining NÃO use "that".</p>
+<p style="margin-top:8px"><em>The service that handles auth</em> ✓ (defining)<br><em>Our auth service, which handles 1M req/s, is critical</em> ✓ (non-defining)</p></div>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — System Description</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">the service that handles X</span><span class="pt-tr">o serviço que lida com X</span><span class="ex">defining clause.</span></div>
+<div class="vocab-cell"><span class="term">the bug which broke prod</span><span class="pt-tr">o bug que quebrou prod</span><span class="ex">defining.</span></div>
+<div class="vocab-cell"><span class="term">the dev who shipped this</span><span class="pt-tr">o dev que entregou</span><span class="ex">defining + person.</span></div>
+<div class="vocab-cell"><span class="term">the team whose service</span><span class="pt-tr">o time cujo serviço</span><span class="ex">possession.</span></div>
+<div class="vocab-cell"><span class="term">the repo where the code lives</span><span class="pt-tr">o repo onde o código mora</span><span class="ex">where.</span></div>
+<div class="vocab-cell"><span class="term">the day when it broke</span><span class="pt-tr">o dia que quebrou</span><span class="ex">when.</span></div>
+<div class="vocab-cell"><span class="term">our infra, which is on AWS,</span><span class="pt-tr">nossa infra, que está na AWS,</span><span class="ex">non-defining.</span></div>
+<div class="vocab-cell"><span class="term">the alert that fires at midnight</span><span class="pt-tr">o alerta que dispara à meia-noite</span><span class="ex">defining.</span></div>
+<div class="vocab-cell"><span class="term">the engineer who escalated</span><span class="pt-tr">o eng que escalou</span><span class="ex">incident report.</span></div>
+<div class="vocab-cell"><span class="term">the API endpoint we deprecated</span><span class="pt-tr">o endpoint que depreciamos</span><span class="ex">that pode ser omitido (objeto).</span></div>
+<div class="vocab-cell"><span class="term">the docs (that) you wrote</span><span class="pt-tr">a doc que você escreveu</span><span class="ex">objeto: omitível.</span></div>
+<div class="vocab-cell"><span class="term">in which case</span><span class="pt-tr">caso em que</span><span class="ex">In which case, roll back.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 7.1 — Relative pronouns</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="7-1" data-correct="that"><div class="q-text">1. The service ___ handles auth is down.</div><div class="options"><button class="opt" data-val="who">who</button><button class="opt" data-val="that">that</button><button class="opt" data-val="whose">whose</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-2" data-correct="who"><div class="q-text">2. The dev ___ shipped this is on PTO.</div><div class="options"><button class="opt" data-val="that">that</button><button class="opt" data-val="who">who</button><button class="opt" data-val="which">which</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-3" data-correct="whose"><div class="q-text">3. The team ___ service is failing is on it.</div><div class="options"><button class="opt" data-val="who's">who's</button><button class="opt" data-val="whose">whose</button><button class="opt" data-val="which">which</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-4" data-correct="where"><div class="q-text">4. The repo ___ the auth code lives.</div><div class="options"><button class="opt" data-val="which">which</button><button class="opt" data-val="that">that</button><button class="opt" data-val="where">where</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="7-5" data-correct="which"><div class="q-text">5. Our infra, ___ runs on AWS, is critical.</div><div class="options"><button class="opt" data-val="that">that</button><button class="opt" data-val="which">which</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u7-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 7.2 — Traduza</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="7-6"><div class="q-text">1. <em>"O bug que quebrou prod foi um race condition."</em></div><input type="text" class="fill-input long" data-answer="The bug that broke prod was a race condition"><div class="feedback"></div></div>
+<div class="q fill" data-q="7-7"><div class="q-text">2. <em>"O time cujo serviço caiu está investigando."</em></div><input type="text" class="fill-input long" data-answer="The team whose service went down is investigating"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u7-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 07</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="7-cp1" data-correct="who"><div class="q-text">1. The PM ___ approved this is on vacation.</div><div class="options"><button class="opt" data-val="that">that</button><button class="opt" data-val="who">who</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="7-cp2"><div class="q-text">2. Traduza: <em>"O endpoint que a gente depreciou ainda recebe tráfego."</em></div><input type="text" class="fill-input long" data-answer="The endpoint that we deprecated still receives traffic" data-ex="u7-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u7-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- UNIT 8: CAUSATIVE -->
+<section class="unit" id="u8">
+<div class="unit-num"><span class="pre">Unit 08 / 08</span> · Causative</div>
+<h2 class="unit-title">Causative — having work <em>done</em>.</h2>
+<p class="lead">"We have it deployed by SRE", "I got the PM to approve", "We're having the auth refactored". Você não fez — alguém fez por você. Vital pra delegar e descrever workflows multi-time.</p>
+<table class="gram-table"><thead><tr><th>Estrutura</th><th>Significado</th><th>Exemplo tech</th></tr></thead><tbody>
+<tr><td class="em-cell">have something done</td><td>contratar/mandar fazer (neutro)</td><td>We have the auth deployed by SRE.</td></tr>
+<tr><td class="em-cell">get something done</td><td>idem (informal)</td><td>I got the PR reviewed.</td></tr>
+<tr><td class="em-cell">have someone do something</td><td>fazer alguém fazer (mando)</td><td>I had John fix the bug.</td></tr>
+<tr><td class="em-cell">get someone to do something</td><td>convencer alguém</td><td>I got the PM to approve.</td></tr>
+</tbody></table>
+
+<div class="tech-vocab"><h4>★ Tech Vocab — Delegation & Workflows</h4>
+<div class="vocab-grid">
+<div class="vocab-cell"><span class="term">have it deployed</span><span class="pt-tr">mandar deployar</span><span class="ex">have it deployed by SRE.</span></div>
+<div class="vocab-cell"><span class="term">have it reviewed</span><span class="pt-tr">mandar revisar</span><span class="ex">have it reviewed by 2 people.</span></div>
+<div class="vocab-cell"><span class="term">get the PR approved</span><span class="pt-tr">conseguir o PR aprovado</span><span class="ex">got the PR approved fast.</span></div>
+<div class="vocab-cell"><span class="term">have John fix the bug</span><span class="pt-tr">colocar o João pra arrumar</span><span class="ex">delegate.</span></div>
+<div class="vocab-cell"><span class="term">get the PM to sign off</span><span class="pt-tr">convencer a PM a aprovar</span><span class="ex">stakeholder management.</span></div>
+<div class="vocab-cell"><span class="term">have it tested by QA</span><span class="pt-tr">mandar testar pelo QA</span><span class="ex">QA owns testing.</span></div>
+<div class="vocab-cell"><span class="term">get it documented</span><span class="pt-tr">conseguir documentação</span><span class="ex">need to get it documented.</span></div>
+<div class="vocab-cell"><span class="term">have the migration done</span><span class="pt-tr">fazer a migração ser feita</span><span class="ex">have it done by Friday.</span></div>
+<div class="vocab-cell"><span class="term">get someone to escalate</span><span class="pt-tr">fazer alguém escalar</span><span class="ex">we got DevOps to escalate.</span></div>
+<div class="vocab-cell"><span class="term">have it audited</span><span class="pt-tr">mandar auditar</span><span class="ex">had it audited by Security.</span></div>
+<div class="vocab-cell"><span class="term">have the on-call paged</span><span class="pt-tr">acionar on-call</span><span class="ex">had the on-call paged.</span></div>
+<div class="vocab-cell"><span class="term">get the build green</span><span class="pt-tr">deixar o build verde</span><span class="ex">need to get the build green.</span></div>
+</div></div>
+
+<div class="exercise"><div class="exercise-header"><div><div class="exercise-title">Drill 8.1 — Causative</div></div><span class="exercise-type">Multiple Choice</span></div>
+<div class="q mcq" data-q="8-1" data-correct="had it deployed"><div class="q-text">1. We ___ by SRE.</div><div class="options"><button class="opt" data-val="had it deploy">had it deploy</button><button class="opt" data-val="had it deployed">had it deployed</button><button class="opt" data-val="had deployed it">had deployed it</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-2" data-correct="got the PR reviewed"><div class="q-text">2. I ___ in 30 minutes.</div><div class="options"><button class="opt" data-val="got the PR review">got the PR review</button><button class="opt" data-val="got the PR reviewed">got the PR reviewed</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-3" data-correct="had John fix"><div class="q-text">3. I ___ the bug for me.</div><div class="options"><button class="opt" data-val="had John to fix">had John to fix</button><button class="opt" data-val="had John fix">had John fix</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-4" data-correct="got the PM to approve"><div class="q-text">4. We ___ the proposal.</div><div class="options"><button class="opt" data-val="got the PM approve">got the PM approve</button><button class="opt" data-val="got the PM to approve">got the PM to approve</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="8-5" data-correct="have it tested"><div class="q-text">5. We need to ___ before merge.</div><div class="options"><button class="opt" data-val="have it test">have it test</button><button class="opt" data-val="have it tested">have it tested</button></div><div class="feedback"></div></div>
+</div>
+
+<div class="exercise" data-ex="u8-trans"><div class="exercise-header"><div><div class="exercise-title">Drill 8.2 — Traduza delegation</div></div><span class="exercise-type">Translation</span></div>
+<div class="q fill" data-q="8-6"><div class="q-text">1. <em>"A gente mandou o SRE deployar."</em></div><input type="text" class="fill-input long" data-answer="We had it deployed by SRE"><div class="feedback"></div></div>
+<div class="q fill" data-q="8-7"><div class="q-text">2. <em>"Consegui que a PM aprovasse."</em></div><input type="text" class="fill-input long" data-answer="I got the PM to approve"><div class="feedback"></div></div>
+<div class="q fill" data-q="8-8"><div class="q-text">3. <em>"Precisamos mandar testar pelo QA."</em></div><input type="text" class="fill-input long" data-answer="We need to have it tested by QA"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u8-trans')">Verificar</button></div>
+
+<div class="checkpoint"><div class="cp-eyebrow">★ Mini-checkpoint · Unit 08</div><h3>2 questões.</h3>
+<div class="q mcq" data-q="8-cp1" data-correct="get the build green"><div class="q-text">1. Need to ___ before merge.</div><div class="options"><button class="opt" data-val="get the build green">get the build green</button><button class="opt" data-val="get the build to green">get the build to green</button></div><div class="feedback"></div></div>
+<div class="q fill" data-q="8-cp2"><div class="q-text">2. Traduza: <em>"Mandei auditar pela Security."</em></div><input type="text" class="fill-input long" data-answer="I had it audited by Security" data-ex="u8-cp"><div class="feedback"></div></div>
+<button class="btn small" onclick="checkFillIns('u8-cp')" style="background:var(--accent);color:var(--ink)">Verificar</button></div>
+</section>
+
+<!-- FINAL TEST -->
+<section class="unit" id="final-test" style="background:linear-gradient(135deg,var(--ink),#7f1d1d);color:var(--paper);padding:48px 36px;border-radius:14px;margin-top:80px">
+<div class="unit-num" style="color:var(--accent)"><span class="pre" style="background:var(--accent);color:var(--ink)">★ Final Test</span> · B2 Trilha</div>
+<h2 class="unit-title" style="color:var(--paper)">Teste final — pronto pro <em>C1</em>?</h2>
+<p class="lead" style="color:rgba(254,243,199,.78)">20 questões. Foco em conditionals e modal perfects. Mínimo: 14/20.</p>
+
+<div class="exercise" style="background:rgba(255,255,255,.05);border-color:var(--accent);box-shadow:5px 5px 0 var(--accent)">
+<div class="exercise-header" style="border-bottom-color:rgba(255,255,255,.2)"><div><div class="exercise-title" style="color:var(--paper)">Final B2 Test</div></div><span class="exercise-type" style="background:var(--accent);color:var(--ink)">All types</span></div>
+
+<div class="q mcq" data-q="f-1" data-correct="had deployed" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">1. By 3pm, we ___ the change.</div><div class="options"><button class="opt" data-val="deployed">deployed</button><button class="opt" data-val="had deployed">had deployed</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-2" data-correct="had / would refactor" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">2. If we ___ time, we ___ this.</div><div class="options"><button class="opt" data-val="had / will refactor">had / will refactor</button><button class="opt" data-val="had / would refactor">had / would refactor</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-3" data-correct="were" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">3. If I ___ CTO, I'd invest in tooling.</div><div class="options"><button class="opt" data-val="was">was</button><button class="opt" data-val="were">were</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-4" data-correct="had tested / wouldn't have shipped" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">4. If we ___, we ___ the bug.</div><div class="options"><button class="opt" data-val="tested / wouldn't ship">tested / wouldn't ship</button><button class="opt" data-val="had tested / wouldn't have shipped">had tested / wouldn't have shipped</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-5" data-correct="had migrated / wouldn't be paying" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">5. If we ___ last year, we ___ high bills now.</div><div class="options"><button class="opt" data-val="migrated / wouldn't pay">migrated / wouldn't pay</button><button class="opt" data-val="had migrated / wouldn't be paying">had migrated / wouldn't be paying</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-6" data-correct="had" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">6. I wish we ___ better tests (presente).</div><div class="options"><button class="opt" data-val="have">have</button><button class="opt" data-val="had">had</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-7" data-correct="had tested" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">7. I wish we ___ this earlier (passado).</div><div class="options"><button class="opt" data-val="tested">tested</button><button class="opt" data-val="had tested">had tested</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-8" data-correct="must have been" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">8. It ___ the deploy.</div><div class="options"><button class="opt" data-val="must be">must be</button><button class="opt" data-val="must have been">must have been</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-9" data-correct="should have caught" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">9. We ___ this in review.</div><div class="options"><button class="opt" data-val="should catch">should catch</button><button class="opt" data-val="should have caught">should have caught</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-10" data-correct="might have been" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">10. It ___ a config issue.</div><div class="options"><button class="opt" data-val="might be">might be</button><button class="opt" data-val="might have been">might have been</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-11" data-correct="that" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">11. The service ___ handles auth.</div><div class="options"><button class="opt" data-val="who">who</button><button class="opt" data-val="that">that</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-12" data-correct="whose" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">12. The team ___ service is down.</div><div class="options"><button class="opt" data-val="who's">who's</button><button class="opt" data-val="whose">whose</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-13" data-correct="had it deployed" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">13. We ___ by SRE.</div><div class="options"><button class="opt" data-val="had it deploy">had it deploy</button><button class="opt" data-val="had it deployed">had it deployed</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-14" data-correct="got the PM to approve" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">14. We ___ the proposal.</div><div class="options"><button class="opt" data-val="got the PM approve">got the PM approve</button><button class="opt" data-val="got the PM to approve">got the PM to approve</button></div><div class="feedback"></div></div>
+<div class="q mcq" data-q="f-15" data-correct="had / would be done" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">15. If we ___ more engineers, we ___ by now.</div><div class="options"><button class="opt" data-val="had / would be done">had / would be done</button><button class="opt" data-val="had / will be done">had / will be done</button></div><div class="feedback"></div></div>
+
+<div class="q fill" data-q="f-16" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">16. Traduza: <em style="color:rgba(255,255,255,.8)">"Quando o alarme tocou, já tínhamos revertido."</em></div><input type="text" class="fill-input long" data-answer="By the time the alarm went off, we had already rolled back" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-17" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">17. Traduza: <em style="color:rgba(255,255,255,.8)">"Se eu fosse CTO, investiria em observability."</em></div><input type="text" class="fill-input long" data-answer="If I were CTO, I'd invest in observability" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-18" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">18. Traduza: <em style="color:rgba(255,255,255,.8)">"Se a gente tivesse pego antes, não teria tido outage."</em></div><input type="text" class="fill-input long" data-answer="If we had caught it earlier, we wouldn't have had an outage" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-19" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">19. Traduza: <em style="color:rgba(255,255,255,.8)">"A gente devia ter pego isso no review."</em></div><input type="text" class="fill-input long" data-answer="We should have caught this in review" data-ex="final"><div class="feedback"></div></div>
+<div class="q fill" data-q="f-20" style="background:rgba(255,255,255,.06);border-left-color:var(--accent)"><div class="q-text" style="color:var(--paper)">20. Traduza: <em style="color:rgba(255,255,255,.8)">"Mandei a SRE deployar."</em></div><input type="text" class="fill-input long" data-answer="I had it deployed by SRE" data-ex="final"><div class="feedback"></div></div>
+
+<button class="btn small" onclick="checkFillIns('final')" style="background:var(--accent);color:var(--ink);margin-top:14px">Verificar fill-ins</button>
+</div>
+</section>
+
+</main>
+<div class="score-display"><span>SCORE</span><span class="pt-pts" id="scoreNum">0</span><span>/ <span id="scoreTotal">—</span></span></div>
+<nav class="level-nav"><a href="03_B1_Trilha.html"><div class="lbl">← Anterior</div><div class="ttl">B1 · Trilha</div></a><a href="05_C1_Trilha.html" class="next"><div class="lbl">Próximo →</div><div class="ttl">C1 · Trilha</div></a></nav>
+<footer><p>ENGLISH MASTERY · TRILHA B2 · <em>"Stop translating. Start thinking."</em></p><p style="margin-top:14px">Built for Brazilian tech professionals · v2.0</p></footer>
+
+<script>
+let score=0;let totalQuestions=0;
+function updateScore(){document.getElementById('scoreNum').textContent=score;document.getElementById('scoreTotal').textContent=totalQuestions;}
+function showFeedback(fb,correct,qId,hint){if(!fb)return;fb.classList.add('show',correct?'correct':'wrong');const explain=getExplanation(qId);if(correct){fb.innerHTML='<strong>✓ Correto!</strong> '+explain;}else{let msg='<strong>✗ Errado.</strong>';if(hint)msg+=' Resposta: <em>'+hint+'</em>.';msg+=' '+explain;fb.innerHTML=msg;}}
+document.querySelectorAll('.q.mcq').forEach(q=>{totalQuestions++;const opts=q.querySelectorAll('.opt');const correct=q.dataset.correct;const fb=q.querySelector('.feedback');opts.forEach(opt=>{opt.addEventListener('click',()=>{if(q.dataset.answered)return;opts.forEach(o=>o.classList.add('disabled'));if(opt.dataset.val===correct){opt.classList.add('correct');score++;showFeedback(fb,true,q.dataset.q);}else{opt.classList.add('wrong');opts.forEach(o=>{if(o.dataset.val===correct)o.classList.add('correct');});showFeedback(fb,false,q.dataset.q);}q.dataset.answered='true';updateScore();});});});
+document.querySelectorAll('.q.fill').forEach(q=>{totalQuestions++;});
+function checkFillIns(exId){const ex=document.querySelector('[data-ex="'+exId+'"]');if(!ex)return;const inputs=ex.querySelectorAll('.fill-input');inputs.forEach(input=>{if(input.dataset.checked)return;const expected=(input.dataset.answer||'').toLowerCase().trim().replace(/[.,!?;:'"]/g,'');const got=(input.value||'').toLowerCase().trim().replace(/[.,!?;:'"]/g,'');const q=input.closest('.q');const fb=q?q.querySelector('.feedback'):null;if(got===expected){input.classList.add('correct');score++;if(fb)showFeedback(fb,true,q.dataset.q);}else{input.classList.add('wrong');if(fb)showFeedback(fb,false,q.dataset.q,input.dataset.answer);}input.dataset.checked='true';});updateScore();}
+document.querySelectorAll('.q.reorder').forEach(q=>{totalQuestions++;const pool=q.querySelector('.word-pool');const built=q.querySelector('.word-built');pool.querySelectorAll('.word').forEach(w=>{w.addEventListener('click',()=>{if(q.dataset.answered)return;built.appendChild(w);});});built.addEventListener('click',e=>{if(e.target.classList.contains('word')&&!q.dataset.answered)pool.appendChild(e.target);});});
+function checkReorder(qId){const q=document.querySelector('.q.reorder[data-q="'+qId+'"]');if(!q||q.dataset.answered)return;const built=q.querySelector('.word-built');const fb=q.querySelector('.feedback');const wordsArr=Array.from(built.querySelectorAll('.word')).map(w=>w.textContent.trim());const built_str=wordsArr.join(' ').toLowerCase().replace(/[.,!?;:'"]/g,'');const expected=q.dataset.correct.toLowerCase().replace(/[.,!?;:'"]/g,'');if(built_str===expected){built.classList.add('correct-reorder');score++;showFeedback(fb,true,qId);}else{built.classList.add('wrong-reorder');showFeedback(fb,false,qId,q.dataset.correct);}q.dataset.answered='true';updateScore();}
+document.querySelectorAll('.q.error-find').forEach(q=>{totalQuestions++;const words=q.querySelectorAll('.word-clickable');const wrongVal=q.dataset.wrong;const fb=q.querySelector('.feedback');words.forEach(w=>{w.addEventListener('click',()=>{if(q.dataset.answered)return;if(w.dataset.val===wrongVal||w.textContent.trim()===wrongVal){w.classList.add('correct');score++;showFeedback(fb,true,q.dataset.q,q.dataset.correct);}else{w.classList.add('wrong');words.forEach(x=>{if(x.dataset.val===wrongVal)x.classList.add('correct');});showFeedback(fb,false,q.dataset.q,wrongVal+' → '+q.dataset.correct);}q.dataset.answered='true';updateScore();});});});
+document.querySelectorAll('.q.match').forEach(q=>{const leftPairs=q.querySelectorAll('.match-col:first-child .pair');totalQuestions+=leftPairs.length;let selectedLeft=null;q.querySelectorAll('.match-col:first-child .pair').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.dataset.matched)return;q.querySelectorAll('.match-col:first-child .pair').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');selectedLeft=btn;});});q.querySelectorAll('.match-col:last-child .pair').forEach(btn=>{btn.addEventListener('click',()=>{if(!selectedLeft||btn.dataset.matched)return;if(btn.dataset.pair===selectedLeft.dataset.pair){btn.classList.add('matched');selectedLeft.classList.add('matched');btn.dataset.matched='true';selectedLeft.dataset.matched='true';selectedLeft.classList.remove('selected');selectedLeft=null;score++;updateScore();}else{btn.classList.add('wrong');selectedLeft.classList.add('wrong');const sel=selectedLeft;setTimeout(()=>{btn.classList.remove('wrong');sel.classList.remove('wrong','selected');},600);selectedLeft=null;}});});});
+updateScore();
+window.addEventListener('scroll',()=>{const h=document.documentElement;const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progressFill').style.width=pct+'%';});
+function getExplanation(qId){return EXPLANATIONS[qId]||'';}
+const EXPLANATIONS={
+'1-1':'By 3pm + ação concluída antes → had + p.p.','1-2':'When + curta (complained) + Past Perfect (had already rolled back).','1-3':'hadn\'t + p.p. (negativa Past Perfect).','1-4':'had been + V-ing (Past Perfect Continuous para duração antes de outra ação passada).','1-5':'Pergunta: Had + sujeito + p.p.',
+'1-6':'By the time + Past Simple, Past Perfect.','1-7':'The team hadn\'t tested the edge case.','1-8':'We had been monitoring for 3 hours.',
+'1-cp1':'before another past event → had + p.p.','1-cp2':'had been (continuous past).','1-cp3':'By the time you arrived, I had already merged.',
+'2-1':'2nd Conditional: had / would + V (irreal presente).','2-2':'subjuntivo: were (não was).','2-3':'2nd: would + V (base).','2-4':'2nd: past simple + could.','2-5':'2nd negative: wouldn\'t + V.',
+'2-6':'If we had more engineers, we\'d refactor.','2-7':'If I were CTO, I\'d invest.','2-8':'What if we tried Redis.',
+'2-cp1':'were (subjuntivo).','2-cp2':'had / could (2nd cond variation).','2-cp3':'If our scale were 10x, we\'d shard.',
+'3-1':'3rd: had + p.p. / would have + p.p.','3-2':'had + p.p. (irreal passado).','3-3':'would have prevented (resultado passado).','3-4':'hadn\'t pushed (negativa Past Perfect).','3-5':'might have caught (passado modal).',
+'3-6':'If we had monitored, we would have caught.','3-7':'If it had gone through review, it wouldn\'t have broken.','3-8':'We should have caught this in code review.',
+'3-cp1':'had had (had de "have" + had auxiliar).','3-cp2':'would have lost.','3-cp3':'If we had added retries, the cascade wouldn\'t have happened.',
+'4-1':'Mixed: past condition (had migrated) + present result (wouldn\'t be paying).','4-2':'past condition + present result (would be done).','4-3':'present condition (were) + past result (wouldn\'t have failed).',
+'4-4':'If we had documented, onboarding would be easier now.','4-5':'If I had taken that offer, I\'d be a manager now.',
+'4-cp1':'past condition + present result.','4-cp2':'If we had hired more, we\'d be ahead.',
+'5-1':'wish + past simple (presente irreal).','5-2':'wish + past perfect (passado).','5-3':'wish + would (mudança comportamento).','5-4':'wish + could (habilidade).','5-5':'were (subjuntivo).',
+'5-6':'I wish we had documented more.','5-7':'If only we had caught this in review.',
+'5-cp1':'wish + past perfect (had had).','5-cp2':'I wish stakeholders would listen.',
+'6-1':'must have been (certeza positiva passado).','6-2':'should have + p.p. (arrependimento).','6-3':'could have prevented (capacidade não usada).','6-4':'might have been (possibilidade).','6-5':'shouldn\'t have + p.p. (não devia ter feito).','6-6':'can\'t have been (impossível).',
+'6-7':'It must have been the deploy.','6-8':'We shouldn\'t have deployed on Friday.','6-9':'We could have added retries.',
+'6-cp1':'should have + p.p.','6-cp2':'must have been (forte inferência).','6-cp3':'It might have been DNS.',
+'7-1':'that = coisas (defining clause).','7-2':'who = pessoas.','7-3':'whose = posse.','7-4':'where = lugar.','7-5':'which em non-defining (com vírgula).',
+'7-6':'The bug that broke prod.','7-7':'The team whose service went down.',
+'7-cp1':'who = pessoa.','7-cp2':'The endpoint that we deprecated still receives traffic.',
+'8-1':'have + objeto + p.p.','8-2':'got + objeto + p.p.','8-3':'have + person + verb (sem to).','8-4':'get + person + TO + verb.','8-5':'have + objeto + p.p.',
+'8-6':'We had it deployed by SRE.','8-7':'I got the PM to approve.','8-8':'We need to have it tested by QA.',
+'8-cp1':'get + adjective (idiomatic).','8-cp2':'I had it audited by Security.',
+'f-1':'had + p.p. (Past Perfect).','f-2':'2nd cond.','f-3':'were (subjuntivo).','f-4':'3rd cond completo.','f-5':'mixed cond.','f-6':'wish + past simple.','f-7':'wish + past perfect.','f-8':'must have been.','f-9':'should have + p.p.','f-10':'might have been.','f-11':'that.','f-12':'whose.','f-13':'have + objeto + p.p.','f-14':'got + person + to + V.','f-15':'mixed: past + present.','f-16':'By the time the alarm went off, we had already rolled back.','f-17':'If I were CTO, I\'d invest in observability.','f-18':'If we had caught it earlier, we wouldn\'t have had an outage.','f-19':'We should have caught this in review.','f-20':'I had it deployed by SRE.'
+};
+</script>
+</body>
+</html>
