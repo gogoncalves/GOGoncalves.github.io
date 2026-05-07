@@ -33,11 +33,10 @@
 }
 .em-best-reset:hover { background: rgba(0,0,0,.08); }
 
-/* ─── DARK MODE TOGGLE BUTTON ──────────────────────────────── */
-.em-theme-toggle {
+/* ─── FLOATING TOOLBAR (theme + search) ────────────────────── */
+.em-theme-toggle, .em-search-toggle {
   position: fixed;
   top: 16px;
-  right: 16px;
   z-index: 200;
   width: 42px;
   height: 42px;
@@ -51,8 +50,13 @@
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
   transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  color: #111;
 }
-.em-theme-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+.em-theme-toggle { right: 16px; }
+.em-search-toggle { right: 68px; font-size: 22px; font-weight: 700; }
+.em-search-toggle:hover, .em-theme-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+[data-em-theme="dark"] .em-search-toggle { background: #1a1a1a; border-color: rgba(255,255,255,.2); color: #fbbf24; }
 .em-theme-toggle .em-icon-sun { display: inline; }
 .em-theme-toggle .em-icon-moon { display: none; }
 [data-em-theme="dark"] .em-theme-toggle { background: #1a1a1a; border-color: rgba(255,255,255,.2); color: #fbbf24; }

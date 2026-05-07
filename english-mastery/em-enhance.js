@@ -64,6 +64,16 @@
     return btn;
   }
 
+  function buildSearchButton() {
+    const btn = document.createElement('a');
+    btn.className = 'em-search-toggle';
+    btn.setAttribute('aria-label', 'Buscar');
+    btn.title = 'Buscar (cross-trilha)';
+    btn.href = 'search.html';
+    btn.innerHTML = '⌕';
+    return btn;
+  }
+
   // ─── BEST SCORE BANNER ───────────────────────────────────────
   function buildBestScoreBanner() {
     if (!TRILHA_ID) return null;
@@ -251,8 +261,11 @@
 
   // ─── DOM-READY HOOKUP ────────────────────────────────────────
   function init() {
-    // Theme toggle (always)
+    // Theme toggle + search button (always, top-right)
     document.body.appendChild(buildThemeToggle());
+    if (!location.pathname.includes('search.html')) {
+      document.body.appendChild(buildSearchButton());
+    }
 
     // Best-score banner (only on trilha pages with prior data)
     if (TRILHA_ID) {

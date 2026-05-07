@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="em-enhance.css">
+<style>
+:root{--bg:#0a0a0a;--paper:#f5f1e8;--ink:#111;--accent:#fbbf24;--accent-2:#ec4899;--green:#15803d;--red:#dc2626;--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--paper);line-height:1.65;min-height:100vh}
+.hero{padding:50px 6vw;border-bottom:1px solid var(--line)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(36px,6vw,64px);font-weight:300;line-height:.95;margin-bottom:14px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{max-width:680px;color:#bbb;font-size:16px;margin-bottom:24px}
+.hero .back-link{display:inline-block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#888;text-decoration:none}
+.hero .back-link:hover{color:var(--accent)}
+.search-box{max-width:600px;margin:0 0 16px}
+.search-box input{width:100%;padding:18px 24px;font-size:18px;border:2px solid var(--line);border-radius:8px;background:#161616;color:var(--paper);font-family:'Fraunces',serif;font-style:italic;outline:none;transition:border-color .15s}
+.search-box input:focus{border-color:var(--accent)}
+.search-box input::placeholder{color:#666}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.filter{background:transparent;border:1px solid var(--line);color:#999;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;border-radius:4px;cursor:pointer;transition:all .15s}
+.filter:hover{border-color:var(--accent);color:var(--accent)}
+.filter.active{background:var(--accent);color:#000;border-color:var(--accent)}
+.count{font-family:'JetBrains Mono',monospace;font-size:12px;color:#666;margin:14px 0}
+main{max-width:1100px;margin:0 auto;padding:30px 6vw 80px}
+.results{display:grid;gap:8px}
+.result{background:rgba(255,255,255,.03);border:1px solid var(--line);border-left:3px solid var(--accent);padding:14px 18px;border-radius:5px;display:grid;grid-template-columns:80px 1fr auto;gap:14px;align-items:center;text-decoration:none;color:var(--paper);transition:all .15s}
+.result:hover{background:rgba(255,255,255,.06);transform:translateX(4px)}
+.result .badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);background:rgba(251,191,36,.1);padding:4px 8px;border-radius:3px;text-align:center}
+.result .title{font-family:'Fraunces',serif;font-size:16px;font-weight:500}
+.result .pt{font-size:12px;color:#888;font-style:italic;margin-top:2px}
+.result .arrow{font-size:18px;color:#444}
+.result:hover .arrow{color:var(--accent)}
+.no-results{text-align:center;padding:60px 20px;color:#666;font-style:italic}
+mark{background:rgba(251,191,36,.3);color:var(--accent);padding:0 2px}
+@media(max-width:600px){.result{grid-template-columns:60px 1fr;gap:10px}.result .arrow{display:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a href="index.html" class="back-link">← Voltar ao índice</a>
+  <h1>Search <em>everything</em>.</h1>
+  <p>Busca em todas as trilhas, recursos e domínios. Digite termo (ex: "present perfect", "deploy", "hedging", "kubernetes", "code review").</p>
+  <div class="search-box"><input type="text" id="q" placeholder="o que você quer aprender?" autofocus></div>
+  <div class="filters">
+    <button class="filter active" data-f="all">All</button>
+    <button class="filter" data-f="A1">A1</button>
+    <button class="filter" data-f="A2">A2</button>
+    <button class="filter" data-f="B1">B1</button>
+    <button class="filter" data-f="B2">B2</button>
+    <button class="filter" data-f="C1">C1</button>
+    <button class="filter" data-f="C2">C2</button>
+    <button class="filter" data-f="resource">Resources</button>
+  </div>
+  <div class="count" id="count">— resultados</div>
+</header>
+<main>
+<div class="results" id="results"></div>
+<div class="no-results" id="noResults" style="display:none">Nada encontrado. Tenta outra palavra.</div>
+</main>
+
+<script>
+// Static search index (manual curation of key topics)
+const INDEX = [
+  // A1 Trilha
+  {l:'A1', t:'Verbo TO BE — sua identidade tech', pt:'ser/estar como dev', u:'01_A1_Trilha.html#u1', tags:'to be am is are tobe identity dev role'},
+  {l:'A1', t:'Pronomes — falando do time', pt:'me, my, his, her, its', u:'01_A1_Trilha.html#u2', tags:'pronoun pronouns me my his her possessive object'},
+  {l:'A1', t:'Articles a/an/the — tools & concepts', pt:'a/an/the', u:'01_A1_Trilha.html#u3', tags:'article articles a an the'},
+  {l:'A1', t:'Plurals — coisas no trabalho', pt:'plurals + people/feedback', u:'01_A1_Trilha.html#u4', tags:'plural plurals uncountable people information feedback advice'},
+  {l:'A1', t:'Present Simple — rotina dev', pt:'rotina diária', u:'01_A1_Trilha.html#u5', tags:'present simple rotina deploy ship'},
+  {l:'A1', t:'Wh-questions — em meetings', pt:'perguntas Wh-', u:'01_A1_Trilha.html#u6', tags:'wh question what when where who how why which standup'},
+  {l:'A1', t:'Prepositions in/on/at', pt:'preposições de tempo e lugar', u:'01_A1_Trilha.html#u7', tags:'preposition in on at time place at the office on slack'},
+  {l:'A1', t:'Word order — emails & PRs', pt:'ordem das palavras', u:'01_A1_Trilha.html#u8', tags:'word order adverb frequency always never'},
+  // A2
+  {l:'A2', t:'Past Simple — what happened in the sprint', pt:'past simple regular + irregular', u:'02_A2_Trilha.html#u1', tags:'past simple regular irregular went broke shipped deployed'},
+  {l:'A2', t:'Past Continuous — interrupções no deploy', pt:'past continuous + when/while', u:'02_A2_Trilha.html#u2', tags:'past continuous was deploying when while incident'},
+  {l:'A2', t:'Going to vs Will — sprint planning', pt:'futuro: plano vs decisão', u:'02_A2_Trilha.html#u3', tags:'going to will future planning commitment'},
+  {l:'A2', t:'Comparativos & superlativos', pt:'comparing solutions', u:'02_A2_Trilha.html#u4', tags:'comparative superlative faster more best less fewer'},
+  {l:'A2', t:'Modals can/could/should', pt:'capacidade, conselho', u:'02_A2_Trilha.html#u5', tags:'modal can could should must might code review'},
+  {l:'A2', t:'Countable vs Uncountable', pt:'feedback, code, time', u:'02_A2_Trilha.html#u6', tags:'countable uncountable many much few little advice information'},
+  {l:'A2', t:'Adverbs of frequency', pt:'rotinas e métricas', u:'02_A2_Trilha.html#u7', tags:'frequency always usually often sometimes rarely never daily weekly'},
+  {l:'A2', t:'Already / Yet / Just', pt:'sprint progress markers', u:'02_A2_Trilha.html#u8', tags:'already yet just still progress sprint standup'},
+  // B1
+  {l:'B1', t:'Present Perfect — formação e 4 usos', pt:'have/has + p.p.', u:'03_B1_Trilha.html#u1', tags:'present perfect have has career duration ever never just'},
+  {l:'B1', t:'PP vs Past Simple — duelo decisivo', pt:'PP vs PS', u:'03_B1_Trilha.html#u2', tags:'present perfect past simple yesterday this sprint difference'},
+  {l:'B1', t:'FOR / SINCE — career duration', pt:'há X anos / desde X', u:'03_B1_Trilha.html#u3', tags:'for since duration tenure career years 2020'},
+  {l:'B1', t:'First Conditional — sprint promises', pt:'if + present, will + V', u:'03_B1_Trilha.html#u4', tags:'first conditional if will unless promise'},
+  {l:'B1', t:'Reported Speech — relaying meetings', pt:'fala relatada', u:'03_B1_Trilha.html#u5', tags:'reported speech said told asked recue tempo'},
+  {l:'B1', t:'25 phrasal verbs essenciais', pt:'roll out, push back, sign off, follow up', u:'03_B1_Trilha.html#u6', tags:'phrasal verbs roll out push back sign off follow up figure out give up show up'},
+  {l:'B1', t:'Gerund vs Infinitive — ING vs TO', pt:'enjoy + ING / want + TO', u:'03_B1_Trilha.html#u7', tags:'gerund infinitive ing to enjoy want decide look forward to'},
+  {l:'B1', t:'Passive Voice — describing systems', pt:'be + p.p.', u:'03_B1_Trilha.html#u8', tags:'passive voice was approved has been fixed postmortem'},
+  // B2
+  {l:'B2', t:'Past Perfect — sequence in incidents', pt:'had + p.p.', u:'04_B2_Trilha.html#u1', tags:'past perfect had alarm incident timeline by the time'},
+  {l:'B2', t:'2nd Conditional — hypothetical decisions', pt:'if I were CTO', u:'04_B2_Trilha.html#u2', tags:'second conditional 2nd would were if I were arch'},
+  {l:'B2', t:'3rd Conditional — postmortem regrets', pt:'se tivéssemos sabido', u:'04_B2_Trilha.html#u3', tags:'third conditional 3rd had known would have postmortem regret'},
+  {l:'B2', t:'Mixed Conditionals', pt:'past affecting now', u:'04_B2_Trilha.html#u4', tags:'mixed conditional past present strategic retro'},
+  {l:'B2', t:'Wish / If only — retro regrets', pt:'wish + past', u:'04_B2_Trilha.html#u5', tags:'wish if only past perfect would could regret'},
+  {l:'B2', t:'Modal Perfects — must/should/might have', pt:'must have, should have', u:'04_B2_Trilha.html#u6', tags:'modal perfect must have should have might have can\'t have postmortem'},
+  {l:'B2', t:'Relative Clauses — describing systems', pt:'who/which/that/whose', u:'04_B2_Trilha.html#u7', tags:'relative clause who which that whose where defining'},
+  {l:'B2', t:'Causative — having work done', pt:'have/get something done', u:'04_B2_Trilha.html#u8', tags:'causative have it deployed got the PM to approve'},
+  // C1
+  {l:'C1', t:'Inversions — emphatic style', pt:'Never have I, Hardly had we', u:'05_C1_Trilha.html#u1', tags:'inversion inversions never have I hardly had had we should you encounter'},
+  {l:'C1', t:'Cleft sentences — focusing', pt:'It was X that, What we need is', u:'05_C1_Trilha.html#u2', tags:'cleft sentences it was that what we need all we need'},
+  {l:'C1', t:'Advanced conditionals', pt:'provided that, unless, in case', u:'05_C1_Trilha.html#u3', tags:'advanced conditional provided unless in case but for were it not for'},
+  {l:'C1', t:'Subjunctive', pt:'It is essential that he be', u:'05_C1_Trilha.html#u4', tags:'subjunctive subjuntivo it is essential that he be recommend formal'},
+  {l:'C1', t:'Hedging — diplomatic disagreement', pt:'I\'d argue, It might be worth', u:'05_C1_Trilha.html#u5', tags:'hedging code review I\'d argue it might be worth I\'m not sure'},
+  {l:'C1', t:'Discourse markers — coherent writing', pt:'Furthermore, That said, On balance', u:'05_C1_Trilha.html#u6', tags:'discourse markers furthermore however nevertheless that said on balance consequently'},
+  {l:'C1', t:'Tech collocations — make/do/take', pt:'make decision, do review', u:'05_C1_Trilha.html#u7', tags:'collocation make decision do review take ownership get buy-in'},
+  {l:'C1', t:'24 tech idioms', pt:'low-hanging fruit, kick the can', u:'05_C1_Trilha.html#u8', tags:'idiom low-hanging fruit kick the can boil the ocean move the needle bandwidth circle back rabbit hole'},
+  // C2
+  {l:'C2', t:'Registers — formal/business/casual/slang', pt:'switching tones', u:'06_C2_Trilha.html#u1', tags:'register formal business casual slang my bad LGTM apologies obtain'},
+  {l:'C2', t:'Figures of speech — tech metaphors', pt:'technical debt, dogfooding', u:'06_C2_Trilha.html#u2', tags:'metaphor technical debt code smell spaghetti dogfooding bus factor yak shaving'},
+  {l:'C2', t:'Pragmatic competence — implicature', pt:'interesting take = discordo', u:'06_C2_Trilha.html#u3', tags:'pragmatic implicature interesting take I\'ll think about it indirect'},
+  {l:'C2', t:'Tech canon — Conway, Hyrum, YAGNI', pt:'cultural references', u:'06_C2_Trilha.html#u4', tags:'tech canon Conway\'s law Hyrum\'s law YAGNI Chesterton fence Goodhart bike-shedding rubber duck'},
+  {l:'C2', t:'Complex syntax — long-form writing', pt:'participle clauses', u:'06_C2_Trilha.html#u5', tags:'complex syntax participle clause embedded relative reduced anticipatory it'},
+  {l:'C2', t:'Native phrasal & idioms', pt:'hash out, level set', u:'06_C2_Trilha.html#u6', tags:'phrasal hash out iron out level set walk through unblock pull together'},
+  {l:'C2', t:'Academic English — papers/RFCs', pt:'ascertain, demonstrate', u:'06_C2_Trilha.html#u7', tags:'academic english ascertain demonstrate cannot it is argued formal'},
+  {l:'C2', t:'Keynote & op-ed style', pt:'speaking authority', u:'06_C2_Trilha.html#u8', tags:'keynote op-ed at its core boils down to bottom line rhetorical'},
+  // Resources
+  {l:'resource', t:'Diagnóstico — onde começar', pt:'12 questões em 3min', u:'diagnostico.html', tags:'diagnostic placement quiz nivel'},
+  {l:'resource', t:'Email Templates — 12 templates', pt:'pedir ajuda, escalar, push back, postmortem', u:'email-templates.html', tags:'email template ask help escalate push back code review hostile postmortem raise PTO'},
+  {l:'resource', t:'Interview Prep — STAR + system design', pt:'tech interview', u:'interview-prep.html', tags:'interview prep STAR behavioral system design technical screen cultural fit negotiation FAANG'},
+  {l:'resource', t:'Domain Vocab — ML/Security/Frontend/DevOps/Data', pt:'250+ termos por domínio', u:'domain-vocab.html', tags:'domain vocab ML AI security frontend devops SRE data engineering kubernetes react'},
+  {l:'resource', t:'Writing Lab — 8 prompts com rubrica', pt:'standup, code review, postmortem, RFC', u:'writing-lab.html', tags:'writing prompt rubric standup code review postmortem RFC performance review'},
+  {l:'resource', t:'Listening Lab — 8 tech talks', pt:'Karpathy, Linus, Kelsey Hightower, Wes Bos', u:'listening-lab.html', tags:'listening tech talk Karpathy GPT Linus Torvalds Git Kelsey Hightower kubernetes Wes Bos JavaScript Bret Victor Rich Hickey'},
+];
+
+const $q = document.getElementById('q');
+const $results = document.getElementById('results');
+const $count = document.getElementById('count');
+const $noResults = document.getElementById('noResults');
+const $filters = document.querySelectorAll('.filter');
+let activeFilter = 'all';
+
+function highlight(text, query) {
+  if (!query) return text;
+  const re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  return text.replace(re, '<mark>$1</mark>');
+}
+
+function render() {
+  const q = $q.value.toLowerCase().trim();
+  let filtered = INDEX.filter(item => {
+    if (activeFilter !== 'all' && item.l !== activeFilter) return false;
+    if (!q) return true;
+    const haystack = (item.t + ' ' + item.pt + ' ' + (item.tags || '')).toLowerCase();
+    return haystack.includes(q);
+  });
+
+  $count.textContent = filtered.length + ' resultado' + (filtered.length !== 1 ? 's' : '') + (q ? ' para "' + q + '"' : '');
+  if (filtered.length === 0) {
+    $results.innerHTML = '';
+    $noResults.style.display = 'block';
+    return;
+  }
+  $noResults.style.display = 'none';
+  $results.innerHTML = filtered.map(item => `
+    <a href="${item.u}" class="result">
+      <span class="badge">${item.l}</span>
+      <div>
+        <div class="title">${highlight(item.t, q)}</div>
+        <div class="pt">${highlight(item.pt, q)}</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  `).join('');
+}
+
+$q.addEventListener('input', render);
+$filters.forEach(f => {
+  f.addEventListener('click', () => {
+    $filters.forEach(b => b.classList.remove('active'));
+    f.classList.add('active');
+    activeFilter = f.dataset.f;
+    render();
+  });
+});
+render();
+</script>
+<script src="em-enhance.js"></script>
+</body>
+</html>
