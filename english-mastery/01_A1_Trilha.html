@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 Trilha — Foundations for Tech Professionals · English Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fefaf3;
+  --paper:#fff;
+  --paper-warm:#fef3e2;
+  --ink:#1a1208;
+  --ink-soft:#3d2f1a;
+  --muted:#7a6a55;
+  --accent:#ff5722;
+  --accent-2:#ffb300;
+  --accent-soft:#ffe8df;
+  --green:#0d8a3e;
+  --green-soft:#d8f0e0;
+  --red:#c8102e;
+  --red-soft:#fbe1e4;
+  --line:#e7dfd0;
+  --shadow:0 1px 0 rgba(0,0,0,.04), 0 8px 24px -4px rgba(26,18,8,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(26,18,8,.04) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0;opacity:.5}
+
+.progress-bar{position:sticky;top:0;height:4px;background:var(--line);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width .2s}
+
+/* HERO */
+.hero{position:relative;background:var(--ink);color:var(--bg);padding:80px 6vw 100px;overflow:hidden;border-bottom:6px solid var(--accent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(255,87,34,.32),transparent 50%),radial-gradient(ellipse at 20% 100%,rgba(255,179,0,.12),transparent 50%)}
+.hero::after{content:'A1';position:absolute;right:-30px;bottom:-80px;font-family:'Fraunces',serif;font-size:380px;font-weight:300;color:rgba(254,250,243,.04);line-height:.8;letter-spacing:-.05em;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;background:var(--accent);color:#fff;padding:8px 14px;border-radius:4px;margin-bottom:24px}
+.tag::before{content:'●';color:#fff;font-size:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1.title{font-family:'Fraunces',serif;font-size:clamp(48px,8vw,110px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:24px;color:var(--bg)}
+h1.title em{font-style:italic;color:var(--accent-2);font-weight:400}
+h1.title strong{font-weight:800;display:block}
+.subtitle{font-size:clamp(18px,2vw,21px);max-width:680px;color:rgba(254,250,243,.78);margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(254,250,243,.18)}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--accent-2);line-height:1}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(254,250,243,.65);margin-top:8px}
+
+/* MAIN LAYOUT */
+main{max-width:1200px;margin:0 auto;padding:60px 6vw;position:relative;z-index:1}
+
+/* TRILHA TOC SIDEBAR */
+.toc{background:var(--ink);color:var(--bg);padding:24px;border-radius:10px;margin-bottom:40px}
+.toc h4{color:var(--accent-2);margin-bottom:6px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
+.toc .toc-sub{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:rgba(254,250,243,.7);margin-bottom:16px}
+.toc ol{list-style:none;counter-reset:toc-counter}
+.toc li{counter-increment:toc-counter;padding:7px 0;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:flex-start;gap:10px}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--accent-2);font-weight:700;font-size:11px;flex-shrink:0;padding-top:2px}
+.toc a{color:var(--bg);text-decoration:none;transition:color .2s;line-height:1.4}
+.toc a:hover{color:var(--accent-2)}
+.toc .check{color:var(--green);font-weight:700;margin-left:auto}
+
+/* UNIT (section) */
+section.unit{margin-bottom:100px;scroll-margin-top:20px;padding-top:20px}
+.unit-num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.unit-num::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.unit-num .pre{background:var(--accent-soft);color:var(--accent);padding:3px 10px;border-radius:3px;font-size:10px}
+h2.unit-title{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,56px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+h2.unit-title em{font-style:italic;color:var(--accent)}
+.lead{font-size:18px;color:var(--ink-soft);max-width:780px;margin-bottom:32px}
+h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:32px 0 14px;letter-spacing:-.01em}
+h4{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:10px}
+p{margin-bottom:14px;font-size:16px}
+
+/* THEORY TABLE */
+.gram-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.gram-table th{background:var(--ink);color:var(--bg);padding:12px 16px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.gram-table td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-table tr:hover{background:var(--paper-warm)}
+.gram-table .em-cell{color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+
+/* WARNING / ANTI-TRANSLATION */
+.warning-box{background:linear-gradient(135deg,#3d2f1a,#1a1208);color:var(--bg);padding:36px;border-radius:8px;margin:28px 0;position:relative;overflow:hidden}
+.warning-box h3{color:var(--accent-2);margin-top:0;font-size:22px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0;border-radius:6px;overflow:hidden}
+.compare-cell{padding:20px;font-size:15px}
+.compare-wrong{background:rgba(200,16,46,.18);border-left:4px solid var(--red)}
+.compare-right{background:rgba(13,138,62,.18);border-left:4px solid var(--green)}
+.compare-cell .label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;display:block}
+.compare-wrong .label{color:#fca5a5}
+.compare-right .label{color:#86efac}
+.compare-cell .pt{font-style:italic;opacity:.7;font-size:14px;margin-bottom:6px}
+.compare-cell .en{font-weight:600;font-size:17px}
+.compare-cell .why{font-size:13px;margin-top:10px;opacity:.78;line-height:1.5}
+
+/* TECH VOCAB BOX */
+.tech-vocab{background:linear-gradient(135deg,var(--accent-soft),#ffd5b8);padding:28px;border-radius:8px;margin:32px 0;border-left:4px solid var(--accent)}
+.tech-vocab h4{color:var(--accent);margin-bottom:14px;font-size:13px}
+.tech-vocab .vocab-intro{font-size:14px;color:var(--ink-soft);margin-bottom:14px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.vocab-cell{background:#fff;padding:12px 14px;border-radius:6px;font-size:13px;border:1px solid var(--line)}
+.vocab-cell .term{font-family:'Fraunces',serif;font-weight:700;color:var(--ink);font-size:15px;display:block}
+.vocab-cell .pt-tr{color:var(--accent);font-size:12px;display:block;margin-top:2px;font-style:italic}
+.vocab-cell .ex{color:var(--muted);font-size:12px;display:block;margin-top:6px;border-top:1px dashed var(--line);padding-top:6px;line-height:1.4}
+
+/* EXERCISE CONTAINER */
+.exercise{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:26px;margin:30px 0;box-shadow:5px 5px 0 var(--ink)}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--line);flex-wrap:wrap;gap:10px}
+.exercise-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+.exercise-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.exercise-type{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;background:var(--accent);color:#fff;padding:5px 10px;border-radius:3px}
+
+/* QUESTION (universal) */
+.q{margin:16px 0;padding:18px;background:var(--paper-warm);border-radius:6px;border-left:3px solid var(--accent)}
+.q-text{font-size:16px;margin-bottom:12px;font-weight:500;line-height:1.5}
+.q-text .blank{display:inline-block;min-width:60px;border-bottom:2px solid var(--ink);text-align:center;font-weight:700;color:var(--accent)}
+.q .pt-hint{display:block;font-style:italic;color:var(--muted);font-size:13px;margin-top:6px}
+
+/* MCQ OPTIONS */
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:#fff;border:2px solid var(--ink);padding:9px 16px;font-size:14px;font-family:inherit;font-weight:500;cursor:pointer;border-radius:6px;transition:all .15s}
+.opt:hover{background:var(--ink);color:var(--bg)}
+.opt.correct{background:var(--green);border-color:var(--green);color:#fff;animation:pop .3s}
+.opt.wrong{background:var(--red);border-color:var(--red);color:#fff;animation:shake .4s}
+.opt.disabled{pointer-events:none;opacity:.55}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* FILL-IN */
+.fill-input{border:none;border-bottom:2px solid var(--ink);background:transparent;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;padding:4px 8px;width:140px;text-align:center;color:var(--accent);outline:none}
+.fill-input:focus{border-color:var(--accent-2);background:var(--accent-soft)}
+.fill-input.correct{color:var(--green);border-color:var(--green)}
+.fill-input.wrong{color:var(--red);border-color:var(--red)}
+.fill-input.long{width:100%;text-align:left;font-size:15px;border-bottom:2px solid var(--ink);font-family:'Inter',sans-serif;font-weight:500}
+
+/* REORDER */
+.reorder-zone{margin-top:10px}
+.word-built{min-height:54px;padding:14px;border:2px dashed var(--accent);border-radius:6px;background:#fff;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
+.word-built:empty::before{content:'Clique nas palavras abaixo para montar a frase →';color:var(--muted);font-style:italic;font-size:13px}
+.word-pool{display:flex;flex-wrap:wrap;gap:8px}
+.word{background:var(--accent-soft);color:var(--ink);border:2px solid var(--accent);padding:7px 14px;font-family:'Fraunces',serif;font-size:16px;cursor:pointer;border-radius:6px;transition:all .15s;font-weight:500}
+.word:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+.word-built.correct-reorder{border-color:var(--green);background:var(--green-soft)}
+.word-built.correct-reorder .word{background:var(--green);color:#fff;border-color:var(--green)}
+.word-built.wrong-reorder{border-color:var(--red);background:var(--red-soft)}
+.word-built.wrong-reorder .word{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* ERROR FIND */
+.error-sentence{font-family:'Fraunces',serif;font-size:18px;line-height:2;margin:14px 0;padding:14px;background:#fff;border-radius:6px;border:1px dashed var(--line)}
+.word-clickable{display:inline-block;padding:3px 8px;margin:2px;border-radius:4px;cursor:pointer;border:1px solid transparent;transition:all .15s;font-weight:500}
+.word-clickable:hover{background:var(--accent-soft);border-color:var(--accent)}
+.word-clickable.correct{background:var(--green);color:#fff;border-color:var(--green);animation:pop .3s}
+.word-clickable.wrong{background:var(--red);color:#fff;border-color:var(--red);animation:shake .4s}
+
+/* MATCH PAIRS */
+.match-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.match-col{display:flex;flex-direction:column;gap:8px}
+.match-col h5{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:4px}
+.pair{background:#fff;border:2px solid var(--ink);padding:10px 14px;font-size:14px;font-family:inherit;cursor:pointer;border-radius:6px;text-align:left;transition:all .15s}
+.pair:hover{background:var(--accent-soft)}
+.pair.selected{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pair.matched{background:var(--green);color:#fff;border-color:var(--green);pointer-events:none;animation:pop .3s}
+.pair.wrong{background:var(--red);color:#fff;border-color:var(--red);animation:shake .4s}
+@media(max-width:600px){.match-cols{grid-template-columns:1fr}}
+
+/* FEEDBACK */
+.feedback{margin-top:12px;padding:11px 14px;border-radius:5px;font-size:13.5px;display:none;line-height:1.5}
+.feedback.show{display:block;animation:slideDown .3s}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.feedback.correct{background:var(--green-soft);color:#0a4a23;border-left:3px solid var(--green)}
+.feedback.wrong{background:var(--red-soft);color:#5a0a18;border-left:3px solid var(--red)}
+.feedback strong{display:block;margin-bottom:3px}
+
+/* BUTTONS */
+.btn{background:var(--ink);color:var(--bg);border:none;padding:11px 22px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;cursor:pointer;border-radius:5px;transition:all .2s;margin-top:8px}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+.btn.small{padding:8px 16px;font-size:11px;margin-top:4px}
+
+/* CHECKPOINT */
+.checkpoint{background:linear-gradient(135deg,var(--ink),#3d2f1a);color:var(--bg);padding:30px;border-radius:10px;margin:36px 0}
+.checkpoint .cp-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent-2);margin-bottom:8px}
+.checkpoint h3{color:var(--bg);margin-top:0;font-size:24px}
+.checkpoint .q{background:rgba(255,255,255,.06);border-left-color:var(--accent-2)}
+.checkpoint .q-text{color:var(--bg)}
+.checkpoint .opt{background:transparent;color:var(--bg);border-color:var(--bg)}
+.checkpoint .opt:hover{background:var(--accent-2);color:var(--ink);border-color:var(--accent-2)}
+.checkpoint .fill-input{color:var(--accent-2);border-color:var(--accent-2)}
+.checkpoint .pt-hint{color:rgba(255,255,255,.55)}
+
+/* SCORE */
+.score-display{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(26,18,8,.35);z-index:50;display:flex;align-items:center;gap:10px}
+.score-display .pt-pts{color:var(--accent-2);font-size:20px}
+
+/* LEVEL NAV */
+.level-nav{padding:50px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-top:1px solid var(--line);margin-top:60px}
+.level-nav a{background:var(--bg);padding:26px;text-decoration:none;color:var(--ink);transition:background .2s}
+.level-nav a:hover{background:#fff}
+.level-nav a.next{text-align:right}
+.level-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:8px}
+.level-nav .ttl{font-family:'Fraunces',serif;font-style:italic;font-size:26px;font-weight:300}
+
+footer{background:var(--ink);color:var(--bg);padding:50px 6vw;text-align:center}
+footer p{color:rgba(254,250,243,.7);font-size:13px;font-family:'JetBrains Mono',monospace}
+footer em{font-family:'Fraunces',serif;font-style:italic;color:var(--accent-2);font-size:15px}
+
+/* DESKTOP SIDEBAR */
+@media(min-width:1024px){
+  main{display:grid;grid-template-columns:260px 1fr;gap:60px;align-items:start;padding:60px 6vw}
+  main > .toc{grid-column:1;grid-row:1/-1;position:sticky;top:24px;max-height:calc(100vh - 60px);overflow-y:auto;margin-bottom:0;padding:20px;align-self:start}
+  main > .toc h4{font-size:11px}
+  main > .toc li{padding:6px 0;font-size:13px;line-height:1.4}
+  main > section.unit{grid-column:2;min-width:0}
+}
+@media(max-width:768px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero{padding:60px 6vw 80px}
+  .score-display{bottom:12px;right:12px;padding:10px 14px;font-size:12px}
+  .score-display .pt-pts{font-size:16px}
+  .exercise{padding:18px;box-shadow:3px 3px 0 var(--ink)}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="tag">Trilha A1 — Foundations for Tech</span>
+    <h1 class="title">
+      Inglês para <em>devs</em> que pensam<br>
+      <strong>em português.</strong>
+    </h1>
+    <p class="subtitle">
+      Trilha sequencial de A1 desenhada para <strong>profissionais de tecnologia brasileiros</strong>. Cada unit constrói sobre a anterior, com 6 tipos de exercício, vocabulário tech assertivo (standup, deploy, PR, retro, sync) e foco brutal em quebrar a tradução literal.
+    </p>
+    <div class="hero-stats">
+      <div><div class="stat-num">8</div><div class="stat-label">Units</div></div>
+      <div><div class="stat-num">130+</div><div class="stat-label">Exercícios</div></div>
+      <div><div class="stat-num">100+</div><div class="stat-label">Termos tech</div></div>
+      <div><div class="stat-num">6</div><div class="stat-label">Tipos de drill</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h4>Trilha A1</h4>
+  <div class="toc-sub">Faça em ordem. Cada unit é pré-requisito da próxima.</div>
+  <ol>
+    <li><a href="#u1">Verbo TO BE — sua identidade tech</a></li>
+    <li><a href="#u2">Pronomes — falando do time</a></li>
+    <li><a href="#u3">Articles a/an/the — tools & concepts</a></li>
+    <li><a href="#u4">Plurals — coisas no trabalho</a></li>
+    <li><a href="#u5">Present Simple — rotina dev <small>(em breve)</small></a></li>
+    <li><a href="#u6">Wh-questions — em meetings <small>(em breve)</small></a></li>
+    <li><a href="#u7">Prepositions in/on/at <small>(em breve)</small></a></li>
+    <li><a href="#u8">Word order — emails & PRs <small>(em breve)</small></a></li>
+  </ol>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 1: VERBO TO BE                                              -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u1">
+  <div class="unit-num"><span class="pre">Unit 01 / 08</span> · Foundations</div>
+  <h2 class="unit-title">Verbo <em>TO BE</em> — sua identidade tech.</h2>
+  <p class="lead">A primeira pedra da fundação. <strong>To be</strong> = ser <em>e</em> estar. Em PT são dois verbos. Em EN é um só. Esse é o detonador de quase todo erro brasileiro: traduzir "tenho 30 anos" como <em>I have 30 years</em>, ou "estou com fome" como <em>I am with hunger</em>.</p>
+
+  <h3>Conjugação completa (decora de olhos fechados)</h3>
+  <div class="gram-table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Pronome</th><th>Forma plena</th><th>Contração</th><th>Negativa</th><th>Pergunta</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>I am</td><td class="em-cell">I'm</td><td>I'm not</td><td>Am I?</td></tr>
+        <tr><td>you</td><td>you are</td><td class="em-cell">you're</td><td>you aren't</td><td>Are you?</td></tr>
+        <tr><td>he</td><td>he is</td><td class="em-cell">he's</td><td>he isn't</td><td>Is he?</td></tr>
+        <tr><td>she</td><td>she is</td><td class="em-cell">she's</td><td>she isn't</td><td>Is she?</td></tr>
+        <tr><td>it</td><td>it is</td><td class="em-cell">it's</td><td>it isn't</td><td>Is it?</td></tr>
+        <tr><td>we</td><td>we are</td><td class="em-cell">we're</td><td>we aren't</td><td>Are we?</td></tr>
+        <tr><td>they</td><td>they are</td><td class="em-cell">they're</td><td>they aren't</td><td>Are they?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ Anti-tradução: estados são "to be", não "to have"</h3>
+    <p style="color:rgba(254,250,243,.85);margin-bottom:14px">Em PT a gente "tem" idade, fome, frio, sono, razão, pressa. Em EN você <strong>É</strong> essas coisas — não <strong>tem</strong>.</p>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Tradução literal (errado)</span>
+        <div class="pt">Eu tenho 30 anos · Eu estou com fome · Estou com frio · Tenho razão · Estou com pressa</div>
+        <div class="en">I have 30 years · I am with hunger · I am with cold · I have reason · I am with hurry</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Forma correta (estado, não posse)</span>
+        <div class="en"><strong>I'm 30</strong> · <strong>I'm hungry</strong> · <strong>I'm cold</strong> · <strong>I'm right</strong> · <strong>I'm in a hurry</strong></div>
+        <div class="why">Mesma lógica para: thirsty (sede), tired (cansado), sleepy (sono), scared (medo), embarrassed (vergonha), late (atrasado).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Roles & Identity</h4>
+    <div class="vocab-intro">Os 12 títulos profissionais que você precisa saber dizer e entender em qualquer reunião.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">developer / dev</span><span class="pt-tr">desenvolvedor</span><span class="ex">I'm a developer at a fintech.</span></div>
+      <div class="vocab-cell"><span class="term">software engineer</span><span class="pt-tr">engenheiro de software</span><span class="ex">She's a senior software engineer.</span></div>
+      <div class="vocab-cell"><span class="term">backend / frontend</span><span class="pt-tr">backend / frontend</span><span class="ex">I'm a backend engineer.</span></div>
+      <div class="vocab-cell"><span class="term">full-stack</span><span class="pt-tr">full-stack</span><span class="ex">He's full-stack — does both sides.</span></div>
+      <div class="vocab-cell"><span class="term">tech lead / TL</span><span class="pt-tr">tech lead</span><span class="ex">She's the tech lead on this squad.</span></div>
+      <div class="vocab-cell"><span class="term">engineering manager / EM</span><span class="pt-tr">gerente de engenharia</span><span class="ex">My EM is supportive.</span></div>
+      <div class="vocab-cell"><span class="term">PM (product manager)</span><span class="pt-tr">PM, gerente de produto</span><span class="ex">The PM is in the meeting.</span></div>
+      <div class="vocab-cell"><span class="term">designer</span><span class="pt-tr">designer</span><span class="ex">Our designer is amazing.</span></div>
+      <div class="vocab-cell"><span class="term">junior / mid / senior</span><span class="pt-tr">júnior / pleno / sênior</span><span class="ex">I'm a senior dev.</span></div>
+      <div class="vocab-cell"><span class="term">intern</span><span class="pt-tr">estagiário</span><span class="ex">She's an intern this summer.</span></div>
+      <div class="vocab-cell"><span class="term">freelancer / contractor</span><span class="pt-tr">freelancer / PJ</span><span class="ex">I'm a freelancer right now.</span></div>
+      <div class="vocab-cell"><span class="term">remote / hybrid / on-site</span><span class="pt-tr">remoto / híbrido / presencial</span><span class="ex">We're a remote-first team.</span></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 1: MCQ — am/is/are -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 1.1 — Escolher am / is / are</div>
+        <div class="exercise-sub">Identidade tech: pratique TO BE em frases reais de trabalho.</div>
+      </div>
+      <span class="exercise-type">Multiple Choice</span>
+    </div>
+
+    <div class="q mcq" data-q="1-1" data-correct="am">
+      <div class="q-text">1. ___ a backend developer at a fintech. <span class="pt-hint">(Sou um dev backend numa fintech.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="am">I am</button>
+        <button class="opt" data-val="is">I is</button>
+        <button class="opt" data-val="are">I are</button>
+        <button class="opt" data-val="be">I be</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="1-2" data-correct="is">
+      <div class="q-text">2. My PM ___ in a meeting right now. <span class="pt-hint">(Minha PM está numa reunião agora.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="am">am</button>
+        <button class="opt" data-val="is">is</button>
+        <button class="opt" data-val="are">are</button>
+        <button class="opt" data-val="have">have</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="1-3" data-correct="are">
+      <div class="q-text">3. We ___ a remote-first team. <span class="pt-hint">(Somos um time remote-first.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="is">is</button>
+        <button class="opt" data-val="am">am</button>
+        <button class="opt" data-val="are">are</button>
+        <button class="opt" data-val="have">have</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="1-4" data-correct="is">
+      <div class="q-text">4. The deploy ___ scheduled for Friday. <span class="pt-hint">(O deploy está agendado pra sexta.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="am">am</button>
+        <button class="opt" data-val="is">is</button>
+        <button class="opt" data-val="are">are</button>
+        <button class="opt" data-val="be">be</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="1-5" data-correct="am">
+      <div class="q-text">5. I ___ 32 (years old). <span class="pt-hint">(Tenho 32 anos.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="have">have</button>
+        <button class="opt" data-val="am">am</button>
+        <button class="opt" data-val="have got">have got</button>
+        <button class="opt" data-val="is">is</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="1-6" data-correct="are">
+      <div class="q-text">6. The standups ___ at 10am every day. <span class="pt-hint">(Os standups são às 10 todo dia.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="is">is</button>
+        <button class="opt" data-val="am">am</button>
+        <button class="opt" data-val="have">have</button>
+        <button class="opt" data-val="are">are</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2: FILL-IN — contractions / negatives -->
+  <div class="exercise" data-ex="u1-fill">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 1.2 — Contrações e negativas</div>
+        <div class="exercise-sub">Use a contração apropriada (I'm, isn't, aren't...).</div>
+      </div>
+      <span class="exercise-type">Fill-in</span>
+    </div>
+
+    <div class="q fill" data-q="1-7">
+      <div class="q-text">1. ___ not on the call yet. (I + am NOT, contraído) <span class="pt-hint">(Não estou na call ainda.)</span></div>
+      <input type="text" class="fill-input" data-answer="I'm">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="1-8">
+      <div class="q-text">2. The build ___ broken — it's just slow. (is NOT, contraído) <span class="pt-hint">(O build não está quebrado, só lento.)</span></div>
+      <input type="text" class="fill-input" data-answer="isn't">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="1-9">
+      <div class="q-text">3. We ___ ready for the demo. (are NOT, contraído) <span class="pt-hint">(Não estamos prontos pro demo.)</span></div>
+      <input type="text" class="fill-input" data-answer="aren't">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="1-10">
+      <div class="q-text">4. ___ a senior engineer with 8 years of experience. (I am, contraído) <span class="pt-hint">(Sou eng. sênior com 8 anos de experiência.)</span></div>
+      <input type="text" class="fill-input" data-answer="I'm">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="1-11">
+      <div class="q-text">5. My laptop ___ working today. (is NOT, contraído) <span class="pt-hint">(Meu laptop não está funcionando hoje.)</span></div>
+      <input type="text" class="fill-input" data-answer="isn't">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u1-fill')">Verificar</button>
+  </div>
+
+  <!-- EXERCISE 3: REORDER — build sentences -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 1.3 — Monte a frase (reorder)</div>
+        <div class="exercise-sub">Clique nas palavras na ordem correta. Clique de novo na palavra montada para devolver.</div>
+      </div>
+      <span class="exercise-type">Sentence Reorder</span>
+    </div>
+
+    <div class="q reorder" data-q="1-12" data-correct="I am a backend developer">
+      <div class="q-text">1. PT: <em>"Eu sou um dev backend."</em></div>
+      <div class="reorder-zone">
+        <div class="word-built"></div>
+        <div class="word-pool">
+          <button class="word">backend</button>
+          <button class="word">a</button>
+          <button class="word">I</button>
+          <button class="word">am</button>
+          <button class="word">developer</button>
+        </div>
+      </div>
+      <button class="btn small" onclick="checkReorder('1-12')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="1-13" data-correct="The standup is at 10am">
+      <div class="q-text">2. PT: <em>"O standup é às 10."</em></div>
+      <div class="reorder-zone">
+        <div class="word-built"></div>
+        <div class="word-pool">
+          <button class="word">at</button>
+          <button class="word">standup</button>
+          <button class="word">is</button>
+          <button class="word">10am</button>
+          <button class="word">The</button>
+        </div>
+      </div>
+      <button class="btn small" onclick="checkReorder('1-13')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="1-14" data-correct="My PM is in a meeting">
+      <div class="q-text">3. PT: <em>"Minha PM está numa reunião."</em></div>
+      <div class="reorder-zone">
+        <div class="word-built"></div>
+        <div class="word-pool">
+          <button class="word">PM</button>
+          <button class="word">a</button>
+          <button class="word">My</button>
+          <button class="word">meeting</button>
+          <button class="word">is</button>
+          <button class="word">in</button>
+        </div>
+      </div>
+      <button class="btn small" onclick="checkReorder('1-14')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 4: ERROR FIND — clique no erro -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 1.4 — Ache o erro de tradução literal</div>
+        <div class="exercise-sub">Clique na palavra que está errada (vício de tradução do português).</div>
+      </div>
+      <span class="exercise-type">Error Correction</span>
+    </div>
+
+    <div class="q error-find" data-q="1-15" data-wrong="have" data-correct="am">
+      <div class="q-text">1. <em>"Eu tenho 30 anos"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="I">I</span>
+        <span class="word-clickable" data-val="have">have</span>
+        <span class="word-clickable" data-val="30">30</span>
+        <span class="word-clickable" data-val="years">years</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="1-16" data-wrong="with" data-correct="(remover)">
+      <div class="q-text">2. <em>"Estou com fome"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="I">I</span>
+        <span class="word-clickable" data-val="am">am</span>
+        <span class="word-clickable" data-val="with">with</span>
+        <span class="word-clickable" data-val="hungry">hungry</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="1-17" data-wrong="have" data-correct="am">
+      <div class="q-text">3. <em>"Estou com pressa"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="I">I</span>
+        <span class="word-clickable" data-val="have">have</span>
+        <span class="word-clickable" data-val="hurry">hurry</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="1-18" data-wrong="is" data-correct="are">
+      <div class="q-text">4. <em>"Os devs estão na call"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="The">The</span>
+        <span class="word-clickable" data-val="devs">devs</span>
+        <span class="word-clickable" data-val="is">is</span>
+        <span class="word-clickable" data-val="on">on</span>
+        <span class="word-clickable" data-val="the">the</span>
+        <span class="word-clickable" data-val="call">call</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- CHECKPOINT — Unit 1 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 01</div>
+    <h3>Você dominou TO BE? Prove em 3 questões.</h3>
+
+    <div class="q mcq" data-q="1-cp1" data-correct="am">
+      <div class="q-text">1. I ___ in a hurry — gotta run! <span class="pt-hint">(Estou com pressa.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="have">have</button>
+        <button class="opt" data-val="am">am</button>
+        <button class="opt" data-val="is">is</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="1-cp2">
+      <div class="q-text">2. Traduza: <em>"Estou cansado, longa sprint"</em>:</div>
+      <input type="text" class="fill-input long" data-answer="I'm tired, long sprint" data-ex="u1-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="1-cp3" data-correct="are">
+      <div class="q-text">3. ___ you available for a quick sync? <span class="pt-hint">(Você tá disponível pra um sync rápido?)</span></div>
+      <div class="options">
+        <button class="opt" data-val="is">Is</button>
+        <button class="opt" data-val="am">Am</button>
+        <button class="opt" data-val="are">Are</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u1-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 2: PRONOMES                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u2">
+  <div class="unit-num"><span class="pre">Unit 02 / 08</span> · Foundations</div>
+  <h2 class="unit-title">Pronomes — falando do <em>time</em>.</h2>
+  <p class="lead">Em PT a gente fala "ele me ajudou" e "meu PR" sem pensar. Em EN existem <strong>3 famílias de pronomes</strong> que brasileiros embaralham: sujeito (I, you, he), objeto (me, you, him) e possessivos (my, your, his). Erro clássico: usar "I" onde deveria ser "me".</p>
+
+  <h3>Tabela completa</h3>
+  <div class="gram-table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Sujeito</th><th>Objeto</th><th>Possessivo (+ subst.)</th><th>Pronome possessivo</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td class="em-cell">me</td><td>my (PR)</td><td>mine</td></tr>
+        <tr><td>you</td><td class="em-cell">you</td><td>your (PR)</td><td>yours</td></tr>
+        <tr><td>he</td><td class="em-cell">him</td><td>his (PR)</td><td>his</td></tr>
+        <tr><td>she</td><td class="em-cell">her</td><td>her (PR)</td><td>hers</td></tr>
+        <tr><td>it</td><td class="em-cell">it</td><td>its (PR)</td><td>—</td></tr>
+        <tr><td>we</td><td class="em-cell">us</td><td>our (PR)</td><td>ours</td></tr>
+        <tr><td>they</td><td class="em-cell">them</td><td>their (PR)</td><td>theirs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warning-box">
+    <h3>⚠ HIS/HER concorda com a PESSOA, não com o objeto</h3>
+    <p style="color:rgba(254,250,243,.85);margin-bottom:14px">Em PT "seu carro" pode ser dele ou dela. Em EN é diferente: <strong>HIS</strong> = dele, <strong>HER</strong> = dela. Independente do gênero do objeto.</p>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Brasileiro pensa "casa = feminino, então her"</span>
+        <div class="pt">João comprou uma casa. → "Her house is amazing"</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Genêro segue a pessoa</span>
+        <div class="en">João = ele → <strong>His house</strong> is amazing.<br>Maria = ela → <strong>Her code</strong> is clean.</div>
+        <div class="why">"Code" não tem gênero em EN. O HIS/HER nunca depende do substantivo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-box" style="margin-top:16px">
+    <h3>⚠ ITS vs IT'S — o erro nº 1 dos não-nativos</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-right">
+        <span class="label">ITS (sem apóstrofo)</span>
+        <div class="en"><strong>its</strong> = possessivo neutro (do animal/coisa)<br><em>The repo and its README.</em></div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">IT'S (com apóstrofo)</span>
+        <div class="en"><strong>it's</strong> = it is / it has<br><em>It's a critical bug.</em></div>
+        <div class="why">Em dúvida: cabe "it is" no lugar? Use IT'S. Não cabe? Use ITS.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Team & Relationships</h4>
+    <div class="vocab-intro">Como falar do time, das pessoas com quem você trabalha, das responsabilidades.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">my manager</span><span class="pt-tr">meu gestor</span><span class="ex">My manager is in 1:1 with me on Mondays.</span></div>
+      <div class="vocab-cell"><span class="term">our team / squad</span><span class="pt-tr">nosso time / squad</span><span class="ex">Our squad is shipping a feature.</span></div>
+      <div class="vocab-cell"><span class="term">your PR / pull request</span><span class="pt-tr">seu PR</span><span class="ex">I left comments on your PR.</span></div>
+      <div class="vocab-cell"><span class="term">his/her code review</span><span class="pt-tr">o code review dele/dela</span><span class="ex">Her review caught a bug.</span></div>
+      <div class="vocab-cell"><span class="term">their stack</span><span class="pt-tr">a stack deles</span><span class="ex">Their stack is React + Node.</span></div>
+      <div class="vocab-cell"><span class="term">my mentor / mentee</span><span class="pt-tr">meu mentor / mentorado</span><span class="ex">My mentor helps me grow.</span></div>
+      <div class="vocab-cell"><span class="term">peers</span><span class="pt-tr">colegas (do mesmo nível)</span><span class="ex">My peers reviewed the design.</span></div>
+      <div class="vocab-cell"><span class="term">stakeholder</span><span class="pt-tr">stakeholder, parte interessada</span><span class="ex">The stakeholder approved it.</span></div>
+      <div class="vocab-cell"><span class="term">direct report</span><span class="pt-tr">subordinado direto</span><span class="ex">She has 5 direct reports.</span></div>
+      <div class="vocab-cell"><span class="term">teammate / colleague</span><span class="pt-tr">colega de time</span><span class="ex">My teammate is on PTO.</span></div>
+      <div class="vocab-cell"><span class="term">cross-functional</span><span class="pt-tr">multifuncional</span><span class="ex">It's a cross-functional team.</span></div>
+      <div class="vocab-cell"><span class="term">on-call (rotation)</span><span class="pt-tr">de plantão</span><span class="ex">I'm on-call this week.</span></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 1: MCQ — subject/object/possessive -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 2.1 — Pronome certo (subject/object/possessive)</div>
+      </div>
+      <span class="exercise-type">Multiple Choice</span>
+    </div>
+
+    <div class="q mcq" data-q="2-1" data-correct="me">
+      <div class="q-text">1. Can you help ___ with this PR? <span class="pt-hint">(Você pode me ajudar com esse PR?)</span></div>
+      <div class="options">
+        <button class="opt" data-val="I">I</button>
+        <button class="opt" data-val="me">me</button>
+        <button class="opt" data-val="my">my</button>
+        <button class="opt" data-val="mine">mine</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="2-2" data-correct="his">
+      <div class="q-text">2. João just merged ___ feature branch. <span class="pt-hint">(O João acabou de mergear a branch dele.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="her">her</button>
+        <button class="opt" data-val="his">his</button>
+        <button class="opt" data-val="he">he</button>
+        <button class="opt" data-val="him">him</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="2-3" data-correct="her">
+      <div class="q-text">3. Maria is presenting ___ design tomorrow. <span class="pt-hint">(Maria vai apresentar o design dela amanhã.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="his">his</button>
+        <button class="opt" data-val="hers">hers</button>
+        <button class="opt" data-val="her">her</button>
+        <button class="opt" data-val="she">she</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="2-4" data-correct="us">
+      <div class="q-text">4. The PM invited ___ to the planning meeting. <span class="pt-hint">(A PM nos convidou pra planning.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="we">we</button>
+        <button class="opt" data-val="our">our</button>
+        <button class="opt" data-val="us">us</button>
+        <button class="opt" data-val="ours">ours</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="2-5" data-correct="its">
+      <div class="q-text">5. The repo and ___ README are public. <span class="pt-hint">(O repo e o README dele são públicos.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="it's">it's</button>
+        <button class="opt" data-val="its">its</button>
+        <button class="opt" data-val="his">his</button>
+        <button class="opt" data-val="of him">of him</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="2-6" data-correct="theirs">
+      <div class="q-text">6. This PR is ours. That one is ___. <span class="pt-hint">(Este PR é nosso. Aquele é deles.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="their">their</button>
+        <button class="opt" data-val="theirs">theirs</button>
+        <button class="opt" data-val="them">them</button>
+        <button class="opt" data-val="they">they</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2: MATCH PAIRS — pronouns -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 2.2 — Combine os pronomes (PT ↔ EN)</div>
+        <div class="exercise-sub">Clique numa caixa à esquerda, depois na correspondente à direita.</div>
+      </div>
+      <span class="exercise-type">Match Pairs</span>
+    </div>
+
+    <div class="q match" data-q="2-match">
+      <div class="match-cols">
+        <div class="match-col">
+          <h5>Português</h5>
+          <button class="pair" data-pair="A">me / pra mim</button>
+          <button class="pair" data-pair="B">dele (algo)</button>
+          <button class="pair" data-pair="C">deles (algo)</button>
+          <button class="pair" data-pair="D">o nosso (sem subst.)</button>
+          <button class="pair" data-pair="E">a ela / pra ela</button>
+          <button class="pair" data-pair="F">o seu (de você, sem subst.)</button>
+        </div>
+        <div class="match-col">
+          <h5>English</h5>
+          <button class="pair" data-pair="C">their</button>
+          <button class="pair" data-pair="A">me</button>
+          <button class="pair" data-pair="F">yours</button>
+          <button class="pair" data-pair="B">his</button>
+          <button class="pair" data-pair="D">ours</button>
+          <button class="pair" data-pair="E">her</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3: TRANSLATION -->
+  <div class="exercise" data-ex="u2-trans">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 2.3 — Traduza (PT → EN)</div>
+        <div class="exercise-sub">Cuidado com possessivos, contrações e ITS vs IT'S.</div>
+      </div>
+      <span class="exercise-type">Translation</span>
+    </div>
+
+    <div class="q fill" data-q="2-7">
+      <div class="q-text">1. <em>"Meu PR está pronto pra review."</em></div>
+      <input type="text" class="fill-input long" data-answer="My PR is ready for review">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="2-8">
+      <div class="q-text">2. <em>"Ele me ajudou com o bug."</em></div>
+      <input type="text" class="fill-input long" data-answer="He helped me with the bug">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="2-9">
+      <div class="q-text">3. <em>"O nosso time é remoto."</em></div>
+      <input type="text" class="fill-input long" data-answer="Our team is remote">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="2-10">
+      <div class="q-text">4. <em>"É um bug crítico."</em> (use it's)</div>
+      <input type="text" class="fill-input long" data-answer="It's a critical bug">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u2-trans')">Verificar</button>
+  </div>
+
+  <!-- CHECKPOINT — Unit 2 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 02</div>
+    <h3>Você dominou os pronomes? 3 questões.</h3>
+
+    <div class="q mcq" data-q="2-cp1" data-correct="him">
+      <div class="q-text">1. I asked ___ for a code review. <span class="pt-hint">(Pedi pra ele fazer um code review.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="he">he</button>
+        <button class="opt" data-val="him">him</button>
+        <button class="opt" data-val="his">his</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="2-cp2" data-correct="its">
+      <div class="q-text">2. The library is great, but ___ docs are outdated. <span class="pt-hint">(A lib é boa, mas a doc dela está desatualizada.)</span></div>
+      <div class="options">
+        <button class="opt" data-val="it's">it's</button>
+        <button class="opt" data-val="its">its</button>
+        <button class="opt" data-val="his">his</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="2-cp3">
+      <div class="q-text">3. Traduza: <em>"O code review dela achou um bug."</em></div>
+      <input type="text" class="fill-input long" data-answer="Her code review found a bug" data-ex="u2-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u2-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 3: ARTICLES A/AN/THE                                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u3">
+  <div class="unit-num"><span class="pre">Unit 03 / 08</span> · Foundations</div>
+  <h2 class="unit-title">Articles <em>a / an / the</em>.</h2>
+  <p class="lead">Brasileiro fala "Sou engenheiro" sem artigo. Em EN é OBRIGATÓRIO: <em>I'm <strong>an</strong> engineer</em>. Esse é o erro nº 1 em entrevistas técnicas. Outro detalhe: <strong>a</strong> ou <strong>an</strong> depende do <em>som</em> da próxima palavra, não da letra.</p>
+
+  <h3>A regra real: SOM (não letra)</h3>
+  <table class="gram-table">
+    <thead><tr><th>Use A antes de</th><th>Exemplo tech</th><th>Use AN antes de</th><th>Exemplo tech</th></tr></thead>
+    <tbody>
+      <tr><td>som de consoante</td><td class="em-cell">a bug, a deploy, a feature, a sprint</td><td>som de vogal</td><td class="em-cell">an engineer, an outage, an API, an MVP</td></tr>
+      <tr><td>"u" com som de "yu"</td><td class="em-cell">a UI ("a yu-ai"), a user, a unique ID</td><td>"h" mudo</td><td class="em-cell">an hour ("an aua")</td></tr>
+      <tr><td>vogal com som consoante</td><td class="em-cell">a one-on-one ("a uan-on-uan")</td><td>siglas com vogal inicial</td><td class="em-cell">an SDK, an HTTP error, an FBI agent</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>⚠ Use a/an SEMPRE com profissão (singular)</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Sem artigo (errado)</span>
+        <div class="en">I'm engineer · She's designer · He's PM</div>
+        <div class="why">Brasileiro pula o artigo porque em PT a gente fala "Sou engenheiro". Inglês não permite.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Com artigo (correto)</span>
+        <div class="en">I'm <strong>an</strong> engineer · She's <strong>a</strong> designer · He's <strong>a</strong> PM</div>
+        <div class="why">Tudo que é contável e singular precisa de a/an/the.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Quando usar THE (definido)</h3>
+  <div class="gram-table-wrap">
+    <table class="gram-table">
+      <thead><tr><th>Use THE quando...</th><th>Exemplo tech</th></tr></thead>
+      <tbody>
+        <tr><td>algo já mencionado / específico</td><td>I opened a PR. <strong>The PR</strong> is ready.</td></tr>
+        <tr><td>único no contexto</td><td><strong>The standup</strong> is at 10am. (nosso standup)</td></tr>
+        <tr><td>superlativo</td><td><strong>The best</strong> bug-fix ever.</td></tr>
+        <tr><td>partes do dia (algumas)</td><td><strong>in the morning</strong> · <strong>in the afternoon</strong></td></tr>
+        <tr><td>NUNCA com nomes próprios (geralmente)</td><td>I work at Google (NÃO "the Google")</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Tools, Concepts & Events</h4>
+    <div class="vocab-intro">Os 12 substantivos contáveis do dia-a-dia em tech — pratique colocar a/an/the antes.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">a bug</span><span class="pt-tr">um bug</span><span class="ex">There's a bug in production.</span></div>
+      <div class="vocab-cell"><span class="term">a feature / a request</span><span class="pt-tr">uma feature / pedido</span><span class="ex">It's a small feature.</span></div>
+      <div class="vocab-cell"><span class="term">a deploy / a release</span><span class="pt-tr">um deploy / release</span><span class="ex">We have a deploy on Friday.</span></div>
+      <div class="vocab-cell"><span class="term">a sprint / a retro</span><span class="pt-tr">uma sprint / retro</span><span class="ex">It was a productive sprint.</span></div>
+      <div class="vocab-cell"><span class="term">a standup / a 1:1</span><span class="pt-tr">standup / 1:1</span><span class="ex">I have a standup at 10.</span></div>
+      <div class="vocab-cell"><span class="term">an API / an endpoint</span><span class="pt-tr">uma API / endpoint</span><span class="ex">We need an API for this.</span></div>
+      <div class="vocab-cell"><span class="term">an MVP / an outage</span><span class="pt-tr">um MVP / um outage</span><span class="ex">We had an outage last night.</span></div>
+      <div class="vocab-cell"><span class="term">an SLA / an SLO</span><span class="pt-tr">um SLA / SLO</span><span class="ex">Our SLA is 99.9%.</span></div>
+      <div class="vocab-cell"><span class="term">a hotfix / a patch</span><span class="pt-tr">um hotfix / patch</span><span class="ex">We need a hotfix ASAP.</span></div>
+      <div class="vocab-cell"><span class="term">the codebase / the repo</span><span class="pt-tr">a codebase / o repo</span><span class="ex">The codebase is huge.</span></div>
+      <div class="vocab-cell"><span class="term">the demo / the kickoff</span><span class="pt-tr">o demo / o kickoff</span><span class="ex">The demo went well.</span></div>
+      <div class="vocab-cell"><span class="term">a meeting / a call</span><span class="pt-tr">uma reunião / call</span><span class="ex">I have a meeting at 2.</span></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 1: MCQ a/an -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 3.1 — A ou AN?</div>
+        <div class="exercise-sub">Lembre: pelo SOM, não pela letra.</div>
+      </div>
+      <span class="exercise-type">Multiple Choice</span>
+    </div>
+
+    <div class="q mcq" data-q="3-1" data-correct="an">
+      <div class="q-text">1. I'm ___ engineer at a startup.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+        <button class="opt" data-val="(none)">(none)</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-2" data-correct="a">
+      <div class="q-text">2. We hit ___ bug right before the deploy.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+        <button class="opt" data-val="(none)">(none)</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-3" data-correct="an">
+      <div class="q-text">3. They had ___ outage last week.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-4" data-correct="a">
+      <div class="q-text">4. She built ___ UI ("yu-ai") for the dashboard.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-5" data-correct="an">
+      <div class="q-text">5. We need ___ API to fetch the data.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-6" data-correct="an">
+      <div class="q-text">6. The build will take ___ hour at least.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2: MCQ a/an/the/(none) -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 3.2 — A vs THE vs sem artigo</div>
+      </div>
+      <span class="exercise-type">Multiple Choice</span>
+    </div>
+
+    <div class="q mcq" data-q="3-7" data-correct="the">
+      <div class="q-text">1. I opened ___ PR, but ___ PR is still pending review. (segunda lacuna)</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-8" data-correct="(none)">
+      <div class="q-text">2. ___ JavaScript is a popular language. (linguagem em geral)</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="the">the</button>
+        <button class="opt" data-val="(none)">(none)</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-9" data-correct="the">
+      <div class="q-text">3. ___ standup is at 10 every day. (nosso standup, único)</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="the">the</button>
+        <button class="opt" data-val="(none)">(none)</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-10" data-correct="(none)">
+      <div class="q-text">4. I work at ___ Google.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="the">the</button>
+        <button class="opt" data-val="(none)">(none)</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3: ERROR FIND -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 3.3 — Ache o artigo errado/faltando</div>
+      </div>
+      <span class="exercise-type">Error Correction</span>
+    </div>
+
+    <div class="q error-find" data-q="3-11" data-wrong="(faltando_an)" data-correct="an">
+      <div class="q-text">1. <em>"Sou engenheiro de backend"</em> — algo falta:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="I'm">I'm</span>
+        <span class="word-clickable" data-val="(faltando_an)">[___]</span>
+        <span class="word-clickable" data-val="engineer">engineer</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px">Clique no <em>[___]</em> se você acha que falta um artigo ali.</p>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="3-12" data-wrong="a" data-correct="an">
+      <div class="q-text">2. <em>"Tivemos um outage ontem"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="We">We</span>
+        <span class="word-clickable" data-val="had">had</span>
+        <span class="word-clickable" data-val="a">a</span>
+        <span class="word-clickable" data-val="outage">outage</span>
+        <span class="word-clickable" data-val="yesterday">yesterday</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q error-find" data-q="3-13" data-wrong="the" data-correct="(remover)">
+      <div class="q-text">3. <em>"Eu trabalho no Google"</em>:</div>
+      <div class="error-sentence">
+        <span class="word-clickable" data-val="I">I</span>
+        <span class="word-clickable" data-val="work">work</span>
+        <span class="word-clickable" data-val="at">at</span>
+        <span class="word-clickable" data-val="the">the</span>
+        <span class="word-clickable" data-val="Google">Google</span>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 4: REORDER -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 3.4 — Reorder com artigos</div>
+      </div>
+      <span class="exercise-type">Sentence Reorder</span>
+    </div>
+
+    <div class="q reorder" data-q="3-14" data-correct="We need an MVP for the demo">
+      <div class="q-text">1. PT: <em>"Precisamos de um MVP pro demo."</em></div>
+      <div class="reorder-zone">
+        <div class="word-built"></div>
+        <div class="word-pool">
+          <button class="word">demo</button>
+          <button class="word">an</button>
+          <button class="word">MVP</button>
+          <button class="word">need</button>
+          <button class="word">We</button>
+          <button class="word">the</button>
+          <button class="word">for</button>
+        </div>
+      </div>
+      <button class="btn small" onclick="checkReorder('3-14')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q reorder" data-q="3-15" data-correct="The bug is in the payment service">
+      <div class="q-text">2. PT: <em>"O bug está no serviço de pagamento."</em></div>
+      <div class="reorder-zone">
+        <div class="word-built"></div>
+        <div class="word-pool">
+          <button class="word">service</button>
+          <button class="word">The</button>
+          <button class="word">in</button>
+          <button class="word">the</button>
+          <button class="word">payment</button>
+          <button class="word">bug</button>
+          <button class="word">is</button>
+        </div>
+      </div>
+      <button class="btn small" onclick="checkReorder('3-15')">Verificar</button>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- CHECKPOINT — Unit 3 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 03</div>
+    <h3>Você dominou os artigos? 3 questões.</h3>
+
+    <div class="q mcq" data-q="3-cp1" data-correct="an">
+      <div class="q-text">1. We hit ___ unexpected error in prod.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="3-cp2" data-correct="a">
+      <div class="q-text">2. She's ___ senior designer.</div>
+      <div class="options">
+        <button class="opt" data-val="a">a</button>
+        <button class="opt" data-val="an">an</button>
+        <button class="opt" data-val="the">the</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="3-cp3">
+      <div class="q-text">3. Traduza: <em>"Eu sou um dev backend num banco."</em></div>
+      <input type="text" class="fill-input long" data-answer="I'm a backend dev at a bank" data-ex="u3-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u3-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- UNIT 4: PLURALS                                                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="unit" id="u4">
+  <div class="unit-num"><span class="pre">Unit 04 / 08</span> · Foundations</div>
+  <h2 class="unit-title">Plurals — falando de <em>coisas</em> no trabalho.</h2>
+  <p class="lead">Plural normal é só adicionar -s: <em>bug → bugs</em>. Mas existem armadilhas: palavras que não pluralizam ("information"), plurais irregulares ("people", "men"), e collective nouns ("the team is..." ou "the team are..."?). Brasileiro tropeça nessas três áreas.</p>
+
+  <h3>Regras dos plurais</h3>
+  <table class="gram-table">
+    <thead><tr><th>Tipo</th><th>Regra</th><th>Exemplo tech</th></tr></thead>
+    <tbody>
+      <tr><td>Maioria</td><td>+ s</td><td class="em-cell">bug → bugs · feature → features</td></tr>
+      <tr><td>Termina em -s, -ss, -sh, -ch, -x, -z</td><td>+ es</td><td class="em-cell">box → boxes · class → classes · branch → branches</td></tr>
+      <tr><td>Termina em consoante + y</td><td>y → ies</td><td class="em-cell">factory → factories · query → queries · library → libraries</td></tr>
+      <tr><td>Termina em vogal + y</td><td>+ s normal</td><td class="em-cell">key → keys · day → days</td></tr>
+      <tr><td>Termina em -f, -fe</td><td>f → ves</td><td class="em-cell">leaf → leaves · life → lives</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Plurais irregulares essenciais</h3>
+  <table class="gram-table">
+    <thead><tr><th>Singular</th><th>Plural</th><th>Tech context</th></tr></thead>
+    <tbody>
+      <tr><td>person</td><td class="em-cell">people</td><td>5 people on the team</td></tr>
+      <tr><td>man / woman</td><td class="em-cell">men / women</td><td>Three women joined the squad.</td></tr>
+      <tr><td>child</td><td class="em-cell">children</td><td>(menos comum em tech context)</td></tr>
+      <tr><td>foot / tooth</td><td class="em-cell">feet / teeth</td><td>(idem)</td></tr>
+      <tr><td>mouse</td><td class="em-cell">mice</td><td>The mice / two mice (do mouse de computador, plural varia: "mouses" também aceito em tech)</td></tr>
+      <tr><td>datum</td><td class="em-cell">data</td><td>The data is/are conflicting (US vs UK)</td></tr>
+      <tr><td>analysis</td><td class="em-cell">analyses</td><td>We ran two analyses.</td></tr>
+      <tr><td>criterion</td><td class="em-cell">criteria</td><td>What are the criteria?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <h3>⚠ Substantivos UNCOUNTABLE — sempre singular</h3>
+    <p style="color:rgba(254,250,243,.85);margin-bottom:14px">Em PT plural: "informações", "conselhos", "feedbacks", "softwares". Em EN: SEMPRE singular.</p>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Plural brasileiro</span>
+        <div class="en">informations · advices · feedbacks · softwares · equipments · researches</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ Sempre singular</span>
+        <div class="en"><strong>information · advice · feedback · software · equipment · research</strong></div>
+        <div class="why">Para contar: "a piece of advice" / "two pieces of feedback" / "some information".</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-box" style="margin-top:16px">
+    <h3>⚠ "People" é PLURAL — concordância obrigatória</h3>
+    <div class="compare-grid">
+      <div class="compare-cell compare-wrong">
+        <span class="label">❌ Erro brasileiro clássico</span>
+        <div class="en">People <span style="text-decoration:line-through">is</span> nice in this team.</div>
+      </div>
+      <div class="compare-cell compare-right">
+        <span class="label">✅ People = they</span>
+        <div class="en">People <strong>are</strong> nice in this team.</div>
+        <div class="why">Mesmo que pareça singular pra você, "people" sempre concorda com plural ("are/were/have").</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-vocab">
+    <h4>★ Tech Vocab — Things & Stuff</h4>
+    <div class="vocab-intro">Coisas no dia-a-dia tech — note quais são contáveis (têm plural) vs uncountable.</div>
+    <div class="vocab-grid">
+      <div class="vocab-cell"><span class="term">laptops / monitors</span><span class="pt-tr">laptops / monitores</span><span class="ex">We need 5 new laptops.</span></div>
+      <div class="vocab-cell"><span class="term">servers / nodes</span><span class="pt-tr">servidores / nodes</span><span class="ex">The servers are down.</span></div>
+      <div class="vocab-cell"><span class="term">repos / branches</span><span class="pt-tr">repos / branches</span><span class="ex">We have 12 active branches.</span></div>
+      <div class="vocab-cell"><span class="term">commits / PRs</span><span class="pt-tr">commits / PRs</span><span class="ex">300 commits this sprint.</span></div>
+      <div class="vocab-cell"><span class="term">bugs / issues</span><span class="pt-tr">bugs / issues</span><span class="ex">We closed 18 issues.</span></div>
+      <div class="vocab-cell"><span class="term">features / requests</span><span class="pt-tr">features / pedidos</span><span class="ex">Three features shipped.</span></div>
+      <div class="vocab-cell"><span class="term">queries / endpoints</span><span class="pt-tr">queries / endpoints</span><span class="ex">All endpoints returning 200.</span></div>
+      <div class="vocab-cell"><span class="term">tickets / tasks</span><span class="pt-tr">tickets / tasks</span><span class="ex">10 tickets in the backlog.</span></div>
+      <div class="vocab-cell"><span class="term">channels / DMs</span><span class="pt-tr">canais / DMs</span><span class="ex">Too many Slack channels.</span></div>
+      <div class="vocab-cell"><span class="term">information ⚠ uncount</span><span class="pt-tr">informação(ões)</span><span class="ex">I need some information.</span></div>
+      <div class="vocab-cell"><span class="term">feedback ⚠ uncount</span><span class="pt-tr">feedback</span><span class="ex">Got great feedback today.</span></div>
+      <div class="vocab-cell"><span class="term">software ⚠ uncount</span><span class="pt-tr">software</span><span class="ex">Our software is mature.</span></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 1: MCQ plural form -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 4.1 — Plural correto</div>
+      </div>
+      <span class="exercise-type">Multiple Choice</span>
+    </div>
+
+    <div class="q mcq" data-q="4-1" data-correct="branches">
+      <div class="q-text">1. We have 12 active ___ in the repo.</div>
+      <div class="options">
+        <button class="opt" data-val="branchs">branchs</button>
+        <button class="opt" data-val="branches">branches</button>
+        <button class="opt" data-val="branchies">branchies</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="4-2" data-correct="queries">
+      <div class="q-text">2. These ___ are super slow.</div>
+      <div class="options">
+        <button class="opt" data-val="querys">querys</button>
+        <button class="opt" data-val="queries">queries</button>
+        <button class="opt" data-val="queryes">queryes</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="4-3" data-correct="people">
+      <div class="q-text">3. Five ___ joined our squad this month.</div>
+      <div class="options">
+        <button class="opt" data-val="persons">persons</button>
+        <button class="opt" data-val="peoples">peoples</button>
+        <button class="opt" data-val="people">people</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="4-4" data-correct="feedback">
+      <div class="q-text">4. I got really useful ___ from my mentor.</div>
+      <div class="options">
+        <button class="opt" data-val="feedback">feedback</button>
+        <button class="opt" data-val="feedbacks">feedbacks</button>
+        <button class="opt" data-val="a feedback">a feedback</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="4-5" data-correct="information">
+      <div class="q-text">5. The dashboard is missing key ___.</div>
+      <div class="options">
+        <button class="opt" data-val="informations">informations</button>
+        <button class="opt" data-val="information">information</button>
+        <button class="opt" data-val="an information">an information</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="4-6" data-correct="are">
+      <div class="q-text">6. People ___ really nice on this team.</div>
+      <div class="options">
+        <button class="opt" data-val="is">is</button>
+        <button class="opt" data-val="are">are</button>
+        <button class="opt" data-val="be">be</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2: MATCH PAIRS — singular/plural -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 4.2 — Combine singular ↔ plural</div>
+      </div>
+      <span class="exercise-type">Match Pairs</span>
+    </div>
+
+    <div class="q match" data-q="4-match">
+      <div class="match-cols">
+        <div class="match-col">
+          <h5>Singular</h5>
+          <button class="pair" data-pair="A">branch</button>
+          <button class="pair" data-pair="B">query</button>
+          <button class="pair" data-pair="C">analysis</button>
+          <button class="pair" data-pair="D">criterion</button>
+          <button class="pair" data-pair="E">person</button>
+          <button class="pair" data-pair="F">leaf (na hierarquia)</button>
+        </div>
+        <div class="match-col">
+          <h5>Plural</h5>
+          <button class="pair" data-pair="C">analyses</button>
+          <button class="pair" data-pair="A">branches</button>
+          <button class="pair" data-pair="F">leaves</button>
+          <button class="pair" data-pair="E">people</button>
+          <button class="pair" data-pair="B">queries</button>
+          <button class="pair" data-pair="D">criteria</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3: TRANSLATION -->
+  <div class="exercise" data-ex="u4-trans">
+    <div class="exercise-header">
+      <div>
+        <div class="exercise-title">Drill 4.3 — Traduza</div>
+      </div>
+      <span class="exercise-type">Translation</span>
+    </div>
+
+    <div class="q fill" data-q="4-7">
+      <div class="q-text">1. <em>"Cinco pessoas no nosso time."</em></div>
+      <input type="text" class="fill-input long" data-answer="Five people on our team">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="4-8">
+      <div class="q-text">2. <em>"Eu preciso de mais informações."</em> (cuidado!)</div>
+      <input type="text" class="fill-input long" data-answer="I need more information">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="4-9">
+      <div class="q-text">3. <em>"Os bugs estão no backlog."</em></div>
+      <input type="text" class="fill-input long" data-answer="The bugs are in the backlog">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u4-trans')">Verificar</button>
+  </div>
+
+  <!-- CHECKPOINT — Unit 4 -->
+  <div class="checkpoint">
+    <div class="cp-eyebrow">★ Mini-checkpoint · Unit 04</div>
+    <h3>Você dominou plurais? 3 questões.</h3>
+
+    <div class="q mcq" data-q="4-cp1" data-correct="advice">
+      <div class="q-text">1. My mentor gave me good ___.</div>
+      <div class="options">
+        <button class="opt" data-val="advice">advice</button>
+        <button class="opt" data-val="advices">advices</button>
+        <button class="opt" data-val="an advice">an advice</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q mcq" data-q="4-cp2" data-correct="are">
+      <div class="q-text">2. The data ___ inconclusive (US neutro).</div>
+      <div class="options">
+        <button class="opt" data-val="is">is</button>
+        <button class="opt" data-val="are">are</button>
+        <button class="opt" data-val="be">be</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="q fill" data-q="4-cp3">
+      <div class="q-text">3. Traduza: <em>"As pessoas são legais aqui."</em></div>
+      <input type="text" class="fill-input long" data-answer="People are nice here" data-ex="u4-cp">
+      <div class="feedback"></div>
+    </div>
+
+    <button class="btn small" onclick="checkFillIns('u4-cp')" style="background:var(--accent-2);color:var(--ink)">Verificar fill-in</button>
+  </div>
+</section>
+
+<!-- Sentinel: continued in next turn (Units 5-8 + final test) -->
+<section class="unit" style="background:var(--paper-warm);border-radius:10px;padding:40px;text-align:center;margin-top:60px">
+  <div class="unit-num" style="justify-content:center">★ Continua em breve</div>
+  <h2 class="unit-title" style="font-size:32px">Units 5–8 + final test em breve.</h2>
+  <p class="lead" style="margin:20px auto 0">Esta é a primeira parte da Trilha A1 v2. Units restantes: <strong>Present Simple</strong> (rotina dev), <strong>Wh-questions</strong> (em meetings), <strong>Prepositions IN/ON/AT</strong> (lugar e tempo), <strong>Word Order</strong> (estruturando emails e PRs). Plus teste final consolidando tudo.</p>
+  <p style="margin-top:20px;font-size:14px;color:var(--muted)">Total final previsto: ~150 exercícios + 100 termos tech.</p>
+</section>
+
+</main>
+
+<div class="score-display">
+  <span>SCORE</span>
+  <span class="pt-pts" id="scoreNum">0</span>
+  <span>/ <span id="scoreTotal">—</span></span>
+</div>
+
+<nav class="level-nav">
+  <a href="00_PreA1_Survival.html">
+    <div class="lbl">← Pré-requisito</div>
+    <div class="ttl">Pre-A1 · Survival</div>
+  </a>
+  <a href="index.html" class="next">
+    <div class="lbl">Trilha completa →</div>
+    <div class="ttl">Voltar ao Índice</div>
+  </a>
+</nav>
+
+<footer>
+  <p>ENGLISH MASTERY · TRILHA A1 · <em>"Stop translating. Start thinking."</em></p>
+  <p style="margin-top:14px">Built for Brazilian tech professionals · v2.0 prototype</p>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// UNIVERSAL EXERCISE ENGINE — supports 6 exercise types
+// ═══════════════════════════════════════════════════════════════
+let score = 0;
+let totalQuestions = 0;
+
+function updateScore() {
+  document.getElementById('scoreNum').textContent = score;
+  document.getElementById('scoreTotal').textContent = totalQuestions;
+}
+
+function showFeedback(fb, correct, qId, hint) {
+  if (!fb) return;
+  fb.classList.add('show', correct ? 'correct' : 'wrong');
+  const explain = getExplanation(qId);
+  if (correct) {
+    fb.innerHTML = '<strong>✓ Correto!</strong> ' + explain;
+  } else {
+    let msg = '<strong>✗ Errado.</strong>';
+    if (hint) msg += ' Resposta: <em>' + hint + '</em>.';
+    msg += ' ' + explain;
+    fb.innerHTML = msg;
+  }
+}
+
+// ─── TYPE 1: MULTIPLE CHOICE ───────────────────────────────────
+document.querySelectorAll('.q.mcq').forEach(q => {
+  totalQuestions++;
+  const opts = q.querySelectorAll('.opt');
+  const correct = q.dataset.correct;
+  const fb = q.querySelector('.feedback');
+  opts.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if (q.dataset.answered) return;
+      opts.forEach(o => o.classList.add('disabled'));
+      if (opt.dataset.val === correct) {
+        opt.classList.add('correct');
+        score++;
+        showFeedback(fb, true, q.dataset.q);
+      } else {
+        opt.classList.add('wrong');
+        opts.forEach(o => { if (o.dataset.val === correct) o.classList.add('correct'); });
+        showFeedback(fb, false, q.dataset.q);
+      }
+      q.dataset.answered = 'true';
+      updateScore();
+    });
+  });
+});
+
+// ─── TYPE 2: FILL-IN ───────────────────────────────────────────
+document.querySelectorAll('.q.fill').forEach(q => { totalQuestions++; });
+
+function checkFillIns(exId) {
+  const ex = document.querySelector('[data-ex="' + exId + '"]');
+  if (!ex) return;
+  const inputs = ex.querySelectorAll('.fill-input');
+  inputs.forEach(input => {
+    if (input.dataset.checked) return;
+    const expected = (input.dataset.answer || '').toLowerCase().trim().replace(/[.,!?;:'"]/g, '');
+    const got = (input.value || '').toLowerCase().trim().replace(/[.,!?;:'"]/g, '');
+    const q = input.closest('.q');
+    const fb = q ? q.querySelector('.feedback') : null;
+    if (got === expected) {
+      input.classList.add('correct');
+      score++;
+      if (fb) showFeedback(fb, true, q.dataset.q);
+    } else {
+      input.classList.add('wrong');
+      if (fb) showFeedback(fb, false, q.dataset.q, input.dataset.answer);
+    }
+    input.dataset.checked = 'true';
+  });
+  updateScore();
+}
+
+// ─── TYPE 3: SENTENCE REORDER ──────────────────────────────────
+document.querySelectorAll('.q.reorder').forEach(q => {
+  totalQuestions++;
+  const pool = q.querySelector('.word-pool');
+  const built = q.querySelector('.word-built');
+  pool.querySelectorAll('.word').forEach(w => {
+    w.addEventListener('click', () => {
+      if (q.dataset.answered) return;
+      built.appendChild(w);
+    });
+  });
+  built.addEventListener('click', e => {
+    if (e.target.classList.contains('word') && !q.dataset.answered) {
+      pool.appendChild(e.target);
+    }
+  });
+});
+
+function checkReorder(qId) {
+  const q = document.querySelector('.q.reorder[data-q="' + qId + '"]');
+  if (!q || q.dataset.answered) return;
+  const built = q.querySelector('.word-built');
+  const fb = q.querySelector('.feedback');
+  const wordsArr = Array.from(built.querySelectorAll('.word')).map(w => w.textContent.trim());
+  const built_str = wordsArr.join(' ').toLowerCase().replace(/[.,!?;:'"]/g, '');
+  const expected = q.dataset.correct.toLowerCase().replace(/[.,!?;:'"]/g, '');
+  if (built_str === expected) {
+    built.classList.add('correct-reorder');
+    score++;
+    showFeedback(fb, true, qId);
+  } else {
+    built.classList.add('wrong-reorder');
+    showFeedback(fb, false, qId, q.dataset.correct);
+  }
+  q.dataset.answered = 'true';
+  updateScore();
+}
+
+// ─── TYPE 4: ERROR FIND ────────────────────────────────────────
+document.querySelectorAll('.q.error-find').forEach(q => {
+  totalQuestions++;
+  const words = q.querySelectorAll('.word-clickable');
+  const wrongVal = q.dataset.wrong;
+  const fb = q.querySelector('.feedback');
+  words.forEach(w => {
+    w.addEventListener('click', () => {
+      if (q.dataset.answered) return;
+      if (w.dataset.val === wrongVal || w.textContent.trim() === wrongVal) {
+        w.classList.add('correct');
+        score++;
+        showFeedback(fb, true, q.dataset.q, q.dataset.correct);
+      } else {
+        w.classList.add('wrong');
+        words.forEach(x => { if (x.dataset.val === wrongVal) x.classList.add('correct'); });
+        showFeedback(fb, false, q.dataset.q, wrongVal + ' → ' + q.dataset.correct);
+      }
+      q.dataset.answered = 'true';
+      updateScore();
+    });
+  });
+});
+
+// ─── TYPE 5: MATCH PAIRS ───────────────────────────────────────
+document.querySelectorAll('.q.match').forEach(q => {
+  const leftPairs = q.querySelectorAll('.match-left .pair, .match-col:first-child .pair');
+  totalQuestions += leftPairs.length;
+  let selectedLeft = null;
+
+  q.querySelectorAll('.match-col:first-child .pair').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.matched) return;
+      q.querySelectorAll('.match-col:first-child .pair').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedLeft = btn;
+    });
+  });
+
+  q.querySelectorAll('.match-col:last-child .pair').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!selectedLeft || btn.dataset.matched) return;
+      if (btn.dataset.pair === selectedLeft.dataset.pair) {
+        btn.classList.add('matched');
+        selectedLeft.classList.add('matched');
+        btn.dataset.matched = 'true';
+        selectedLeft.dataset.matched = 'true';
+        selectedLeft.classList.remove('selected');
+        selectedLeft = null;
+        score++;
+        updateScore();
+      } else {
+        btn.classList.add('wrong');
+        selectedLeft.classList.add('wrong');
+        const sel = selectedLeft;
+        setTimeout(() => {
+          btn.classList.remove('wrong');
+          sel.classList.remove('wrong', 'selected');
+        }, 600);
+        selectedLeft = null;
+      }
+    });
+  });
+});
+
+// ─── INIT ──────────────────────────────────────────────────────
+updateScore();
+
+// ─── PROGRESS BAR ──────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+
+// ═══════════════════════════════════════════════════════════════
+// EXPLANATIONS (per question, in PT)
+// ═══════════════════════════════════════════════════════════════
+function getExplanation(qId) { return EXPLANATIONS[qId] || ''; }
+
+const EXPLANATIONS = {
+  // Unit 1 — TO BE
+  '1-1': 'I + AM (1ª pessoa singular). NUNCA "I is" / "I are".',
+  '1-2': 'My PM = he/she = IS. Pronome "ela" no singular puxa IS.',
+  '1-3': 'We = nós (plural) = ARE. Sempre.',
+  '1-4': 'The deploy = it (coisa singular) = IS.',
+  '1-5': 'Idade é estado: I AM 32 (não "have"). Erro brasileiro nº 1.',
+  '1-6': 'The standups = they (plural) = ARE.',
+  '1-7': 'I am NOT → contração: I\'m not (NÃO "Iamn\'t").',
+  '1-8': 'is NOT → isn\'t.',
+  '1-9': 'are NOT → aren\'t.',
+  '1-10': 'I am → I\'m. Contração obrigatória em fala/escrita informal.',
+  '1-11': 'is NOT → isn\'t.',
+  '1-12': 'I am a backend developer. Estrutura: sujeito + TO BE + artigo + adjetivo + substantivo.',
+  '1-13': 'The standup is at 10am. Note: AT pra horário exato.',
+  '1-14': 'My PM is in a meeting. IN dentro de algo (a meeting), não AT.',
+  '1-15': 'have está errado — idade é I AM 30 (não "have 30 years").',
+  '1-16': '"with" sobra — em EN é I AM hungry (sem preposição). Estado direto.',
+  '1-17': '"have" errado — é I\'M IN A HURRY. "Pressa" é estado, não posse.',
+  '1-18': '"is" errado — devs (plural) puxa ARE. "The devs ARE on the call".',
+  '1-cp1': 'I AM in a hurry. Estado, não "I have hurry".',
+  '1-cp2': 'I\'m tired (sem "with"). Estado direto.',
+  '1-cp3': 'Pergunta com you → ARE. "Are you available?".',
+
+  // Unit 2 — Pronouns
+  '2-1': 'help + ME (objeto). NÃO "help I".',
+  '2-2': 'João = HE → posse: HIS. Independente do gênero do objeto (feature).',
+  '2-3': 'Maria = SHE → posse: HER.',
+  '2-4': 'invited + US (objeto plural). "We" só é sujeito.',
+  '2-5': 'ITS (sem apóstrofo) = posse. The repo and ITS README.',
+  '2-6': 'theirs = pronome possessivo (sem substantivo após). "their PR" / "theirs".',
+  '2-cp1': 'asked + HIM (objeto). "He" só é sujeito.',
+  '2-cp2': 'ITS docs (sem apóstrofo) = posse. "It\'s" seria "it is".',
+  '2-cp3': 'Her code review (Maria → HER, independente do gênero de "code review").',
+
+  // Unit 3 — Articles
+  '3-1': 'AN engineer (som de vogal "e"). Artigo OBRIGATÓRIO antes de profissão.',
+  '3-2': 'A bug (som de consoante "b").',
+  '3-3': 'AN outage (som de vogal "ou"). Note: a forma escrita "o" mas o SOM importa.',
+  '3-4': 'A UI ("a yu-ai") — U começa com som de "yu" (consoante), então A.',
+  '3-5': 'AN API ("an ei-pi-ai") — A começa com som de vogal.',
+  '3-6': 'AN hour ("an aua") — H mudo, som começa em vogal.',
+  '3-7': 'THE PR (segunda menção, específico). Primeiro era "a PR" (genérico).',
+  '3-8': 'JavaScript em geral, sem artigo. Linguagens/idiomas no geral não levam THE.',
+  '3-9': 'THE standup (único, nosso, específico).',
+  '3-10': 'Companies (proper nouns) sem artigo. "I work at Google" (nunca "the Google").',
+  '3-11': 'Falta AN antes de engineer. NÃO se diz "I\'m engineer" sem artigo.',
+  '3-12': '"a outage" errado — outage começa com vogal. É AN outage.',
+  '3-13': '"the Google" errado — empresa não leva THE.',
+  '3-14': 'We need an MVP for the demo. AN antes de MVP (som de vogal).',
+  '3-15': 'The bug is in the payment service. THE específico (nosso bug, nosso serviço).',
+  '3-cp1': 'AN unexpected (som de vogal "u" estressado).',
+  '3-cp2': 'A senior (som consoante "s").',
+  '3-cp3': 'I\'m A backend dev AT A bank. Cuidado com 2 artigos.',
+
+  // Unit 4 — Plurals
+  '4-1': 'branch + es (termina em CH). Não "branchs".',
+  '4-2': 'query → queries (cons + Y → ies).',
+  '4-3': 'people = plural irregular de person. Nunca "persons" (raro/formal).',
+  '4-4': 'feedback é UNCOUNTABLE. Sempre singular. NUNCA "feedbacks".',
+  '4-5': 'information é UNCOUNTABLE. Sempre singular.',
+  '4-6': 'people = plural → ARE. Erro mortal: "people is".',
+  '4-7': 'Five people (plural irregular) on our team.',
+  '4-8': 'I need more INFORMATION (não "informations").',
+  '4-9': 'The bugs ARE (plural) in the backlog.',
+  '4-cp1': 'advice = uncountable. NUNCA "advices".',
+  '4-cp2': 'data → are (US neutro). UK pode usar "is" também.',
+  '4-cp3': 'People ARE nice (plural concordância).'
+};
+</script>
+</body>
+</html>
